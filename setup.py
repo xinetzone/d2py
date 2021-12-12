@@ -15,7 +15,6 @@ setuptools.setup(
     url="https://github.com/xinetzone/d2py",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 3",
         "Operating System :: Microsoft :: Windows :: Windows 10",
         "Operating System :: POSIX :: Linux"
     ],
