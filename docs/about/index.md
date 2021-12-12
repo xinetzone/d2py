@@ -1,4 +1,4 @@
-# About
+# 关于
 
 ```{toctree}
 :maxdepth: 2
