@@ -2,8 +2,9 @@
 
 ```{toctree}
 :maxdepth: 2
-:hidden:
 
+feature
+use
 ../CODE_OF_CONDUCT
 ../CONTRIBUTING
 ../SECURITY

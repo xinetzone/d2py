@@ -1,6 +1,4 @@
-# Welcome to sphinx demo's documentation!
-
-Documentation for Healthy Communities.
+# 动手学习 Python
 
 ```{include} ../README.md
 ```
@@ -9,10 +7,15 @@ Documentation for Healthy Communities.
 :maxdepth: 2
 :hidden:
 
+python-study/index
+posts/index
 about/index
+news/index
+drafts/index
+notebook
 ```
 
-# Indices and tables
+# 索引和表格
 
 * {ref}`genindex`
 * {ref}`modindex`
