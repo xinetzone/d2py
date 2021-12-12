@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
+  <id>https://xinetzone.github.io/d2py</id>
+  <title>Blog</title>
+  <updated>2021-12-12T14:54:21.460221+00:00</updated>
+  <link href="https://xinetzone.github.io/d2py"/>
+  <link href="https://xinetzone.github.io/d2py/zh_CN/posts/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.21">ABlog</generator>
+  <entry>
+    <id>https://xinetzone.github.io/d2py/zh_CN/posts/basic/python-intro.html</id>
+    <title>Python 初体验</title>
+    <updated>2021-11-01T18:00:00+00:00</updated>
+    <author>
+      <name>刘新伟</name>
+    </author>
+    <content type="html">&lt;p&gt;叩开 Python 的大门！&lt;/p&gt;
+
+    &lt;script type="text/x-thebe-config"&gt;
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    &lt;/script&gt;
+    &lt;script&gt;kernelName = 'python3'&lt;/script&gt;</content>
+    <link href="https://xinetzone.github.io/d2py/zh_CN/posts/basic/python-intro.html" rel="alternate"/>
+    <summary>叩开 Python 的大门！</summary>
+    <category term="basic" label="basic"/>
+    <published>2021-11-01T18:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://xinetzone.github.io/d2py/zh_CN/posts/basic/python-use.html</id>
+    <title>如何使用 Python？</title>
+    <updated>2021-11-03T23:00:00+00:00</updated>
+    <author>
+      <name>刘新伟</name>
+    </author>
+    <content type="html">&lt;p&gt;本站默认 Python 为 Python3。&lt;/p&gt;
+
+    &lt;script type="text/x-thebe-config"&gt;
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    &lt;/script&gt;
+    &lt;script&gt;kernelName = 'python3'&lt;/script&gt;</content>
+    <link href="https://xinetzone.github.io/d2py/zh_CN/posts/basic/python-use.html" rel="alternate"/>
+    <summary>本站默认 Python 为 Python3。</summary>
+    <category term="basic" label="basic"/>
+    <published>2021-11-03T23:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://xinetzone.github.io/d2py/zh_CN/posts/hs/udata.html</id>
+    <title>恒有数 Python 接口</title>
+    <updated>2021-11-10T18:00:00+00:00</updated>
+    <author>
+      <name>刘新伟</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a class="reference external" href="https://udata.hs.net/home?channel_source=vnpy"&gt;恒有数&lt;/a&gt; 提供了大量金融数据相关的接口，借助此平台讲解 Python 基础知识。&lt;/p&gt;
+
+    &lt;script type="text/x-thebe-config"&gt;
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    &lt;/script&gt;
+    &lt;script&gt;kernelName = 'python3'&lt;/script&gt;</content>
+    <link href="https://xinetzone.github.io/d2py/zh_CN/posts/hs/udata.html" rel="alternate"/>
+    <summary>恒有数 提供了大量金融数据相关的接口，借助此平台讲解 Python 基础知识。</summary>
+    <category term="basic" label="basic"/>
+    <category term="udata" label="udata"/>
+    <published>2021-11-10T18:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://xinetzone.github.io/d2py/zh_CN/posts/hs/udata-python.html</id>
+    <title>Python udata 取数</title>
+    <updated>2021-11-24T00:00:00+00:00</updated>
+    <author>
+      <name>刘新伟</name>
+    </author>
+    <content type="html">&lt;p&gt;登录平台，&lt;a class="reference external" href="https://udata.hs.net/help/292"&gt;获取Token&lt;/a&gt;&lt;/p&gt;
+
+    &lt;script type="text/x-thebe-config"&gt;
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    &lt;/script&gt;
+    &lt;script&gt;kernelName = 'python3'&lt;/script&gt;</content>
+    <link href="https://xinetzone.github.io/d2py/zh_CN/posts/hs/udata-python.html" rel="alternate"/>
+    <summary>登录平台，获取Token</summary>
+    <category term="basic" label="basic"/>
+    <category term="udata" label="udata"/>
+    <published>2021-11-24T00:00:00+00:00</published>
+  </entry>
+</feed>

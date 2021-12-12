@@ -1,0 +1,1198 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>描述器是什么？ &#8212; d2py 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/d2py");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/drafts/44.html" />
+    <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="字符编码方法" href="55.html" />
+    <link rel="prev" title="类也是对象" href="33.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">d2py 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python-study/index.html">
+   Python 学习手册
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/basic/index.html">
+     Python 基础教程
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/basic/intro/index.html">
+       Python 简介
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/intro/understand-python.html">
+         解读 Python 世界的修炼体系
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/intro/basic-type.html">
+         Python 基本数据类型
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/basic/function.html">
+       函数
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/basic/container/index.html">
+       容器
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/sequence.html">
+         序列
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/dict.html">
+         字典
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/set.html">
+         集合
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/basic/controlflow.html">
+       常用语句
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/topics/index.html">
+     Python 主题手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/topics/f-string.html">
+       格式字符串字面值
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/topics/sys.html">
+       系统相关
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python-study/faqs/index.html">
+     常见问题
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/refs/index.html">
+     Python 参考手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/constants.html">
+       内置常量
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/terms.html">
+       术语中英对照表
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/refs/glossary/index.html">
+       术语表
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/basic.html">
+         基本术语
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/exec.html">
+         异常
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/identifier.html">
+         标识符
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/value.html">
+         字面值
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/sources.html">
+       Python 学习资源
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../posts/index.html">
+   博客
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/feature.html">
+     特性
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/use.html">
+     项目使用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CODE_OF_CONDUCT.html">
+     行为准则
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CONTRIBUTING.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SECURITY.html">
+     安全策略
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../news/index.html">
+   Python 新闻
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   草稿
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="101.html">
+     一、5 个值得在 2018 年关注的库
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11.html">
+     比较、相等和真值
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="22.html">
+     存储数据
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="33.html">
+     类也是对象
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     描述器是什么？
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="55.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="66.html">
+     类型和运算 (Types and Operations)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="88.html">
+     函数基础
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="class.html">
+     class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="draft.html">
+     回收站
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exc.html">
+     异常（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="file.html">
+     I/O操作（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="iter.html">
+     迭代&amp;生成（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="math.html">
+     Python 中的数学（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oop.html">
+     OOP: The Big Picture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="op.html">
+     运算符（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="re.html">
+     re
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="socket.html">
+     网络
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="str.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="type.html">
+     Python 数据类型转换（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="%E7%88%AC%E8%99%AB.html">
+     爬虫
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebook.html">
+   Jupyter Notebook
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/drafts/44.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fdrafts/44.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/drafts/44.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   描述器是什么？
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     非数据描述类
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     数据描述类
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     把属性存在描述符类中
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       改善方法：
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     把数据存入实例中
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   补充解释
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   总结
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span>
+
+<span class="k">class</span> <span class="nc">StructField</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    使用了一个描述器（Descriptor representing ）来表示每个结构字段，</span>
+<span class="sd">        每个描述器包含一个结构兼容格式的代码以及一个字节偏移量， 存储在内部的内存缓冲中。</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="n">fmt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> <span class="n">offset</span>
+        
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack_from</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">format</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">_buffer</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">r</span>
+
+<span class="k">class</span> <span class="nc">Structure</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bytedata</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        接受字节数据并存储在内部的内存缓冲中，并被 StructField 描述器使用。</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="o">=</span> <span class="nb">memoryview</span><span class="p">(</span><span class="n">bytedata</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>描述器是什么？<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>只要具有 <code class="docutils literal notranslate"><span class="pre">__get__</span></code> 方法的类就是描述符类。</p>
+<ul class="simple">
+<li><p>如果一个类中具有 <code class="docutils literal notranslate"><span class="pre">__get__</span></code> 和 <code class="docutils literal notranslate"><span class="pre">__set__</span></code> 两个方法，那么就是数据描述符。</p></li>
+<li><p>如果一个类中只有 <code class="docutils literal notranslate"><span class="pre">__get__</span></code> 方法，那么是非数据描述符。</p></li>
+</ul>
+<p>具体如下：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__get__</span></code>：当我们用类或者实例来调用该属性时，Python 会返回 <code class="docutils literal notranslate"><span class="pre">__get__</span></code> 函数的结果。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__set__</span></code>：当我们用实例来设置属性值时，Python 会调用该函数。对类没有限制作用。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__delete__</span></code>：当我们用实例试图删除该属性时，Python 会调用该函数。对类没有限制作用。</p></li>
+</ul>
+<div class="section" id="id2">
+<h2>非数据描述类<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Desc</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">22</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+    
+<span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">Desc</span><span class="p">()</span>
+    
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>由于实例中没有 <code class="docutils literal notranslate"><span class="pre">v</span></code> 属性，所以找到了类的属性，而类的属性是一个描述符类实例，所以调用其 <code class="docutils literal notranslate"><span class="pre">__get__</span></code> 方法的结果。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">v</span> 
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>22
+</pre></div>
+</div>
+<p>实例的 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 空空如也。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span>      
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{}
+</pre></div>
+</div>
+<p>类的 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 中确实存在 <code class="docutils literal notranslate"><span class="pre">v</span></code> 属性，且是一个 Desc object 对象。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="vm">__dict__</span>      
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mappingproxy({&#39;__module__&#39;: &#39;__main__&#39;,
+              &#39;v&#39;: &lt;__main__.Desc at 0x248e0e79748&gt;,
+              &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__doc__&#39;: None})
+</pre></div>
+</div>
+<p>我们通过实例设置 <code class="docutils literal notranslate"><span class="pre">v</span></code> 属性，则发现实例的 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 中存入了我们刚才设置的属性：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="mi">30</span>     
+<span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span>     
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;v&#39;: 30}
+</pre></div>
+</div>
+<p>而类的 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 没有发生任何变化：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">A</span><span class="o">.</span><span class="vm">__dict__</span>     
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mappingproxy({&#39;__module__&#39;: &#39;__main__&#39;,
+              &#39;v&#39;: &lt;__main__.Desc at 0x248e0e79748&gt;,
+              &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__doc__&#39;: None})
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">v</span>             <span class="c1"># </span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+<p>如我们所料，访问到了 <code class="docutils literal notranslate"><span class="pre">a.__dict__</span></code> 中的内容。我们删除实例的属性 <code class="docutils literal notranslate"><span class="pre">v</span></code> 后发现居然还是可以调用 <code class="docutils literal notranslate"><span class="pre">a.v</span></code>，返回的是我们设置之前的值。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span>        
+
+<span class="n">a</span><span class="o">.</span><span class="n">v</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>22
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="vm">__dict__</span>      <span class="c1"># 和前面一样，没有发生变化。</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mappingproxy({&#39;__module__&#39;: &#39;__main__&#39;,
+              &#39;v&#39;: &lt;__main__.Desc at 0x248e0e79748&gt;,
+              &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__doc__&#39;: None})
+</pre></div>
+</div>
+<p>通过上面的测试，我们发现非数据描述类有如下特点：</p>
+<ul class="simple">
+<li><p>如果实例 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 没有设置同名属性，那么返回描述类的 <code class="docutils literal notranslate"><span class="pre">__get__</span></code> 方法的结果。</p></li>
+<li><p>如果实例 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 中存在同名属性，那么返回实例 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 中的内容。</p></li>
+<li><p>对我们设置实例的 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 中的行为并不做阻止。所以我说这是查看级别的描述类。</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>数据描述类<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Desc</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">22</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+    
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="c1">#raise AttributeError</span>
+
+<span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">Desc</span><span class="p">()</span>
+    
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">v</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>22
+</pre></div>
+</div>
+<p>我们设置 <code class="docutils literal notranslate"><span class="pre">a.v</span></code> 后，发现实例的 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 中仍然空空如也。因为此时调用的是 <code class="docutils literal notranslate"><span class="pre">__set__</span></code> 方法，值 <code class="docutils literal notranslate"><span class="pre">10</span></code> 存入到了 <code class="docutils literal notranslate"><span class="pre">Desc</span></code> 实例的 <code class="docutils literal notranslate"><span class="pre">value</span></code> 属性上了。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span>     
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{}
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mappingproxy({&#39;__module__&#39;: &#39;__main__&#39;,
+              &#39;v&#39;: &lt;__main__.Desc at 0x248e0e25cf8&gt;,
+              &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__doc__&#39;: None})
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">a</span><span class="o">.</span><span class="n">v</span>             <span class="c1"># 此时得到的还是 Desc 的 __get__ 方法返回的结果。</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span>         <span class="c1">#不允许我们删除</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-22-ca186fdd8490&gt; in &lt;module&gt;()
+----&gt; 1 del a.v         #不允许我们删除
+
+
+AttributeError: __delete__
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mappingproxy({&#39;__module__&#39;: &#39;__main__&#39;,
+              &#39;v&#39;: 30,
+              &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__doc__&#39;: None})
+</pre></div>
+</div>
+<p>我们把 <code class="docutils literal notranslate"><span class="pre">__set__</span></code> 方法的原来语句注销，添加 <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">AttribeError</span></code> 语句，再次运行：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Desc</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">22</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+    
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c1">#self.value = value</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span>
+        
+        
+<span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">Desc</span><span class="p">()</span>
+    
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="mi">30</span>        
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-26-af36724697b5&gt; in &lt;module&gt;()
+     15 
+     16 a = A()
+---&gt; 17 a.v = 30
+
+
+&lt;ipython-input-26-af36724697b5&gt; in __set__(self, ins, value)
+      8     def __set__(self, ins, value):
+      9         #self.value = value
+---&gt; 10         raise AttributeError
+     11 
+     12 
+
+
+AttributeError: 
+</pre></div>
+</div>
+<p>我们在 <code class="docutils literal notranslate"><span class="pre">__set__</span></code> 中手动添加了 <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> 异常，所以我们再也不能设置 <code class="docutils literal notranslate"><span class="pre">a.v</span></code> 的值了，因此该属性鞭策了只读属性。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="mi">20</span>          <span class="c1"># 通过类，仍然可以改变属性</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="vm">__dict__</span>      <span class="c1">#改变后，变成了普通属性 20 了，这时甚至都已经不再是描述符类了。</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mappingproxy({&#39;__module__&#39;: &#39;__main__&#39;,
+              &#39;v&#39;: 20,
+              &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;A&#39; objects&gt;,
+              &#39;__doc__&#39;: None})
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">A</span><span class="o">.</span><span class="n">v</span>
+</pre></div>
+</div>
+<p>说明如下：</p>
+<ul class="simple">
+<li><p>当 <code class="docutils literal notranslate"><span class="pre">__set__</span></code> 方法存在后，实例设置同名属性时，完全需要看 <code class="docutils literal notranslate"><span class="pre">__set__</span></code> 的脸色。</p></li>
+<li><p>如果描述类中 <code class="docutils literal notranslate"><span class="pre">__set__</span></code> 方法存在但是 <code class="docutils literal notranslate"><span class="pre">__delete__</span></code> 方法不存在，那么不能删除客户类中的属性。</p></li>
+<li><p>即使在 <code class="docutils literal notranslate"><span class="pre">__set__</span></code> 方法中做了限制，这个限制只是对实例而言的，对类没有起到作用。</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>把属性存在描述符类中<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Desc</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+    
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="k">def</span> <span class="fm">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;not allowed to delete attribute name &#39;</span> <span class="p">)</span>
+
+        
+<span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">Desc</span><span class="p">(</span><span class="s1">&#39;JS&#39;</span><span class="p">)</span>
+    
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">a</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-33-a495b342d7d6&gt; in &lt;module&gt;()
+----&gt; 1 del a.name
+
+
+&lt;ipython-input-32-27df162f0b50&gt; in __delete__(self, ins)
+     10 
+     11     def __delete__(self, ins):
+---&gt; 12         raise AttributeError(&#39;not allowed to delete attribute name &#39; )
+     13 
+     14 
+
+
+AttributeError: not allowed to delete attribute name 
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;JS&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;JS&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;CC&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;CC&#39;
+</pre></div>
+</div>
+<p>缺点显而易见，如果有多个实例，那么他们共享一个描述符，所以当一个实例的该属性发生改变后，其他实例的该属性也会发生变化。</p>
+<div class="section" id="id5">
+<h3>改善方法：<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>存入一个字典，把实例的 <code class="docutils literal notranslate"><span class="pre">hash</span></code> 作为健存入，这样可以解决问题。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Desc</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">{}</span>
+        
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="nb">hash</span><span class="p">(</span><span class="n">ins</span><span class="p">)]</span> 
+    
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="nb">hash</span><span class="p">(</span><span class="n">ins</span><span class="p">)]</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="k">def</span> <span class="fm">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;not allowed to delete attribute name &#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>把数据存入实例中<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Desc</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ins</span><span class="o">.</span><span class="n">_name</span>
+    
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">ins</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">value</span> 
+        
+    <span class="k">def</span> <span class="fm">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ins</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;not allowed to delete attribute name &#39;</span> <span class="p">)</span>
+
+        
+<span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">Desc</span>
+    
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;JS&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;JS&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;CC&#39;</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;JS&#39;
+</pre></div>
+</div>
+<p>缺点：我们设置在实例中的变量私密性不太好，可以很容易被改变。</p>
+<p>当然，可以做一个私有性的装饰器，或者利用属性扩张来解决。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id7">
+<h1>补充解释<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__get__(self,</span> <span class="pre">ins,</span> <span class="pre">cls)</span></code>：其中 <code class="docutils literal notranslate"><span class="pre">ins</span></code> 为实例对象，在我们上面的例子中是 <code class="docutils literal notranslate"><span class="pre">a</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">b</span></code>，<code class="docutils literal notranslate"><span class="pre">cls</span></code> 为 <code class="docutils literal notranslate"><span class="pre">a</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">b</span></code> 的类，为 <code class="docutils literal notranslate"><span class="pre">A</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__set__</span></code> 和 <code class="docutils literal notranslate"><span class="pre">__delete__</span></code>：<code class="docutils literal notranslate"><span class="pre">ins</span></code> 和上面的含义相同</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id8">
+<h1>总结<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h1>
+<p>一个描述器就是一个实现了三个核心的属性访问操作(<code class="docutils literal notranslate"><span class="pre">get</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">delete</span></code>)的类， 分别为 <code class="docutils literal notranslate"><span class="pre">__get__()</span></code> 、<code class="docutils literal notranslate"><span class="pre">__set__()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">__delete__()</span></code> 这三个特殊的方法。 这些方法接受一个实例作为输入，之后相应的操作实例底层的字典。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descriptor attribute for an integer type-checked attribute</span>
+<span class="k">class</span> <span class="nc">Integer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Expected an int&#39;</span><span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+        <span class="k">del</span> <span class="n">instance</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>为了使用一个描述器，需将这个描述器的实例作为类属性放到一个类的定义中。例如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>当你这样做后，所有对描述器属性(比如 <code class="docutils literal notranslate"><span class="pre">x</span></code> 或 <code class="docutils literal notranslate"><span class="pre">y</span></code>)的访问会被 <code class="docutils literal notranslate"><span class="pre">__get__()</span></code> 、<code class="docutils literal notranslate"><span class="pre">__set__()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">__delete__()</span></code> 方法捕获到。例如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Point at 0x248e0ef4b38&gt;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="c1"># Calls Point.x.__get__(p,Point)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># Calls Point.y.__set__(p, 5)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">2.3</span> <span class="c1"># Calls Point.x.__set__(p, 2.3)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-52-606a2a07c22c&gt; in &lt;module&gt;()
+----&gt; 1 p.x = 2.3 # Calls Point.x.__set__(p, 2.3)
+
+
+&lt;ipython-input-46-2df920d030da&gt; in __set__(self, instance, value)
+     12     def __set__(self, instance, value):
+     13         if not isinstance(value, int):
+---&gt; 14             raise TypeError(&#39;Expected an int&#39;)
+     15         instance.__dict__[self.name] = value
+     16 
+
+
+TypeError: Expected an int
+</pre></div>
+</div>
+<p>作为输入，描述器的每一个方法会接受一个操作实例。 为了实现请求操作，会相应的操作实例底层的字典(<code class="docutils literal notranslate"><span class="pre">__dict__</span></code>属性)。 描述器的 <code class="docutils literal notranslate"><span class="pre">self.name</span></code> 属性存储了在实例字典中被实际使用到的<code class="docutils literal notranslate"><span class="pre">key</span></code>。</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./drafts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="33.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">类也是对象</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="55.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">字符编码方法</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

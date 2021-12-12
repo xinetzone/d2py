@@ -1,0 +1,798 @@
+# 类型和运算 (Types and Operations)
+
+## Introducing Python Object Types
+
+在非正式的意义上, 在 Python 中, 我们用一些东西做事情. 
+
+- "事物" 采取像加法和串联的形式的操作。
+- "东西" 是指我们执行这些操作的对象。
+
+从更正式的角度来看，在 Python 中，数据以**对象**的形式出现。
+
+>  As we’ll see, *everything* is an object in a Python script. Even simple numbers qualify, with values (e.g., 99), and supported operations (addition, subtraction, and so on). 
+
+### The Python Conceptual Hierarchy (概念上的层级结构)
+
+1. Programs are composed of modules. (程序由模块构成)
+2. Modules contain statements. (模块包含语句)
+3. Statements contain expressions. (语句包含表达式)
+4. *Expressions create and process objects*. (表达式建立和处理对象)
+
+
+###  Built-in Types (内置类型)
+
+![](https://img2018.cnblogs.com/blog/685754/201810/685754-20181022212950268-496111479.png)
+
+
+
+- **在 Python 中没有类型声明，运行的表达式的语法决定了创建和使用的对象的类型。**
+- **一旦创建了一个对象，它就和操作集合绑定了**——只能对一个字符串执行字符串操作，并在列表上进行列表相关操作。
+
+在正式术语中, 这意味着 Python 是动态类型的, 它会自动跟踪类型, 而不是要求声明代码, 但它也是强类型的, 这意味着您可以在仅对象操作上执行对其j进行适合该类型的有效操作。
+
+在 Python 中的每一个对象都可以分为不可变性和可变性。比如数字、字符串、元组是不可变的。**不可变的**：在创建后不能就地改变。
+
+**多态**意味着一个操作符 (如 `+`) 的意义取决于被操作的对象。这将是 Python 的关键思想：**不要将代码限制在特定的类型上，使代码自动适用于多种类型。**
+
+## 数字类型 (Numeric Types)
+
+> In Python, numbers are not really a single object type, but a category of similar types. 
+
+完整的 Python 数值类型清单：
+ 
+英文|中文
+:-|:-
+Integer and floating-point objects|整数和浮点数
+Complex number objects|复数
+Decimal: fixed-precision objects|固定精度的十进制数
+Fraction: rational number objects|有理分数
+Sets: collections with numeric operations|具有数值运算的集合
+Booleans: true and false|布尔类型
+Built-in functions and modules: `round`, `math`, `random`, etc.|数值相关的内建函数和模块
+Expressions; unlimited integer precision; bitwise operations; hex, octal, and binary formats|表达式; 无穷的整数精度; 按位运算; 16 进制; 8 进制; 2 进制
+Third-party extensions: vectors, libraries, visualization, plotting, etc.|第三方扩展
+
+### Numeric Literals (数值常量)
+
+![](https://img2018.cnblogs.com/blog/685754/201810/685754-20181022213014823-1574370475.png)
+
+
+
+> Integers may be coded in decimal (base 10), hexadecimal (base 16), octal (base 8), or binary (base 2), the last three of which are common in some programming domains. Hexadecimals start with a leading `0x` or `0X`, followed by a string of hexadecimal digits ($0\sim 9$ and $A\sim F$). Hex digits may be coded in lower- or uppercase. Octal literals start with a leading `0o` or `0O` (zero and lower- or uppercase letter `o`), followed by a string of digits ($0\sim 7$). In 2.X, octal literals can also be coded with just a leading `0`, but not in 3.X—this original octal form is too easily confused with decimal, and is replaced by the new `0o` format, which can also be used in 2.X as of 2.6. Binary literals, new as of 2.6 and 3.0, begin with a leading `0b` or `0B`, followed by binary digits ($0\sim 1$). 
+
+![](https://img2018.cnblogs.com/blog/685754/201810/685754-20181022213154822-1267097064.png)
+
+
+
+### Floor 除法和截断除法
+
+请注意，在 Python 3.X 中 `//` (floor, 向下取整) 运算: 如果是浮点型, 则结果为浮点型;否则, 它是一个整数。下面展示一些 Floor 除法和截断除法的运算：
+
+
+```python
+20 // 3
+```
+
+
+
+
+    6
+
+
+
+
+```python
+20. // 3
+```
+
+
+
+
+    6.0
+
+
+
+
+```python
+from math import floor, trunc
+```
+
+
+```python
+floor(2.5)
+```
+
+
+
+
+    2
+
+
+
+
+```python
+floor(-2.5)
+```
+
+
+
+
+    -3
+
+
+
+
+```python
+trunc(2.5)
+```
+
+
+
+
+    2
+
+
+
+
+```python
+trunc(-2.5)
+```
+
+
+
+
+    -2
+
+
+
+
+```python
+5 / 2, 5 / -2
+```
+
+
+
+
+    (2.5, -2.5)
+
+
+
+
+```python
+5 // 2, 5 // -2
+```
+
+
+
+
+    (2, -3)
+
+
+
+
+```python
+5 / 2., 5 / -2.
+```
+
+
+
+
+    (2.5, -2.5)
+
+
+
+
+```python
+5 // 2., 5 // -2.
+```
+
+
+
+
+    (2.0, -3.0)
+
+
+
+
+```python
+trunc(5 / -2)
+```
+
+
+
+
+    -2
+
+
+
+### 进制数
+
+
+```python
+0o1, 0o20, 0o377 # 八进制
+```
+
+
+
+
+    (1, 16, 255)
+
+
+
+
+```python
+0x01, 0x10, 0xFF  # 十六进制
+```
+
+
+
+
+    (1, 16, 255)
+
+
+
+
+```python
+0b1, 0b10000, 0b11111111  # 二进制
+```
+
+
+
+
+    (1, 16, 255)
+
+
+
+
+```python
+oct(64), hex(64), bin(64)
+```
+
+
+
+
+    ('0o100', '0x40', '0b1000000')
+
+
+
+`int` 会将一个数字的字符串变换为一个整数,并且通过第二个参数来确定变换后的数字进制：
+
+
+```python
+int('64'), int('100', 8), int('40', 16), int('1000000', 2)
+```
+
+
+
+
+    (64, 64, 64, 64)
+
+
+
+
+```python
+int('0x40', 16), int('0b1000000', 2)
+```
+
+
+
+
+    (64, 64)
+
+
+
+
+```python
+eval('64'), eval('0o100'), eval('0x40'), eval('0b1000000')
+```
+
+
+
+
+    (64, 64, 64, 64)
+
+
+
+
+```python
+'{0:0}, {1:x}, {2:b}'.format(64, 64, 64)
+```
+
+
+
+
+    '64, 40, 1000000'
+
+
+
+
+```python
+'%o, %x, %X' % (64, 255, 255)
+```
+
+
+
+
+    '100, ff, FF'
+
+
+
+### 位操作
+
+
+```python
+x = 1
+
+x << 2 # Shift left 2 bits
+```
+
+
+
+
+    4
+
+
+
+
+```python
+x | 2   # Bitwise OR
+```
+
+
+
+
+    3
+
+
+
+
+```python
+x & 1  # Bitwise AND
+```
+
+
+
+
+    1
+
+
+
+
+```python
+X = 99
+```
+
+
+```python
+bin(X), X.bit_length()  # `X.bit_length()` 获得二进制字符串的长度
+```
+
+
+
+
+    ('0b1100011', 7)
+
+
+
+
+```python
+round(1/3, 7)
+```
+
+
+
+
+    0.3333333
+
+
+
+使用**分数**和**小数**可以避免精度的损失！
+
+### 小数
+
+
+```python
+from decimal import Decimal, getcontext
+```
+
+
+```python
+Decimal(0.1)
+```
+
+
+
+
+    Decimal('0.1000000000000000055511151231257827021181583404541015625')
+
+
+
+
+```python
+Decimal.from_float(1.25)
+```
+
+
+
+
+    Decimal('1.25')
+
+
+
+#### 设置全局精度
+
+
+```python
+Decimal(1) / Decimal(7)
+```
+
+
+
+
+    Decimal('0.1428571428571428571428571429')
+
+
+
+
+```python
+getcontext().prec
+```
+
+
+
+
+    28
+
+
+
+
+```python
+getcontext().prec = 4   # 改变全局精度
+```
+
+
+```python
+Decimal(1) / Decimal(7)
+```
+
+
+
+
+    Decimal('0.1429')
+
+
+
+### 分数
+
+
+```python
+from fractions import Fraction
+```
+
+
+```python
+x = Fraction(1, 3)
+x
+```
+
+
+
+
+    Fraction(1, 3)
+
+
+
+
+```python
+y = Fraction(4, 6)
+y
+```
+
+
+
+
+    Fraction(2, 3)
+
+
+
+
+```python
+x + y
+```
+
+
+
+
+    Fraction(1, 1)
+
+
+
+
+```python
+x - y
+```
+
+
+
+
+    Fraction(-1, 3)
+
+
+
+
+```python
+x * y
+```
+
+
+
+
+    Fraction(2, 9)
+
+
+
+
+```python
+Fraction('.25')
+```
+
+
+
+
+    Fraction(1, 4)
+
+
+
+
+```python
+Fraction('1.25')
+```
+
+
+
+
+    Fraction(5, 4)
+
+
+
+
+```python
+Fraction('.25') + Fraction('1.25')
+```
+
+
+
+
+    Fraction(3, 2)
+
+
+
+分数还有一个 `from_float` 方法，并且接受一个 `Fraction` 作为参数。
+
+
+```python
+(2.5).as_integer_ratio()
+```
+
+
+
+
+    (5, 2)
+
+
+
+
+```python
+f = 2.5
+z = Fraction(*f.as_integer_ratio())
+z
+```
+
+
+
+
+    Fraction(5, 2)
+
+
+
+
+```python
+x
+```
+
+
+
+
+    Fraction(1, 3)
+
+
+
+
+```python
+float(x)
+```
+
+
+
+
+    0.3333333333333333
+
+
+
+
+```python
+Fraction.from_float(1.75)
+```
+
+
+
+
+    Fraction(7, 4)
+
+
+
+
+```python
+a = x + Fraction(*(4.0/3).as_integer_ratio())
+a
+```
+
+
+
+
+    Fraction(22517998136852479, 13510798882111488)
+
+
+
+
+```python
+a.limit_denominator(10)   # 取近似
+```
+
+
+
+
+    Fraction(5, 3)
+
+
+## 集合
+
+**集合本质上具有基本的数学特性，与数学中的集合的概念十分吻合！**
+
+有两种创建方式：`set()` 和 `{1, 'f'}`
+
+注意，空集合只能使用 `set()` 创建，因为 `{}` 表示空字典。
+
+
+```python
+a = set([1, 3, 4])
+a
+```
+
+
+
+
+    {1, 3, 4}
+
+
+
+
+```python
+b = {1, 3 ,4}
+b
+```
+
+
+
+
+    {1, 3, 4}
+
+
+
+
+```python
+print(type(a))
+ 
+print(type(b))
+```
+
+    <class 'set'>
+    <class 'set'>
+    
+
+
+```python
+set('spam') 
+```
+
+
+
+
+    {'a', 'm', 'p', 's'}
+
+
+
+
+```python
+{(2, 3), (2, 4), (2, 3)}
+```
+
+
+
+
+    {(2, 3), (2, 4)}
+
+
+
+详细内容见 [python——序列 & 集合 & 映射](https://www.cnblogs.com/q735613050/p/7327685.html#top).
+
+**集合只能包含不可变的 (即可散列的) 对象类型。**
+
+
+```python
+{[3, 4], 6}
+```
+
+
+    ---------------------------------------------------------------------------
+
+    TypeError                                 Traceback (most recent call last)
+
+    <ipython-input-15-870a26241930> in <module>()
+    ----> 1 {[3, 4], 6}
+    
+
+    TypeError: unhashable type: 'list'
+
+
+### 集合解析
+
+
+```python
+{x*4 for x in 'spam'}
+```
+
+
+
+
+    {'aaaa', 'mmmm', 'pppp', 'ssss'}
+
+
+
+### 集合的作用
+
+`set()` 具有元素的去重功能。
+
+## 动态类型简介
+
+在 Python 中，类型是在运行过程中自动决定的，而不是通过代码声明。这意味着没有必要事先声明变量 (只要记住，这个概念实质上对变量、对象和它们之间的关系都适用)。
+
+- **变量创建**：一个变量（也就是变量名），就像 `a`, 当代码第一次给它赋值时就创建了它。之后的赋值将会改变已经创建的变量名的值。从技术上讲，python 在代码运行之前先检测变量名，可以当成是最初的赋值创建变量。
+- **变量类型**：变量永远不会有任何的和它关联的类型信息或约束。类型的概念是存在于对象中而不是变量名中。变量原本是通用的，它只是一个特定的时间点，简单地引用了一个特定的对象而已。
+- **变量使用**：当变量出现在表达式中，它会马上被当前所引用的对象所代替，无论这个对象是什么类型。此外，所有的变量必须在其使用前明确的赋值，使用未赋值的变量会产生错误。
+
+总而言之，变量在赋值的时候才创建，它可以引用任何类型的对象，并且必须在引用之前赋值。
+
+### 变量
+
+- Variables are created when they are first assigned values. 
+- Variables are replaced with their values when used in expressions. 
+- Variables must be assigned before they can be used in expressions. 
+- Variables refer to objects and are never declared ahead of time. 
+
+在内部，变量事实上是到对象内容空间的一个指针。在 Python 中从变量到对象的连接称为**引用**。也就是说，引用是一种关系，以内存中的指针的形式实现。一旦变量被使用 （也就是说被引用），Python 自动跟随这个变量到对象的连接。
+
+- 变量是一个系统表的元素，拥有指向对象的连接的空间。
+- 对象是分配的一块内存，有足够的空间去表示它们所代表的值。
+- 引用是自动形成的从变量到对象的指针。
+
+Python 的类型是与对象相关联的，而不是和变量相关联。每一个对象都有两个标准的头部信息：
+
+- 类型标志符：标识对象类型；
+- 引用计数器：用来决定是不是可以回收对象。
+
+### 对象的垃圾收集
+
+垃圾收集：自动回收对象空间的技术。在 python 中，每当一个变量名被赋予了一个新的对象，之前的那个对象占用的空间就会被回收 (如果没有被其他变量名或对象所引用的话)。
+
+需要注意**共享引用**和**原地修改**的区别。

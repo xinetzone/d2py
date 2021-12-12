@@ -1,0 +1,1359 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python 基本数据类型 &#8212; d2py 0.1 文档</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/d2py");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/basic/intro/basic-type.html" />
+    <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="函数" href="../function.html" />
+    <link rel="prev" title="解读 Python 世界的修炼体系" href="understand-python.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">d2py 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../index.html">
+   Python 学习手册
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../index.html">
+     Python 基础教程
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="index.html">
+       Python 简介
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4">
+        <a class="reference internal" href="understand-python.html">
+         解读 Python 世界的修炼体系
+        </a>
+       </li>
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         Python 基本数据类型
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../function.html">
+       函数
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../container/index.html">
+       容器
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../container/sequence.html">
+         序列
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../container/dict.html">
+         字典
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../container/set.html">
+         集合
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../controlflow.html">
+       常用语句
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../topics/index.html">
+     Python 主题手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../topics/f-string.html">
+       格式字符串字面值
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../topics/sys.html">
+       系统相关
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../faqs/index.html">
+     常见问题
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../refs/index.html">
+     Python 参考手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../refs/constants.html">
+       内置常量
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../refs/terms.html">
+       术语中英对照表
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../refs/glossary/index.html">
+       术语表
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../refs/glossary/basic.html">
+         基本术语
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../refs/glossary/exec.html">
+         异常
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../refs/glossary/identifier.html">
+         标识符
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../refs/glossary/value.html">
+         字面值
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../refs/sources.html">
+       Python 学习资源
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../posts/index.html">
+   博客
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../about/feature.html">
+     特性
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../about/use.html">
+     项目使用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CODE_OF_CONDUCT.html">
+     行为准则
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CONTRIBUTING.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../SECURITY.html">
+     安全策略
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../news/index.html">
+   Python 新闻
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../drafts/index.html">
+   草稿
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/101.html">
+     一、5 个值得在 2018 年关注的库
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/11.html">
+     比较、相等和真值
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/22.html">
+     存储数据
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/33.html">
+     类也是对象
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/44.html">
+     描述器是什么？
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/55.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/66.html">
+     类型和运算 (Types and Operations)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/88.html">
+     函数基础
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/class.html">
+     class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/draft.html">
+     回收站
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/exc.html">
+     异常（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/file.html">
+     I/O操作（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/iter.html">
+     迭代&amp;生成（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/math.html">
+     Python 中的数学（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/oop.html">
+     OOP: The Big Picture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/op.html">
+     运算符（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/re.html">
+     re
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/socket.html">
+     网络
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/str.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/type.html">
+     Python 数据类型转换（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/%E7%88%AC%E8%99%AB.html">
+     爬虫
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../notebook.html">
+   Jupyter Notebook
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/python-study/basic/intro/basic-type.ipynb.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/intro/basic-type.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/intro/basic-type.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/intro/basic-type.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/basic/intro/basic-type.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   标识符
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   数字
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     数学运算
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     复数
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   对象的属性、方法以及函数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   序列
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     字符串
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       字符串的运算
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     列表 &amp; 元组
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   集合
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   字典
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id12">
+   对象的编号与类型
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="python">
+<h1>Python 基本数据类型<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<p>Python 内置了一些基本数据类型，极大的方便描述的任务。</p>
+<p>Python 中带有关键字的结构，用于表达特定的语义，被称为 <strong>语句</strong>。</p>
+<p>本节主要探讨 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-expression_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">表达式语句</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-assignment_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">赋值语句</span></code></a>。</p>
+<p>Python 的 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-expression" title="(在 Python v3.11)"><span class="xref std std-term">表达式</span></a> 表示那些可以被求值的对象。换句话说，一个表达式就是表达元素例如字面值、名称、属性访问、运算符或调用，它们最终都会返回一个值。本文主要介绍 Python 基本数据类型所代表的表达式。</p>
+<p>赋值语句用于将名称（重）绑定到特定值，以及修改属性或可变对象的成员项：</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>标识符（或者标识符列表）= 表达式
+</pre></div>
+</div>
+<p>此时的标识符一般被称为 <code class="docutils literal notranslate"><span class="pre">变量</span></code>。</p>
+<div class="section" id="id1">
+<h2>标识符<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#identifiers" title="(在 Python v3.11)"><span class="xref std std-ref">标识符</span></a> （也称为 <strong>名称</strong>）是由特定的 Unicode 字符（包含英文、汉字等，且英文字母区分大小写）、（十进制）数字和下划线组成，但不能以数字作为开头。</p>
+<p>示例：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">长度</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># 单位 m</span>
+<span class="n">宽度</span> <span class="o">=</span> <span class="mi">400</span> <span class="c1"># 单位 m</span>
+<span class="n">面积</span> <span class="o">=</span> <span class="n">长度</span> <span class="o">*</span> <span class="n">宽度</span> <span class="c1"># 单位 m^2</span>
+<span class="n">面积</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40000
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以看出：标识符大大地简化了表达丰富语义的过程。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>如果变量未定义（即，未赋值），使用该变量会提示错误（在 Python 中被称为 “异常”）：</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">小马</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2177</span><span class="o">/</span><span class="mf">695175949.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">小马</span>
+
+<span class="ne">NameError</span>: name &#39;小马&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>数字<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>数字字面值与运算符 <code class="docutils literal notranslate"><span class="pre">+</span></code>（正号，一般被省略）、<code class="docutils literal notranslate"><span class="pre">-</span></code>（负号） 组成了数学中的数字（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Number" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>）。按照数域范围分为：整型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Integral" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a> 表示）、分数型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Rational" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Rational</span></code></a>）、浮点型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Real" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Real</span></code></a> 表示）以及复数型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Complex" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Complex</span></code></a> 表示）。整型、分数型、浮点型以及复数型支持数学运算。</p>
+<div class="section" id="id3">
+<h3>数学运算<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>Python 提供有基本的数学运算：</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>（加法）、<code class="docutils literal notranslate"><span class="pre">-</span></code>（减法）、<code class="docutils literal notranslate"><span class="pre">*</span></code>（乘法）、<code class="docutils literal notranslate"><span class="pre">/</span></code>（除法）、<code class="docutils literal notranslate"><span class="pre">//</span></code>（向下取整除法）、<code class="docutils literal notranslate"><span class="pre">%</span></code>（求余）、<code class="docutils literal notranslate"><span class="pre">**</span></code>（乘方）；</p></li>
+<li><p>使用 <code class="docutils literal notranslate"><span class="pre">()</span></code> 分组表达式，用于改变运算的优先级。</p></li>
+</ol>
+<p>可看一些例子（以整数为例）：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">27</span> <span class="o">+</span> <span class="mi">49</span> <span class="c1"># 整数加法</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>76
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">100</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># 整数减法</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># 整数乘法</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>135
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">75</span> <span class="o">/</span> <span class="mi">6</span> <span class="c1"># 整数除法</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">75</span> <span class="o">/</span> <span class="mi">15</span> <span class="c1"># 除法返回的值总是浮点数</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="c1"># 使用 () 分组表达式</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">50</span> <span class="o">//</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">53</span> <span class="o">//</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">57</span> <span class="o">//</span> <span class="mi">5</span> <span class="c1"># 向下取整</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, 10, 11)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">73</span> <span class="o">%</span> <span class="mi">9</span> <span class="c1"># 求取余数</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">**</span> <span class="mi">10</span> <span class="c1"># 乘方</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1024
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>复数<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>看看 Python 是如何表达 <em class="dfn">复数</em> 的。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="n">j</span> <span class="c1"># 纯虚数字面量</span>
+<span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="n">j</span> <span class="c1"># 复数字面量</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3+5j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>复数的运算：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义复数变量</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">**</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((10+5j),
+ (-4+3j),
+ (17+31j),
+ (0.49999999999999994+0.5j),
+ (-7542.58226836217+29973.54852192689j))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>对象的属性、方法以及函数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>由于 Python 一切皆是对象，故而每个对象都可能绑定了一些属性（通过 <code class="docutils literal notranslate"><span class="pre">.</span></code> 获取其值）、<a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-method" title="(在 Python v3.11)"><span class="xref std std-term">方法</span></a> 以及 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-function" title="(在 Python v3.11)"><span class="xref std std-term">函数</span></a>。</p>
+<p>比如，复数 <span class="math notranslate nohighlight">\(z\)</span> 有一些属性值：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">+</span> <span class="mi">8</span><span class="n">j</span>
+
+<span class="n">z</span><span class="o">.</span><span class="n">real</span> <span class="c1"># 复数的实部</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">imag</span> <span class="c1"># 复数的虚部</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>方法</strong> 可以理解为对象自有的行为，一般带有 <code class="docutils literal notranslate"><span class="pre">(参数列表)</span></code> 调用其行为。比如，复数 <span class="math notranslate nohighlight">\(z\)</span> 有一个求取共轭复数的<strong>方法</strong>：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3-4j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python 内置了许多函数用于处理对象。<strong>函数</strong> 可以理解为通用的行为，一般带有 <code class="docutils literal notranslate"><span class="pre">(参数列表)</span></code> 调用其行为。</p>
+<p>比如，求取复数 <span class="math notranslate nohighlight">\(z\)</span> 的模：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>序列<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>本次仅仅讨论几个常用的序列：字符串（不可变）、元组（不可变）和列表（可变）。</p>
+<div class="section" id="id7">
+<h3>字符串<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>Python 使用 <strong>字符串</strong> 记录对象的“语义”信息。字符串通常使用双引号、单引号等表示。如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">晓明</span> <span class="o">=</span> <span class="s1">&#39;小马&#39;</span>
+<span class="n">say</span> <span class="o">=</span> <span class="s2">&quot;小马，说 &#39;你好！&#39;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>字符串可以使用函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#print" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> 显示信息：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">晓明</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>小马
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">say</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>小马，说 &#39;你好！&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>可能会有一些特殊字符，需要 <code class="docutils literal notranslate"><span class="pre">\</span></code> 进行转义：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span> <span class="o">=</span> <span class="s1">&#39;你好</span><span class="se">\n</span><span class="s1">世界&#39;</span>
+<span class="n">ss</span> <span class="c1"># 直接显示，则换行符 `\n` 没有被转义</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;你好\n世界&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 使用 print 显示转义</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>你好
+世界
+</pre></div>
+</div>
+</div>
+</div>
+<p>还有一种情况，你不想将一些转义符号转义，可以使用原始字符串 <code class="docutils literal notranslate"><span class="pre">r&quot;...&quot;</span></code> 模式：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;你好\n世界&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="p">)</span> <span class="c1"># 转义被忽略</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>你好\n世界
+</pre></div>
+</div>
+</div>
+</div>
+<p>其实原始字符串，等同于将 <code class="docutils literal notranslate"><span class="pre">\</span></code> “逃逸”：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;你好\\n世界&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>有时，想要在字符串中嵌入变量，可以使用 <code class="docutils literal notranslate"><span class="pre">f&quot;...{变量}&quot;</span></code>（被称为 <strong>格式字符串</strong>，此类字符串是 <strong>表达式</strong>，而不是常量）：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="mi">160</span> <span class="c1"># 身高</span>
+<span class="n">小小</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;小小的身高是 </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">小小</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>小小的身高是 160
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>字符串的运算<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>字符串也支持一些特殊的运算。比如，拼接：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;A&#39;</span> <span class="s1">&#39;a&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Aa&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;A&#39;</span> <span class="o">+</span> <span class="s1">&#39;a&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Aa&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;A&#39;</span> <span class="o">*</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;AAAAA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>如果字符串很长很长，可以使用如下方法拼接（以空白符分隔的多个相邻字符串或字节串字面值，可用不同引号标注，等同于合并操作）：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;a&#39;</span>
+<span class="s1">&#39;b&#39;</span>
+<span class="s1">&#39;c&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;abc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>还有一种特殊的字符串，叫做文档字符串，使用 <code class="docutils literal notranslate"><span class="pre">'''...'''</span></code> 表示：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;iter</span>
+<span class="s1">djkf </span>
+<span class="s1">fkd</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iter
+djkf 
+fkd
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以看出，字符串是自动换行的。此类字符串常用于注释代码块。</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>列表 &amp; 元组<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">[...]</span></code> 包裹的 Python 类型称为 <strong>列表</strong>；使用 <code class="docutils literal notranslate"><span class="pre">(...)</span></code> 包裹的 Python 类型称为 <strong>元组</strong>。不同项使用 <code class="docutils literal notranslate"><span class="pre">,</span></code> 隔开。</p>
+<p>例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">四季</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;春&#39;</span><span class="p">,</span> <span class="s1">&#39;夏&#39;</span><span class="p">,</span> <span class="s1">&#39;秋&#39;</span><span class="p">,</span> <span class="s1">&#39;冬&#39;</span><span class="p">)</span> <span class="c1"># 元组</span>
+<span class="n">猫屋</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;小猫1&#39;</span><span class="p">,</span> <span class="s1">&#39;小猫2&#39;</span><span class="p">]</span> <span class="c1"># 列表</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">四季</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">猫屋</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;春&#39;, &#39;夏&#39;, &#39;秋&#39;, &#39;冬&#39;)
+[&#39;小猫1&#39;, &#39;小猫2&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>元组的定义真正起作用的是 <code class="docutils literal notranslate"><span class="pre">,</span></code>。</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span> <span class="c1"># 这也是元组</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 4, &#39;s&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>集合<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<dl class="simple myst">
+<dt>集合</dt><dd><p>此类对象表示由不重复且不可变对象组成的无序且有限的集合。因此它们不能通过下标来索引。但是它们可被迭代，也可用内置函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#len" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> 返回集合中的项数。集合常见的用处是快速成员检测，去除序列中的重复项，以及进行交、并、差和对称差等数学运算。</p>
+</dd>
+</dl>
+<p>集合分为两类：</p>
+<ul class="simple">
+<li><p>可变集合：<a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#set" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a></p></li>
+<li><p>不可变集合：<a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#frozenset" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p></li>
+</ul>
+<p>例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">字母集</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">}</span> 
+<span class="c1"># 等价于 字母集 = set(&#39;a&#39;, &#39;w&#39;, &#39;a&#39;, &#39;e&#39;, &#39;r&#39;)</span>
+<span class="n">字母集</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;, &#39;e&#39;, &#39;r&#39;, &#39;w&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以看到，已经自动去除重复项。</p>
+</div>
+<div class="section" id="id11">
+<h2>字典<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>Python 使用字典表示对象之间的关系。表示方法有：</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{key:</span> <span class="pre">value,</span> <span class="pre">key1:</span> <span class="pre">value2,</span> <span class="pre">...}</span></code> 键值对的形式</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#dict" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>(key=value, key1=value2)</p></li>
+</ol>
+<p>例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">字母表</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span>
+<span class="p">}</span>
+
+<span class="n">字母表2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+
+<span class="n">字母表</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;: &#39;A&#39;, &#39;b&#39;: &#39;B&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>对象的编号与类型<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>一个 Python 对象的编号和类型是唯一的，可以分别使用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#id" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#type" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> 获取其值。</p>
+<p>比如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="mi">450</span> <span class="c1"># 高度</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">地址</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="c1"># 获取标识符 h 的所在地址，即编号</span>
+<span class="n">地址</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140039165598192
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">类型</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="c1"># h 的类型是整数 int</span>
+<span class="n">类型</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<iframe id="Python"
+    title="Python 基本数据类型与变量"
+    width="100%"
+    height="500"
+    src="https://developer.hs.net/thread/1600?nav=course">
+</iframe>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./python-study/basic/intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="understand-python.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">解读 Python 世界的修炼体系</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../function.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">函数</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

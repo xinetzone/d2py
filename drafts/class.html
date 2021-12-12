@@ -1,0 +1,1848 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>class &#8212; d2py 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/d2py");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/drafts/class.html" />
+    <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="回收站" href="draft.html" />
+    <link rel="prev" title="函数基础" href="88.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">d2py 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python-study/index.html">
+   Python 学习手册
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/basic/index.html">
+     Python 基础教程
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/basic/intro/index.html">
+       Python 简介
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/intro/understand-python.html">
+         解读 Python 世界的修炼体系
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/intro/basic-type.html">
+         Python 基本数据类型
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/basic/function.html">
+       函数
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/basic/container/index.html">
+       容器
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/sequence.html">
+         序列
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/dict.html">
+         字典
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/set.html">
+         集合
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/basic/controlflow.html">
+       常用语句
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/topics/index.html">
+     Python 主题手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/topics/f-string.html">
+       格式字符串字面值
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/topics/sys.html">
+       系统相关
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python-study/faqs/index.html">
+     常见问题
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/refs/index.html">
+     Python 参考手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/constants.html">
+       内置常量
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/terms.html">
+       术语中英对照表
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/refs/glossary/index.html">
+       术语表
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/basic.html">
+         基本术语
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/exec.html">
+         异常
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/identifier.html">
+         标识符
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/value.html">
+         字面值
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/sources.html">
+       Python 学习资源
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../posts/index.html">
+   博客
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/feature.html">
+     特性
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/use.html">
+     项目使用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CODE_OF_CONDUCT.html">
+     行为准则
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CONTRIBUTING.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SECURITY.html">
+     安全策略
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../news/index.html">
+   Python 新闻
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   草稿
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="101.html">
+     一、5 个值得在 2018 年关注的库
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11.html">
+     比较、相等和真值
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="22.html">
+     存储数据
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="33.html">
+     类也是对象
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="44.html">
+     描述器是什么？
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="55.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="66.html">
+     类型和运算 (Types and Operations)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="88.html">
+     函数基础
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="draft.html">
+     回收站
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exc.html">
+     异常（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="file.html">
+     I/O操作（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="iter.html">
+     迭代&amp;生成（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="math.html">
+     Python 中的数学（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oop.html">
+     OOP: The Big Picture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="op.html">
+     运算符（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="re.html">
+     re
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="socket.html">
+     网络
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="str.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="type.html">
+     Python 数据类型转换（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="%E7%88%AC%E8%99%AB.html">
+     爬虫
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebook.html">
+   Jupyter Notebook
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/drafts/class.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fdrafts/class.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/drafts/class.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   class
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python">
+     Python 作用域和命名空间
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   类
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   空行
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   类的格式：
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     一些说明
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   旧式类的定义(即将被淘汰)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     类对象
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     类的方法
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#self">
+       <strong>
+        self代表类的实例，而非类
+       </strong>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     创建实例
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     实例成员方法 &amp; 实例变量
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       直接访问实例变量
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     在对象的属性或方法前加上双下划线(__)可使之变为
+     <strong>
+      私有
+     </strong>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       私有成员变量
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       类属性与方法的所有
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     类变量 &amp; 类方法
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bug">
+       一个小’bug’
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     静态方法
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       实现封装
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id17">
+       调用
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#property">
+     property 修饰器
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     类的初始化
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id19">
+   继承
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     多重继承
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     方法重写
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id22">
+     例子
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id23">
+   多态
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id24">
+     运算符重载
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="class">
+<h1>class<a class="headerlink" href="#class" title="永久链接至标题">¶</a></h1>
+<div class="section" id="python">
+<h2><a class="reference external" href="http://www.pythondoc.com/pythontutorial3/classes.html#id27">Python 作用域和命名空间</a><a class="headerlink" href="#python" title="永久链接至标题">¶</a></h2>
+<p>类的定义非常巧妙的运用了命名空间，要完全理解接下来的知识，需要先理解作用域和命名空间的工作原理。另外，这一切的知识对于任何高级 Python 程序员都非常有用。</p>
+<p><strong>命名空间</strong> 是从命名到对象的映射。<br />
+当前命名空间主要是通过 Python 字典实现的，不过通常不关心具体的实现方式（除非出于性能考虑），以后也有可能会改变其实现方式。</p>
+<p>以下有一些命名空间的例子：内置命名（像 abs() 这样的函数，以及内置异常名）集，模块中的全局命名，函数调用中的局部命名。某种意义上讲对象的属性集也是一个命名空间。关于命名空间需要了解的一件很重要的事就是不同命名空间中的命名没有任何联系，例如两个不同的模块可能都会定义一个名为 maximize 的函数而不会发生混淆－用户必须以模块名为前缀来引用它们。</p>
+<p>称 Python 中任何一个“<code class="docutils literal notranslate"><span class="pre">.</span></code>”之后的命名为 <strong>属性</strong><br />
+例如，表达式 <code class="docutils literal notranslate"><span class="pre">z.real</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">real</span></code> 是对象 <code class="docutils literal notranslate"><span class="pre">z</span></code> 的一个属性。<br />
+严格来讲，从模块中引用命名是引用属性：<br />
+表达式 <code class="docutils literal notranslate"><span class="pre">modname.funcname</span></code> 中，<code class="docutils literal notranslate"><span class="pre">modname</span></code> 是一个模块对象，<code class="docutils literal notranslate"><span class="pre">funcname</span></code> 是它的一个属性。<br />
+因此，模块的属性和模块中的全局命名有直接的映射关系：它们共享同一命名空间！</p>
+<p>属性可以是只读过或写的。后一种情况下，可以对属性赋值。你可以这样： <code class="docutils literal notranslate"><span class="pre">modname.the_answer</span> <span class="pre">=</span> <span class="pre">42</span> </code>。可写的属性也可以用 <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">语句</span></code>删除。<br />
+例如： <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">modname.the_answer</span></code> 会从 <code class="docutils literal notranslate"><span class="pre">modname</span> <span class="pre">对象</span></code>中删除 <code class="docutils literal notranslate"><span class="pre">the_answer</span> <span class="pre">属性</span></code>。</p>
+<p>不同的命名空间在不同的时刻创建，有不同的生存期。包含内置命名的命名空间在 Python 解释器启动时创建，会一直保留，不被删除。模块的全局命名空间在模块定义被读入时创建，通常，模块命名空间也会一直保存到解释器退出。由解释器在最高层调用执行的语句，不管它是从脚本文件中读入还是来自交互式输入，都是 <code class="docutils literal notranslate"><span class="pre">__main__</span></code> 模块的一部分，所以它们也拥有自己的命名空间（内置命名也同样被包含在一个模块中，它被称作 <code class="docutils literal notranslate"><span class="pre">builtins</span></code> ）。</p>
+<p>当调用函数时，就会为它创建一个<code class="docutils literal notranslate"><span class="pre">局部命名空间</span></code>，并且在函数返回或抛出一个并没有在函数内部处理的异常时被删除。（实际上，用遗忘来形容到底发生了什么更为贴切。）当然，每个递归调用都有自己的局部命名空间。</p>
+<p><code class="docutils literal notranslate"><span class="pre">作用域</span></code> 就是一个 Python 程序可以直接访问命名空间的正文区域。这里的直接访问意思是一个对名称的错误引用会尝试在命名空间内查找。尽管作用域是静态定义，在使用时他们都是动态的。每次执行时，至少有三个命名空间可以直接访问的作用域嵌套在一起：</p>
+<ul class="simple">
+<li><p>包含局部命名的使用域在最里面，首先被搜索；其次搜索的是中层的作用域，这里包含了同级的函数；</p></li>
+<li><p>最后搜索最外面的作用域，它包含内置命名。</p></li>
+<li><p>首先搜索最内层的作用域，它包含局部命名任意函数包含的作用域，是内层嵌套作用域搜索起点，包含非局部，但是也非全局的命名</p></li>
+<li><p>接下来的作用域包含当前模块的全局命名</p></li>
+<li><p>最外层的作用域（最后搜索）是包含内置命名的命名空间</p></li>
+</ul>
+<p>以下是一个示例，演示了如何引用不同作用域和命名空间，以及 global 和 nonlocal 如何影响变量绑定:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">do_local</span><span class="p">():</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;local spam&quot;</span>
+    <span class="k">def</span> <span class="nf">do_nonlocal</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">spam</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;nonlocal spam&quot;</span>
+    <span class="k">def</span> <span class="nf">do_global</span><span class="p">():</span>
+        <span class="k">global</span> <span class="n">spam</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;global spam&quot;</span>
+    <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;test spam&quot;</span>
+    <span class="n">do_local</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After local assignment:&quot;</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+    <span class="n">do_nonlocal</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After nonlocal assignment:&quot;</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+    <span class="n">do_global</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After global assignment:&quot;</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+
+<span class="n">scope_test</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In global scope:&quot;</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>After local assignment: test spam
+After nonlocal assignment: nonlocal spam
+After global assignment: nonlocal spam
+In global scope: global spam
+</pre></div>
+</div>
+<p>local 赋值语句是无法改变 scope_test 的 spam 绑定。nonlocal 赋值语句改变了 scope_test 的 spam 绑定，并且 global 赋值语句从模块级改变了 spam 绑定。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>类<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>名词</p></th>
+<th class="text-align:left head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>类(Class)</p></td>
+<td class="text-align:left"><p>用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>类变量</p></td>
+<td class="text-align:left"><p>类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>数据成员</p></td>
+<td class="text-align:left"><p>类变量或者实例变量用于处理类及其实例对象的相关的数据。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>方法重写</p></td>
+<td class="text-align:left"><p>如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重写。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>实例变量</p></td>
+<td class="text-align:left"><p>定义在方法中的变量，只作用于当前实例的类。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>继承</p></td>
+<td class="text-align:left"><p>即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟”是一个（is-a）”关系（例图，Dog是一个Animal）。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>实例化</p></td>
+<td class="text-align:left"><p>创建一个类的实例，类的具体对象。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>方法</p></td>
+<td class="text-align:left"><p>类中定义的函数。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>对象</p></td>
+<td class="text-align:left"><p>通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法(实例方法，类方法，静态方法)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id2">
+<h1>空行<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+<p>函数之间或类的方法之间用空行分隔，表示一段新的代码的开始。类和函数入口之间也用一行空行分隔，以突出函数入口的开始。
+空行与代码缩进不同，空行并不是Python语法的一部分。书写时不插入空行，Python解释器运行也不会出错。但是空行的作用在于分隔两段不同功能或含义的代码，便于日后代码的维护或重构。</p>
+<p>记住：空行也是程序代码的一部分。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>和其它编程语言相比，Python 在尽可能不增加新的语法和语义的情况下加入了类机制。
+Python中的类提供了面向对象编程的所有基本功能：类的继承机制允许多个基类，派生类可以覆盖基类中的任何方法，方法中可以调用基类中的同名方法。 
+对象可以包含任意数量和类型的数据。
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id3">
+<h1>类的格式：<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClassName</span><span class="p">(</span><span class="n">SuperClass1</span><span class="p">,</span><span class="n">SuperClass2</span><span class="p">,</span><span class="o">...</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    optional documentation string</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Class_suite</span>
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h2>一些说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>数据属性会覆盖同名的方法属性。为了避免意外的名称冲突，这在大型程序中是极难发现的 Bug，使用一些约定来减少冲突的机会是明智的。</p>
+<ul>
+<li><p>可能的约定包括：大写方法名称的首字母，使用一个唯一的小字符串（也许只是一个下划线）作为数据属性名称的前缀，或者方法使用动词而数据属性使用名词。</p></li>
+</ul>
+</li>
+<li><p>数据属性可以被方法引用，也可以由一个对象的普通用户（客户）使用。换句话说，类不能用来实现纯净的数据类型。<br />
+事实上，Python 中不可能强制隐藏数据——一切基于约定（如果需要，使用 C 编写的 Python 实现可以完全隐藏实现细节并控制对象的访问。这可以用来通过 C 语言扩展 Python）。</p></li>
+<li><p>客户应该谨慎的使用数据属性——客户可能通过践踏他们的数据属性而使那些由方法维护的常量变得混乱。<br />
+注意：只要能避免冲突，客户可以向一个实例对象添加他们自己的数据属性，而不会影响方法的正确性——再次强调，命名约定可以避免很多麻烦。</p></li>
+<li><p>从方法内部引用数据属性（或其他方法）并没有快捷方式。这实际上增加了方法的可读性：当浏览一个方法时，在局部变量和实例变量之间不会出现令人费解的情况。</p></li>
+<li><p>一般，方法的第一个参数被命名为 self。<br />
+这仅仅是一个约定：对 Python 而言，名称 <code class="docutils literal notranslate"><span class="pre">self</span></code> 绝对没有任何特殊含义。（但是请注意：如果不遵循这个约定，对其他的 Python 程序员而言你的代码可读性就会变差，而且有些 类查看器 程序也可能是遵循此约定编写的。）</p></li>
+<li><p>类属性的任何函数对象都为那个类的实例定义了一个方法。函数定义代码不一定非得定义在类中：也可以将一个函数对象赋值给类中的一个局部变量。<br />
+例如:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function defined outside the class</span>
+<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">f1</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;hello world&#39;</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">g</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>现在 f,g和h都是类C的属性，引用的都是函数对象，因此它们都是 C 实例的方法－－ h 严格等于g。
+通过 self 参数的方法属性，方法可以调用其它的方法:
+</pre></div>
+</div>
+<p><strong>类</strong>可以看作是一种把对象分组归类的方法。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id5">
+<h1>旧式类的定义(即将被淘汰)<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h1>
+<p>新式类与旧式类的区别主要表现在对超类命名空间检索的使用算法不同。</p>
+<p>旧式类可以直接省略括号和超类列表，而新式类以object作为Python中所有类的默认超类。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义Ball1球类</span>
+<span class="k">class</span> <span class="nc">Ball1</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">bounce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>     <span class="c1"># self可以看作是类本身的一个实例的引用。</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="o">==</span><span class="s1">&#39;down&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="o">=</span><span class="s1">&#39;up&#39;</span>
+            
+<span class="c1"># 创建一个Ball1球类的实例myBall1</span>
+<span class="n">myBall1</span><span class="o">=</span><span class="n">Ball1</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义myBall1的属性方法之一</span>
+<span class="n">myBall1</span><span class="o">.</span><span class="n">direction</span><span class="o">=</span><span class="s1">&#39;down&#39;</span>
+<span class="n">myBall1</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span>
+<span class="n">myBall1</span><span class="o">.</span><span class="n">size</span><span class="o">=</span><span class="s1">&#39;small&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 调用bounce()方法</span>
+<span class="n">myBall1</span><span class="o">.</span><span class="n">bounce</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义属性的方法之二：初始化对象</span>
+<span class="k">class</span> <span class="nc">Ball2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">color</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="n">direction</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="o">=</span><span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="o">=</span><span class="n">direction</span>
+        
+    <span class="k">def</span> <span class="nf">bounce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="o">==</span><span class="s1">&#39;down&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="o">=</span><span class="s1">&#39;up&#39;</span>
+            
+<span class="n">myBall2</span><span class="o">=</span><span class="n">Ball2</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;small&#39;</span><span class="p">,</span><span class="s1">&#39;down&#39;</span><span class="p">)</span>
+<span class="n">myBall2</span><span class="o">.</span><span class="n">bounce</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Ball3</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">color</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="n">direction</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="o">=</span><span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="o">=</span><span class="n">direction</span>
+        
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Hi,I</span><span class="se">\&#39;</span><span class="s1">m a &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="s1">&#39;ball!&#39;</span>
+        <span class="k">return</span> <span class="n">msg</span>
+    
+<span class="n">myBall</span><span class="o">=</span><span class="n">Ball3</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;small&#39;</span><span class="p">,</span><span class="s1">&#39;down&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myBall</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hi,I&#39;m a small red ball!
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 修改属性</span>
+<span class="n">myBall</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
+<span class="n">myBall</span><span class="o">.</span><span class="n">color</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;black&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myBall</span><span class="o">=</span><span class="n">Ball3</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;big&#39;</span><span class="p">,</span><span class="s1">&#39;down&#39;</span><span class="p">)</span>
+<span class="n">myBall</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;big&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">myBall</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hi,I&#39;m a big red ball!
+</pre></div>
+</div>
+<div class="section" id="id6">
+<h2>类对象<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>类对象支持两种操作：属性引用和实例化。</p>
+<ul class="simple">
+<li><p>属性引用使用和 Python 中所有的属性引用一样的标准语法：<code class="docutils literal notranslate"><span class="pre">obj.name</span></code>。</p></li>
+<li><p>类对象创建后，类命名空间中所有的命名都是有效属性名。</p></li>
+</ul>
+<p>示例：</p>
+<p>类实例化后，可以使用其属性，实际上，创建一个类之后，可以通过类名访问其属性。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;一个简单的类实例&quot;&quot;&quot;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">12345</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;hello world&#39;</span>
+
+<span class="c1"># 实例化类</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+ 
+<span class="c1"># 访问类的属性和方法</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MyClass 类的属性 i 为：&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MyClass 类的方法 f 输出为：&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">f</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MyClass 类的属性 i 为： 12345
+MyClass 类的方法 f 输出为： hello world
+</pre></div>
+</div>
+<p>很多类都倾向于将对象创建为有初始状态的。因此类可能会定义一个名为 <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 的特殊方法（构造方法），像下面这样：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>类定义了 <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 方法的话，类的实例化操作会自动调用 <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 方法。所以在下例中，可以这样创建一个新的实例:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>当然，<code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 方法可以有参数，参数通过 <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> 传递到类的实例化操作上。例如:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Complex</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">realpart</span><span class="p">,</span> <span class="n">imagpart</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">realpart</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">imagpart</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">i</span><span class="p">)</span>  
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3.0 -4.5
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>类的方法<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>在类地内部，使用 <code class="docutils literal notranslate"><span class="pre">def</span></code> 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 self, 且为第一个参数，self 代表的是类的实例。</p>
+<div class="section" id="self">
+<h3><strong>self代表类的实例，而非类</strong><a class="headerlink" href="#self" title="永久链接至标题">¶</a></h3>
+<p>类的方法与普通的函数只有一个特别的区别——它们必须有一个额外的第一个参数名称, 按照惯例它的名称是self。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">prt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">Test</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">prt</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Test object at 0x0000015BDD989630&gt;
+&lt;class &#39;__main__.Test&#39;&gt;
+</pre></div>
+</div>
+<p>从执行结果可以很明显的看出，self 代表的是类的实例，代表当前对象的地址，而 self.class 则指向类。<br />
+self 不是 python 关键字，我们把他换成 runoob 也是可以正常执行的:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">prt</span><span class="p">(</span><span class="n">runoob</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">runoob</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">runoob</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">Test</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">prt</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Test object at 0x000001BD61AB2668&gt;
+&lt;class &#39;__main__.Test&#39;&gt;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#类定义</span>
+<span class="k">class</span> <span class="nc">people</span><span class="p">:</span>
+    <span class="c1">#定义基本属性</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">#定义私有属性,私有属性在类外部无法直接进行访问</span>
+    <span class="n">__weight</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">#定义构造方法</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__weight</span> <span class="o">=</span> <span class="n">w</span>
+    <span class="k">def</span> <span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> 说: 我 </span><span class="si">%d</span><span class="s2"> 岁。&quot;</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
+
+<span class="c1"># 实例化类</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">people</span><span class="p">(</span><span class="s1">&#39;runoob&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">speak</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>runoob 说: 我 10 岁。
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>__main__.people
+</pre></div>
+</div>
+<p># 新式类</p>
+<p>类的成员：</p>
+<ul class="simple">
+<li><p>成员变量：</p>
+<ul>
+<li><p>实例变量</p></li>
+<li><p>类变量</p></li>
+</ul>
+</li>
+<li><p>成员方法：</p>
+<ul>
+<li><p>实例方法</p></li>
+<li><p>类方法</p></li>
+<li><p>静态方法</p></li>
+</ul>
+</li>
+<li><p>property(修饰器)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>创建实例<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>    <span class="c1"># object类是Python中所有类的默认超类。</span>
+    <span class="k">pass</span>       <span class="c1"># pass不做任何事情，一般用做占位语句，以保持程序结构的完整性。</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># b1,b2,b3均是绑定了Bird类实例对象的引用。</span>
+<span class="n">b1</span><span class="o">=</span><span class="n">Bird</span><span class="p">()</span>
+<span class="n">b2</span><span class="o">=</span><span class="n">Bird</span><span class="p">()</span>
+<span class="n">b3</span><span class="o">=</span><span class="n">Bird</span><span class="p">()</span>
+<span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="n">b1</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">b3</span><span class="p">]</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>__main__.Bird
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>实例成员方法 &amp; 实例变量<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 实例方法：setCoordinate，getCoordinate，move,pr</span>
+<span class="c1"># 实例成员变量(属性变量)：self(对类的实例自身的引用)，x，y</span>
+<span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setCoordinate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>   
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span>
+    <span class="k">def</span> <span class="nf">getCoordinate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span>
+       
+    <span class="k">def</span> <span class="nf">pr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getCoordinate</span><span class="p">()</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 创建实例</span>
+<span class="n">bird</span><span class="o">=</span><span class="n">Bird</span><span class="p">()</span>
+<span class="c1"># 调用实例方法</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">setCoordinate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">getCoordinate</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1 1
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">pr</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Bird object at 0x000001BD6197C5F8&gt;
+&lt;class &#39;__main__.Bird&#39;&gt;
+&lt;class &#39;int&#39;&gt;
+1 1
+&lt;class &#39;NoneType&#39;&gt;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">getCoordinate</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2 3
+</pre></div>
+</div>
+<div class="section" id="id10">
+<h3>直接访问实例变量<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">bird</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bird</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">bird</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3 3
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">x</span><span class="o">+=</span><span class="mi">2</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">y</span><span class="o">+=</span><span class="mi">1</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">bird</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(5, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>在对象的属性或方法前加上双下划线(__)可使之变为<strong>私有</strong><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>以下均以例子说明：</p>
+<div class="section" id="id12">
+<h3>私有成员变量<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setCoordinate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>   
+        <span class="bp">self</span><span class="o">.</span><span class="n">__x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">__y</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span>
+    <span class="k">def</span> <span class="nf">getCoordinate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">__y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">=</span><span class="n">Bird</span><span class="p">()</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">setCoordinate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">getCoordinate</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1 1
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">__x</span>   <span class="c1"># 在类外直接访问私有变量，python解释器会抛出一个异常。</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-102-373560fcf103&gt; in &lt;module&gt;()
+----&gt; 1 bird.__x   # 在类外直接访问私有变量，python解释器会抛出一个异常。
+
+
+AttributeError: &#39;Bird&#39; object has no attribute &#39;__x&#39;
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Python的私有并不是绝对的。</strong><br />
+Python解释器对于类中所有加了双下划线的成员名会做一些名字上的替换，若存在一个成员的名字为<code class="docutils literal notranslate"><span class="pre">__fooName</span></code>,则解释器会在检测到它存在后将其替换为<code class="docutils literal notranslate"><span class="pre">_ClassName__fooName</span></code>,即在成员名前加上单下划线开头的类名。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">_Bird__x</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id13">
+<h3>类属性与方法的所有<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>类的私有属性<br />
+<code class="docutils literal notranslate"><span class="pre">__private_attrs</span></code>：两个下划线开头，声明该属性为私有，不能在类地外部被使用或直接访问。在类内部的方法中使用时 <code class="docutils literal notranslate"><span class="pre">self.__private_attrs</span></code>。</p></li>
+<li><p>类的方法<br />
+在类地内部，使用 def 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 self，且为第一个参数，self 代表的是类的实例。
+self 的名字并不是规定死的，也可以使用 this，但是最好还是按照约定是用 self。</p></li>
+<li><p>类的私有方法<br />
+<code class="docutils literal notranslate"><span class="pre">__private_method</span></code>：两个下划线开头，声明该方法为私有方法，只能在类的内部调用 ，不能在类地外部调用。<code class="docutils literal notranslate"><span class="pre">self.__private_methods</span></code>。</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">JustCounter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">__secretCount</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 私有变量</span>
+    <span class="n">publicCount</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># 公开变量</span>
+ 
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__secretCount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publicCount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__secretCount</span><span class="p">)</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="n">JustCounter</span><span class="p">()</span>
+<span class="n">counter</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">counter</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">counter</span><span class="o">.</span><span class="n">publicCount</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">counter</span><span class="o">.</span><span class="n">__secretCount</span><span class="p">)</span>  <span class="c1"># 报错，实例不能访问私有变量</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+2
+2
+
+
+
+---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-104-9a9ab8650dbe&gt; in &lt;module&gt;()
+     12 counter.count()
+     13 print (counter.publicCount)
+---&gt; 14 print (counter.__secretCount)  # 报错，实例不能访问私有变量
+
+
+AttributeError: &#39;JustCounter&#39; object has no attribute &#39;__secretCount&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Site</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>       <span class="c1"># public</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__url</span> <span class="o">=</span> <span class="n">url</span>   <span class="c1"># private</span>
+ 
+    <span class="k">def</span> <span class="nf">who</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;name  : &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;url : &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__url</span><span class="p">)</span>
+ 
+    <span class="k">def</span> <span class="nf">__foo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>          <span class="c1"># 私有方法</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;这是私有方法&#39;</span><span class="p">)</span>
+ 
+    <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>            <span class="c1"># 公共方法</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;这是公共方法&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__foo</span><span class="p">()</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">Site</span><span class="p">(</span><span class="s1">&#39;菜鸟教程&#39;</span><span class="p">,</span> <span class="s1">&#39;www.runoob.com&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">who</span><span class="p">()</span>        <span class="c1"># 正常输出</span>
+<span class="n">x</span><span class="o">.</span><span class="n">foo</span><span class="p">()</span>        <span class="c1"># 正常输出</span>
+<span class="n">x</span><span class="o">.</span><span class="n">__foo</span><span class="p">()</span>      <span class="c1"># 报错</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name  :  菜鸟教程
+url :  www.runoob.com
+这是公共方法
+这是私有方法
+
+
+
+---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-105-211d0443cb75&gt; in &lt;module&gt;()
+     18 x.who()        # 正常输出
+     19 x.foo()        # 正常输出
+---&gt; 20 x.__foo()      # 报错
+
+
+AttributeError: &#39;Site&#39; object has no attribute &#39;__foo&#39;
+</pre></div>
+</div>
+<p>类的专有方法：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> : 构造函数，在生成对象时调用</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__del__</span> </code>: 析构函数，释放对象时使用</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__repr__</span></code> : 打印，转换</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__setitem__</span> </code>: 按照索引赋值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>: 按照索引获取值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__len__</span></code>: 获得长度</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__cmp__</span></code>: 比较运算</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__call__</span></code>: 函数调用</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__add__</span></code>: 加运算</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__sub__</span></code>: 减运算</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__mul__</span></code>: 乘运算</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__div__</span></code>: 除运算</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__mod__</span></code>: 求余运算</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__pow__</span></code>: 乘方</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>类变量 &amp; 类方法<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 实现一个Bird类，包括两个类成员变量(name_zh,name_en)和两个类成员方法(getName,setName):</span>
+<span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">name_zh</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;鸟类&#39;</span>
+    <span class="n">name_en</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;bird&#39;</span>
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="nb">type</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="o">==</span><span class="s1">&#39;zh&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">name_zh</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">name_en</span>
+        
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">setName</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="nb">type</span><span class="p">,</span><span class="n">new_name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="o">==</span><span class="s1">&#39;zh&#39;</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">name_zh</span><span class="o">=</span><span class="n">new_name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">name_en</span><span class="o">=</span><span class="n">new_name</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 调用和访问类方法和类变量</span>
+<span class="n">Bird</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="s1">&#39;zh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;鸟类&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Bird</span><span class="o">.</span><span class="n">name_en</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;bird&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Bird</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">,</span><span class="s1">&#39;birdbird&#39;</span><span class="p">)</span>
+<span class="n">Bird</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;birdbird&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Bird</span><span class="o">.</span><span class="n">name_zh</span><span class="o">=</span><span class="s1">&#39;新鸟类&#39;</span>
+<span class="n">Bird</span><span class="o">.</span><span class="n">name_zh</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;新鸟类&#39;
+</pre></div>
+</div>
+<p>类变量和类方法可以被实例成员方法以只读的方式访问。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">name</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;bird&#39;</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">def</span> <span class="nf">getName2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directly:&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;by call classmethod:&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">=</span><span class="n">Bird</span><span class="p">()</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">getName2</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>directly: bird
+by call classmethod: bird
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;bird&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;bird&#39;
+</pre></div>
+</div>
+<div class="section" id="bug">
+<h3>一个小’bug’<a class="headerlink" href="#bug" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">name</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;bird&#39;</span>
+    <span class="k">def</span> <span class="nf">setName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">new_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">new_name</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">=</span><span class="n">Bird</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;bird&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;bird&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s1">&#39;birdbird&#39;</span><span class="p">)</span>    <span class="c1"># 非读操作，且bird命名空间中没有name变量，故需要创建一个叫name的实例变量。</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;birdbird&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Bird</span><span class="o">.</span><span class="n">name</span>  <span class="c1">#Bird访问的依然是类变量的值。</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;bird&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>静态方法<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p>静态方法位于类命名空间中的一种特殊函数，无法对任何实例成员进行操作。</p>
+<div class="section" id="id16">
+<h3>实现封装<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Math</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>调用<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>可以访问类变量和类方法，但是，类的实例对象无法调用静态方法。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">name</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;bird&#39;</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">setName</span><span class="p">(</span><span class="n">new_name</span><span class="p">):</span>
+        <span class="n">Bird</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">new_name</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;bird&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Bird</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s1">&#39;birdbird&#39;</span><span class="p">)</span>
+<span class="n">Bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;birdbird&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="property">
+<h2>property 修饰器<a class="headerlink" href="#property" title="永久链接至标题">¶</a></h2>
+<p>目的：<br />
+修饰实例方法，以改变对外的访问方式，使得其在外部被访问时更像是在访问一个变量，而非函数。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span><span class="o">=</span><span class="n">name</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span>
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span><span class="o">=</span><span class="n">name</span>
+    <span class="nd">@name</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">=</span><span class="n">Bird</span><span class="p">(</span><span class="s1">&#39;bird&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;bird&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;birdbird&#39;</span>
+<span class="n">bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;birdbird&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-136-3d2d6764ec0c&gt; in &lt;module&gt;()
+----&gt; 1 bird.name
+
+
+&lt;ipython-input-131-7072a73d10cd&gt; in name(self)
+      4     @property
+      5     def name(self):
+----&gt; 6         return self.__name
+      7     @name.setter
+      8     def name(self,name):
+
+
+AttributeError: &#39;Bird&#39; object has no attribute &#39;_Bird__name&#39;
+</pre></div>
+</div>
+<p>从上述结果可以看出，Bird类的名叫<code class="docutils literal notranslate"><span class="pre">name</span></code>的对象完全成为了<code class="docutils literal notranslate"><span class="pre">__name</span></code>的替身。有了<code class="docutils literal notranslate"><span class="pre">name</span></code>作为访问的中间层，一些验证的逻辑就可以在<code class="docutils literal notranslate"><span class="pre">name</span></code>的方法中实现了。</p>
+</div>
+<div class="section" id="id18">
+<h2>类的初始化<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">__init__</span></code>关键字是类的构造方法。<br />
+在Python中，为一个类创建一个 实例对象 时，会立即调用类的构造方法（即当对象被创建后，Python解释器会去类中查找<code class="docutils literal notranslate"><span class="pre">__init__</span></code>函数）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">__init__</span></code>函数为类添加一些初始化的属性或功能。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird_1</span><span class="o">=</span><span class="n">Bird</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;bird_1&#39;</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird_1</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;bird_1&#39;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bird_1</span><span class="o">.</span><span class="n">weight</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id19">
+<h1>继承<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h1>
+<p>类的继承：</p>
+<ul class="simple">
+<li><p>函数重写</p></li>
+<li><p>多重继承</p></li>
+</ul>
+<p>Python 同样支持类的继承，如果一种语言不支持继承，类就没有什么意义。派生类的定义如下所示:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DerivedClassName</span><span class="p">(</span><span class="n">BaseClassName1</span><span class="p">):</span>
+    <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+    <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="n">N</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="id20">
+<h2>多重继承<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<p>需要注意圆括号中基类的顺序，若是基类中有相同的方法名，而在子类使用时未指定，python从左至右搜索 即方法在子类中未找到时，从左到右查找基类中是否包含方法。</p>
+<p>BaseClassName（示例中的基类名）必须与派生类定义在一个作用域内。除了类，还可以用表达式，基类定义在另一个模块中时这一点非常有用:<br />
+<code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">DerivedClassName(modname.BaseClassName):</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#类定义</span>
+<span class="k">class</span> <span class="nc">people</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1">#定义基本属性</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">#定义私有属性,私有属性在类外部无法直接进行访问</span>
+    <span class="n">__weight</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">#定义构造方法</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__weight</span> <span class="o">=</span> <span class="n">w</span>
+    <span class="k">def</span> <span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> 说: 我 </span><span class="si">%d</span><span class="s2"> 岁。&quot;</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
+<span class="c1">#单继承示例</span>
+<span class="k">class</span> <span class="nc">student</span><span class="p">(</span><span class="n">people</span><span class="p">):</span>
+    <span class="n">grade</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">g</span><span class="p">):</span>
+        <span class="c1">#调用父类的构函</span>
+        <span class="n">people</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grade</span> <span class="o">=</span> <span class="n">g</span>
+    <span class="c1">#覆写父类的方法</span>
+    <span class="k">def</span> <span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> 说: 我 </span><span class="si">%d</span><span class="s2"> 岁了，我在读 </span><span class="si">%d</span><span class="s2"> 年级&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">grade</span><span class="p">))</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">student</span><span class="p">(</span><span class="s1">&#39;ken&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">speak</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ken 说: 我 10 岁了，我在读 3 年级
+</pre></div>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>方法重写<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<p>如果你的父类方法的功能不能满足你的需求，你可以在子类重写你父类的方法，实例如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Parent</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>        <span class="c1"># 定义父类</span>
+    <span class="k">def</span> <span class="nf">myMethod</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;调用父类方法&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span> <span class="c1"># 定义子类</span>
+    <span class="k">def</span> <span class="nf">myMethod</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;调用子类方法&#39;</span><span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>          <span class="c1"># 子类实例</span>
+<span class="n">c</span><span class="o">.</span><span class="n">myMethod</span><span class="p">()</span>         <span class="c1"># 子类调用重写方法</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>调用子类方法
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h2>例子<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Animal is eating&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">reproduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Animal is reproducing&#39;</span><span class="p">)</span>
+    
+<span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bird is flying&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">reproduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>     <span class="c1"># 方法的重写</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bird is reproducing&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dog is running&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bird is eating&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 多重继承</span>
+<span class="k">class</span> <span class="nc">Sound</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">sound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">voice</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">voice</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">Movement</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">target_x</span><span class="p">,</span><span class="n">target_y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">target_x</span><span class="p">,</span><span class="n">target_y</span>
+        
+<span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="n">Sound</span><span class="p">,</span><span class="n">Movement</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="n">Sound</span><span class="p">,</span><span class="n">Movement</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id23">
+<h1>多态<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h1>
+<p>**动态类型:**一个引用可以绑定任意类型的对象。</p>
+<div class="section" id="id24">
+<h2>运算符重载<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
+<p>Python同样支持运算符重载，我么可以对类的专有方法进行重载，实例如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">class</span> <span class="nc">Vector</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+ 
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Vector (</span><span class="si">%d</span><span class="s1">, </span><span class="si">%d</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+   
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Vector (7, 8)
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./drafts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="88.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">函数基础</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="draft.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">回收站</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

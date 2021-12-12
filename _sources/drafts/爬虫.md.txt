@@ -1,0 +1,932 @@
+# 爬虫
+
+[参考资料](http://www.pythonsite.com)
+
+- __网络爬虫__（又被称为`网页蜘蛛，网络机器人`，在FOAF社区中间，更经常的称为`网页追逐者`），是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。
+   - 其实通俗的讲就是通过程序去获取web页面上自己想要的数据，也就是自动抓取数据   
+- **爬虫的本质**:模拟浏览器打开网页，获取网页中我们想要的那部分数据
+
+- 浏览器打开网页的过程：
+    - 当你在浏览器中输入地址后，经过DNS服务器找到服务器主机，向服务器发送一个请求，服务器经过解析后发送给用户浏览器结果，包括html,js,css等文件内容，浏览器解析出来最后呈现给用户在浏览器上看到的结果
+    - 用户看到的浏览器的结果就是由HTML代码构成的，我们爬虫就是为了获取这些内容，通过分析和过滤html代码，从中获取我们想要资源（文本，图片，视频.....）
+ 
+- 爬虫就是请求网站并提取数据的自动化程序。其中`请求`，`提取`，`自动化`是爬虫的关键！
+
+# 爬虫的基本流程
+- 发起请求
+    - 通过HTTP库向目标站点发起请求，也就是发送一个`Request`，请求可以包含额外的`header`等信息，等待服务器响应`Response`
+- 获取响应内容
+    - 如果服务器能正常响应，会得到一个Response，Response的内容便是所要获取的页面内容，类型可能是HTML,Json字符串，二进制数据（图片或者视频）等类型
+- 解析内容
+    - 得到的内容可能是HTML,可以用正则表达式，页面解析库进行解析，可能是Json,可以直接转换为Json对象解析，可能是二进制数据，可以做保存或者进一步的处理
+- 保存数据
+    - 保存形式多样，可以存为文本，也可以保存到数据库，或者保存特定格式的文件
+    
+# 什么是Request,Response
+- 浏览器发送消息给网址所在的服务器，这个过程就叫做`HTPP Request`
+- 服务器收到浏览器发送的消息后，能够根据浏览器发送消息的内容，做相应的处理，然后把消息回传给浏览器，这个过程就是`HTTP Response`
+- 浏览器收到服务器的`Response`信息后，会对信息进行相应的处理，然后展示
+
+## Request中包含什么？
+### 请求方式
+主要有：`GET/POST`两种类型常用，另外还有`HEAD/PUT/DELETE/OPTIONS`
+- `GET`和`POST`的区别就是：
+    + `GET`是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。
+    + `POST`是通过HTTP POST机制，将表单内各个字段放置在HTML HEADER内一起传送到ACTION属性所指的URL中(用户看不到此过程)
+    + `GET`:从服务器上获取数据。使用GET方法应该只用在读取数据，而不应当被用于产生“副作用”的操作中，例如在Web Application中。其中一个原因是GET可能会被网络蜘蛛等随意访问。
+    - `POST`:向指定资源提交数据，请求服务器进行处理（例如提交表单或者上传文件）。
+
+- `HEAD`：与`GET`方法一样，都是向服务器发出指定资源的请求。只不过服务器将不传回资源的本文部分。它的好处在于，使用这个方法可以在不必传输全部内容的情况下，就可以获取其中“关于该资源的信息”（元信息或称元数据）。
+- `PUT`：向指定资源位置上传其最新内容。
+- `OPTIONS`：这个方法可使服务器传回该资源所支持的所有`HTTP`请求方法。用'`*`'来代替资源名称，向Web服务器发送`OPTIONS`请求，可以测试服务器功能是否正常运作。
+- `DELETE`：请求服务器删除`Request-URI`所标识的资源。
+
+### 请求URL
+`URL`，即统一资源定位符，也就是我们说的网址，统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的`URL`，它包含的信息指出文件的位置以及浏览器应该怎么处理它。
+
+`URL`的格式由三个部分组成：
+- 协议(或称为服务方式)。
+- 存有该资源的主机`IP地址`(有时也包括`端口号`)。
+- 主机资源的具体地址，如目录和文件名等。
+
+爬虫爬取数据时必须要有一个目标的`URL`才可以获取数据，因此，它是爬虫获取数据的基本依据。
+
+### 请求头
+包含请求时的`头部信息`，如`User-Agent`,`Host`,`Cookies`等信息
+### 请求体
+请求携带的数据，如提交表单数据时候的表单数据（POST）
+
+## Response中包含了什么
+所有HTTP响应的第一行都是状态行，依次是`当前HTTP版本号`，3位数字组成的`状态代码`，以及`描述状态的短语`，彼此由空格分隔。
+### 响应状态
+有多种响应状态，如：       
+`200代表成功，301跳转，404找不到页面，502服务器错误
+1xx消息——请求已被服务器接收，继续处理
+2xx成功——请求已成功被服务器接收、理解、并接受
+3xx重定向——需要后续操作才能完成这一请求
+4xx请求错误——请求含有词法错误或者无法被执行
+5xx服务器错误——服务器在处理某个正确请求时发生错误
+常见代码： 200 OK 请求成功 400 Bad Request 客户端请求有语法错误，不能被服务器所理解 401 Unauthorized 请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用 403 Forbidden 服务器收到请求，但是拒绝提供服务 404 Not Found 请求资源不存在，eg：输入了错误的URL 500 Internal Server Error 服务器发生不可预期的错误 503 Server Unavailable 服务器当前不能处理客户端的请求，一段时间后可能恢复正常 301 目标永久性转移 302 目标暂时性转移`
+### 响应头
+如内容类型，类型的长度，服务器信息，设置Cookie
+### 响应体
+最主要的部分，包含请求资源的内容，如网页HTMl,图片，二进制数据等
+
+# 能爬取什么样的数据
+- 网页文本：如HTML文档，Json格式化文本等
+- 图片：获取到的是二进制文件，保存为图片格式
+- 视频:同样是二进制文件
+- 其他：只要请求到的，都可以获取
+
+# 如何解析数据
+- 直接处理
+- Json解析
+- 正则表达式处理
+- BeautifulSoup解析处理
+- PyQuery解析处理
+- XPath解析处理
+
+
+```python
+import urllib
+```
+
+# Urllib库的简介 
+Urllib是python内置的HTTP请求库,包括以下模块
+- urllib.request: 请求模块
+- urllib.error: 异常处理模块
+- urllib.parse: url解析模块
+- urllib.response: 响应请求
+    - Type:        module
+    - Docstring:  
+        Response classes used by urllib.
+
+    - The base class, addbase, defines a minimal file-like interface,including read() and readline().  
+    - The typical response object is an addinfourl instance, which defines an info() method that returns
+    headers and a geturl() method that returns the url.
+
+# urllib.request
+## `urllib.request.urlopen`    
+`urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)`  
+参数：    
+Open the URL url, which can be either a string or a Request object.(url可以是一个网址的字符串，或是一个Request对象)     
+*data* must be an object specifying additional data to be sent to the server, or None if no such data is needed.  See Request for details.
+```
+
+ ```
+ 返回一个file-like对象(可以像操作context一样进行管理和拥有一些实例方法)：
+ ```
+    For HTTP and HTTPS URLs, this function returns a http.client.HTTPResponse
+    object slightly modified. In addition to the three new methods above, the
+    msg attribute contains the same information as the reason attribute ---
+    the reason phrase returned by the server --- instead of the response
+    headers as it is specified in the documentation for HTTPResponse.
+
+    For FTP, file, and data URLs and requests explicitly handled by legacy
+    URLopener and FancyURLopener classes, this function returns a
+    urllib.response.addinfourl object.
+
+    Note that None may be returned if no handler handles the request (though
+    the default installed global OpenerDirector uses UnknownHandler to ensure
+    this never happens).
+
+    In addition, if proxy settings are detected (for example, when a *_proxy
+    environment variable like http_proxy is set), ProxyHandler is default
+    installed and makes sure the requests are handled through the proxy.
+
+```
+常用实例方法
+
+* geturl() - return the URL of the resource retrieved, commonly used to
+  determine if a redirect was followed
+
+* info() - return the meta-information of the page, such as headers, in the
+  form of an email.message_from_string() instance (see Quick Reference to
+  HTTP Headers)
+
+* getcode() - return the HTTP status code of the response.  Raises URLError
+  on errors.
+
+示例：
+
+
+```python
+import urllib.request
+response = urllib.request.urlopen('https://www.baidu.com')   # url是网址字符串
+page = response.read()                # response.read()可以获取到网页的内容，获取响应资源
+decode_page = page.decode('utf-8')    # 统一编码格式
+print(decode_page)
+```
+
+    <html>
+    <head>
+    	<script>
+    		location.replace(location.href.replace("https://","http://"));
+    	</script>
+    </head>
+    <body>
+    	<noscript><meta http-equiv="refresh" content="0;url=http://www.baidu.com/"></noscript>
+    </body>
+    </html>
+    
+
+
+```python
+import urllib
+req = urllib.request.Request('https://www.baidu.com')
+response = urllib.request.urlopen(req)   # url是一个Request对象
+the_page = response.read().decode('utf-8')
+print(the_page)
+```
+
+    <html>
+    <head>
+    	<script>
+    		location.replace(location.href.replace("https://","http://"));
+    	</script>
+    </head>
+    <body>
+    	<noscript><meta http-equiv="refresh" content="0;url=http://www.baidu.com/"></noscript>
+    </body>
+    </html>
+    
+
+|对象名|类型|
+|:-|:-|
+|`req`|`urllib.request.Request`|
+|`response`|`http.client.HTTPResponse`|
+|`response.read()`|`bytes`|
+|`response.info()`|`http.client.HTTPMessage`|
+|`the_page`|`str`|
+
+
+```python
+type(response.info())
+```
+
+
+
+
+    http.client.HTTPMessage
+
+
+
+
+```python
+print(response.geturl())     # 返回真实网址
+print(response.getcode())    # 返回`HTTP`响应代码
+print(response.info())   # 返回从服务器传回的`MIME`标签头
+```
+
+    https://www.baidu.com
+    200
+    Accept-Ranges: bytes
+    Cache-Control: no-cache
+    Content-Length: 227
+    Content-Type: text/html
+    Date: Wed, 23 Aug 2017 11:44:38 GMT
+    Last-Modified: Mon, 21 Aug 2017 07:02:00 GMT
+    P3p: CP=" OTI DSP COR IVA OUR IND COM "
+    Pragma: no-cache
+    Server: BWS/1.1
+    Set-Cookie: BD_NOT_HTTPS=1; path=/; Max-Age=300
+    Set-Cookie: BIDUPSID=2BA9A96F1CBA72FD5B271C3376C4397B; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
+    Set-Cookie: PSTM=1503488678; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
+    Strict-Transport-Security: max-age=0
+    X-Ua-Compatible: IE=Edge,chrome=1
+    Connection: close
+    
+    
+    
+
+urlopen一般常用的有三个参数，它的参数如下：urllib.requeset.urlopen(url,data,timeout)
+- data参数的使用       
+上述的例子是通过请求的get请求获得，下面使用urllib的post请求
+这里通过`http://httpbin.org/post`网站演示（该网站可以作为练习使用urllib的一个站点使用，可以
+模拟各种请求操作）。
+
+
+```python
+# urlopen传入Request对象
+import urllib
+url = 'http://httpbin.org/post'
+values = {'name':'WHY',
+         'localtion':'SDU',
+         'language':'Python'}
+data = bytes(urllib.parse.urlencode(values),encoding='utf8')    # 编码工作
+print(data)
+req = urllib.request.Request(url,data)   # 发送请求并传输data表单
+response = urllib.request.urlopen(req)   
+the_page = response.read().decode('utf8')               # 读取响应内容
+print(the_page)
+```
+
+    b'name=WHY&localtion=SDU&language=Python'
+    {
+      "args": {}, 
+      "data": "", 
+      "files": {}, 
+      "form": {
+        "language": "Python", 
+        "localtion": "SDU", 
+        "name": "WHY"
+      }, 
+      "headers": {
+        "Accept-Encoding": "identity", 
+        "Connection": "close", 
+        "Content-Length": "38", 
+        "Content-Type": "application/x-www-form-urlencoded", 
+        "Host": "httpbin.org", 
+        "User-Agent": "Python-urllib/3.6"
+      }, 
+      "json": null, 
+      "origin": "112.17.235.178", 
+      "url": "http://httpbin.org/post"
+    }
+    
+    
+
+
+```python
+# 直接传入data
+import urllib.parse
+import urllib.request
+
+data = bytes(urllib.parse.urlencode({'word': 'hello'}), encoding='utf8')
+print(data)
+response = urllib.request.urlopen('http://httpbin.org/post', data=data)
+print(response.read().decode('utf8'))
+```
+
+    b'word=hello'
+    {
+      "args": {}, 
+      "data": "", 
+      "files": {}, 
+      "form": {
+        "word": "hello"
+      }, 
+      "headers": {
+        "Accept-Encoding": "identity", 
+        "Connection": "close", 
+        "Content-Length": "10", 
+        "Content-Type": "application/x-www-form-urlencoded", 
+        "Host": "httpbin.org", 
+        "User-Agent": "Python-urllib/3.6"
+      }, 
+      "json": null, 
+      "origin": "112.17.235.178", 
+      "url": "http://httpbin.org/post"
+    }
+    
+    
+
+
+```python
+import urllib
+data = {}
+data['name'] = 'WHY'
+data['location'] = 'SDU'
+data['language'] = 'Python'
+url_values = urllib.parse.urlencode(data)
+print(url_values)
+url = 'https://www.baidu.com'
+full_url = url + '?'+ url_values
+data = urllib.request.urlopen(full_url)
+print(data.read().decode('utf8'))
+```
+
+    name=WHY&location=SDU&language=Python
+    <html>
+    <head>
+    	<script>
+    		location.replace(location.href.replace("https://","http://"));
+    	</script>
+    </head>
+    <body>
+    	<noscript><meta http-equiv="refresh" content="0;url=http://www.baidu.com/"></noscript>
+    </body>
+    </html>
+    
+
+   这里就用到`urllib.parse`，通过`bytes(urllib.parse.urlencode())`可以将`post`数据进行转换放到`urllib.request.urlopen`的`data`参数中。这样就完成了一次`post请求`。所以如果我们添加`data`参数的时候就是以`post请求`方式请求，如果没有`data`参数就是`get`请求方式
+
+- timeout参数的使用
+在某些网络情况不好或者服务器端异常的情况会出现请求慢的情况，或者请求异常，所以这个时候我们需要给
+请求设置一个超时时间，而不是让程序一直在等待结果。例子如下：
+
+
+```python
+import urllib.request
+
+response = urllib.request.urlopen('http://httpbin.org/get', timeout=1)
+print(response.read())
+```
+
+    b'{\n  "args": {}, \n  "headers": {\n    "Accept-Encoding": "identity", \n    "Connection": "close", \n    "Host": "httpbin.org", \n    "User-Agent": "Python-urllib/3.6"\n  }, \n  "origin": "218.75.27.189", \n  "url": "http://httpbin.org/get"\n}\n'
+    
+
+我们需要对异常进行抓取，代码更改为
+
+
+```python
+import socket
+import urllib.request
+import urllib.error
+
+try:
+    response = urllib.request.urlopen('http://httpbin.org/get', timeout=0.1)
+except urllib.error.URLError as e:
+    if isinstance(e.reason, socket.timeout):
+        print('TIME OUT')
+```
+
+    TIME OUT
+    
+
+# 响应response
+响应类型、状态码、响应头     
+`response.status、response.getheaders()、response.getheader("server")`，获取状态码以及头部信息    
+response.read()获得的是响应体的内容
+
+
+```python
+import urllib.request
+
+response = urllib.request.urlopen('http://www.cnblogs.com/zhaof/p/6910871.html')
+print(type(response))
+print(response.status)
+print(response.getheaders())   # Return list of (header, value) tuples.
+print(response.getheader("server"))
+print(response.getheader('Date'))
+```
+
+    <class 'http.client.HTTPResponse'>
+    200
+    [('Date', 'Tue, 22 Aug 2017 12:33:22 GMT'), ('Content-Type', 'text/html; charset=utf-8'), ('Content-Length', '34644'), ('Connection', 'close'), ('Vary', 'Accept-Encoding'), ('Cache-Control', 'private, max-age=10'), ('Expires', 'Tue, 22 Aug 2017 12:33:31 GMT'), ('Last-Modified', 'Tue, 22 Aug 2017 12:33:21 GMT'), ('X-UA-Compatible', 'IE=10'), ('X-Frame-Options', 'SAMEORIGIN')]
+    None
+    Tue, 22 Aug 2017 12:33:22 GMT
+    
+
+## 设置Headers
+有很多网站为了防止程序爬虫爬网站造成网站瘫痪，会需要携带一些headers头部信息才能访问，最常见的有user-agent参数   
+
+### 给请求添加头部信息，从而定制自己请求网站是时的头部信息
+
+
+```python
+from urllib import request, parse
+
+url = 'http://httpbin.org/post'
+headers = {
+    'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)',
+    'Host': 'httpbin.org'
+}
+dict = {
+    'name': 'zhaofan'
+}
+data = bytes(parse.urlencode(dict), encoding='utf8')
+req = request.Request(url=url, data=data, headers=headers, method='POST')
+response = request.urlopen(req)
+print(response.read().decode('utf-8'))
+```
+
+    {
+      "args": {}, 
+      "data": "", 
+      "files": {}, 
+      "form": {
+        "name": "zhaofan"
+      }, 
+      "headers": {
+        "Accept-Encoding": "identity", 
+        "Connection": "close", 
+        "Content-Length": "12", 
+        "Content-Type": "application/x-www-form-urlencoded", 
+        "Host": "httpbin.org", 
+        "User-Agent": "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
+      }, 
+      "json": null, 
+      "origin": "112.17.235.178", 
+      "url": "http://httpbin.org/post"
+    }
+    
+    
+
+### 添加请求头的第二种方式
+这种添加方式有个好处是自己可以定义一个请求头字典，然后循环进行添加
+- 实例化一个对象
+- 使用`add_header`方法添加Header
+
+
+```python
+from urllib import request, parse
+
+url = 'http://httpbin.org/post'
+dict = {
+    'name': 'Germey'
+}
+data = bytes(parse.urlencode(dict), encoding='utf8')
+req = request.Request(url=url, data=data, method='POST')
+req.add_header('User-Agent', 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)')    # 添加Header
+response = request.urlopen(req)
+print(response.read().decode('utf-8'))
+```
+
+    {
+      "args": {}, 
+      "data": "", 
+      "files": {}, 
+      "form": {
+        "name": "Germey"
+      }, 
+      "headers": {
+        "Accept-Encoding": "identity", 
+        "Connection": "close", 
+        "Content-Length": "11", 
+        "Content-Type": "application/x-www-form-urlencoded", 
+        "Host": "httpbin.org", 
+        "User-Agent": "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)"
+      }, 
+      "json": null, 
+      "origin": "112.17.235.178", 
+      "url": "http://httpbin.org/post"
+    }
+    
+    
+
+## 异常处理
+在很多时候我们通过程序访问页面的时候，有的页面可能会出现错误，类似404，500等错误
+
+
+```python
+from urllib import request,error
+
+try:
+    response = request.urlopen("http://pythonsite.com/1111.html")
+except error.URLError as e:
+    print(e.reason)
+```
+
+    Not Found
+    
+
+### `HTTPError`是`URLError`的子类
+- URLError里只有一个属性：`reason`,即抓异常的时候只能打印错误信息，类似上面的例子
+- `HTTPError`里有三个属性：`code,reason,headers`，即抓异常的时候可以获得`code,reson，headers`三个信息
+
+
+```python
+import urllib
+req = urllib.request.Request('http://www.baidu.com')
+try:
+    urllib.request.urlopen(req)
+except urllib.error.URLError as e:
+    print(e.reason)    # reason属性包含一个错误号和一个错误信息
+```
+
+### 捕获异常
+
+
+```python
+from urllib import request,error
+try:
+    response = request.urlopen("http://pythonsite.com/1111.html")
+except error.HTTPError as e:
+    print(e.reason)
+    print(e.code)
+    print(e.headers)
+except error.URLError as e:
+    print(e.reason)
+
+else:
+    print("reqeust successfully")
+```
+
+    Not Found
+    404
+    Date: Wed, 23 Aug 2017 06:41:31 GMT
+    Server: Apache
+    Vary: Accept-Encoding
+    Content-Length: 207
+    Connection: close
+    Content-Type: text/html; charset=iso-8859-1
+    
+    
+    
+
+
+```python
+import urllib
+req = urllib.request.Request('https://ai.taobao.com')
+try:
+    urllib.request.urlopen(req)
+except urllib.error.URLError as e:
+    print(e.code)
+    print(e.read())       
+```
+
+#### e.reason其实也可以在做深入的判断，例子如下：
+
+
+```python
+import socket
+
+from urllib import error,request
+
+try:
+    response = request.urlopen("http://www.pythonsite.com/",timeout=0.001)
+except error.URLError as e:
+    print(type(e.reason))
+    if isinstance(e.reason,socket.timeout):
+        print("time out")
+```
+
+    <class 'socket.timeout'>
+    time out
+    
+
+
+```python
+import http
+import pprint
+```
+
+#### pprint
+```
+Type:        module
+Docstring:  
+Support to pretty-print lists, tuples, & dictionaries recursively.
+
+Very simple, but useful, especially in debugging data structures.
+
+Classes
+-------
+
+PrettyPrinter()
+    Handle pretty-printing operations onto a stream using a configured
+    set of formatting parameters.
+
+Functions
+---------
+
+pformat()
+    Format a Python object into a pretty-printed representation.
+
+pprint()
+    Pretty-print a Python object to a stream [default is sys.stdout].
+
+saferepr()
+    Generate a 'standard' repr()-like value, but protect against recursive
+    data structures.
+```
+
+
+```python
+pprint.pprint(http.HTTPStatus.PARTIAL_CONTENT)
+```
+
+    <HTTPStatus.PARTIAL_CONTENT: 206>
+    
+
+## 高级用法各种handler
+### 代理,ProxyHandler
+通过`rulllib.request.ProxyHandler()`可以设置代理,网站它会检测某一段时间某个IP 的访问次数，如果访问次数过多，它会禁止你的访问,所以这个时候需要通过设置代理来爬取数据
+
+
+```python
+import urllib
+enable_proxy = True
+proxy_handler = urllib.request.ProxyHandler({'http': 'http://192.168.1.1:8087'})    # 设置Proxy
+null_proxy_handler = urllib.request.ProxyHandler({})   # 默认不设置Proxy
+if enable_proxy:                                       # 需要设置Proxy的情况
+    opener = urllib.request.build_opener(proxy_handler)
+else:                                                  # 不需要设置Proxy的情况
+    opener = urllib.request.build_opener(null_proxy_handler)
+opener =urllib.request.install_opener(opener)
+```
+
+### cookie,HTTPCookiProcessor
+cookie中保存中我们常见的登录信息，有时候爬取网站需要携带cookie信息访问,这里用到了http.cookijar，用于获取cookie以及存储cookie
+更多内容可查看[python_cookie](http://www.cnblogs.com/q735613050/p/7400885.html)
+
+
+```python
+import http.cookiejar, urllib.request
+cookie = http.cookiejar.CookieJar()          # 实例化Cookie对象
+handler = urllib.request.HTTPCookieProcessor(cookie)   
+opener = urllib.request.build_opener(handler)     # 建立opener
+response = opener.open('http://www.baidu.com')    # 使用opener打开网页
+for item in cookie:                           # 连接成功后Cookie将存至opener绑定的cookie对象中
+    print(item.name+"="+item.value)
+```
+
+    BAIDUID=FD7AB8ACCA2E3FFFCC647B0C8A4F90AE:FG=1
+    BIDUPSID=FD7AB8ACCA2E3FFFCC647B0C8A4F90AE
+    H_PS_PSSID=1449_21094_18559_22159
+    PSTM=1503494060
+    BDSVRTM=0
+    BD_HOME=0
+    
+
+同时cookie可以写入到文件中保存，有两种方式http.cookiejar.MozillaCookieJar和http.cookiejar.LWPCookieJar()
+
+
+```python
+# http.cookiejar.MozillaCookieJar()方式
+import http.cookiejar, urllib.request
+filename = "cookie.txt"
+cookie = http.cookiejar.MozillaCookieJar(filename)    
+handler = urllib.request.HTTPCookieProcessor(cookie)   
+opener = urllib.request.build_opener(handler)
+response = opener.open('http://www.baidu.com')
+cookie.save(ignore_discard=True, ignore_expires=True)
+```
+
+
+```python
+# http.cookiejar.LWPCookieJar()方式
+import http.cookiejar, urllib.request
+filename = 'cookie.txt'
+cookie = http.cookiejar.LWPCookieJar(filename)
+handler = urllib.request.HTTPCookieProcessor(cookie)
+opener = urllib.request.build_opener(handler)
+response = opener.open('http://www.baidu.com')
+cookie.save(ignore_discard=True, ignore_expires=True)
+```
+
+同样的如果想要通过获取文件中的cookie获取的话可以通过load方式，当然用哪种方式写入的，就用哪种方式读取。
+
+
+```python
+import http.cookiejar, urllib.request
+cookie = http.cookiejar.LWPCookieJar()
+cookie.load('cookie.txt', ignore_discard=True, ignore_expires=True)
+handler = urllib.request.HTTPCookieProcessor(cookie)
+opener = urllib.request.build_opener(handler)
+response = opener.open('https://www.baidu.com')
+print(response.read().decode('utf-8'))
+```
+
+    <html>
+    <head>
+    	<script>
+    		location.replace(location.href.replace("https://","http://"));
+    	</script>
+    </head>
+    <body>
+    	<noscript><meta http-equiv="refresh" content="0;url=http://www.baidu.com/"></noscript>
+    </body>
+    </html>
+    
+
+## urllib.request.urlretrieve
+
+urllib.request.urlretrieve(url, filename=None, reporthook=None, data=None)
+```
+Retrieve a URL into a temporary location on disk.
+
+    Requires a URL argument. If a filename is passed, it is used as
+    the temporary file location. The reporthook argument should be
+    a callable that accepts a block number, a read size, and the
+    total file size of the URL target. The data argument should be
+    valid URL encoded data.
+
+    If a filename is passed and the URL points to a local resource,
+    the result is a copy from local file to new file.
+
+    Returns a tuple containing the path to the newly created
+    data file as well as the resulting HTTPMessage object.
+```
+
+**参数**：
+- finename： 指定了保存本地路径（如果参数未指定，urllib会生成一个临时文件保存数据。）
+- reporthook： 是一个回调函数，当连接上服务器、以及相应的数据块传输完毕时会触发该回调，我们可以利用这个回调函数来显示当前的下载进度。
+- data： 指 post 到服务器的数据，该方法返回一个包含两个元素的(filename, headers)元组，filename 表示保存到本地的路径，header 表示服务器的响应头。
+
+详细内容参见[网络编程初探](http://www.jianshu.com/p/ceab96588e3d)
+
+
+```python
+# 下面是 urlretrieve() 下载文件实例，可以显示下载进度
+import urllib
+import os
+
+def Schedule(a,b,c):
+    '''
+    回调函数
+    @a: 已经下载的数据块
+    @b：数据块大小
+    @c：远程文件大小
+    '''
+    per = 100.0 * a * b / c
+    if per > 100:
+        per = 100
+    print('%.2f%%' % per)
+    
+url = 'https://cn.bing.com/images/search?view=detailV2&ccid=GW2QgFkz&id=EF611ABD160281C674AE77A4287DBCDB14A334E5&thid=OIP.GW2QgFkzmTMDJuwkKOiNbwEsEp&q=%e5%9b%be%e7%89%87&simid=608041670019188634&selectedIndex=8'
+local = os.path.join(r'E:\图片','美女.jpg')
+urllib.request.urlretrieve(url,local,Schedule)
+```
+
+    0.00%
+    7.95%
+    15.90%
+    23.85%
+    31.79%
+    39.74%
+    47.69%
+    55.64%
+    63.59%
+    71.54%
+    79.48%
+    87.43%
+    95.38%
+    100.00%
+    
+
+
+
+
+    ('E:\\图片\\美女.jpg', <http.client.HTTPMessage at 0x18b73720400>)
+
+
+
+# URL解析
+## urlparse
+`urllib.parse.urlparse(url, scheme='', allow_fragments=True)`
+     
+就是可以对你传入的url地址进行拆分,同时我们是可以指定协议类型：      
+`result = urlparse("www.baidu.com/index.html;user?id=5#comment",scheme="https")`     
+这样拆分的时候协议类型部分就会是你指定的部分，当然如果你的url里面已经带了协议，你再通过`scheme`指定的协议就不会生效
+
+
+```python
+from urllib.parse import urlparse
+
+result = urlparse("http://www.baidu.com/index.html;user?id=5#comment")
+print(result)
+```
+
+    ParseResult(scheme='http', netloc='www.baidu.com', path='/index.html', params='user', query='id=5', fragment='comment')
+    
+
+## urlunpars
+其实功能和urlparse的功能相反，它是用于拼接，例子如下：
+
+
+```python
+from urllib.parse import urlunparse
+
+data = ['http','www.baidu.com','index.html','user','a=123','commit']
+print(urlunparse(data))
+```
+
+    http://www.baidu.com/index.html;user?a=123#commit
+    
+
+## urljoin
+这个的功能其实是做拼接的(从拼接的结果我们可以看出，拼接的时候后面的优先级高于前面的url)，例子如下：
+
+
+```python
+from urllib.parse import urljoin
+
+print(urljoin('http://www.baidu.com', 'FAQ.html'))
+print(urljoin('http://www.baidu.com', 'https://pythonsite.com/FAQ.html'))
+print(urljoin('http://www.baidu.com/about.html', 'https://pythonsite.com/FAQ.html'))
+print(urljoin('http://www.baidu.com/about.html', 'https://pythonsite.com/FAQ.html?question=2'))
+print(urljoin('http://www.baidu.com?wd=abc', 'https://pythonsite.com/index.php'))
+print(urljoin('http://www.baidu.com', '?category=2#comment'))
+print(urljoin('www.baidu.com', '?category=2#comment'))
+print(urljoin('www.baidu.com#comment', '?category=2'))
+```
+
+    http://www.baidu.com/FAQ.html
+    https://pythonsite.com/FAQ.html
+    https://pythonsite.com/FAQ.html
+    https://pythonsite.com/FAQ.html?question=2
+    https://pythonsite.com/index.php
+    http://www.baidu.com?category=2#comment
+    www.baidu.com?category=2#comment
+    www.baidu.com?category=2
+    
+
+## urlencode
+这个方法可以将字典转换为url参数，例子如下
+
+
+```python
+from urllib.parse import urlencode
+
+params = {
+    "name":"zhaofan",
+    "age":23,
+}
+base_url = "http://www.baidu.com?"
+
+url = base_url+urlencode(params)
+print(url)
+```
+
+    http://www.baidu.com?name=zhaofan&age=23
+    
+
+# 一个简单的爬虫例子
+
+
+```python
+import string,urllib
+import re,os
+```
+
+
+```python
+import string,urllib
+import re,os
+
+seed = 'https://zhuanlan.zhihu.com/p/25063314'    # 最开始的种子
+depth = 3       # 最多递归depth层，避免递归栈过深
+count = 5          # 每个网页只抓取count个URL作为新的seed
+href_re = re.compile(r'href\s*=\s*"(https?://\S*)"')     # 通过正则匹配网页源码中的URL
+http_re = re.compile(r'\w+')         # 通过正则匹配URL中的文字部分
+pages = set()                   # 已经爬过的URL
+
+save_dir = '.'             # 保存路径
+def get_path(url):
+    '''
+    通过url获取保存文件路径，使用'_'拼接url中的文字部分
+    为避免文件名过长，只取拼接后字符串的前30个字符
+    '''
+    name = '_'.join(http_re.findall(url))[:30]
+    return os.path.join(save_dir,'%s.txt'%name)
+
+def fetch(que = [seed,],dep = 0):
+    '''
+    深度优先搜索爬取que列表中的url,并选取网页内容中的count个url作为新的seed
+    fetch函数最多递归depth层
+    '''
+    nxt_que = []                  # 下一层递归所用到的seed列表
+    for url in que:
+        print('depth: %d     fetching %s ...'%(dep,url))
+        html = urllib.request.urlopen(url).read()
+        html = str(html)
+        with open(get_path(url),'w+') as f:
+            f.write(html)         # 保存网页内容
+        
+        cnt = 0   # 新的seed的计数
+        for new_url in href_re.findall(html):
+            if new_url in pages: continue     # 若已经爬过，则跳过
+            pages.add(new_url)
+            cnt += 1
+            nxt_que.append(new_url)     # 将新的seed放入nxt_que中
+            if cnt >= count:            # 最多选count个
+                break
+                
+    if dep < depth:
+        fetch(nxt_que,dep + 1)
+        
+
+if __name__ == '__main__':
+    fetch()
+```

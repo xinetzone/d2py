@@ -1,0 +1,77 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 系统相关\n",
+    "\n",
+    "{data}`sys.executable`\n",
+    ":   一个字符串，提供 Python 解释器的可执行二进制文件的绝对路径，仅在部分系统中此值有意义。如果 Python 无法获取其可执行文件的真实路径，则 `sys.executable` 将为空字符串或 `None`。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python 3.9.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "import sys\n",
+    "# IPython 环境\n",
+    "!{sys.executable} --version"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "pip 21.3.1 from C:\\Users\\xinet\\.conda\\envs\\hs\\lib\\site-packages\\pip (python 3.9)\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 查看 pip 版本\n",
+    "!{sys.executable} -m pip --version"
+   ]
+  }
+ ],
+ "metadata": {
+  "interpreter": {
+   "hash": "5bd0e00e2a19143fe511974294bb108c565eeab444c74caa312a526033b1280c"
+  },
+  "kernelspec": {
+   "display_name": "Python 3.9.5 64-bit ('jupyter-book': conda)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.7"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

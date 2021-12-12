@@ -1,0 +1,1443 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>解读 Python 世界的修炼体系 &#8212; d2py 0.1 文档</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/d2py");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/basic/intro/understand-python.html" />
+    <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="Python 基本数据类型" href="basic-type.html" />
+    <link rel="prev" title="Python 简介" href="index.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">d2py 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../index.html">
+   Python 学习手册
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../index.html">
+     Python 基础教程
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="index.html">
+       Python 简介
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         解读 Python 世界的修炼体系
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="basic-type.html">
+         Python 基本数据类型
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../function.html">
+       函数
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../container/index.html">
+       容器
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../container/sequence.html">
+         序列
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../container/dict.html">
+         字典
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../container/set.html">
+         集合
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../controlflow.html">
+       常用语句
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../topics/index.html">
+     Python 主题手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../topics/f-string.html">
+       格式字符串字面值
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../topics/sys.html">
+       系统相关
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../faqs/index.html">
+     常见问题
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../refs/index.html">
+     Python 参考手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../refs/constants.html">
+       内置常量
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../refs/terms.html">
+       术语中英对照表
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../refs/glossary/index.html">
+       术语表
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../refs/glossary/basic.html">
+         基本术语
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../refs/glossary/exec.html">
+         异常
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../refs/glossary/identifier.html">
+         标识符
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../refs/glossary/value.html">
+         字面值
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../refs/sources.html">
+       Python 学习资源
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../posts/index.html">
+   博客
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../about/feature.html">
+     特性
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../about/use.html">
+     项目使用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CODE_OF_CONDUCT.html">
+     行为准则
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CONTRIBUTING.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../SECURITY.html">
+     安全策略
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../news/index.html">
+   Python 新闻
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../drafts/index.html">
+   草稿
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/101.html">
+     一、5 个值得在 2018 年关注的库
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/11.html">
+     比较、相等和真值
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/22.html">
+     存储数据
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/33.html">
+     类也是对象
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/44.html">
+     描述器是什么？
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/55.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/66.html">
+     类型和运算 (Types and Operations)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/88.html">
+     函数基础
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/class.html">
+     class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/draft.html">
+     回收站
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/exc.html">
+     异常（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/file.html">
+     I/O操作（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/iter.html">
+     迭代&amp;生成（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/math.html">
+     Python 中的数学（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/oop.html">
+     OOP: The Big Picture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/op.html">
+     运算符（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/re.html">
+     re
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/socket.html">
+     网络
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/str.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/type.html">
+     Python 数据类型转换（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../drafts/%E7%88%AC%E8%99%AB.html">
+     爬虫
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../notebook.html">
+   Jupyter Notebook
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/python-study/basic/intro/understand-python.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/intro/understand-python.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/intro/understand-python.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   通用法则
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     逻辑
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     对象
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   模块与包
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   形符化
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     字面值
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       数字
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       字符串与字节串
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     运算符
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     分隔符
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     标识符
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     行结构
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       显式拼接行
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       隐式拼接行
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       注释
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       空白行
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     缩进
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     形符间的空白字符
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id19">
+   名称绑定与对象引用
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id20">
+   表达式
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     算术转换
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id22">
+     原子
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id23">
+     原型
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id24">
+     其他表达式
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id25">
+   作用域
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id26">
+   顶级组件
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id27">
+     完整的 Python 程序
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id28">
+     文件输入
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id29">
+     交互式输入
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id30">
+     表达式输入
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id31">
+   简单语句
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id32">
+   复合语句
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id33">
+   名称的解析
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="python">
+<h1>解读 Python 世界的修炼体系<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<p>参考：<a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html">Python 词法分析</a> &amp; <a class="reference external" href="https://daobook.github.io/cpython/reference/datamodel.html">数据模型</a></p>
+<p><span class="guilabel">视频</span></p>
+<iframe id="Python"
+    title="Python 基本数据类型与变量"
+    width="100%"
+    height="600"
+    src="https://developer.hs.net/thread/1726?nav=course">
+</iframe>
+<p>假设你是万能的造物主，可以使用你的能力创造一个世界！</p>
+<p>你所在的世界为零级世界（最高级别的世界），你借助电脑（一级世界）创造了 Python（二级世界）。</p>
+<div class="admonition- admonition">
+<p class="admonition-title">约定一些名称</p>
+<dl class="simple myst">
+<dt>造物主</dt><dd><p>一个用于启动和维系 Python 世界的正常运转的造物主。</p>
+</dd>
+<dt>Python 解释器</dt><dd><p>该工具用于翻译 Python 世界的语言，解释给电脑世界。实现电脑世界与 Python 世界的沟通。</p>
+</dd>
+<dt>Python 环境</dt><dd><p>Python 世界下辖的 Python 小世界（三级及其以下的世界）。</p>
+<p>具体的创建环境的方法见：<a class="reference internal" href="../../../posts/basic/python-use.html"><span class="doc std std-doc">如何构造 Python 环境</span></a>。</p>
+</dd>
+<dt>编辑器</dt><dd><p>用于编写管理 Python 世界的代码工具（一系列指令）。</p>
+<p>该工具是你操纵电脑去管理 Python 世界的大门。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id1">
+<h2>通用法则<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>一个 Python 世界是一个真实的世界，它需要遵循一些固有的通用法则。</p>
+<div class="section" id="id2">
+<h3>逻辑<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>通用法则1：Python 世界是遵循逻辑的。</p>
+</div>
+<p>为了方便表示逻辑判断的结果，定义 <strong>逻辑值</strong>：</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">真</span></code></dt><dd><p>表示一个命题判定为对的、合乎逻辑的。</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">假</span></code></dt><dd><p>表示一个命题判定为不对的、不合乎逻辑的。</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">调试</span></code></dt><dd><p>常用于对命题做出假设，辅助于逻辑判断。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h3>对象<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>通用法则2：Python 中的一切皆是 <a class="reference external" href="https://daobook.github.io/sphinx/glossary.html#term-object" title="(在 Sphinx v4.4.0+)"><span class="xref std std-term">对象</span></a>。</p>
+</div>
+<p>一个对象总是存在：<strong>质</strong>、<strong>量</strong> 与 <strong>度</strong>。</p>
+<div class="margin sidebar">
+<p class="sidebar-title">唯物辩证法第二规律</p>
+<dl class="simple myst">
+<dt>量</dt><dd><p>事物的规模、程度、速度等可以用数量关系表示的规定性。</p>
+</dd>
+<dt>质</dt><dd><p>事物成为自身并区别于其他事物的内在规定性。</p>
+</dd>
+<dt>度</dt><dd><p>保持事物质的稳定性的数量界限，即事物的限度、幅度和范围。</p>
+</dd>
+</dl>
+</div>
+<p>每次创建一个新的对象都要从零开始，效率太低了。考虑先构建一个“模具”。具有以下构造：</p>
+<ol class="simple">
+<li><p>一个唯一的 <strong>编号</strong>（可以简写为 ID，在 CPython 中表示对象在内存中的地址）：作为对象的身份象征，不可变</p></li>
+<li><p>一个特定的 <strong>类型</strong>：定义对象的行为和取值范围（即 <strong>度</strong>），也具有不变性</p></li>
+<li><p>一个确切的 <strong>值</strong>：定义了对象的 <strong>量</strong></p></li>
+</ol>
+<p><strong>编号</strong> 与 <strong>类型</strong> 共同描述了对象的 <strong>质</strong>。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>通用法则3：Python 中的任何一个对象，都存在唯一的 <strong>编号</strong>、特定的 <strong>类型</strong> 与 确切的 <strong>值</strong>。其中，<strong>编号</strong> 指代该对象自身，用于区别于其他对象。</p>
+</div>
+<p>换言之，Python 对象的编号便是其最本质的东西，可以用于区别于其他对象。</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">不可变对象</span></code></dt><dd><p>对象的最外层值不能改变。</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">可变对象</span></code></dt><dd><p>对象的最外层值可以改变。</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>模块与包<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">模块</span></code></dt><dd><p>你是通过操作电脑中的 <strong>文件</strong> 以操纵着 Python 世界。假设你使用编辑器在一个文件中写满了关于操作 Python 的指令，然后借由 Python 解释器将此文件的指令翻译给电脑，电脑便真正意义上运转着 Python 世界。由于此文件对 Python 世界有着这么重要的作用，所以 Python 对其专门定制了一个名称叫做 <strong>模块</strong>，且该文件还有一个特殊的文件后缀 <code class="docutils literal notranslate"><span class="pre">.py</span></code>。</p>
+</dd>
+</dl>
+<p>如若 Python 世界很简单，仅仅一个模块文件管理，还是不错的。但是，要是 Python 世界很复杂，你可能需要在一个文件中写上几十万，乃至几百万的代码。对于电脑来说这没有什么大问题，可是苦了你自己。</p>
+<p>为了减轻你管理 Python 模块的工作量，你把一个模块分成了多个文件，并放置在一个文件夹中，并且引入了 <strong>导入系统</strong> （<a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-importing" title="(在 Python v3.11)"><span class="xref std std-term">importing</span></a>） 在此文件夹中协助管理这些文件。此文件夹叫做 <strong>常规包</strong>。包是可以嵌套的，即包存在子包。</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">常规包</span></code></dt><dd><p>通常以一个包含 <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> 文件的目录形式实现。</p>
+<p>例如，以下文件系统布局定义了一个最高层级的 <code class="docutils literal notranslate"><span class="pre">parent</span></code> 包和三个子包：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>parent/
+    __init__.py
+    one/
+        __init__.py
+    two/
+        __init__.py
+    three/
+        __init__.py
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>有了常规包这个模型，你管理 Python 世界轻松多了。</p>
+<p>很不幸！常规包模型想要跨目录导入将会变得很困难。<span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0420"><strong>PEP 420</strong></a> 提出 <strong>命名空间包</strong> 的概念，有效地解决此问题。</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">命名空间包</span></code></dt><dd><p>命名空间包是由多个 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-portion" title="(在 Python v3.11)"><span class="xref std std-term">portion</span></a> 构成的，每个 portion 为父包增加一个子包。各个 portion 可能处于文件系统的不同位置。portion 也可能处于 zip 文件中、网络上，或者 Python 在导入期间可以搜索的其他地方。命名空间包并不一定会直接对应到文件系统中的对象；它们有可能是无实体表示的虚拟模块。</p>
+<p>命名空间包没有 <code class="docutils literal notranslate"><span class="pre">parent/__init__.py</span></code> 文件。实际上，在导入搜索期间可能找到多个 <code class="docutils literal notranslate"><span class="pre">parent</span></code> 目录，每个都由不同的 portion 所提供。因此 <code class="docutils literal notranslate"><span class="pre">parent/one</span></code> 的物理位置不一定与 <code class="docutils literal notranslate"><span class="pre">parent/two</span></code> 相邻。 在这种情况下，Python 将为顶级的 <code class="docutils literal notranslate"><span class="pre">parent</span></code> 包创建一个命名空间包，无论是它本身还是它的某个子包被导入。</p>
+<p>另请参阅 <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0420"><strong>PEP 420</strong></a> 了解对命名空间包的规格描述。</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">常规包</span></code> 与 <code class="docutils literal notranslate"><span class="pre">命名空间包</span></code> 合称为 <code class="docutils literal notranslate"><span class="pre">包</span></code>，从语义范畴来看，Python 的包是特殊的模块。</p>
+</div>
+<div class="section" id="id5">
+<h2>形符化<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>如果人们想要让电脑（这里的电脑指的是广义的，比如打印机也可以看作是微型电脑）进行某些活动，那么，需要给它提供一条条的命令（或者称为 <strong>指令</strong>）来引导其运转。这些指令一般被称为 <strong>程序</strong>。</p>
+<p>我们是通过彼此可以听得懂的语言还向他人转达信息的，同样，如果我们想要给电脑传达一些信息，那么，“编程语言”便是我们和电脑沟通的桥梁。</p>
+<p><strong>编程</strong> 就是我们为了完成某项任务，将解决问题的步骤，用计算机能够理解的语言（编程语言）写成指令，计算机会根据这些指令完成我们的任务。</p>
+<p>Python 的世界不懂我们的语言，需要专门为其创造一些形符（token）用于转译我们的语言。换言之，需要为 Python 世界创造一种通用语言，这个过程便是形符化（详细见：<a class="reference external" href="https://daobook.github.io/cpython/library/tokenize.html#module-tokenize" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tokenize</span></code></a>）。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<ul class="simple">
+<li><p>Python 的常用形符有：字面值、标识符、运算符 、分隔符、换行（<code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code>）、缩进（<code class="docutils literal notranslate"><span class="pre">INDENT</span></code> 与 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code>）、<code class="docutils literal notranslate"><span class="pre">#</span></code>（用于注释） 等。</p></li>
+<li><p><strong>标识符</strong> 就是 Python 用来识别对象的标识名称或者代号；</p></li>
+<li><p><strong>字面值</strong> 用来记录对象的数量、语言等；</p></li>
+<li><p><strong>类型</strong> 是对象所存在的空间，决定着对象的行为以及可能的取值。</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>字面值<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#literals" title="(在 Python v3.11)"><span class="xref myst">字面值</span></a> 是 Python 内置类型常量值的表示法。<a class="reference internal" href="../../refs/glossary/value.html#term-2"><span class="xref std std-term">字面值</span></a> 包含：字符串、字节串、数字。</p>
+<p>字面值是构成 Python 世界的基础之一，其中数字提供了计数体系，而字符串与字节串提供了文字体系。</p>
+<div class="section" id="id7">
+<h4>数字<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>数字字面值有三种类型：整数、浮点数、虚数。</p>
+<p>可以使用用下划线分组数字。</p>
+<dl class="simple myst">
+<dt>整数字面值</dt><dd><p>可以理解为数学中的非负整数。表示方法包含：十进制、二进制、八进制、十六进制。如以下内容均是合法的：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span>     <span class="mi">2147483647</span>                        <span class="mo">0o177</span>    <span class="mb">0b100110111</span>
+<span class="mi">3</span>     <span class="mi">79228162514264337593543950336</span>     <span class="mo">0o377</span>    <span class="mh">0xdeadbeef</span>
+    <span class="mi">100_000_000_000</span>                   <span class="mb">0b_1110_0101</span>
+</pre></div>
+</div>
+</dd>
+<dt>浮点数字面值</dt><dd><p>可以理解为数学中的非负实数的近似值，可以是：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">3.14</span>    <span class="mf">10.</span>    <span class="mf">.001</span>    <span class="mf">1e100</span>    <span class="mf">3.14e-10</span>    <span class="mf">0e0</span>    <span class="mf">3.14_15_93</span>
+</pre></div>
+</div>
+</dd>
+<dt>虚数字面值</dt><dd><p>可以理解为数学中的非负虚数的近似值。</p>
+<p>示例如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">3.14</span><span class="n">j</span>   <span class="mf">10.</span><span class="n">j</span>    <span class="mi">10</span><span class="n">j</span>     <span class="mf">.001</span><span class="n">j</span>   <span class="mf">1e100j</span>   <span class="mf">3.14e-10</span><span class="n">j</span>   <span class="mf">3.14_15_93</span><span class="n">j</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>没有复数字面值，但是可以表示：<code class="docutils literal notranslate"><span class="pre">复数字面值=浮点数字面值（或者整数字面值）+</span> <span class="pre">虚数字面值</span></code>，比如：<code class="docutils literal notranslate"><span class="pre">3.5+4j</span></code>。</p>
+</div>
+<div class="section" id="id8">
+<h4>字符串与字节串<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>详细内容见：<a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#grammar-token-python-grammar-stringprefix" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">stringprefix</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#grammar-token-python-grammar-bytesprefix" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">bytesprefix</span></code></a>。</p>
+<p>字符串与字节串即造物对象所说的“语言”，比如 <code class="docutils literal notranslate"><span class="pre">&quot;你好&quot;</span></code>、b<code class="docutils literal notranslate"><span class="pre">'搞事情！'</span></code>。</p>
+<p>Python 中的对象需要通过语言与文字交流，可以这样比喻：</p>
+<dl class="simple myst">
+<dt>字符串</dt><dd><p>对象间口头表达的话语、肢体语言等。</p>
+<p>使用引号（包含单引号（<code class="docutils literal notranslate"><span class="pre">'...'</span></code>）、双引号（<code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>）、三引号（<code class="docutils literal notranslate"><span class="pre">'''...'''</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code>）直接包裹的东西，比如：<code class="docutils literal notranslate"><span class="pre">&quot;你好&quot;</span></code>。</p>
+</dd>
+<dt>字节串</dt><dd><p>对象间交流的书面语言，如人类的文字等。</p>
+<p>字节串的表示方法，只需要在字符串的基础上添加前缀 <code class="docutils literal notranslate"><span class="pre">b</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">B</span></code> 即可。</p>
+</dd>
+</dl>
+<p>还有一些不可打印的语义，需要借助符号 <code class="docutils literal notranslate"><span class="pre">\</span></code> 进行转义。如果，需要保留被转义的字符，则需要在字符串或者字节串上添加前缀 <code class="docutils literal notranslate"><span class="pre">r</span></code> 或 <code class="docutils literal notranslate"><span class="pre">R</span></code>。</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>格式字符串可包含替换字段，即以 <code class="docutils literal notranslate"><span class="pre">{}</span></code> 标注的表达式。其他字符串字面值只是常量，格式字符串字面值则是可在运行时求值的表达式。</p>
+</div>
+<p>还有一种特殊的字符串叫 <strong>格式字符串</strong>，即在字符串前添加 <code class="docutils literal notranslate"><span class="pre">f</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">F</span></code> 前缀。</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>运算符<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>有了记录对象的“语言”系统，当然，还要有施加于对象的作用或者对象之间行为或者作用的符号，即运算符。</p>
+<p>运算符如下所示：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">+</span>       <span class="o">-</span>       <span class="o">*</span>       <span class="o">**</span>      <span class="o">/</span>       <span class="o">//</span>      <span class="o">%</span>      <span class="o">@</span>
+<span class="o">&lt;&lt;</span>      <span class="o">&gt;&gt;</span>      <span class="o">&amp;</span>       <span class="o">|</span>       <span class="o">^</span>       <span class="o">~</span>       <span class="o">:=</span>
+<span class="o">&lt;</span>       <span class="o">&gt;</span>       <span class="o">&lt;=</span>      <span class="o">&gt;=</span>      <span class="o">==</span>      <span class="o">!=</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>分隔符<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>还需要分隔符：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>       <span class="p">)</span>       <span class="p">[</span>       <span class="p">]</span>       <span class="p">{</span>       <span class="p">}</span>
+<span class="p">,</span>       <span class="p">:</span>       <span class="o">.</span>       <span class="p">;</span>       <span class="o">@</span>       <span class="o">=</span>       <span class="o">-&gt;</span>
+<span class="o">+=</span>      <span class="o">-=</span>      <span class="o">*=</span>      <span class="o">/=</span>      <span class="o">//=</span>     <span class="o">%=</span>      <span class="o">@=</span>
+<span class="o">&amp;=</span>      <span class="o">|=</span>      <span class="o">^=</span>      <span class="o">&gt;&gt;=</span>     <span class="o">&lt;&lt;=</span>     <span class="o">**=</span>
+</pre></div>
+</div>
+<p>句点也可以用于浮点数和虚数字面值。三个连续句点表示省略符。清单后半部分是增强赋值操作符，用作词法分隔符，但也可以执行运算。</p>
+<p>以下 ASCII 字符具有特殊含义，对 Python 有重要意义：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;       &quot;       #       </span><span class="se">\</span>
+</pre></div>
+</div>
+<p>以下 ASCII 字符不用于 Python。在字符串字面值或注释外使用时，将直接报错：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$       ?       `
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>标识符<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>对象需要一个 <strong>名称</strong>（也称为 <strong>标识符</strong>），用于代表其身份，可以在对象之间使用，而不会被轻易遗忘。详细命名规则见 <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3131"><strong>PEP 3131</strong></a>。</p>
+<p>简单的说，标识符是由字母（包括汉字、英文字母等特定的 Unicode 符号）、数字与下划线组合而成的。但是，数字不能作为标识符的开头字段（也许是因为数字本来就是 Python 的特定符号，即字面值）。</p>
+<p>有一类特殊的标识符，被称为 <strong>保留字</strong>，或称 <strong>关键字</strong>。此类标识符不可用于普通标识符：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span>      <span class="k">await</span>      <span class="k">else</span>       <span class="kn">import</span>     <span class="nn">pass</span>
+<span class="kc">None</span>       <span class="k">break</span>      <span class="k">except</span>     <span class="ow">in</span>         <span class="k">raise</span>
+<span class="kc">True</span>       <span class="k">class</span>      <span class="nc">finally</span>    <span class="ow">is</span>         <span class="k">return</span>
+<span class="ow">and</span>        <span class="k">continue</span>   <span class="k">for</span>        <span class="k">lambda</span>     <span class="k">try</span>
+<span class="k">as</span>         <span class="k">def</span>        <span class="nf">from</span>       <span class="k">nonlocal</span>   <span class="k">while</span>
+<span class="k">assert</span>     <span class="k">del</span>        <span class="k">global</span>     <span class="ow">not</span>        <span class="k">with</span>
+<span class="k">async</span>      <span class="k">elif</span>       <span class="k">if</span>         <span class="ow">or</span>         <span class="k">yield</span>
+</pre></div>
+</div>
+<p>还有其他特殊标识符，如 <a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#soft-keywords" title="(在 Python v3.11)"><span class="xref myst">软关键字</span></a> 和 <a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#reserved-classes-of-identifiers">保留的标识符类</a>。</p>
+</div>
+<div class="section" id="id12">
+<h3>行结构<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>使用编辑器打开一个模块文件，可以看到模块被组织成行结构。你当下看到的行，被称为 <strong>物理行</strong>。</p>
+<p>由于你管理的 Python 世界是符合逻辑的，故而模块按照逻辑单元组织起来的。换言之，一个 Python 模块可以拆分为多个 <strong>逻辑行</strong>。</p>
+<p>物理行不香吗？为什么添加了一个新的术语？</p>
+<p>那是因为，一个逻辑行可能由多个连续的物理行组成。确切地说，<strong>逻辑行</strong> 是由形符 <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 结束的。</p>
+<div class="section" id="id13">
+<h4>显式拼接行<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>两个及两个以上的物理行可用反斜杠（<code class="docutils literal notranslate"><span class="pre">\</span></code>）拼接为一个逻辑行，规则如下：以不在字符串或注释内的反斜杠结尾时，物理行将与下一行拼接成一个逻辑行，并删除反斜杠及其后的换行符。例如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">1900</span> <span class="o">&lt;</span> <span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2100</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">month</span> <span class="o">&lt;=</span> <span class="mi">12</span> \
+   <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">day</span> <span class="o">&lt;=</span> <span class="mi">31</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">24</span> \
+   <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">minute</span> <span class="o">&lt;</span> <span class="mi">60</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">second</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>   <span class="c1"># Looks like a valid date</span>
+        <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>这里使用了关键字、数字、运算符、分隔符以及 <code class="docutils literal notranslate"><span class="pre">#</span></code>，它们的具体含义，暂且不表。</p>
+</div>
+<p>以反斜杠结尾的行，不能加注释；反斜杠也不能拼接注释。除字符串字面值外，反斜杠不能拼接形符（如，除字符串字面值外，不能用反斜杠把形符切分至两个物理行）。反斜杠只能在代码的字符串字面值里，在其他任何位置都是非法的。</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>尽量少用 <strong>显式拼接行</strong>。因为显式拼接行并不可爱，很容易出错或者说不 Pythonic。</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h4>隐式拼接行<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>圆括号、方括号、花括号内的表达式可以分成多个物理行，不必使用反斜杠。例如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">month_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Januari&#39;</span><span class="p">,</span> <span class="s1">&#39;Februari&#39;</span><span class="p">,</span> <span class="s1">&#39;Maart&#39;</span><span class="p">,</span>      <span class="c1"># These are the</span>
+               <span class="s1">&#39;April&#39;</span><span class="p">,</span>   <span class="s1">&#39;Mei&#39;</span><span class="p">,</span>      <span class="s1">&#39;Juni&#39;</span><span class="p">,</span>       <span class="c1"># Dutch names</span>
+               <span class="s1">&#39;Juli&#39;</span><span class="p">,</span>    <span class="s1">&#39;Augustus&#39;</span><span class="p">,</span> <span class="s1">&#39;September&#39;</span><span class="p">,</span>  <span class="c1"># for the months</span>
+               <span class="s1">&#39;Oktober&#39;</span><span class="p">,</span> <span class="s1">&#39;November&#39;</span><span class="p">,</span> <span class="s1">&#39;December&#39;</span><span class="p">]</span>   <span class="c1"># of the year</span>
+</pre></div>
+</div>
+<p>隐式行拼接可含注释；后续行的缩进并不重要；还支持空的后续行。隐式拼接行之间没有 <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 形符。三引号字符串支持隐式拼接行，但不支持注释。</p>
+</div>
+<div class="section" id="id15">
+<h4>注释<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>注释以井号 （<code class="docutils literal notranslate"><span class="pre">#</span></code>） 开头，在物理行末尾截止。注意，井号不是字符串字面值。除非应用隐式行拼接规则，否则，注释代表逻辑行结束。解释器不解析注释。</p>
+</div>
+<div class="section" id="id16">
+<h4>空白行<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>只包含空格符、制表符、换页符、注释的逻辑行会被忽略（即不生成 <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 形符）。</p>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>缩进<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>逻辑行的开头空白符（空格符和制表符）用于计算该行的 <strong>缩进层级</strong>。</p>
+<p>制表符（从左至右）被替换为一至八个空格，缩进空格的总数是八的倍数（与 Unix 的规则保持一致）。首个非空字符前的空格数决定了该行的缩进层次。缩进不能用反斜杠进行多行拼接；首个反斜杠所在物理行开头的空白符决定了缩进的层次。</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>行首含换页符时，缩进计算将忽略该换页符。换页符在行首空白符内其他位置的效果未定义（例如，可能导致空格计数重置为零）。</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>混用制表符和空格符缩进，可能造成逻辑混乱！</p>
+</div>
+<p>下面的 Python 代码缩进示例虽然正确，但含混不清：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">perm</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+        <span class="c1"># 计算 l 的所有排列组合的列表</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                  <span class="k">return</span> <span class="p">[</span><span class="n">l</span><span class="p">]</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
+             <span class="n">s</span> <span class="o">=</span> <span class="n">l</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+             <span class="n">p</span> <span class="o">=</span> <span class="n">perm</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+             <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
+              <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+</pre></div>
+</div>
+<p>下例展示了多种缩进错误：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="k">def</span> <span class="nf">perm</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>                       <span class="c1"># 错误：首行缩进</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>             <span class="c1"># 错误：没有缩进</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">l</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">perm</span><span class="p">(</span><span class="n">l</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:])</span>   <span class="c1"># 错误：意外的缩进</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">r</span>                <span class="c1"># 错误：不一致的缩进</span>
+</pre></div>
+</div>
+<p>（实际上，解释器可以识别前三个错误；只有最后一个错误由词法分析器识别 — <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">r</span></code> 的缩进无法匹配从栈里移除的缩进层级。）</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>连续行的缩进层级以堆栈形式生成 <code class="docutils literal notranslate"><span class="pre">INDENT</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 形符，说明如下：</p>
+<p>读取文件第一行前，先向栈推入一个零值，该零值不会被移除。推入栈的层级值从底至顶持续增加。每个逻辑行开头的行缩进层级将与栈顶行比较。如果相等，则不做处理。如果新行层级较高，则会被推入栈顶，并生成一个 <code class="docutils literal notranslate"><span class="pre">INDENT</span></code> 形符。如果新行层级较低，则应当是栈中的层级数值之一；栈中高于该层级的所有数值都将被移除，每移除一级数值生成一个 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 形符。文件末尾，栈中剩余的每个大于零的数值生成一个 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 形符。</p>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>形符间的空白字符<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+<p>除非在逻辑行开头或字符串内，空格符、制表符、换页符等空白符都可以分隔形符。要把两个相连形符解读为不同形符，需要用空白符分隔（例如，<code class="docutils literal notranslate"><span class="pre">ab</span></code> 是一个形符，<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">b</span></code> 则是两个形符）。</p>
+</div>
+</div>
+<div class="section" id="id19">
+<h2>名称绑定与对象引用<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<p>参考：<a class="reference external" href="https://daobook.github.io/cpython/reference/executionmodel.html">cpython/reference/executionmodel.html</a></p>
+<p>Python 标识符可以细分为两类：常量与变量。</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">常量</span></code></dt><dd><p>标识符所引用的对象编号不可改变的量。</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">变量</span></code></dt><dd><p>标识符所引用的对象编号可能改变的量。</p>
+</dd>
+</dl>
+<p>标识符也可称之为 <strong>名称</strong>。</p>
+<p>对象之间相互独立，多个名称可能 <strong>绑定</strong> 到同一个对象。其他编程语言称之为 <strong>别名</strong>。</p>
+<p>一个名称可能 <strong>引用</strong> 多个对象。</p>
+</div>
+<div class="section" id="id20">
+<h2>表达式<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<p>下面可以利用形符、分隔符、运算符组合生成有意义的可以 <strong>求值</strong> 的语义单元：表达式。</p>
+<dl class="simple myst">
+<dt>参数</dt><dd><p>表达式的参考数据。</p>
+</dd>
+</dl>
+<div class="section" id="id21">
+<h3>算术转换<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
+<p>算术运算符支持算术转换：数域等级就高原则。</p>
+<ul class="simple">
+<li><p>如果任一参数为复数，另一参数会被转换为复数；</p></li>
+<li><p>否则，如果任一参数为浮点数，另一参数会被转换为浮点数；</p></li>
+<li><p>否则，两者应该都为整数，不需要进行转换。</p></li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h3>原子<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<p>“原子”指表达式的最基本构成元素。最简单的原子是标识符和字面值。以圆括号、方括号或花括号包括的形式在语法上也被归类为原子。原子的句法为：</p>
+<pre>
+<strong id="grammar-token-python-grammar-atom"><span id="grammar-token-atom"></span>atom     </strong> ::=  <a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#grammar-token-python-grammar-identifier" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">identifier</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-literal" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">literal</span></code></a> | <a class="reference internal" href="#grammar-token-python-grammar-enclosure"><code class="xref docutils literal notranslate"><span class="pre">enclosure</span></code></a>
+<strong id="grammar-token-python-grammar-enclosure"><span id="grammar-token-enclosure"></span>enclosure</strong> ::=  <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-parenth_form" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">parenth_form</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-list_display" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">list_display</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-dict_display" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">dict_display</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-set_display" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">set_display</span></code></a>
+               | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-generator_expression" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">generator_expression</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-yield_atom" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">yield_atom</span></code></a>
+</pre>
+</div>
+<div class="section" id="id23">
+<h3>原型<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+<p>对于单个对象，可能存在以下特定的行为：属性引用、抽取、切片、调用。此类行为被称为 <strong>原型</strong>。句法：</p>
+<pre>
+<strong id="grammar-token-python-grammar-primary"><span id="grammar-token-primary"></span>primary</strong> ::=  <a class="reference internal" href="#grammar-token-python-grammar-atom"><code class="xref docutils literal notranslate"><span class="pre">atom</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-attributeref" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">attributeref</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-subscription" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">subscription</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-slicing" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">slicing</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-call" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">call</span></code></a>
+</pre>
+<p>为了更好的阐明概念，假定创建了一个对象，该对象是一个名称为 <code class="docutils literal notranslate"><span class="pre">马仙洪</span></code> 的人。</p>
+<dl class="simple myst">
+<dt>属性引用</dt><dd><p>用来描述对象的性质。</p>
+<p>表示方法是：对象后面带有一个句点（<code class="docutils literal notranslate"><span class="pre">.</span></code>）加一个名称的原型，即 <code class="docutils literal notranslate"><span class="pre">对象.名称</span></code>。</p>
+<p>比如，想要获取 <code class="docutils literal notranslate"><span class="pre">马仙洪</span></code> 的身高，可以使用属性引用：<code class="docutils literal notranslate"><span class="pre">马仙洪.身高</span></code>。</p>
+</dd>
+<dt>抽取</dt><dd><p>用来获取对象的一部分。</p>
+<p>表示方法是：对象后面带有一个方括号（<code class="docutils literal notranslate"><span class="pre">[...]</span></code>）抽取器的原型，即 <code class="docutils literal notranslate"><span class="pre">对象[抽取的内容]</span></code>。</p>
+<p>比如，想要对 <code class="docutils literal notranslate"><span class="pre">马仙洪</span></code> 二升血，可以：<code class="docutils literal notranslate"><span class="pre">马仙洪[二升血]</span></code>。</p>
+</dd>
+<dt>切片</dt><dd><p>用来获取对象的阶段性的东西。</p>
+<p>表示方法是 <code class="docutils literal notranslate"><span class="pre">[开始:结束:间隔]</span></code>。如果 <code class="docutils literal notranslate"><span class="pre">间隔</span></code> 为 <code class="docutils literal notranslate"><span class="pre">1</span></code>，则可以省略。</p>
+<p>比如，想要查看 <code class="docutils literal notranslate"><span class="pre">马仙洪</span></code> <span class="math notranslate nohighlight">\(2 \sim 18\)</span> 岁的每隔两年的记忆，可以：<code class="docutils literal notranslate"><span class="pre">马仙洪[两岁的记忆:十六岁的记忆:间隔2年]</span></code>。</p>
+</dd>
+<dt>调用</dt><dd><p>用于操纵对象的行为，或者对其进行改造。</p>
+<p>表示方法是 <code class="docutils literal notranslate"><span class="pre">运算(一系列可能为空的参数)</span></code>。</p>
+<p>比如，可以要求 <code class="docutils literal notranslate"><span class="pre">马仙洪</span></code> 去学习英语，可以使用 <code class="docutils literal notranslate"><span class="pre">学习(英语)</span></code> 这种表示方法。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id24">
+<h3>其他表达式<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h3>
+<p>其他表达式及其细节见：<a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html">cpython/reference/expressions.html</a>。</p>
+</div>
+</div>
+<div class="section" id="id25">
+<h2>作用域<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
+<p>详细内容见：<a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#line-structure">行结构</a>。</p>
+<p>Python 世界有一个“基准”平面控制了其环境的边界。为了方便管理 Python 世界，还需要将此“基准”平面划分为不同的区域，称之为 <strong>作用域</strong>。</p>
+<p>每个作用域在横向拓展时，受控于形符 <code class="docutils literal notranslate"><span class="pre">INDENT</span></code>（即缩进的开始）和 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> （即缩进的结束），而纵向拓展时受控于形符 <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 与 <code class="docutils literal notranslate"><span class="pre">#</span></code>。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 是逻辑行结束符。</p></li>
+<li><p><strong>注释</strong> （解释 Python 世界的语言给你看）以井号 （<code class="docutils literal notranslate"><span class="pre">#</span></code>） 开头，在物理行末尾截止。</p></li>
+<li><p>形符 <code class="docutils literal notranslate"><span class="pre">INDENT</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 控制 <strong>缩进</strong> 级别。</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<ul class="simple">
+<li><p>可以把 Python 世界自身视为基层作用域。</p></li>
+<li><p>可以把 Python 世界的环境视为顶级作用域。</p></li>
+<li><p>作用域是有等级之分的。</p></li>
+</ul>
+</div>
+<div class="admonition- admonition">
+<p class="admonition-title">关于作用域的等级</p>
+<p>假设某个 <strong>顶级作用域</strong> （也可以称之为 <strong>零级作用域</strong>） 中构建了一个人类世界。</p>
+<p>可以按照人类世界占据的不同区域将人类世界细化为不同的子区域，那便是国家，称之为 <strong>一级作用域</strong>。</p>
+<p>每个国家都有自己的一套管理机制，各自细化自己的领域，如划分为区或者省，称之为 <strong>二级作用域</strong>。</p>
+<p>每个区或者省也有自己的一套管理机制，各自细化自己的领域，如划分为县或者乡，称之为 <strong>三级作用域</strong>。</p>
+<p>每个县或者乡也有自己的一套管理机制，各自细化到个人的家庭，称之为 <strong>四级作用域</strong>。</p>
+<p>每个家庭也有自己的一套管理机制，各自细化到个人，称之为 <strong>五级作用域</strong>。</p>
+<p>…</p>
+</div>
+</div>
+<div class="section" id="id26">
+<h2>顶级组件<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
+<p>Python 解释器可以从多种源获得输入：作为标准输入或程序参数传入的脚本，以交互方式键入的语句，导入的模块源文件等等。</p>
+<div class="section" id="id27">
+<h3>完整的 Python 程序<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+<p>一个完整的 Python 程序会在最小初始化环境中被执行：所有内置和标准模块均为可用，但均处于未初始化状态，只有模块 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#module-sys" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a>（各种系统服务）、<a class="reference external" href="https://daobook.github.io/cpython/library/builtins.html#module-builtins" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> （内置 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-function" title="(在 Python v3.11)"><span class="xref std std-term">函数</span></a>、<a class="reference internal" href="../../refs/glossary/basic.html#term-3"><span class="xref std std-term">异常</span></a>以及 <a class="reference external" href="https://daobook.github.io/cpython/library/constants.html#None" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a>） 和 <a class="reference external" href="https://daobook.github.io/cpython/library/__main__.html#module-__main__" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a> 除外。最后一个模块用于为完整程序的执行提供局部和全局 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-namespace" title="(在 Python v3.11)"><span class="xref std std-term">命名空间</span></a>。</p>
+<p>适用于一个完整 Python 程序的语法即下节所描述的文件输入。</p>
+<p>解释器也可以通过交互模式被发起调用；在此情况下，它并不读取和执行一个完整程序，而是每次读取和执行一条语句（可能为复合语句）。此时的初始环境与一个完整程序的相同；每条语句会在 <a class="reference external" href="https://daobook.github.io/cpython/library/__main__.html#module-__main__" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a> 的命名空间中被执行。</p>
+<p>一个完整程序可通过三种形式被传递给解释器：使用 <a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-c" title="(在 Python v3.11)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-c</span></code></a> 字符串 命令行选项，使用一个文件作为第一个命令行参数，或者使用标准输入。如果文件或标准输入是一个 tty 设置，解释器会进入交互模式；否则的话，它会将文件当作一个完整程序来执行。</p>
+</div>
+<div class="section" id="id28">
+<h3>文件输入<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
+<p>所有从非交互式文件读取的输入都具有相同的形式：</p>
+<pre>
+<strong id="grammar-token-python-grammar-file_input"><span id="grammar-token-file-input"></span>file_input</strong> ::=  (NEWLINE | <a class="reference internal" href="#grammar-token-python-grammar-statement"><code class="xref docutils literal notranslate"><span class="pre">statement</span></code></a>)*
+</pre>
+<p>此语法用于下列几种情况:</p>
+<ul class="simple">
+<li><p>解析一个完整 Python 程序时（从文件或字符串）；</p></li>
+<li><p>解析一个模块时；</p></li>
+<li><p>解析一个传递给 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#exec" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 的字符串时；</p></li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h3>交互式输入<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h3>
+<p>交互模式下的输入使用以下语法进行解析：</p>
+<pre>
+<strong id="grammar-token-python-grammar-interactive_input"><span id="grammar-token-interactive-input"></span>interactive_input</strong> ::=  [<a class="reference internal" href="#grammar-token-python-grammar-stmt_list"><code class="xref docutils literal notranslate"><span class="pre">stmt_list</span></code></a>] NEWLINE | <a class="reference internal" href="#grammar-token-python-grammar-compound_stmt"><code class="xref docutils literal notranslate"><span class="pre">compound_stmt</span></code></a> NEWLINE
+</pre>
+<p>请注意在交互模式下一条（最高层级）复合语句必须带有一个空行；这对于帮助解析器确定输入的结束是必须的。</p>
+</div>
+<div class="section" id="id30">
+<h3>表达式输入<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#eval" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 被用于表达式输入。它会忽略开头的空白。传递给 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#eval" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 的字符串参数必须具有以下形式：</p>
+<pre>
+<strong id="grammar-token-python-grammar-eval_input"><span id="grammar-token-eval-input"></span>eval_input</strong> ::=  <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-expression_list" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">expression_list</span></code></a> NEWLINE*
+</pre>
+</div>
+</div>
+<div class="section" id="id31">
+<h2>简单语句<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h2>
+<p>简单语句由一个单独的逻辑行构成。多条简单语句可以存在于同一行内并以分号分隔。简单语句的句法为：</p>
+<pre>
+<strong id="grammar-token-python-grammar-simple_stmt"><span id="grammar-token-simple-stmt"></span>simple_stmt</strong> ::=  <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-expression_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">expression_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-assert_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">assert_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-assignment_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">assignment_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-augmented_assignment_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">augmented_assignment_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-annotated_assignment_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">annotated_assignment_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-pass_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">pass_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-del_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">del_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-return_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">return_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-yield_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">yield_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-raise_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">raise_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-break_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">break_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-continue_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">continue_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-import_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">import_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-future_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">future_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-global_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">global_stmt</span></code></a>
+                 | <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-nonlocal_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">nonlocal_stmt</span></code></a>
+</pre>
+<ul>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-expression_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">expression_stmt</span></code></a>：表达式语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-assignment_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">assignment_stmt</span></code></a>：赋值语句</p>
+<ul class="simple">
+<li><p>虽然赋值的定义意味着左手边与右手边的重叠是“同时”进行的（例如 <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">b,</span> <span class="pre">a</span></code> 会交换两个变量的值），但在赋值给变量的多项集 之内 的重叠是从左至右进行的，这有时会令人混淆。例如，以下程序将会打印出 <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2]</span></code>：</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>  <span class="c1"># i 被更新，则 x[i] 被更新</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-augmented_assignment_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">augmented_assignment_stmt</span></code></a>：增强赋值语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-assert_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">assert_stmt</span></code></a>：assert 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-pass_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">pass_stmt</span></code></a>：pass 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-del_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">del_stmt</span></code></a>：del 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-return_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">return_stmt</span></code></a>：return 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-yield_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">yield_stmt</span></code></a>：yield 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-raise_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">raise_stmt</span></code></a>：raise 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-break_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">break_stmt</span></code></a>：break 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-continue_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">continue_stmt</span></code></a>：continue 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-import_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">import_stmt</span></code></a>：import 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-future_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">future_stmt</span></code></a>：future 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-global_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">global_stmt</span></code></a>：global 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-nonlocal_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">nonlocal_stmt</span></code></a>：nonlocal 语句</p></li>
+</ul>
+<p><strong>表达式</strong> 可以理解为运算。</p>
+</div>
+<div class="section" id="id32">
+<h2>复合语句<a class="headerlink" href="#id32" title="永久链接至标题">¶</a></h2>
+<p>复合语句是包含其它语句（语句组）的语句；它们会以某种方式影响或控制所包含其它语句的执行。通常，复合语句会跨越多行，虽然在某些简单形式下整个复合语句也可能包含于一行之内。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#if" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a>, <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#while" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a> 和 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#for" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> 语句用来实现传统的 <strong>控制流程</strong> 构造。<a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#try" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> 语句为一组语句指定异常处理和/和清理代码，而 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#with" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> 语句允许在一个代码块周围执行初始化和终结化代码。函数和类定义在语法上也属于复合语句。</p>
+<p>一条复合语句由一个或多个 “子句” 组成。 一个子句则包含一个 “句头” 和一个 “句体”（suite）。特定复合语句的子句头都处于相同的缩进层级。每个子句头以一个作为唯一标识的关键字开始并以一个冒号结束。 子句体是由一个子句控制的一组语句。子句体可以是在子句头的冒号之后与其同处一行的一条或由分号分隔的多条简单语句，或者也可以是在其之后缩进的一行或多行语句。只有后一种形式的子句体才能包含嵌套的复合语句；以下形式是不合法的，这主要是因为无法分清某个后续的 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#else" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> 子句应该属于哪个 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#if" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> 子句。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test1</span><span class="p">:</span> <span class="k">if</span> <span class="n">test2</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>还要注意的是在这种情形下分号的绑定比冒号更紧密，因此在以下示例中，所有 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#print" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> 调用或者都不执行，或者都执行：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">z</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>总结：</p>
+<pre>
+<strong id="grammar-token-python-grammar-compound_stmt"><span id="grammar-token-compound-stmt"></span>compound_stmt</strong> ::=  <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-if_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">if_stmt</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-while_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">while_stmt</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-for_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">for_stmt</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-try_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">try_stmt</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-with_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">with_stmt</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-match_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">match_stmt</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-funcdef" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">funcdef</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-classdef" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">classdef</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-async_with_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">async_with_stmt</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-async_for_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">async_for_stmt</span></code></a>
+                   | <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-async_funcdef" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">async_funcdef</span></code></a>
+<strong id="grammar-token-python-grammar-suite"><span id="grammar-token-suite"></span>suite        </strong> ::=  <a class="reference internal" href="#grammar-token-python-grammar-stmt_list"><code class="xref docutils literal notranslate"><span class="pre">stmt_list</span></code></a> NEWLINE | NEWLINE INDENT <a class="reference internal" href="#grammar-token-python-grammar-statement"><code class="xref docutils literal notranslate"><span class="pre">statement</span></code></a>+ DEDENT
+<strong id="grammar-token-python-grammar-statement"><span id="grammar-token-statement"></span>statement    </strong> ::=  <a class="reference internal" href="#grammar-token-python-grammar-stmt_list"><code class="xref docutils literal notranslate"><span class="pre">stmt_list</span></code></a> NEWLINE | <a class="reference internal" href="#grammar-token-python-grammar-compound_stmt"><code class="xref docutils literal notranslate"><span class="pre">compound_stmt</span></code></a>
+<strong id="grammar-token-python-grammar-stmt_list"><span id="grammar-token-stmt-list"></span>stmt_list    </strong> ::=  <a class="reference internal" href="#grammar-token-python-grammar-simple_stmt"><code class="xref docutils literal notranslate"><span class="pre">simple_stmt</span></code></a> (&quot;;&quot; <a class="reference internal" href="#grammar-token-python-grammar-simple_stmt"><code class="xref docutils literal notranslate"><span class="pre">simple_stmt</span></code></a>)* [&quot;;&quot;]
+</pre>
+<p>请注意语句总是以 <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 结束，之后可能跟随一个 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code>。还要注意可选的后续子句总是以一个不能作为语句开头的关键字作为开头，因此不会产生歧义（“悬空的 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#else" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a>” 问题在 Python 中是通过要求嵌套的 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#if" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> 语句必须缩进来解决的）。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-if_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">if_stmt</span></code></a>：if 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-while_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">while_stmt</span></code></a>：while 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-for_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">for_stmt</span></code></a>：for 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-try_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">try_stmt</span></code></a>：try 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-with_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">with_stmt</span></code></a>：with 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-match_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">match_stmt</span></code></a>：match 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-funcdef" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">funcdef</span></code></a>：函数定义</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-classdef" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">classdef</span></code></a>：类定义</p></li>
+<li><p>协程</p>
+<ul>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-async_funcdef" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">async_funcdef</span></code></a>：协程函数定义</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-async_for_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">async_for_stmt</span></code></a>：async for 语句</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#grammar-token-python-grammar-async_with_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">async_with_stmt</span></code></a>：async with 语句</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id33">
+<h2>名称的解析<a class="headerlink" href="#id33" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#del" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a> 语句的目标也被视作一种绑定（虽然其实际语义为解除名称绑定）。</p>
+<p>名称绑定包括：</p>
+<ul class="simple">
+<li><p>函数的形参，</p></li>
+<li><p>类定义，</p></li>
+<li><p>函数定义，</p></li>
+<li><p>赋值表达式</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#as" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> 的目标</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#import" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 语句</p></li>
+</ul>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#import" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 语句的形式是 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span> <span class="pre">*</span></code> 绑定除了那些以下划线开头的所有在导入模块中定义的名字。这种形式只能在模块层面上使用。</p>
+<p>每条赋值或导入语句均发生于类或函数内部定义的代码块中，或是发生于模块层级（即最高层级的代码块）。</p>
+<p>名称绑定在一个代码块中，除非声明为 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#nonlocal" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">nonlocal</span></code></a> 或 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#global" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">global</span></code></a>，否则为该代码块的 <strong>局部变量</strong>。如果名称绑定在模块层级，则为 <strong>全局变量</strong>。（模块代码块的变量既为局部变量又为全局变量。）如果变量在一个代码块中被使用但不是在其中定义，则为 <strong>自由变量</strong>。</p>
+<p>每个在程序文本中出现的名称是指由以下名称解析规则所建立的对该名称的 <strong>绑定</strong>。</p>
+<p><strong>作用域</strong> 定义了一个代码块中名称的可见性。如果代码块中定义了一个局部变量，则其作用域包含该代码块。如果定义发生于函数代码块中，则其作用域会扩展到该函数所包含的任何代码块，除非有某个被包含代码块引入了对该名称的不同绑定。</p>
+<p>当一个名称在代码块中被使用时，会由包含它的最近作用域来解析。对一个代码块可见的所有这种作用域的集合称为该代码块的 <strong>环境</strong>。</p>
+<p>当一个名称完全找不到时，将会引发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#NameError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NameError</span></code></a> 异常。如果当前作用域为函数作用域，且该名称指向一个局部变量，而此变量在该名称被使用的时候尚未绑定到特定值，将会引发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#UnboundLocalError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnboundLocalError</span></code></a> （<a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#NameError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NameError</span></code></a> 的子类） 异常。</p>
+<p>如果一个代码块内的任何位置发生名称绑定操作，则代码块内所有对该名称的使用会被认为是对当前代码块的引用。当一个名称在其被绑定前就在代码块内被使用时则会导致错误。这个一个很微妙的规则。Python 缺少声明语法，并允许名称绑定操作发生于代码块内的任何位置。一个代码块的局部变量可通过在整个代码块文本中扫描名称绑定操作来确定。</p>
+<p>如果 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#global" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">global</span></code></a> 语句出现在一个代码块中，那么该语句中指定的名称的所有使用都是指这些名称在顶层名称空间中的绑定关系。在顶层名称空间中，通过搜索全局名称空间（即包含代码块的模块的名称空间）和内置名称空间（即模块 builtins 的名称空间）来解析名称。全局名称空间会先被搜索到。如果在那里找不到这些名字，就会搜索 buildins 的名字空间。<code class="xref std std-keyword docutils literal notranslate"><span class="pre">global</span></code> 必须在所有列出的名字使用之前声明。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#global" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">global</span></code></a> 语句与同一代码块中名称绑定具有相同的作用域。如果一个自由变量的最近包含作用域中有一条 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#global" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">global</span></code></a> 语句，则该自由变量也会被当作是全局变量。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#nonlocal" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">nonlocal</span></code></a> 语句会使得相应的名称指向之前在最近包含函数作用域中绑定的变量。如果指定名称不存在于任何包含函数作用域中则将在编译时引发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#SyntaxError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a>。</p>
+<p>模块的作用域会在模块第一次被导入时自动创建。一个脚本的主模块总是被命名为 <a class="reference external" href="https://daobook.github.io/cpython/library/__main__.html#module-__main__" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a>。</p>
+<p>类定义代码块以及传给 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#exec" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 和 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#eval" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 的参数是名称解析上下文中的特殊情况。类定义是可能使用并定义名称的可执行语句。这些引用遵循正常的名称解析规则，例外之处在于未绑定的局部变量将会在全局命名空间中查找。类定义的命名空间会成为该类的属性字典。在类代码块中定义的名称的作用域会被限制在类代码块中；它不会扩展到方法的代码块中 – 这也包括推导式和生成器表达式，因为它们都是使用函数作用域实现的。这意味着以下代码将会失败：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./python-study/basic/intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">Python 简介</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="basic-type.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Python 基本数据类型</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

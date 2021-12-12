@@ -1,0 +1,1829 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>爬虫 &#8212; d2py 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/d2py");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/drafts/爬虫.html" />
+    <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Jupyter Notebook" href="../notebook.html" />
+    <link rel="prev" title="Python 数据类型转换（draft）" href="type.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">d2py 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python-study/index.html">
+   Python 学习手册
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/basic/index.html">
+     Python 基础教程
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/basic/intro/index.html">
+       Python 简介
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/intro/understand-python.html">
+         解读 Python 世界的修炼体系
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/intro/basic-type.html">
+         Python 基本数据类型
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/basic/function.html">
+       函数
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/basic/container/index.html">
+       容器
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/sequence.html">
+         序列
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/dict.html">
+         字典
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/set.html">
+         集合
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/basic/controlflow.html">
+       常用语句
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/topics/index.html">
+     Python 主题手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/topics/f-string.html">
+       格式字符串字面值
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/topics/sys.html">
+       系统相关
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python-study/faqs/index.html">
+     常见问题
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/refs/index.html">
+     Python 参考手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/constants.html">
+       内置常量
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/terms.html">
+       术语中英对照表
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/refs/glossary/index.html">
+       术语表
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/basic.html">
+         基本术语
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/exec.html">
+         异常
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/identifier.html">
+         标识符
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/value.html">
+         字面值
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/sources.html">
+       Python 学习资源
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../posts/index.html">
+   博客
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/feature.html">
+     特性
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/use.html">
+     项目使用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CODE_OF_CONDUCT.html">
+     行为准则
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CONTRIBUTING.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SECURITY.html">
+     安全策略
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../news/index.html">
+   Python 新闻
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   草稿
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="101.html">
+     一、5 个值得在 2018 年关注的库
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11.html">
+     比较、相等和真值
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="22.html">
+     存储数据
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="33.html">
+     类也是对象
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="44.html">
+     描述器是什么？
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="55.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="66.html">
+     类型和运算 (Types and Operations)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="88.html">
+     函数基础
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="class.html">
+     class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="draft.html">
+     回收站
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exc.html">
+     异常（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="file.html">
+     I/O操作（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="iter.html">
+     迭代&amp;生成（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="math.html">
+     Python 中的数学（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oop.html">
+     OOP: The Big Picture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="op.html">
+     运算符（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="re.html">
+     re
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="socket.html">
+     网络
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="str.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="type.html">
+     Python 数据类型转换（draft）
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     爬虫
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebook.html">
+   Jupyter Notebook
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/drafts/爬虫.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fdrafts/爬虫.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/drafts/爬虫.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   爬虫
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   爬虫的基本流程
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#request-response">
+   什么是Request,Response
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#request">
+     Request中包含什么？
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       请求方式
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#url">
+       请求URL
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       请求头
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       请求体
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#response">
+     Response中包含了什么
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       响应状态
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       响应头
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       响应体
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   能爬取什么样的数据
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   如何解析数据
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#urllib">
+   Urllib库的简介
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#urllib-request">
+   urllib.request
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#urllib-request-urlopen">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       urllib.request.urlopen
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   响应response
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#headers">
+     设置Headers
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       给请求添加头部信息，从而定制自己请求网站是时的头部信息
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       添加请求头的第二种方式
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     异常处理
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#httperrorurlerror">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HTTPError
+        </span>
+       </code>
+       是
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         URLError
+        </span>
+       </code>
+       的子类
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       捕获异常
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#e-reason">
+         e.reason其实也可以在做深入的判断，例子如下：
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pprint">
+         pprint
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handler">
+     高级用法各种handler
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#proxyhandler">
+       代理,ProxyHandler
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cookie-httpcookiprocessor">
+       cookie,HTTPCookiProcessor
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#urllib-request-urlretrieve">
+     urllib.request.urlretrieve
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id16">
+   URL解析
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#urlparse">
+     urlparse
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#urlunpars">
+     urlunpars
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#urljoin">
+     urljoin
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#urlencode">
+     urlencode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id17">
+   一个简单的爬虫例子
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>爬虫<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="http://www.pythonsite.com">参考资料</a></p>
+<ul class="simple">
+<li><p><strong>网络爬虫</strong>（又被称为<code class="docutils literal notranslate"><span class="pre">网页蜘蛛，网络机器人</span></code>，在FOAF社区中间，更经常的称为<code class="docutils literal notranslate"><span class="pre">网页追逐者</span></code>），是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。</p>
+<ul>
+<li><p>其实通俗的讲就是通过程序去获取web页面上自己想要的数据，也就是自动抓取数据</p></li>
+</ul>
+</li>
+<li><p><strong>爬虫的本质</strong>:模拟浏览器打开网页，获取网页中我们想要的那部分数据</p></li>
+<li><p>浏览器打开网页的过程：</p>
+<ul>
+<li><p>当你在浏览器中输入地址后，经过DNS服务器找到服务器主机，向服务器发送一个请求，服务器经过解析后发送给用户浏览器结果，包括html,js,css等文件内容，浏览器解析出来最后呈现给用户在浏览器上看到的结果</p></li>
+<li><p>用户看到的浏览器的结果就是由HTML代码构成的，我们爬虫就是为了获取这些内容，通过分析和过滤html代码，从中获取我们想要资源（文本，图片，视频…）</p></li>
+</ul>
+</li>
+<li><p>爬虫就是请求网站并提取数据的自动化程序。其中<code class="docutils literal notranslate"><span class="pre">请求</span></code>，<code class="docutils literal notranslate"><span class="pre">提取</span></code>，<code class="docutils literal notranslate"><span class="pre">自动化</span></code>是爬虫的关键！</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id2">
+<h1>爬虫的基本流程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p>发起请求</p>
+<ul>
+<li><p>通过HTTP库向目标站点发起请求，也就是发送一个<code class="docutils literal notranslate"><span class="pre">Request</span></code>，请求可以包含额外的<code class="docutils literal notranslate"><span class="pre">header</span></code>等信息，等待服务器响应<code class="docutils literal notranslate"><span class="pre">Response</span></code></p></li>
+</ul>
+</li>
+<li><p>获取响应内容</p>
+<ul>
+<li><p>如果服务器能正常响应，会得到一个Response，Response的内容便是所要获取的页面内容，类型可能是HTML,Json字符串，二进制数据（图片或者视频）等类型</p></li>
+</ul>
+</li>
+<li><p>解析内容</p>
+<ul>
+<li><p>得到的内容可能是HTML,可以用正则表达式，页面解析库进行解析，可能是Json,可以直接转换为Json对象解析，可能是二进制数据，可以做保存或者进一步的处理</p></li>
+</ul>
+</li>
+<li><p>保存数据</p>
+<ul>
+<li><p>保存形式多样，可以存为文本，也可以保存到数据库，或者保存特定格式的文件</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="request-response">
+<h1>什么是Request,Response<a class="headerlink" href="#request-response" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p>浏览器发送消息给网址所在的服务器，这个过程就叫做<code class="docutils literal notranslate"><span class="pre">HTPP</span> <span class="pre">Request</span></code></p></li>
+<li><p>服务器收到浏览器发送的消息后，能够根据浏览器发送消息的内容，做相应的处理，然后把消息回传给浏览器，这个过程就是<code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">Response</span></code></p></li>
+<li><p>浏览器收到服务器的<code class="docutils literal notranslate"><span class="pre">Response</span></code>信息后，会对信息进行相应的处理，然后展示</p></li>
+</ul>
+<div class="section" id="request">
+<h2>Request中包含什么？<a class="headerlink" href="#request" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>请求方式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>主要有：<code class="docutils literal notranslate"><span class="pre">GET/POST</span></code>两种类型常用，另外还有<code class="docutils literal notranslate"><span class="pre">HEAD/PUT/DELETE/OPTIONS</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span></code>和<code class="docutils literal notranslate"><span class="pre">POST</span></code>的区别就是：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span></code>是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span></code>是通过HTTP POST机制，将表单内各个字段放置在HTML HEADER内一起传送到ACTION属性所指的URL中(用户看不到此过程)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span></code>:从服务器上获取数据。使用GET方法应该只用在读取数据，而不应当被用于产生“副作用”的操作中，例如在Web Application中。其中一个原因是GET可能会被网络蜘蛛等随意访问。</p></li>
+</ul>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span></code>:向指定资源提交数据，请求服务器进行处理（例如提交表单或者上传文件）。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HEAD</span></code>：与<code class="docutils literal notranslate"><span class="pre">GET</span></code>方法一样，都是向服务器发出指定资源的请求。只不过服务器将不传回资源的本文部分。它的好处在于，使用这个方法可以在不必传输全部内容的情况下，就可以获取其中“关于该资源的信息”（元信息或称元数据）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PUT</span></code>：向指定资源位置上传其最新内容。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code>：这个方法可使服务器传回该资源所支持的所有<code class="docutils literal notranslate"><span class="pre">HTTP</span></code>请求方法。用’<code class="docutils literal notranslate"><span class="pre">*</span></code>’来代替资源名称，向Web服务器发送<code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code>请求，可以测试服务器功能是否正常运作。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>：请求服务器删除<code class="docutils literal notranslate"><span class="pre">Request-URI</span></code>所标识的资源。</p></li>
+</ul>
+</div>
+<div class="section" id="url">
+<h3>请求URL<a class="headerlink" href="#url" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">URL</span></code>，即统一资源定位符，也就是我们说的网址，统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的<code class="docutils literal notranslate"><span class="pre">URL</span></code>，它包含的信息指出文件的位置以及浏览器应该怎么处理它。</p>
+<p><code class="docutils literal notranslate"><span class="pre">URL</span></code>的格式由三个部分组成：</p>
+<ul class="simple">
+<li><p>协议(或称为服务方式)。</p></li>
+<li><p>存有该资源的主机<code class="docutils literal notranslate"><span class="pre">IP地址</span></code>(有时也包括<code class="docutils literal notranslate"><span class="pre">端口号</span></code>)。</p></li>
+<li><p>主机资源的具体地址，如目录和文件名等。</p></li>
+</ul>
+<p>爬虫爬取数据时必须要有一个目标的<code class="docutils literal notranslate"><span class="pre">URL</span></code>才可以获取数据，因此，它是爬虫获取数据的基本依据。</p>
+</div>
+<div class="section" id="id4">
+<h3>请求头<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>包含请求时的<code class="docutils literal notranslate"><span class="pre">头部信息</span></code>，如<code class="docutils literal notranslate"><span class="pre">User-Agent</span></code>,<code class="docutils literal notranslate"><span class="pre">Host</span></code>,<code class="docutils literal notranslate"><span class="pre">Cookies</span></code>等信息</p>
+</div>
+<div class="section" id="id5">
+<h3>请求体<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>请求携带的数据，如提交表单数据时候的表单数据（POST）</p>
+</div>
+</div>
+<div class="section" id="response">
+<h2>Response中包含了什么<a class="headerlink" href="#response" title="永久链接至标题">¶</a></h2>
+<p>所有HTTP响应的第一行都是状态行，依次是<code class="docutils literal notranslate"><span class="pre">当前HTTP版本号</span></code>，3位数字组成的<code class="docutils literal notranslate"><span class="pre">状态代码</span></code>，以及<code class="docutils literal notranslate"><span class="pre">描述状态的短语</span></code>，彼此由空格分隔。</p>
+<div class="section" id="id6">
+<h3>响应状态<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>有多种响应状态，如：<br />
+<code class="docutils literal notranslate"><span class="pre">200代表成功，301跳转，404找不到页面，502服务器错误</span> <span class="pre">1xx消息——请求已被服务器接收，继续处理</span> <span class="pre">2xx成功——请求已成功被服务器接收、理解、并接受</span> <span class="pre">3xx重定向——需要后续操作才能完成这一请求</span> <span class="pre">4xx请求错误——请求含有词法错误或者无法被执行</span> <span class="pre">5xx服务器错误——服务器在处理某个正确请求时发生错误</span> <span class="pre">常见代码：</span> <span class="pre">200</span> <span class="pre">OK</span> <span class="pre">请求成功</span> <span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span> <span class="pre">客户端请求有语法错误，不能被服务器所理解</span> <span class="pre">401</span> <span class="pre">Unauthorized</span> <span class="pre">请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用</span> <span class="pre">403</span> <span class="pre">Forbidden</span> <span class="pre">服务器收到请求，但是拒绝提供服务</span> <span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span> <span class="pre">请求资源不存在，eg：输入了错误的URL</span> <span class="pre">500</span> <span class="pre">Internal</span> <span class="pre">Server</span> <span class="pre">Error</span> <span class="pre">服务器发生不可预期的错误</span> <span class="pre">503</span> <span class="pre">Server</span> <span class="pre">Unavailable</span> <span class="pre">服务器当前不能处理客户端的请求，一段时间后可能恢复正常</span> <span class="pre">301</span> <span class="pre">目标永久性转移 302</span> <span class="pre">目标暂时性转移</span></code></p>
+</div>
+<div class="section" id="id7">
+<h3>响应头<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>如内容类型，类型的长度，服务器信息，设置Cookie</p>
+</div>
+<div class="section" id="id8">
+<h3>响应体<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>最主要的部分，包含请求资源的内容，如网页HTMl,图片，二进制数据等</p>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id9">
+<h1>能爬取什么样的数据<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p>网页文本：如HTML文档，Json格式化文本等</p></li>
+<li><p>图片：获取到的是二进制文件，保存为图片格式</p></li>
+<li><p>视频:同样是二进制文件</p></li>
+<li><p>其他：只要请求到的，都可以获取</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id10">
+<h1>如何解析数据<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p>直接处理</p></li>
+<li><p>Json解析</p></li>
+<li><p>正则表达式处理</p></li>
+<li><p>BeautifulSoup解析处理</p></li>
+<li><p>PyQuery解析处理</p></li>
+<li><p>XPath解析处理</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="urllib">
+<h1>Urllib库的简介<a class="headerlink" href="#urllib" title="永久链接至标题">¶</a></h1>
+<p>Urllib是python内置的HTTP请求库,包括以下模块</p>
+<ul class="simple">
+<li><p>urllib.request: 请求模块</p></li>
+<li><p>urllib.error: 异常处理模块</p></li>
+<li><p>urllib.parse: url解析模块</p></li>
+<li><p>urllib.response: 响应请求</p>
+<ul>
+<li><p>Type:        module</p></li>
+<li><p>Docstring:<br />
+Response classes used by urllib.</p></li>
+<li><p>The base class, addbase, defines a minimal file-like interface,including read() and readline().</p></li>
+<li><p>The typical response object is an addinfourl instance, which defines an info() method that returns
+headers and a geturl() method that returns the url.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="urllib-request">
+<h1>urllib.request<a class="headerlink" href="#urllib-request" title="永久链接至标题">¶</a></h1>
+<div class="section" id="urllib-request-urlopen">
+<h2><code class="docutils literal notranslate"><span class="pre">urllib.request.urlopen</span></code><a class="headerlink" href="#urllib-request-urlopen" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">urllib.request.urlopen(url,</span> <span class="pre">data=None,</span> <span class="pre">[timeout,</span> <span class="pre">]*,</span> <span class="pre">cafile=None,</span> <span class="pre">capath=None,</span> <span class="pre">cadefault=False,</span> <span class="pre">context=None)</span></code><br />
+参数：<br />
+Open the URL url, which can be either a string or a Request object.(url可以是一个网址的字符串，或是一个Request对象)<br />
+<em>data</em> must be an object specifying additional data to be sent to the server, or None if no such data is needed.  See Request for details.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>返回一个file-like对象(可以像操作context一样进行管理和拥有一些实例方法)：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">For</span> <span class="n">HTTP</span> <span class="ow">and</span> <span class="n">HTTPS</span> <span class="n">URLs</span><span class="p">,</span> <span class="n">this</span> <span class="n">function</span> <span class="n">returns</span> <span class="n">a</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPResponse</span>
+   <span class="nb">object</span> <span class="n">slightly</span> <span class="n">modified</span><span class="o">.</span> <span class="n">In</span> <span class="n">addition</span> <span class="n">to</span> <span class="n">the</span> <span class="n">three</span> <span class="n">new</span> <span class="n">methods</span> <span class="n">above</span><span class="p">,</span> <span class="n">the</span>
+   <span class="n">msg</span> <span class="n">attribute</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">same</span> <span class="n">information</span> <span class="k">as</span> <span class="n">the</span> <span class="n">reason</span> <span class="n">attribute</span> <span class="o">---</span>
+   <span class="n">the</span> <span class="n">reason</span> <span class="n">phrase</span> <span class="n">returned</span> <span class="n">by</span> <span class="n">the</span> <span class="n">server</span> <span class="o">---</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">the</span> <span class="n">response</span>
+   <span class="n">headers</span> <span class="k">as</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">documentation</span> <span class="k">for</span> <span class="n">HTTPResponse</span><span class="o">.</span>
+
+   <span class="n">For</span> <span class="n">FTP</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="ow">and</span> <span class="n">data</span> <span class="n">URLs</span> <span class="ow">and</span> <span class="n">requests</span> <span class="n">explicitly</span> <span class="n">handled</span> <span class="n">by</span> <span class="n">legacy</span>
+   <span class="n">URLopener</span> <span class="ow">and</span> <span class="n">FancyURLopener</span> <span class="n">classes</span><span class="p">,</span> <span class="n">this</span> <span class="n">function</span> <span class="n">returns</span> <span class="n">a</span>
+   <span class="n">urllib</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">addinfourl</span> <span class="nb">object</span><span class="o">.</span>
+
+   <span class="n">Note</span> <span class="n">that</span> <span class="kc">None</span> <span class="n">may</span> <span class="n">be</span> <span class="n">returned</span> <span class="k">if</span> <span class="n">no</span> <span class="n">handler</span> <span class="n">handles</span> <span class="n">the</span> <span class="n">request</span> <span class="p">(</span><span class="n">though</span>
+   <span class="n">the</span> <span class="n">default</span> <span class="n">installed</span> <span class="k">global</span> <span class="n">OpenerDirector</span> <span class="n">uses</span> <span class="n">UnknownHandler</span> <span class="n">to</span> <span class="n">ensure</span>
+   <span class="n">this</span> <span class="n">never</span> <span class="n">happens</span><span class="p">)</span><span class="o">.</span>
+
+   <span class="n">In</span> <span class="n">addition</span><span class="p">,</span> <span class="k">if</span> <span class="n">proxy</span> <span class="n">settings</span> <span class="n">are</span> <span class="n">detected</span> <span class="p">(</span><span class="k">for</span> <span class="n">example</span><span class="p">,</span> <span class="n">when</span> <span class="n">a</span> <span class="o">*</span><span class="n">_proxy</span>
+   <span class="n">environment</span> <span class="n">variable</span> <span class="n">like</span> <span class="n">http_proxy</span> <span class="ow">is</span> <span class="nb">set</span><span class="p">),</span> <span class="n">ProxyHandler</span> <span class="ow">is</span> <span class="n">default</span>
+   <span class="n">installed</span> <span class="ow">and</span> <span class="n">makes</span> <span class="n">sure</span> <span class="n">the</span> <span class="n">requests</span> <span class="n">are</span> <span class="n">handled</span> <span class="n">through</span> <span class="n">the</span> <span class="n">proxy</span><span class="o">.</span>
+
+</pre></div>
+</div>
+<p>常用实例方法</p>
+<ul class="simple">
+<li><p>geturl() - return the URL of the resource retrieved, commonly used to
+determine if a redirect was followed</p></li>
+<li><p>info() - return the meta-information of the page, such as headers, in the
+form of an email.message_from_string() instance (see Quick Reference to
+HTTP Headers)</p></li>
+<li><p>getcode() - return the HTTP status code of the response.  Raises URLError
+on errors.</p></li>
+</ul>
+<p>示例：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://www.baidu.com&#39;</span><span class="p">)</span>   <span class="c1"># url是网址字符串</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>                <span class="c1"># response.read()可以获取到网页的内容，获取响应资源</span>
+<span class="n">decode_page</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>    <span class="c1"># 统一编码格式</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decode_page</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
+&lt;head&gt;
+	&lt;script&gt;
+		location.replace(location.href.replace(&quot;https://&quot;,&quot;http://&quot;));
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;noscript&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=http://www.baidu.com/&quot;&gt;&lt;/noscript&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="s1">&#39;https://www.baidu.com&#39;</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>   <span class="c1"># url是一个Request对象</span>
+<span class="n">the_page</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">the_page</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
+&lt;head&gt;
+	&lt;script&gt;
+		location.replace(location.href.replace(&quot;https://&quot;,&quot;http://&quot;));
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;noscript&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=http://www.baidu.com/&quot;&gt;&lt;/noscript&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>对象名</p></th>
+<th class="text-align:left head"><p>类型</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">req</span></code></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">urllib.request.Request</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">response</span></code></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">http.client.HTTPResponse</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">response.read()</span></code></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">bytes</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">response.info()</span></code></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">http.client.HTTPMessage</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">the_page</span></code></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http.client.HTTPMessage
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">geturl</span><span class="p">())</span>     <span class="c1"># 返回真实网址</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">getcode</span><span class="p">())</span>    <span class="c1"># 返回`HTTP`响应代码</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>   <span class="c1"># 返回从服务器传回的`MIME`标签头</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://www.baidu.com
+200
+Accept-Ranges: bytes
+Cache-Control: no-cache
+Content-Length: 227
+Content-Type: text/html
+Date: Wed, 23 Aug 2017 11:44:38 GMT
+Last-Modified: Mon, 21 Aug 2017 07:02:00 GMT
+P3p: CP=&quot; OTI DSP COR IVA OUR IND COM &quot;
+Pragma: no-cache
+Server: BWS/1.1
+Set-Cookie: BD_NOT_HTTPS=1; path=/; Max-Age=300
+Set-Cookie: BIDUPSID=2BA9A96F1CBA72FD5B271C3376C4397B; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
+Set-Cookie: PSTM=1503488678; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
+Strict-Transport-Security: max-age=0
+X-Ua-Compatible: IE=Edge,chrome=1
+Connection: close
+</pre></div>
+</div>
+<p>urlopen一般常用的有三个参数，它的参数如下：urllib.requeset.urlopen(url,data,timeout)</p>
+<ul class="simple">
+<li><p>data参数的使用<br />
+上述的例子是通过请求的get请求获得，下面使用urllib的post请求
+这里通过<code class="docutils literal notranslate"><span class="pre">http://httpbin.org/post</span></code>网站演示（该网站可以作为练习使用urllib的一个站点使用，可以
+模拟各种请求操作）。</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># urlopen传入Request对象</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://httpbin.org/post&#39;</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;WHY&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;localtion&#39;</span><span class="p">:</span><span class="s1">&#39;SDU&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;language&#39;</span><span class="p">:</span><span class="s1">&#39;Python&#39;</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">values</span><span class="p">),</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>    <span class="c1"># 编码工作</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>   <span class="c1"># 发送请求并传输data表单</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>   
+<span class="n">the_page</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>               <span class="c1"># 读取响应内容</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">the_page</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;name=WHY&amp;localtion=SDU&amp;language=Python&#39;
+{
+  &quot;args&quot;: {}, 
+  &quot;data&quot;: &quot;&quot;, 
+  &quot;files&quot;: {}, 
+  &quot;form&quot;: {
+    &quot;language&quot;: &quot;Python&quot;, 
+    &quot;localtion&quot;: &quot;SDU&quot;, 
+    &quot;name&quot;: &quot;WHY&quot;
+  }, 
+  &quot;headers&quot;: {
+    &quot;Accept-Encoding&quot;: &quot;identity&quot;, 
+    &quot;Connection&quot;: &quot;close&quot;, 
+    &quot;Content-Length&quot;: &quot;38&quot;, 
+    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, 
+    &quot;Host&quot;: &quot;httpbin.org&quot;, 
+    &quot;User-Agent&quot;: &quot;Python-urllib/3.6&quot;
+  }, 
+  &quot;json&quot;: null, 
+  &quot;origin&quot;: &quot;112.17.235.178&quot;, 
+  &quot;url&quot;: &quot;http://httpbin.org/post&quot;
+}
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 直接传入data</span>
+<span class="kn">import</span> <span class="nn">urllib.parse</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">({</span><span class="s1">&#39;word&#39;</span><span class="p">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">}),</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;word=hello&#39;
+{
+  &quot;args&quot;: {}, 
+  &quot;data&quot;: &quot;&quot;, 
+  &quot;files&quot;: {}, 
+  &quot;form&quot;: {
+    &quot;word&quot;: &quot;hello&quot;
+  }, 
+  &quot;headers&quot;: {
+    &quot;Accept-Encoding&quot;: &quot;identity&quot;, 
+    &quot;Connection&quot;: &quot;close&quot;, 
+    &quot;Content-Length&quot;: &quot;10&quot;, 
+    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, 
+    &quot;Host&quot;: &quot;httpbin.org&quot;, 
+    &quot;User-Agent&quot;: &quot;Python-urllib/3.6&quot;
+  }, 
+  &quot;json&quot;: null, 
+  &quot;origin&quot;: &quot;112.17.235.178&quot;, 
+  &quot;url&quot;: &quot;http://httpbin.org/post&quot;
+}
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;WHY&#39;</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SDU&#39;</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="n">url_values</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">url_values</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.baidu.com&#39;</span>
+<span class="n">full_url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;?&#39;</span><span class="o">+</span> <span class="n">url_values</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">full_url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name=WHY&amp;location=SDU&amp;language=Python
+&lt;html&gt;
+&lt;head&gt;
+	&lt;script&gt;
+		location.replace(location.href.replace(&quot;https://&quot;,&quot;http://&quot;));
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;noscript&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=http://www.baidu.com/&quot;&gt;&lt;/noscript&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>这里就用到<code class="docutils literal notranslate"><span class="pre">urllib.parse</span></code>，通过<code class="docutils literal notranslate"><span class="pre">bytes(urllib.parse.urlencode())</span></code>可以将<code class="docutils literal notranslate"><span class="pre">post</span></code>数据进行转换放到<code class="docutils literal notranslate"><span class="pre">urllib.request.urlopen</span></code>的<code class="docutils literal notranslate"><span class="pre">data</span></code>参数中。这样就完成了一次<code class="docutils literal notranslate"><span class="pre">post请求</span></code>。所以如果我们添加<code class="docutils literal notranslate"><span class="pre">data</span></code>参数的时候就是以<code class="docutils literal notranslate"><span class="pre">post请求</span></code>方式请求，如果没有<code class="docutils literal notranslate"><span class="pre">data</span></code>参数就是<code class="docutils literal notranslate"><span class="pre">get</span></code>请求方式</p>
+<ul class="simple">
+<li><p>timeout参数的使用
+在某些网络情况不好或者服务器端异常的情况会出现请求慢的情况，或者请求异常，所以这个时候我们需要给
+请求设置一个超时时间，而不是让程序一直在等待结果。例子如下：</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/get&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;{\n  &quot;args&quot;: {}, \n  &quot;headers&quot;: {\n    &quot;Accept-Encoding&quot;: &quot;identity&quot;, \n    &quot;Connection&quot;: &quot;close&quot;, \n    &quot;Host&quot;: &quot;httpbin.org&quot;, \n    &quot;User-Agent&quot;: &quot;Python-urllib/3.6&quot;\n  }, \n  &quot;origin&quot;: &quot;218.75.27.189&quot;, \n  &quot;url&quot;: &quot;http://httpbin.org/get&quot;\n}\n&#39;
+</pre></div>
+</div>
+<p>我们需要对异常进行抓取，代码更改为</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">urllib.error</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://httpbin.org/get&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;TIME OUT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TIME OUT
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id11">
+<h1>响应response<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h1>
+<p>响应类型、状态码、响应头<br />
+<code class="docutils literal notranslate"><span class="pre">response.status、response.getheaders()、response.getheader(&quot;server&quot;)</span></code>，获取状态码以及头部信息<br />
+response.read()获得的是响应体的内容</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://www.cnblogs.com/zhaof/p/6910871.html&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">getheaders</span><span class="p">())</span>   <span class="c1"># Return list of (header, value) tuples.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="s2">&quot;server&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;http.client.HTTPResponse&#39;&gt;
+200
+[(&#39;Date&#39;, &#39;Tue, 22 Aug 2017 12:33:22 GMT&#39;), (&#39;Content-Type&#39;, &#39;text/html; charset=utf-8&#39;), (&#39;Content-Length&#39;, &#39;34644&#39;), (&#39;Connection&#39;, &#39;close&#39;), (&#39;Vary&#39;, &#39;Accept-Encoding&#39;), (&#39;Cache-Control&#39;, &#39;private, max-age=10&#39;), (&#39;Expires&#39;, &#39;Tue, 22 Aug 2017 12:33:31 GMT&#39;), (&#39;Last-Modified&#39;, &#39;Tue, 22 Aug 2017 12:33:21 GMT&#39;), (&#39;X-UA-Compatible&#39;, &#39;IE=10&#39;), (&#39;X-Frame-Options&#39;, &#39;SAMEORIGIN&#39;)]
+None
+Tue, 22 Aug 2017 12:33:22 GMT
+</pre></div>
+</div>
+<div class="section" id="headers">
+<h2>设置Headers<a class="headerlink" href="#headers" title="永久链接至标题">¶</a></h2>
+<p>有很多网站为了防止程序爬虫爬网站造成网站瘫痪，会需要携带一些headers头部信息才能访问，最常见的有user-agent参数</p>
+<div class="section" id="id12">
+<h3>给请求添加头部信息，从而定制自己请求网站是时的头部信息<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span> <span class="n">parse</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://httpbin.org/post&#39;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Host&#39;</span><span class="p">:</span> <span class="s1">&#39;httpbin.org&#39;</span>
+<span class="p">}</span>
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;zhaofan&#39;</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="nb">dict</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;POST&#39;</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+  &quot;args&quot;: {}, 
+  &quot;data&quot;: &quot;&quot;, 
+  &quot;files&quot;: {}, 
+  &quot;form&quot;: {
+    &quot;name&quot;: &quot;zhaofan&quot;
+  }, 
+  &quot;headers&quot;: {
+    &quot;Accept-Encoding&quot;: &quot;identity&quot;, 
+    &quot;Connection&quot;: &quot;close&quot;, 
+    &quot;Content-Length&quot;: &quot;12&quot;, 
+    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, 
+    &quot;Host&quot;: &quot;httpbin.org&quot;, 
+    &quot;User-Agent&quot;: &quot;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&quot;
+  }, 
+  &quot;json&quot;: null, 
+  &quot;origin&quot;: &quot;112.17.235.178&quot;, 
+  &quot;url&quot;: &quot;http://httpbin.org/post&quot;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>添加请求头的第二种方式<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>这种添加方式有个好处是自己可以定义一个请求头字典，然后循环进行添加</p>
+<ul class="simple">
+<li><p>实例化一个对象</p></li>
+<li><p>使用<code class="docutils literal notranslate"><span class="pre">add_header</span></code>方法添加Header</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span> <span class="n">parse</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://httpbin.org/post&#39;</span>
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Germey&#39;</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="nb">dict</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;POST&#39;</span><span class="p">)</span>
+<span class="n">req</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">,</span> <span class="s1">&#39;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&#39;</span><span class="p">)</span>    <span class="c1"># 添加Header</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+  &quot;args&quot;: {}, 
+  &quot;data&quot;: &quot;&quot;, 
+  &quot;files&quot;: {}, 
+  &quot;form&quot;: {
+    &quot;name&quot;: &quot;Germey&quot;
+  }, 
+  &quot;headers&quot;: {
+    &quot;Accept-Encoding&quot;: &quot;identity&quot;, 
+    &quot;Connection&quot;: &quot;close&quot;, 
+    &quot;Content-Length&quot;: &quot;11&quot;, 
+    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, 
+    &quot;Host&quot;: &quot;httpbin.org&quot;, 
+    &quot;User-Agent&quot;: &quot;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&quot;
+  }, 
+  &quot;json&quot;: null, 
+  &quot;origin&quot;: &quot;112.17.235.178&quot;, 
+  &quot;url&quot;: &quot;http://httpbin.org/post&quot;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>异常处理<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p>在很多时候我们通过程序访问页面的时候，有的页面可能会出现错误，类似404，500等错误</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span><span class="n">error</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;http://pythonsite.com/1111.html&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">error</span><span class="o">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Not Found
+</pre></div>
+</div>
+<div class="section" id="httperrorurlerror">
+<h3><code class="docutils literal notranslate"><span class="pre">HTTPError</span></code>是<code class="docutils literal notranslate"><span class="pre">URLError</span></code>的子类<a class="headerlink" href="#httperrorurlerror" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>URLError里只有一个属性：<code class="docutils literal notranslate"><span class="pre">reason</span></code>,即抓异常的时候只能打印错误信息，类似上面的例子</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HTTPError</span></code>里有三个属性：<code class="docutils literal notranslate"><span class="pre">code,reason,headers</span></code>，即抓异常的时候可以获得<code class="docutils literal notranslate"><span class="pre">code,reson，headers</span></code>三个信息</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>    <span class="c1"># reason属性包含一个错误号和一个错误信息</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h3>捕获异常<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span><span class="n">error</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;http://pythonsite.com/1111.html&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">error</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">error</span><span class="o">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;reqeust successfully&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Not Found
+404
+Date: Wed, 23 Aug 2017 06:41:31 GMT
+Server: Apache
+Vary: Accept-Encoding
+Content-Length: 207
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="s1">&#39;https://ai.taobao.com&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>       
+</pre></div>
+</div>
+<div class="section" id="e-reason">
+<h4>e.reason其实也可以在做深入的判断，例子如下：<a class="headerlink" href="#e-reason" title="永久链接至标题">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">error</span><span class="p">,</span><span class="n">request</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;http://www.pythonsite.com/&quot;</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">error</span><span class="o">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span><span class="n">socket</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time out&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;socket.timeout&#39;&gt;
+time out
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">http</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pprint">
+<h4>pprint<a class="headerlink" href="#pprint" title="永久链接至标题">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="p">:</span>        <span class="n">module</span>
+<span class="n">Docstring</span><span class="p">:</span>  
+<span class="n">Support</span> <span class="n">to</span> <span class="n">pretty</span><span class="o">-</span><span class="nb">print</span> <span class="n">lists</span><span class="p">,</span> <span class="n">tuples</span><span class="p">,</span> <span class="o">&amp;</span> <span class="n">dictionaries</span> <span class="n">recursively</span><span class="o">.</span>
+
+<span class="n">Very</span> <span class="n">simple</span><span class="p">,</span> <span class="n">but</span> <span class="n">useful</span><span class="p">,</span> <span class="n">especially</span> <span class="ow">in</span> <span class="n">debugging</span> <span class="n">data</span> <span class="n">structures</span><span class="o">.</span>
+
+<span class="n">Classes</span>
+<span class="o">-------</span>
+
+<span class="n">PrettyPrinter</span><span class="p">()</span>
+    <span class="n">Handle</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="n">operations</span> <span class="n">onto</span> <span class="n">a</span> <span class="n">stream</span> <span class="n">using</span> <span class="n">a</span> <span class="n">configured</span>
+    <span class="nb">set</span> <span class="n">of</span> <span class="n">formatting</span> <span class="n">parameters</span><span class="o">.</span>
+
+<span class="n">Functions</span>
+<span class="o">---------</span>
+
+<span class="n">pformat</span><span class="p">()</span>
+    <span class="n">Format</span> <span class="n">a</span> <span class="n">Python</span> <span class="nb">object</span> <span class="n">into</span> <span class="n">a</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printed</span> <span class="n">representation</span><span class="o">.</span>
+
+<span class="n">pprint</span><span class="p">()</span>
+    <span class="n">Pretty</span><span class="o">-</span><span class="nb">print</span> <span class="n">a</span> <span class="n">Python</span> <span class="nb">object</span> <span class="n">to</span> <span class="n">a</span> <span class="n">stream</span> <span class="p">[</span><span class="n">default</span> <span class="ow">is</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">]</span><span class="o">.</span>
+
+<span class="n">saferepr</span><span class="p">()</span>
+    <span class="n">Generate</span> <span class="n">a</span> <span class="s1">&#39;standard&#39;</span> <span class="nb">repr</span><span class="p">()</span><span class="o">-</span><span class="n">like</span> <span class="n">value</span><span class="p">,</span> <span class="n">but</span> <span class="n">protect</span> <span class="n">against</span> <span class="n">recursive</span>
+    <span class="n">data</span> <span class="n">structures</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">PARTIAL_CONTENT</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;HTTPStatus.PARTIAL_CONTENT: 206&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="handler">
+<h2>高级用法各种handler<a class="headerlink" href="#handler" title="永久链接至标题">¶</a></h2>
+<div class="section" id="proxyhandler">
+<h3>代理,ProxyHandler<a class="headerlink" href="#proxyhandler" title="永久链接至标题">¶</a></h3>
+<p>通过<code class="docutils literal notranslate"><span class="pre">rulllib.request.ProxyHandler()</span></code>可以设置代理,网站它会检测某一段时间某个IP 的访问次数，如果访问次数过多，它会禁止你的访问,所以这个时候需要通过设置代理来爬取数据</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">enable_proxy</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">proxy_handler</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">({</span><span class="s1">&#39;http&#39;</span><span class="p">:</span> <span class="s1">&#39;http://192.168.1.1:8087&#39;</span><span class="p">})</span>    <span class="c1"># 设置Proxy</span>
+<span class="n">null_proxy_handler</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">({})</span>   <span class="c1"># 默认不设置Proxy</span>
+<span class="k">if</span> <span class="n">enable_proxy</span><span class="p">:</span>                                       <span class="c1"># 需要设置Proxy的情况</span>
+    <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">proxy_handler</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>                                                  <span class="c1"># 不需要设置Proxy的情况</span>
+    <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">null_proxy_handler</span><span class="p">)</span>
+<span class="n">opener</span> <span class="o">=</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cookie-httpcookiprocessor">
+<h3>cookie,HTTPCookiProcessor<a class="headerlink" href="#cookie-httpcookiprocessor" title="永久链接至标题">¶</a></h3>
+<p>cookie中保存中我们常见的登录信息，有时候爬取网站需要携带cookie信息访问,这里用到了http.cookijar，用于获取cookie以及存储cookie
+更多内容可查看<a class="reference external" href="http://www.cnblogs.com/q735613050/p/7400885.html">python_cookie</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">http.cookiejar</span><span class="o">,</span> <span class="nn">urllib.request</span>
+<span class="n">cookie</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">cookiejar</span><span class="o">.</span><span class="n">CookieJar</span><span class="p">()</span>          <span class="c1"># 实例化Cookie对象</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>   
+<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>     <span class="c1"># 建立opener</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com&#39;</span><span class="p">)</span>    <span class="c1"># 使用opener打开网页</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cookie</span><span class="p">:</span>                           <span class="c1"># 连接成功后Cookie将存至opener绑定的cookie对象中</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot;=&quot;</span><span class="o">+</span><span class="n">item</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BAIDUID=FD7AB8ACCA2E3FFFCC647B0C8A4F90AE:FG=1
+BIDUPSID=FD7AB8ACCA2E3FFFCC647B0C8A4F90AE
+H_PS_PSSID=1449_21094_18559_22159
+PSTM=1503494060
+BDSVRTM=0
+BD_HOME=0
+</pre></div>
+</div>
+<p>同时cookie可以写入到文件中保存，有两种方式http.cookiejar.MozillaCookieJar和http.cookiejar.LWPCookieJar()</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># http.cookiejar.MozillaCookieJar()方式</span>
+<span class="kn">import</span> <span class="nn">http.cookiejar</span><span class="o">,</span> <span class="nn">urllib.request</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;cookie.txt&quot;</span>
+<span class="n">cookie</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">cookiejar</span><span class="o">.</span><span class="n">MozillaCookieJar</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>    
+<span class="n">handler</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>   
+<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com&#39;</span><span class="p">)</span>
+<span class="n">cookie</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ignore_discard</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_expires</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># http.cookiejar.LWPCookieJar()方式</span>
+<span class="kn">import</span> <span class="nn">http.cookiejar</span><span class="o">,</span> <span class="nn">urllib.request</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;cookie.txt&#39;</span>
+<span class="n">cookie</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">cookiejar</span><span class="o">.</span><span class="n">LWPCookieJar</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
+<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com&#39;</span><span class="p">)</span>
+<span class="n">cookie</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">ignore_discard</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_expires</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>同样的如果想要通过获取文件中的cookie获取的话可以通过load方式，当然用哪种方式写入的，就用哪种方式读取。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">http.cookiejar</span><span class="o">,</span> <span class="nn">urllib.request</span>
+<span class="n">cookie</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">cookiejar</span><span class="o">.</span><span class="n">LWPCookieJar</span><span class="p">()</span>
+<span class="n">cookie</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;cookie.txt&#39;</span><span class="p">,</span> <span class="n">ignore_discard</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_expires</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
+<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;https://www.baidu.com&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
+&lt;head&gt;
+	&lt;script&gt;
+		location.replace(location.href.replace(&quot;https://&quot;,&quot;http://&quot;));
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;noscript&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=http://www.baidu.com/&quot;&gt;&lt;/noscript&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="urllib-request-urlretrieve">
+<h2>urllib.request.urlretrieve<a class="headerlink" href="#urllib-request-urlretrieve" title="永久链接至标题">¶</a></h2>
+<p>urllib.request.urlretrieve(url, filename=None, reporthook=None, data=None)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Retrieve</span> <span class="n">a</span> <span class="n">URL</span> <span class="n">into</span> <span class="n">a</span> <span class="n">temporary</span> <span class="n">location</span> <span class="n">on</span> <span class="n">disk</span><span class="o">.</span>
+
+    <span class="n">Requires</span> <span class="n">a</span> <span class="n">URL</span> <span class="n">argument</span><span class="o">.</span> <span class="n">If</span> <span class="n">a</span> <span class="n">filename</span> <span class="ow">is</span> <span class="n">passed</span><span class="p">,</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">used</span> <span class="k">as</span>
+    <span class="n">the</span> <span class="n">temporary</span> <span class="n">file</span> <span class="n">location</span><span class="o">.</span> <span class="n">The</span> <span class="n">reporthook</span> <span class="n">argument</span> <span class="n">should</span> <span class="n">be</span>
+    <span class="n">a</span> <span class="n">callable</span> <span class="n">that</span> <span class="n">accepts</span> <span class="n">a</span> <span class="n">block</span> <span class="n">number</span><span class="p">,</span> <span class="n">a</span> <span class="n">read</span> <span class="n">size</span><span class="p">,</span> <span class="ow">and</span> <span class="n">the</span>
+    <span class="n">total</span> <span class="n">file</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">URL</span> <span class="n">target</span><span class="o">.</span> <span class="n">The</span> <span class="n">data</span> <span class="n">argument</span> <span class="n">should</span> <span class="n">be</span>
+    <span class="n">valid</span> <span class="n">URL</span> <span class="n">encoded</span> <span class="n">data</span><span class="o">.</span>
+
+    <span class="n">If</span> <span class="n">a</span> <span class="n">filename</span> <span class="ow">is</span> <span class="n">passed</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">URL</span> <span class="n">points</span> <span class="n">to</span> <span class="n">a</span> <span class="n">local</span> <span class="n">resource</span><span class="p">,</span>
+    <span class="n">the</span> <span class="n">result</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">copy</span> <span class="kn">from</span> <span class="nn">local</span> <span class="n">file</span> <span class="n">to</span> <span class="n">new</span> <span class="n">file</span><span class="o">.</span>
+
+    <span class="n">Returns</span> <span class="n">a</span> <span class="nb">tuple</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">newly</span> <span class="n">created</span>
+    <span class="n">data</span> <span class="n">file</span> <span class="k">as</span> <span class="n">well</span> <span class="k">as</span> <span class="n">the</span> <span class="n">resulting</span> <span class="n">HTTPMessage</span> <span class="nb">object</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>参数</strong>：</p>
+<ul class="simple">
+<li><p>finename： 指定了保存本地路径（如果参数未指定，urllib会生成一个临时文件保存数据。）</p></li>
+<li><p>reporthook： 是一个回调函数，当连接上服务器、以及相应的数据块传输完毕时会触发该回调，我们可以利用这个回调函数来显示当前的下载进度。</p></li>
+<li><p>data： 指 post 到服务器的数据，该方法返回一个包含两个元素的(filename, headers)元组，filename 表示保存到本地的路径，header 表示服务器的响应头。</p></li>
+</ul>
+<p>详细内容参见<a class="reference external" href="http://www.jianshu.com/p/ceab96588e3d">网络编程初探</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 下面是 urlretrieve() 下载文件实例，可以显示下载进度</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">Schedule</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    回调函数</span>
+<span class="sd">    @a: 已经下载的数据块</span>
+<span class="sd">    @b：数据块大小</span>
+<span class="sd">    @c：远程文件大小</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">per</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="n">c</span>
+    <span class="k">if</span> <span class="n">per</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="n">per</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">per</span><span class="p">)</span>
+    
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://cn.bing.com/images/search?view=detailV2&amp;ccid=GW2QgFkz&amp;id=EF611ABD160281C674AE77A4287DBCDB14A334E5&amp;thid=OIP.GW2QgFkzmTMDJuwkKOiNbwEsEp&amp;q=</span><span class="si">%e</span><span class="s1">5%9b%be</span><span class="si">%e</span><span class="s1">7</span><span class="si">%89%</span><span class="s1">87&amp;simid=608041670019188634&amp;selectedIndex=8&#39;</span>
+<span class="n">local</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;E:\图片&#39;</span><span class="p">,</span><span class="s1">&#39;美女.jpg&#39;</span><span class="p">)</span>
+<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">local</span><span class="p">,</span><span class="n">Schedule</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.00%
+7.95%
+15.90%
+23.85%
+31.79%
+39.74%
+47.69%
+55.64%
+63.59%
+71.54%
+79.48%
+87.43%
+95.38%
+100.00%
+
+
+
+
+
+(&#39;E:\\图片\\美女.jpg&#39;, &lt;http.client.HTTPMessage at 0x18b73720400&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id16">
+<h1>URL解析<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h1>
+<div class="section" id="urlparse">
+<h2>urlparse<a class="headerlink" href="#urlparse" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">urllib.parse.urlparse(url,</span> <span class="pre">scheme='',</span> <span class="pre">allow_fragments=True)</span></code></p>
+<p>就是可以对你传入的url地址进行拆分,同时我们是可以指定协议类型：<br />
+<code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">urlparse(&quot;www.baidu.com/index.html;user?id=5#comment&quot;,scheme=&quot;https&quot;)</span></code><br />
+这样拆分的时候协议类型部分就会是你指定的部分，当然如果你的url里面已经带了协议，你再通过<code class="docutils literal notranslate"><span class="pre">scheme</span></code>指定的协议就不会生效</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="s2">&quot;http://www.baidu.com/index.html;user?id=5#comment&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.baidu.com&#39;, path=&#39;/index.html&#39;, params=&#39;user&#39;, query=&#39;id=5&#39;, fragment=&#39;comment&#39;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="urlunpars">
+<h2>urlunpars<a class="headerlink" href="#urlunpars" title="永久链接至标题">¶</a></h2>
+<p>其实功能和urlparse的功能相反，它是用于拼接，例子如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlunparse</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;http&#39;</span><span class="p">,</span><span class="s1">&#39;www.baidu.com&#39;</span><span class="p">,</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span><span class="s1">&#39;user&#39;</span><span class="p">,</span><span class="s1">&#39;a=123&#39;</span><span class="p">,</span><span class="s1">&#39;commit&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">urlunparse</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.baidu.com/index.html;user?a=123#commit
+</pre></div>
+</div>
+</div>
+<div class="section" id="urljoin">
+<h2>urljoin<a class="headerlink" href="#urljoin" title="永久链接至标题">¶</a></h2>
+<p>这个的功能其实是做拼接的(从拼接的结果我们可以看出，拼接的时候后面的优先级高于前面的url)，例子如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com&#39;</span><span class="p">,</span> <span class="s1">&#39;FAQ.html&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com&#39;</span><span class="p">,</span> <span class="s1">&#39;https://pythonsite.com/FAQ.html&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com/about.html&#39;</span><span class="p">,</span> <span class="s1">&#39;https://pythonsite.com/FAQ.html&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com/about.html&#39;</span><span class="p">,</span> <span class="s1">&#39;https://pythonsite.com/FAQ.html?question=2&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com?wd=abc&#39;</span><span class="p">,</span> <span class="s1">&#39;https://pythonsite.com/index.php&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com&#39;</span><span class="p">,</span> <span class="s1">&#39;?category=2#comment&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;www.baidu.com&#39;</span><span class="p">,</span> <span class="s1">&#39;?category=2#comment&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="s1">&#39;www.baidu.com#comment&#39;</span><span class="p">,</span> <span class="s1">&#39;?category=2&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.baidu.com/FAQ.html
+https://pythonsite.com/FAQ.html
+https://pythonsite.com/FAQ.html
+https://pythonsite.com/FAQ.html?question=2
+https://pythonsite.com/index.php
+http://www.baidu.com?category=2#comment
+www.baidu.com?category=2#comment
+www.baidu.com?category=2
+</pre></div>
+</div>
+</div>
+<div class="section" id="urlencode">
+<h2>urlencode<a class="headerlink" href="#urlencode" title="永久链接至标题">¶</a></h2>
+<p>这个方法可以将字典转换为url参数，例子如下</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlencode</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;zhaofan&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span><span class="mi">23</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.baidu.com?&quot;</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="n">base_url</span><span class="o">+</span><span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.baidu.com?name=zhaofan&amp;age=23
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id17">
+<h1>一个简单的爬虫例子<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span><span class="o">,</span><span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">re</span><span class="o">,</span><span class="nn">os</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span><span class="o">,</span><span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">re</span><span class="o">,</span><span class="nn">os</span>
+
+<span class="n">seed</span> <span class="o">=</span> <span class="s1">&#39;https://zhuanlan.zhihu.com/p/25063314&#39;</span>    <span class="c1"># 最开始的种子</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="mi">3</span>       <span class="c1"># 最多递归depth层，避免递归栈过深</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">5</span>          <span class="c1"># 每个网页只抓取count个URL作为新的seed</span>
+<span class="n">href_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;href\s*=\s*&quot;(https?://\S*)&quot;&#39;</span><span class="p">)</span>     <span class="c1"># 通过正则匹配网页源码中的URL</span>
+<span class="n">http_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+&#39;</span><span class="p">)</span>         <span class="c1"># 通过正则匹配URL中的文字部分</span>
+<span class="n">pages</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>                   <span class="c1"># 已经爬过的URL</span>
+
+<span class="n">save_dir</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>             <span class="c1"># 保存路径</span>
+<span class="k">def</span> <span class="nf">get_path</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    通过url获取保存文件路径，使用&#39;_&#39;拼接url中的文字部分</span>
+<span class="sd">    为避免文件名过长，只取拼接后字符串的前30个字符</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">http_re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">url</span><span class="p">))[:</span><span class="mi">30</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.txt&#39;</span><span class="o">%</span><span class="n">name</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">que</span> <span class="o">=</span> <span class="p">[</span><span class="n">seed</span><span class="p">,],</span><span class="n">dep</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    深度优先搜索爬取que列表中的url,并选取网页内容中的count个url作为新的seed</span>
+<span class="sd">    fetch函数最多递归depth层</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">nxt_que</span> <span class="o">=</span> <span class="p">[]</span>                  <span class="c1"># 下一层递归所用到的seed列表</span>
+    <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">que</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;depth: </span><span class="si">%d</span><span class="s1">     fetching </span><span class="si">%s</span><span class="s1"> ...&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">dep</span><span class="p">,</span><span class="n">url</span><span class="p">))</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">get_path</span><span class="p">(</span><span class="n">url</span><span class="p">),</span><span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>         <span class="c1"># 保存网页内容</span>
+        
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># 新的seed的计数</span>
+        <span class="k">for</span> <span class="n">new_url</span> <span class="ow">in</span> <span class="n">href_re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">new_url</span> <span class="ow">in</span> <span class="n">pages</span><span class="p">:</span> <span class="k">continue</span>     <span class="c1"># 若已经爬过，则跳过</span>
+            <span class="n">pages</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_url</span><span class="p">)</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">nxt_que</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_url</span><span class="p">)</span>     <span class="c1"># 将新的seed放入nxt_que中</span>
+            <span class="k">if</span> <span class="n">cnt</span> <span class="o">&gt;=</span> <span class="n">count</span><span class="p">:</span>            <span class="c1"># 最多选count个</span>
+                <span class="k">break</span>
+                
+    <span class="k">if</span> <span class="n">dep</span> <span class="o">&lt;</span> <span class="n">depth</span><span class="p">:</span>
+        <span class="n">fetch</span><span class="p">(</span><span class="n">nxt_que</span><span class="p">,</span><span class="n">dep</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">fetch</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./drafts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="type.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">Python 数据类型转换（draft）</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../notebook.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Jupyter Notebook</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

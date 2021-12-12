@@ -1,0 +1,651 @@
+```python
+import struct
+
+class StructField:
+    '''
+    使用了一个描述器（Descriptor representing ）来表示每个结构字段，
+        每个描述器包含一个结构兼容格式的代码以及一个字节偏移量， 存储在内部的内存缓冲中。
+    '''
+    def __init__(self, fmt, offset):
+        self.format = fmt
+        self.offset = offset
+        
+    def __get__(self, instance, cls):
+        if instance is None:
+            return self
+        else:
+            r = struct.unpack_from(self.format, instance._buffer, self.offset)
+            return r[0] if len(r) == 1 else r
+
+class Structure:
+    def __init__(self, bytedata):
+        '''
+        接受字节数据并存储在内部的内存缓冲中，并被 StructField 描述器使用。
+        '''
+        self._buffer = memoryview(bytedata)
+```
+
+# 描述器是什么？
+
+只要具有 `__get__` 方法的类就是描述符类。
+
+- 如果一个类中具有 `__get__` 和 `__set__` 两个方法，那么就是数据描述符。
+- 如果一个类中只有 `__get__` 方法，那么是非数据描述符。
+
+具体如下：
+- `__get__`：当我们用类或者实例来调用该属性时，Python 会返回 `__get__` 函数的结果。
+- `__set__`：当我们用实例来设置属性值时，Python 会调用该函数。对类没有限制作用。
+- `__delete__`：当我们用实例试图删除该属性时，Python 会调用该函数。对类没有限制作用。
+
+## 非数据描述类
+
+
+```python
+class Desc:
+    def __init__(self, value=22):
+        self.value = value
+        
+    def __get__(self, ins, cls):
+        return self.value
+
+    
+class A:
+    v = Desc()
+    
+a = A()
+```
+
+由于实例中没有 `v` 属性，所以找到了类的属性，而类的属性是一个描述符类实例，所以调用其 `__get__` 方法的结果。
+
+
+```python
+a.v 
+```
+
+
+
+
+    22
+
+
+
+实例的 `__dict__` 空空如也。
+
+
+```python
+a.__dict__      
+```
+
+
+
+
+    {}
+
+
+
+类的 `__dict__` 中确实存在 `v` 属性，且是一个 Desc object 对象。
+
+
+```python
+A.__dict__      
+```
+
+
+
+
+    mappingproxy({'__module__': '__main__',
+                  'v': <__main__.Desc at 0x248e0e79748>,
+                  '__dict__': <attribute '__dict__' of 'A' objects>,
+                  '__weakref__': <attribute '__weakref__' of 'A' objects>,
+                  '__doc__': None})
+
+
+
+我们通过实例设置 `v` 属性，则发现实例的 `__dict__` 中存入了我们刚才设置的属性：
+
+
+```python
+a.v = 30     
+a.__dict__     
+```
+
+
+
+
+    {'v': 30}
+
+
+
+而类的 `__dict__` 没有发生任何变化：
+
+
+```python
+ A.__dict__     
+```
+
+
+
+
+    mappingproxy({'__module__': '__main__',
+                  'v': <__main__.Desc at 0x248e0e79748>,
+                  '__dict__': <attribute '__dict__' of 'A' objects>,
+                  '__weakref__': <attribute '__weakref__' of 'A' objects>,
+                  '__doc__': None})
+
+
+
+
+```python
+a.v             # 
+```
+
+
+
+
+    30
+
+
+
+如我们所料，访问到了 `a.__dict__` 中的内容。我们删除实例的属性 `v` 后发现居然还是可以调用 `a.v`，返回的是我们设置之前的值。
+
+
+```python
+del a.v        
+
+a.v
+```
+
+
+
+
+    22
+
+
+
+
+```python
+A.__dict__      # 和前面一样，没有发生变化。
+```
+
+
+
+
+    mappingproxy({'__module__': '__main__',
+                  'v': <__main__.Desc at 0x248e0e79748>,
+                  '__dict__': <attribute '__dict__' of 'A' objects>,
+                  '__weakref__': <attribute '__weakref__' of 'A' objects>,
+                  '__doc__': None})
+
+
+
+通过上面的测试，我们发现非数据描述类有如下特点：
+- 如果实例 `__dict__` 没有设置同名属性，那么返回描述类的 `__get__` 方法的结果。
+- 如果实例 `__dict__` 中存在同名属性，那么返回实例 `__dict__` 中的内容。
+- 对我们设置实例的 `__dict__` 中的行为并不做阻止。所以我说这是查看级别的描述类。
+
+## 数据描述类
+
+
+```python
+class Desc:
+    def __init__(self, value=22):
+        self.value = value
+        
+    def __get__(self, ins, cls):
+        return self.value
+    
+    def __set__(self, ins, value):
+        self.value = value
+        #raise AttributeError
+
+class A:
+    v = Desc()
+    
+a = A()
+```
+
+
+```python
+a.v
+```
+
+
+
+
+    22
+
+
+
+我们设置 `a.v` 后，发现实例的 `__dict__` 中仍然空空如也。因为此时调用的是 `__set__` 方法，值 `10` 存入到了 `Desc` 实例的 `value` 属性上了。
+
+
+```python
+a.v = 10
+a.__dict__     
+```
+
+
+
+
+    {}
+
+
+
+
+```python
+A.__dict__
+```
+
+
+
+
+    mappingproxy({'__module__': '__main__',
+                  'v': <__main__.Desc at 0x248e0e25cf8>,
+                  '__dict__': <attribute '__dict__' of 'A' objects>,
+                  '__weakref__': <attribute '__weakref__' of 'A' objects>,
+                  '__doc__': None})
+
+
+
+
+```python
+ a.v             # 此时得到的还是 Desc 的 __get__ 方法返回的结果。
+```
+
+
+
+
+    10
+
+
+
+
+```python
+del a.v         #不允许我们删除
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-22-ca186fdd8490> in <module>()
+    ----> 1 del a.v         #不允许我们删除
+    
+
+    AttributeError: __delete__
+
+
+
+```python
+A.v = 30
+```
+
+
+```python
+A.__dict__
+```
+
+
+
+
+    mappingproxy({'__module__': '__main__',
+                  'v': 30,
+                  '__dict__': <attribute '__dict__' of 'A' objects>,
+                  '__weakref__': <attribute '__weakref__' of 'A' objects>,
+                  '__doc__': None})
+
+
+
+我们把 `__set__` 方法的原来语句注销，添加 `raise AttribeError` 语句，再次运行：
+
+
+```python
+class Desc:
+    def __init__(self, value=22):
+        self.value = value
+        
+    def __get__(self, ins, cls):
+        return self.value
+    
+    def __set__(self, ins, value):
+        #self.value = value
+        raise AttributeError
+        
+        
+class A:
+    v = Desc()
+    
+a = A()
+a.v = 30        
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-26-af36724697b5> in <module>()
+         15 
+         16 a = A()
+    ---> 17 a.v = 30
+    
+
+    <ipython-input-26-af36724697b5> in __set__(self, ins, value)
+          8     def __set__(self, ins, value):
+          9         #self.value = value
+    ---> 10         raise AttributeError
+         11 
+         12 
+    
+
+    AttributeError: 
+
+
+我们在 `__set__` 中手动添加了 `AttributeError` 异常，所以我们再也不能设置 `a.v` 的值了，因此该属性鞭策了只读属性。
+
+
+```python
+A.v = 20          # 通过类，仍然可以改变属性
+```
+
+
+```python
+A.__dict__      #改变后，变成了普通属性 20 了，这时甚至都已经不再是描述符类了。
+```
+
+
+
+
+    mappingproxy({'__module__': '__main__',
+                  'v': 20,
+                  '__dict__': <attribute '__dict__' of 'A' objects>,
+                  '__weakref__': <attribute '__weakref__' of 'A' objects>,
+                  '__doc__': None})
+
+
+
+
+```python
+del A.v
+```
+
+说明如下：
+- 当 `__set__` 方法存在后，实例设置同名属性时，完全需要看 `__set__` 的脸色。
+- 如果描述类中 `__set__` 方法存在但是 `__delete__` 方法不存在，那么不能删除客户类中的属性。
+- 即使在 `__set__` 方法中做了限制，这个限制只是对实例而言的，对类没有起到作用。
+
+## 把属性存在描述符类中
+
+
+```python
+class Desc:
+    def __init__(self, value):
+        self.value = value
+        
+    def __get__(self, ins, cls):
+        return self.value
+    
+    def __set__(self, ins, value):
+        self.value = value
+        
+    def __delete__(self, ins):
+        raise AttributeError('not allowed to delete attribute name ' )
+
+        
+class A:
+    name = Desc('JS')
+    
+a = A()
+```
+
+
+```python
+del a.name
+```
+
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-33-a495b342d7d6> in <module>()
+    ----> 1 del a.name
+    
+
+    <ipython-input-32-27df162f0b50> in __delete__(self, ins)
+         10 
+         11     def __delete__(self, ins):
+    ---> 12         raise AttributeError('not allowed to delete attribute name ' )
+         13 
+         14 
+    
+
+    AttributeError: not allowed to delete attribute name 
+
+
+
+```python
+a = A()
+b = A()
+```
+
+
+```python
+a.name
+```
+
+
+
+
+    'JS'
+
+
+
+
+```python
+b.name
+```
+
+
+
+
+    'JS'
+
+
+
+
+```python
+a.name = 'CC'
+```
+
+
+```python
+b.name
+```
+
+
+
+
+    'CC'
+
+
+
+缺点显而易见，如果有多个实例，那么他们共享一个描述符，所以当一个实例的该属性发生改变后，其他实例的该属性也会发生变化。
+
+### 改善方法：
+存入一个字典，把实例的 `hash` 作为健存入，这样可以解决问题。
+
+
+```python
+class Desc:
+    def __init__(self, value):
+        self.values = {}
+        
+    def __get__(self, ins, cls):
+        return self.values[hash(ins)] 
+    
+    def __set__(self, ins, value):
+        self.values[hash(ins)] = value
+        
+    def __delete__(self, ins):
+        raise AttributeError('not allowed to delete attribute name ' )
+```
+
+## 把数据存入实例中
+
+
+```python
+class Desc:
+    def __get__(self, ins, cls):
+        return ins._name
+    
+    def __set__(self, ins, value):
+        ins._name = value 
+        
+    def __delete__(self, ins):
+        raise AttributeError('not allowed to delete attribute name ' )
+
+        
+class A:
+    name = Desc
+    
+a = A()
+```
+
+
+```python
+a.name = 'JS'
+```
+
+
+```python
+a.name
+```
+
+
+
+
+    'JS'
+
+
+
+
+```python
+a._name = 'CC'
+
+a.name
+```
+
+
+
+
+    'JS'
+
+
+
+缺点：我们设置在实例中的变量私密性不太好，可以很容易被改变。
+
+当然，可以做一个私有性的装饰器，或者利用属性扩张来解决。
+
+# 补充解释
+- `__get__(self, ins, cls)`：其中 `ins` 为实例对象，在我们上面的例子中是 `a` 或者 `b`，`cls` 为 `a` 或者 `b` 的类，为 `A`
+- `__set__` 和 `__delete__`：`ins` 和上面的含义相同
+
+# 总结
+
+一个描述器就是一个实现了三个核心的属性访问操作(`get`, `set`, `delete`)的类， 分别为 `__get__()` 、`__set__()` 和 `__delete__()` 这三个特殊的方法。 这些方法接受一个实例作为输入，之后相应的操作实例底层的字典。
+
+
+```python
+# Descriptor attribute for an integer type-checked attribute
+class Integer:
+    def __init__(self, name):
+        self.name = name
+
+    def __get__(self, instance, cls):
+        if instance is None:
+            return self
+        else:
+            return instance.__dict__[self.name]
+
+    def __set__(self, instance, value):
+        if not isinstance(value, int):
+            raise TypeError('Expected an int')
+        instance.__dict__[self.name] = value
+
+    def __delete__(self, instance):
+        del instance.__dict__[self.name]
+```
+
+为了使用一个描述器，需将这个描述器的实例作为类属性放到一个类的定义中。例如：
+
+
+```python
+class Point:
+    x = Integer('x')
+    y = Integer('y')
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+```
+
+当你这样做后，所有对描述器属性(比如 `x` 或 `y`)的访问会被 `__get__()` 、`__set__()` 和 `__delete__()` 方法捕获到。例如：
+
+
+```python
+p = Point(2, 3)
+p
+```
+
+
+
+
+    <__main__.Point at 0x248e0ef4b38>
+
+
+
+
+```python
+p.x # Calls Point.x.__get__(p,Point)
+```
+
+
+
+
+    2
+
+
+
+
+```python
+p.y = 5 # Calls Point.y.__set__(p, 5)
+```
+
+
+```python
+p.x = 2.3 # Calls Point.x.__set__(p, 2.3)
+```
+
+
+    ---------------------------------------------------------------------------
+
+    TypeError                                 Traceback (most recent call last)
+
+    <ipython-input-52-606a2a07c22c> in <module>()
+    ----> 1 p.x = 2.3 # Calls Point.x.__set__(p, 2.3)
+    
+
+    <ipython-input-46-2df920d030da> in __set__(self, instance, value)
+         12     def __set__(self, instance, value):
+         13         if not isinstance(value, int):
+    ---> 14             raise TypeError('Expected an int')
+         15         instance.__dict__[self.name] = value
+         16 
+    
+
+    TypeError: Expected an int
+
+
+作为输入，描述器的每一个方法会接受一个操作实例。 为了实现请求操作，会相应的操作实例底层的字典(`__dict__`属性)。 描述器的 `self.name` 属性存储了在实例字典中被实际使用到的`key`。

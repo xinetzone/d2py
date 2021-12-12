@@ -1,0 +1,1624 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>字符编码方法 &#8212; d2py 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/d2py");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/drafts/str.html" />
+    <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Python 数据类型转换（draft）" href="type.html" />
+    <link rel="prev" title="网络" href="socket.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">d2py 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python-study/index.html">
+   Python 学习手册
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/basic/index.html">
+     Python 基础教程
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/basic/intro/index.html">
+       Python 简介
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/intro/understand-python.html">
+         解读 Python 世界的修炼体系
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/intro/basic-type.html">
+         Python 基本数据类型
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/basic/function.html">
+       函数
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/basic/container/index.html">
+       容器
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/sequence.html">
+         序列
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/dict.html">
+         字典
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/basic/container/set.html">
+         集合
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/basic/controlflow.html">
+       常用语句
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/topics/index.html">
+     Python 主题手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/topics/f-string.html">
+       格式字符串字面值
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/topics/sys.html">
+       系统相关
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python-study/faqs/index.html">
+     常见问题
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/refs/index.html">
+     Python 参考手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/constants.html">
+       内置常量
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/terms.html">
+       术语中英对照表
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../python-study/refs/glossary/index.html">
+       术语表
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/basic.html">
+         基本术语
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/exec.html">
+         异常
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/identifier.html">
+         标识符
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../python-study/refs/glossary/value.html">
+         字面值
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/refs/sources.html">
+       Python 学习资源
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../posts/index.html">
+   博客
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/feature.html">
+     特性
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../about/use.html">
+     项目使用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CODE_OF_CONDUCT.html">
+     行为准则
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CONTRIBUTING.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SECURITY.html">
+     安全策略
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../news/index.html">
+   Python 新闻
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   草稿
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="101.html">
+     一、5 个值得在 2018 年关注的库
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11.html">
+     比较、相等和真值
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="22.html">
+     存储数据
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="33.html">
+     类也是对象
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="44.html">
+     描述器是什么？
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="55.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="66.html">
+     类型和运算 (Types and Operations)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="88.html">
+     函数基础
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="class.html">
+     class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="draft.html">
+     回收站
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exc.html">
+     异常（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="file.html">
+     I/O操作（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="iter.html">
+     迭代&amp;生成（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="math.html">
+     Python 中的数学（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="oop.html">
+     OOP: The Big Picture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="op.html">
+     运算符（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="re.html">
+     re
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="socket.html">
+     网络
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="type.html">
+     Python 数据类型转换（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="%E7%88%AC%E8%99%AB.html">
+     爬虫
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebook.html">
+   Jupyter Notebook
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/drafts/str.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fdrafts/str.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/drafts/str.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   字符编码方法
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raw">
+     raw字符串（原始字符串)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unicode">
+     Unicode 字符串
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     文本和二进制文件
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   Python转义字符
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   格式化操作
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#m-n">
+     m.n 宽度与精度
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   字符串模板
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Python 的字符串常用内建函数
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-capitalize-str">
+     1
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       S.capitalize()
+      </span>
+     </code>
+     返回一个首字母大写的字符串(
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       str
+      </span>
+     </code>
+     )：
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-lower-return-a-copy-of-the-string-s-converted-to-lowercase">
+     2
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       S.lower
+      </span>
+      <span class="pre">
+       -&gt;
+      </span>
+      <span class="pre">
+       Return
+      </span>
+      <span class="pre">
+       a
+      </span>
+      <span class="pre">
+       copy
+      </span>
+      <span class="pre">
+       of
+      </span>
+      <span class="pre">
+       the
+      </span>
+      <span class="pre">
+       string
+      </span>
+      <span class="pre">
+       S
+      </span>
+      <span class="pre">
+       converted
+      </span>
+      <span class="pre">
+       to
+      </span>
+      <span class="pre">
+       lowercase
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-center-width-fillchar">
+     3
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       S.center(width[,
+      </span>
+      <span class="pre">
+       fillchar])
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-count-sub-start-end">
+     4
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       S.count(sub[,
+      </span>
+      <span class="pre">
+       start[,
+      </span>
+      <span class="pre">
+       end]])
+      </span>
+     </code>
+     该方法返回子字符串在字符串中出现的次数
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bytes-decode-self-encoding-utf-8-errors-strict">
+     5
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       bytes.decode(self,
+      </span>
+      <span class="pre">
+       /,
+      </span>
+      <span class="pre">
+       encoding='utf-8',
+      </span>
+      <span class="pre">
+       errors='strict')
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#s-encode-encoding-utf-8-errors-strict-bytes">
+       6
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         S.encode(encoding='utf-8',
+        </span>
+        <span class="pre">
+         errors='strict')
+        </span>
+        <span class="pre">
+         -&gt;
+        </span>
+        <span class="pre">
+         bytes
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-find-sub-start-end-int">
+     7
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       S.find(sub[,
+      </span>
+      <span class="pre">
+       start[,
+      </span>
+      <span class="pre">
+       end]])
+      </span>
+      <span class="pre">
+       -&gt;
+      </span>
+      <span class="pre">
+       int
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-join-iterable-str">
+     8
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       S.join(iterable)
+      </span>
+      <span class="pre">
+       -&gt;
+      </span>
+      <span class="pre">
+       str
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-strip-chars-str">
+     9
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       S.strip([chars])
+      </span>
+      <span class="pre">
+       -&gt;
+      </span>
+      <span class="pre">
+       str
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-replace-old-new-count-str">
+     10
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       S.replace(old,
+      </span>
+      <span class="pre">
+       new[,
+      </span>
+      <span class="pre">
+       count])
+      </span>
+      <span class="pre">
+       -&gt;
+      </span>
+      <span class="pre">
+       str
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s-split-sep-none-maxsplit-1-list-of-strings">
+     11
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       S.split(sep=None,
+      </span>
+      <span class="pre">
+       maxsplit=-1)
+      </span>
+      <span class="pre">
+       -&gt;
+      </span>
+      <span class="pre">
+       list
+      </span>
+      <span class="pre">
+       of
+      </span>
+      <span class="pre">
+       strings
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>字符编码方法<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>大多数程序员把字符串看作是用来表示文本数据的一系列字符。但是，根据必须记录何种字符集，计算机内存中存储字符的方式有所不同。</p>
+<p>本文仅仅涉及 Python 3.X</p>
+<p>在 Python 3.X 中，有 <span class="math notranslate nohighlight">\(3\)</span> 种字符串类型：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>：用于 Unicode 文本 (ASCII 或其他更宽的);（ASCII 看作 Unicode 的一种简单类型）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bytes</span></code>：用于二进制数据 (包括编码的文本);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bytearray</span></code>：是一种可变的 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 类型。</p></li>
+</ul>
+<div class="section" id="raw">
+<h2>raw字符串（原始字符串)<a class="headerlink" href="#raw" title="永久链接至标题">¶</a></h2>
+<p>所见即所得，例如</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;w</span><span class="se">\n</span><span class="s1">e&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>w
+e
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;w\ne&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>w\ne
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>   <span class="c1"># 转义字符仅仅占用 1 个长度</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>  <span class="c1"># 此时，将 `\` 当成一个字符</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+<div class="section" id="unicode">
+<h2>Unicode 字符串<a class="headerlink" href="#unicode" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>ASCII码：每个字符都是以 <span class="math notranslate nohighlight">\(7\)</span> 位二进制数的方式存储在计算机内，ASCI 字符只能表示 <span class="math notranslate nohighlight">\(95\)</span> 个可打印字符。</p></li>
+<li><p>Unicode：通过使用一个或多个字节来表示一个字符的方式突破了 ASCII 码的限制。</p></li>
+</ul>
+<p>ASCII 标准在美国创建，并且定义了大多数美国程序员使用的文本字符串表示法。ASCII 定义了从 <span class="math notranslate nohighlight">\(0\)</span> 到 <span class="math notranslate nohighlight">\(127\)</span> 的字符代码，并且允许每个字符存储在一个 <span class="math notranslate nohighlight">\(8\)</span> 位的字节中（实际上，只有其中的 <span class="math notranslate nohighlight">\(7\)</span> 位真正用到）。例如，ASCII 标准把字符 <code class="docutils literal notranslate"><span class="pre">'a'</span></code> 映射为整数值 <code class="docutils literal notranslate"><span class="pre">97</span></code>（十六进制中 的 <code class="docutils literal notranslate"><span class="pre">0x61</span></code>），它存储在内存和文件的一个单个字节中。如果想要看到这是如何工作的， Python 的内置函数 <code class="docutils literal notranslate"><span class="pre">ord</span></code> 给出了一个字符的二进制值，并且 <code class="docutils literal notranslate"><span class="pre">chr</span></code> 针对一个给定的整数代码值 返回其字符：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>97
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">hex</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;0x61&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">chr</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
+</pre></div>
+</div>
+<p>为了容纳特殊字符，一些标准允许一个8位字节中的所有可能 的值（即 <span class="math notranslate nohighlight">\(0\sim 255\)</span>）来表示字符，并且把（ASCII 范围之外的）值 <span class="math notranslate nohighlight">\(128\)</span> 到 <span class="math notranslate nohighlight">\(255\)</span> 分配给特殊字符。这样的一个标准叫做 Latin-1，广泛地用于西欧地区。在 Latin-1 中，<span class="math notranslate nohighlight">\(127\)</span> 以上的字符 代码分配给了重音和其他特殊字符。例如，分配给字节值 <code class="docutils literal notranslate"><span class="pre">196</span></code> 的字符，是一个特殊标记 的非 ASCII 字符：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">chr</span><span class="p">(</span><span class="mi">196</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Ä&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">hex</span><span class="p">(</span><span class="mi">196</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;0xc4&#39;
+</pre></div>
+</div>
+<p>然而，一些字母表定义了如此多的字符，以至于无法把其中的每一个都表示成一个字节。Unicode 考虑到更多的灵活性。Unicode 文 本通常叫做“宽字符”字符串，因为每个字符可能表示为多个字节。Unicode 通常用在国际化的程序中，以表示欧洲和亚洲的字符集，它们往往拥有比 <span class="math notranslate nohighlight">\(8\)</span> 位字节所能表示的更多的字符。</p>
+<p>更程序化地说，字节和字符串之间的来回转换由两个术语定义：</p>
+<ul class="simple">
+<li><p><strong>编码</strong>: 是根据一个想要的编码名称，把一个字符串翻译为其原始字节形式。</p></li>
+<li><p><strong>解码</strong>: 是根据其编码名称，把一个原始字节串翻译为字符串形式的过程。</p></li>
+</ul>
+<p>也就是说，我们从字符串编码为原始字节，并且从原始字节解码为字符串。</p>
+<p>由于编码的字符映射把字符分配给同样的代码以保持兼容性，因此 ASCII 是 Latin-1 和 UTF-8 的子集。也就是说，一个有效的 ASCII 字符串也是一个有效的 Latin-1 和 UTF-8 编码字符串。当数据存储到文件中的时候，这也是成立的：每个 ASCII 文件也是有效的 UTF-8 文件，因为 ASCII 是 UTF-8 的一个 <span class="math notranslate nohighlight">\(7\)</span> 位的子集。 ASCII、Latin-1、UTF-8 以及很多其他的编码，都被认为是 Unicode。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">encodings</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">encodings</span><span class="p">);</span> <span class="c1"># 查看 Python 支持的编码方式</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="s1">&#39;ni&#39;</span> 
+<span class="n">S</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">),</span> <span class="n">S</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">),</span> <span class="n">S</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(b&#39;ni&#39;, b&#39;ni&#39;, b&#39;ni&#39;)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf16&#39;</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf16&#39;</span><span class="p">))</span> 
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(b&#39;\xff\xfen\x00i\x00&#39;, 6)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf32&#39;</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf32&#39;</span><span class="p">))</span> 
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(b&#39;\xff\xfe\x00\x00n\x00\x00\x00i\x00\x00\x00&#39;, 12)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>文本和二进制文件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>文 本 文 件 当一个文件以文本模式打开的时候，读取其数据会自动将其内容解码（每个平台一个默认的或一个提供的编码名称），并且将其返回为一个<code class="docutils literal notranslate"><span class="pre">str</span></code>，写入会接受一个 <code class="docutils literal notranslate"><span class="pre">str</span></code>，并且在将其传输到文件之间自动编码它。文本模式的文件还支持统一的行尾 转换和额外的编码特定参数。根据编码名称，文本文件也自动处理文件开始处的字节顺序标记序列。</p></li>
+<li><p>二 进 制 文 件 通过在内置的<code class="docutils literal notranslate"><span class="pre">open</span></code> 调用的模式字符串参数添加一个 <code class="docutils literal notranslate"><span class="pre">b</span></code>（只能小写），以二进制模式 打开一个文件的时候，读取其数据不会以任何方式解码它，而是直接返回其内容 <code class="docutils literal notranslate"><span class="pre">raw</span></code> 并且未经修改，作为一个 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 对象；写入类似地接受一个 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 对象，并且将其传送到文件中而未经修改。二进制模式文件也接受一个bytearray对象作为写入 文件中的内容。</p></li>
+</ul>
+<p>由于 <code class="docutils literal notranslate"><span class="pre">str</span></code> 和 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 之间的语言差距明显，所以必须确定数据本质上是文本或二进制，并且 在脚本中相应地使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 或 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 对象来表示其内容。最终，以何种模式打开一个文件将 决定脚本使用何种类型的对象来表示其内容：</p>
+<ul class="simple">
+<li><p>如果正在处理图像文件，其他程序创建的、而且必须解压的打包数据，或者一些设备数据流，则使用 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 和二进制模式文件处理它更合适。</p></li>
+<li><p>如果想要更新数据而不在内存中产生其副本，也可以选择使用 <code class="docutils literal notranslate"><span class="pre">bytearray</span></code>。</p></li>
+<li><p>如果你要处理的内容实质是文本的内容，例如程序输出、HTML、国际化文本或 CSV 或 XML 文件，可能要使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 和文本模式文件。</p></li>
+</ul>
+<p>注意，内置函数 <code class="docutils literal notranslate"><span class="pre">open</span></code> 的模式字符串参数（函数的第二个参数）在 Python 3.X 中变得至关重要，因为其内容不仅指定了一个文件处理模式，而且暗示了一个 Python 对象类型。 通过给模式字符串添加一个 <code class="docutils literal notranslate"><span class="pre">b</span></code>，我们可以指定二进制模式，并且当读取或写入的时候， 将要接收或者必须提供一个 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 对象来表示文件的内容。没有 <code class="docutils literal notranslate"><span class="pre">b</span></code>，我们的文件将以文本模式处理，并且将使用 <code class="docutils literal notranslate"><span class="pre">str</span></code> 对象在脚本中表示其内容。例如，模式 <code class="docutils literal notranslate"><span class="pre">rb</span></code>、<code class="docutils literal notranslate"><span class="pre">wb</span></code> 和 <code class="docutils literal notranslate"><span class="pre">rb+</span></code> 暗示 <code class="docutils literal notranslate"><span class="pre">bytes</span></code>，而 <code class="docutils literal notranslate"><span class="pre">r</span></code>、<code class="docutils literal notranslate"><span class="pre">w+</span></code> 和 <code class="docutils literal notranslate"><span class="pre">rt</span></code> 暗示 <code class="docutils literal notranslate"><span class="pre">str</span></code>。</p>
+<p>文本模式文件也处理在某种编码方案下可能出现在文件开始处的字节顺序标记（byte order marker，BOM）序列。例如，在 UTF-16 和 UTF-32 编码中，BOM指定大尾还是小尾格式（基本上，是确定一个位字符串的哪一端最重要）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;spam&#39;</span>               <span class="c1"># 3.X bytes literal make a bytes object (8-bit bytes) </span>
+<span class="n">S</span> <span class="o">=</span> <span class="s1">&#39;eggs&#39;</span>                <span class="c1"># 3.X str literal makes a Unicode text string</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> 
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(bytes, str)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;spam&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;eggs&#39;
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bytes</span></code> 对象实际上是较小的整数的一个序列，尽管它尽可能地将自己的内容打印为字符：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(115, &#39;e&#39;)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># Slicing makes another bytes or str object</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(b&#39;pam&#39;, &#39;ggs&#39;)
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> 
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>([115, 112, 97, 109], [&#39;e&#39;, &#39;g&#39;, &#39;g&#39;, &#39;s&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="python">
+<h1>Python转义字符<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<p>在需要在字符中使用特殊字符时，python用反斜杠(<code class="docutils literal notranslate"><span class="pre">\</span></code>)转义字符。如下表：</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>转义字符</p></th>
+<th class="text-align:left head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\</span></code>(在行尾时)</p></td>
+<td class="text-align:left"><p>续行符</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\\</span></code></p></td>
+<td class="text-align:left"><p>反斜杠符号</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\'</span></code></p></td>
+<td class="text-align:left"><p>单引号</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\&quot;</span></code></p></td>
+<td class="text-align:left"><p>双引号</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\a</span></code></p></td>
+<td class="text-align:left"><p>响铃</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\b</span></code></p></td>
+<td class="text-align:left"><p>退格(Backspace)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\e</span></code></p></td>
+<td class="text-align:left"><p>转义</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\000</span></code></p></td>
+<td class="text-align:left"><p>空</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\n</span></code></p></td>
+<td class="text-align:left"><p>换行</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\v</span></code></p></td>
+<td class="text-align:left"><p>纵向制表符</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\t</span></code></p></td>
+<td class="text-align:left"><p>横向制表符</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\r</span></code></p></td>
+<td class="text-align:left"><p>回车</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\f</span></code></p></td>
+<td class="text-align:left"><p>换页</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\oyy</span></code></p></td>
+<td class="text-align:left"><p>八进制数，yy代表的字符，例如：<code class="docutils literal notranslate"><span class="pre">\o12</span></code>代表换行</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">\xyy</span></code></p></td>
+<td class="text-align:left"><p>十六进制数，yy代表的字符，例如：<code class="docutils literal notranslate"><span class="pre">\x0a</span></code>代表换行</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id3">
+<h1>格式化操作<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h1>
+<p>python字符串格式化符号:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>符   号</p></th>
+<th class="text-align:left head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%c</span></code></p></td>
+<td class="text-align:left"><p>转换成字符（ASCII码值或长度为1的字符串）</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%s</span></code></p></td>
+<td class="text-align:left"><p>优先使用<code class="docutils literal notranslate"><span class="pre">str()</span></code>函数进行字符串转换</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%r</span></code></p></td>
+<td class="text-align:left"><p>优先使用<code class="docutils literal notranslate"><span class="pre">repr()</span></code>函数进行字符串转换</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%u</span></code></p></td>
+<td class="text-align:left"><p>转换为无符号十进制</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%d</span></code></p></td>
+<td class="text-align:left"><p>转换为有符号十进制</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%o</span></code></p></td>
+<td class="text-align:left"><p>转换为无符号八进制数</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%x</span></code>/<code class="docutils literal notranslate"><span class="pre">%X</span></code></p></td>
+<td class="text-align:left"><p>转换为无符号十六进制数</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%f</span></code></p></td>
+<td class="text-align:left"><p>转换为浮点数字，可指定小数点后的精度</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%e</span></code>/<code class="docutils literal notranslate"><span class="pre">%E</span></code></p></td>
+<td class="text-align:left"><p>用科学计数法格式化浮点数</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%g</span></code></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%f和%e</span></code>的简写</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%G</span></code></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%f</span></code> 和 <code class="docutils literal notranslate"><span class="pre">%E</span></code> 的简写</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%p</span></code></p></td>
+<td class="text-align:left"><p>用十六进制数格式化变量的地址</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%%</span></code></p></td>
+<td class="text-align:left"><p>输出<code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p>格式化操作符辅助指令:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>符号</p></th>
+<th class="text-align:left head"><p>功能</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td class="text-align:left"><p>定义宽度或者小数点精度</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td class="text-align:left"><p>用做左对齐</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td class="text-align:left"><p>在正数前面显示加号(<code class="docutils literal notranslate"><span class="pre">+</span></code> )</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">&lt;sp&gt;</span></code></p></td>
+<td class="text-align:left"><p>在正数前面显示空格</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">#</span></code></p></td>
+<td class="text-align:left"><p>在八进制数前面显示零(<code class="docutils literal notranslate"><span class="pre">'0'</span></code>)，在十六进制前面显示<code class="docutils literal notranslate"><span class="pre">'0x'</span></code>或者<code class="docutils literal notranslate"><span class="pre">'0X'</span></code>(取决于用的是<code class="docutils literal notranslate"><span class="pre">'x'</span></code>还是<code class="docutils literal notranslate"><span class="pre">'X'</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td class="text-align:left"><p>显示的数字前面填充<code class="docutils literal notranslate"><span class="pre">'0'</span></code>而不是默认的空格</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">'%%'</span></code>输出一个单一的<code class="docutils literal notranslate"><span class="pre">'%'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">(var)</span></code></p></td>
+<td class="text-align:left"><p>映射变量(字典参数)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">m.n.</span></code></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">m</span></code> 是显示的最小总宽度,<code class="docutils literal notranslate"><span class="pre">n</span></code> 是小数点后的位数(如果可用的话)</p></td>
+</tr>
+</tbody>
+</table>
+<p>形式：<br />
+<code class="docutils literal notranslate"><span class="pre">format%values</span></code></p>
+<p>values的输入形式：</p>
+<ul class="simple">
+<li><p>元组形式</p></li>
+<li><p>字典形式（键作为format出现，字典作为values存在）</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1"> enough!&#39;</span><span class="o">%</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">,</span><span class="s1">&#39;happy&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>hello world, happy enough!
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;int：</span><span class="si">%d</span><span class="s1">,str:</span><span class="si">%s</span><span class="s1">,str:</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,[</span><span class="s1">&#39;in list&#39;</span><span class="p">,</span><span class="s1">&#39;i am list&#39;</span><span class="p">],</span><span class="s1">&#39;i am str&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int：1,str:[&#39;in list&#39;, &#39;i am list&#39;],str:i am str
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">%x</span><span class="s1">&#39;</span><span class="o">%</span><span class="mi">100</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;64&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">%X</span><span class="s1">&#39;</span><span class="o">%</span><span class="mi">110</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;6E&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;we are at </span><span class="si">%d%%</span><span class="s1">&#39;</span><span class="o">%</span><span class="mi">100</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;we are at 100%&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> is </span><span class="si">%d</span><span class="s1"> years old&#39;</span><span class="o">%</span><span class="p">(</span><span class="s1">&#39;Li&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Li is 20 years old&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">a</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">b</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">%</span><span class="mi">10</span>
+    <span class="n">c</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span><span class="o">%</span><span class="mi">10</span>
+    <span class="n">d</span><span class="o">=</span><span class="n">i</span><span class="o">%</span><span class="mi">10</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">**</span><span class="mi">4</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">4</span><span class="o">+</span><span class="n">c</span><span class="o">**</span><span class="mi">4</span><span class="o">+</span><span class="n">d</span><span class="o">**</span><span class="mi">4</span><span class="o">==</span><span class="n">i</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">=</span><span class="si">%d</span><span class="s1">^4+</span><span class="si">%d</span><span class="s1">^4+</span><span class="si">%d</span><span class="s1">^4+</span><span class="si">%d</span><span class="s1">^4&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1634=1^4+6^4+3^4+4^4
+8208=8^4+2^4+0^4+8^4
+9474=9^4+4^4+7^4+4^4
+</pre></div>
+</div>
+<div class="section" id="m-n">
+<h2>m.n 宽度与精度<a class="headerlink" href="#m-n" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="mf">123.12345</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;123.123&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">%.5s</span><span class="s1">&#39;</span><span class="o">%</span><span class="s1">&#39;hello world&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;hello&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">%+d</span><span class="s1">&#39;</span><span class="o">%</span><span class="mi">4</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;+4&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">%+d</span><span class="s1">&#39;</span><span class="o">%-</span><span class="mi">4</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;-4&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="s1">&#39;</span><span class="si">%-10.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">pi</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;3.14      &#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">%10.4f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">pi</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;    3.1416&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;My name is </span><span class="si">%(name)s</span><span class="s1">,age is </span><span class="si">%(age)d</span><span class="s1">,gender is </span><span class="si">%(gender)s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;LiMing&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">28</span><span class="p">,</span><span class="s1">&#39;gender&#39;</span><span class="p">:</span><span class="s1">&#39;male&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;My name is LiMing,age is 28,gender is male&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id4">
+<h1>字符串模板<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h1>
+<p>字符串对象Template对象存在与string模块中：</p>
+<ul class="simple">
+<li><p>使用美元符号<code class="docutils literal notranslate"><span class="pre">$</span></code>定义<code class="docutils literal notranslate"><span class="pre">代替换的参数</span></code></p></li>
+<li><p>使用<code class="docutils literal notranslate"><span class="pre">substitute()</span></code>方法(缺少参数时会报错，KeyError异常) &amp; <code class="docutils literal notranslate"><span class="pre">safe_substitute()</span></code>方法（缺少key时，直接显示参数字符串）进行参数替换</p></li>
+</ul>
+<p>示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="n">s</span><span class="o">=</span><span class="n">Template</span><span class="p">(</span><span class="s1">&#39;There are $</span><span class="si">{how_many}</span><span class="s1"> nodes in the $</span><span class="si">{tree}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">how_many</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="n">tree</span><span class="o">=</span><span class="s1">&#39;splay_tree&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>There are 32 nodes in the splay_tree
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">how_many</span><span class="o">=</span><span class="mi">32</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+
+KeyError                                  Traceback (most recent call last)
+
+&lt;ipython-input-4-6c5e84463638&gt; in &lt;module&gt;()
+----&gt; 1 print(s.substitute(how_many=32))
+
+
+D:\ProgramData\Anaconda3\lib\string.py in substitute(*args, **kws)
+    124             raise ValueError(&#39;Unrecognized named group in pattern&#39;,
+    125                              self.pattern)
+--&gt; 126         return self.pattern.sub(convert, self.template)
+    127 
+    128     def safe_substitute(*args, **kws):
+
+
+D:\ProgramData\Anaconda3\lib\string.py in convert(mo)
+    117             named = mo.group(&#39;named&#39;) or mo.group(&#39;braced&#39;)
+    118             if named is not None:
+--&gt; 119                 return str(mapping[named])
+    120             if mo.group(&#39;escaped&#39;) is not None:
+    121                 return self.delimiter
+
+
+KeyError: &#39;tree&#39;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="n">s</span><span class="o">=</span><span class="n">Template</span><span class="p">(</span><span class="s1">&#39;There are $</span><span class="si">{how_many}</span><span class="s1"> nodes in the $</span><span class="si">{tree}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">safe_substitute</span><span class="p">(</span><span class="n">how_many</span><span class="o">=</span><span class="mi">32</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>There are 32 nodes in the ${tree}
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id5">
+<h1>Python 的字符串常用内建函数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h1>
+<div class="section" id="s-capitalize-str">
+<h2>1 <code class="docutils literal notranslate"><span class="pre">S.capitalize()</span></code> 返回一个首字母大写的字符串(<code class="docutils literal notranslate"><span class="pre">str</span></code>)：<a class="headerlink" href="#s-capitalize-str" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;this is string example from runoob...wow!!!&quot;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;a.capitalize() : &quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a.capitalize() :  This is string example from runoob...wow!!!
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-lower-return-a-copy-of-the-string-s-converted-to-lowercase">
+<h2>2 <code class="docutils literal notranslate"><span class="pre">S.lower</span> <span class="pre">-&gt;</span>&#160; <span class="pre">Return</span> <span class="pre">a</span> <span class="pre">copy</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">string</span> <span class="pre">S</span> <span class="pre">converted</span> <span class="pre">to</span> <span class="pre">lowercase</span></code><a class="headerlink" href="#s-lower-return-a-copy-of-the-string-s-converted-to-lowercase" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;HGKFKF&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;hgkfkf&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-center-width-fillchar">
+<h2>3 <code class="docutils literal notranslate"><span class="pre">S.center(width[,</span> <span class="pre">fillchar])</span></code><a class="headerlink" href="#s-center-width-fillchar" title="永久链接至标题">¶</a></h2>
+<p>参数：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>:字符串的总宽度</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fillchar</span></code>填充字符(默认为空格)</p></li>
+</ul>
+<p>返回值：</p>
+<ul class="simple">
+<li><p>一个指定的宽度<code class="docutils literal notranslate"><span class="pre">width</span></code>居中的字符串</p></li>
+<li><p>如果<code class="docutils literal notranslate"><span class="pre">width</span></code>小于字符串宽度直接返回字符串，否则使用<code class="docutils literal notranslate"><span class="pre">fillchar</span></code>去填充</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;[www.runoob.com]&quot;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;st.center(40, &#39;%&#39;) : &quot;</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>st.center(40, &#39;%&#39;) :  %%%%%%%%%%%%[www.runoob.com]%%%%%%%%%%%%
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-count-sub-start-end">
+<h2>4 <code class="docutils literal notranslate"><span class="pre">S.count(sub[,</span> <span class="pre">start[,</span> <span class="pre">end]])</span> </code> 该方法返回子字符串在字符串中出现的次数<a class="headerlink" href="#s-count-sub-start-end" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>sub – 搜索的子字符串</p></li>
+<li><p>start – 字符串开始搜索的位置。默认为第一个字符。</p></li>
+<li><p>end – 字符串中结束搜索的位置。默认为字符串的最后一个位置。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">st</span><span class="o">=</span><span class="s2">&quot;www.runoob.com&quot;</span>
+<span class="n">sub</span><span class="o">=</span><span class="s1">&#39;o&#39;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;st.count(&#39;o&#39;) : &quot;</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">sub</span><span class="p">))</span>
+
+<span class="n">sub</span><span class="o">=</span><span class="s1">&#39;run&#39;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;st.count(&#39;run&#39;, 0, 10) : &quot;</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>st.count(&#39;o&#39;) :  3
+st.count(&#39;run&#39;, 0, 10) :  1
+</pre></div>
+</div>
+</div>
+<div class="section" id="bytes-decode-self-encoding-utf-8-errors-strict">
+<h2>5 <code class="docutils literal notranslate"><span class="pre">bytes.decode(self,</span> <span class="pre">/,</span> <span class="pre">encoding='utf-8',</span> <span class="pre">errors='strict')</span></code><a class="headerlink" href="#bytes-decode-self-encoding-utf-8-errors-strict" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>encoding – 要使用的编码，如”UTF-8”。</p></li>
+<li><p>errors – 设置不同错误的处理方案。默认为<code class="docutils literal notranslate"><span class="pre">'strict'</span></code>,意为编码错误引起一个<code class="docutils literal notranslate"><span class="pre">UnicodeError</span></code>。 其他可能得值有 <code class="docutils literal notranslate"><span class="pre">'ignore'</span></code>, <code class="docutils literal notranslate"><span class="pre">'replace'</span></code>, <code class="docutils literal notranslate"><span class="pre">'xmlcharrefreplace'</span></code>, <code class="docutils literal notranslate"><span class="pre">'backslashreplace'</span></code> 以及通过 <code class="docutils literal notranslate"><span class="pre">codecs.register_error()</span></code> 注册的任何值。</p></li>
+</ul>
+<p>返回该方法返回解码后的字符串。</p>
+<div class="section" id="s-encode-encoding-utf-8-errors-strict-bytes">
+<h3>6 <code class="docutils literal notranslate"><span class="pre">S.encode(encoding='utf-8',</span> <span class="pre">errors='strict')</span> <span class="pre">-&gt;</span> <span class="pre">bytes</span></code><a class="headerlink" href="#s-encode-encoding-utf-8-errors-strict-bytes" title="永久链接至标题">¶</a></h3>
+<p>Python3 中<code class="docutils literal notranslate"><span class="pre">str</span></code>没有<code class="docutils literal notranslate"><span class="pre">decode</span></code>方法,但是可以使用<code class="docutils literal notranslate"><span class="pre">bytes</span></code>对象的<code class="docutils literal notranslate"><span class="pre">decode()</span></code>方法来解码给定的<code class="docutils literal notranslate"><span class="pre">bytes</span></code>对象，这个<code class="docutils literal notranslate"><span class="pre">bytes</span></code>对象可以由<code class="docutils literal notranslate"><span class="pre">str.encode()</span></code>来编码返回。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;中国&quot;</span>
+<span class="n">s_utf8</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
+<span class="n">s_gbk</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;GBK&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UTF-8 编码：&quot;</span><span class="p">,</span> <span class="n">s_utf8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GBK 编码：&quot;</span><span class="p">,</span> <span class="n">s_gbk</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UTF-8 解码：&quot;</span><span class="p">,</span> <span class="n">s_utf8</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">,</span><span class="s1">&#39;strict&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GBK 解码：&quot;</span><span class="p">,</span> <span class="n">s_gbk</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;GBK&#39;</span><span class="p">,</span><span class="s1">&#39;strict&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>中国
+UTF-8 编码： b&#39;\xe4\xb8\xad\xe5\x9b\xbd&#39;
+GBK 编码： b&#39;\xd6\xd0\xb9\xfa&#39;
+UTF-8 解码： 中国
+GBK 解码： 中国
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="s-find-sub-start-end-int">
+<h2>7 <code class="docutils literal notranslate"><span class="pre">S.find(sub[,</span> <span class="pre">start[,</span> <span class="pre">end]])</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code><a class="headerlink" href="#s-find-sub-start-end-int" title="永久链接至标题">¶</a></h2>
+<p>如果包含子字符串返回开始的索引值，否则返回-1。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;Runoob example....wow!!!&quot;</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;exam&quot;</span><span class="p">;</span>
+ 
+<span class="nb">print</span> <span class="p">(</span><span class="n">str1</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">str2</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">str1</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">str2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">str1</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">str2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7
+7
+-1
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="s1">&#39;abca&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>      <span class="c1"># 从下标0开始，查找在字符串里第一个出现的子串，返回结果：0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>   <span class="c1"># 从下标1开始，查找在字符串里第一个出现的子串：返回结果3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">))</span>      <span class="c1"># 查找不到返回-1</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0
+3
+-1
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-join-iterable-str">
+<h2>8 <code class="docutils literal notranslate"><span class="pre">S.join(iterable)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#s-join-iterable-str" title="永久链接至标题">¶</a></h2>
+<p>Return a string which is the concatenation of the strings in the
+iterable.</p>
+<p>关于<code class="docutils literal notranslate"><span class="pre">iterable</span></code>参考<a class="reference external" href="http://www.cnblogs.com/Simon-xm/p/3979161.html">python——聊聊iterable，sequence和iterators</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">seq</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span> <span class="c1"># 字符串序列</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">seq</span> <span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">seq</span> <span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>r-u-n-o-o-b
+runoob
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-strip-chars-str">
+<h2>9 <code class="docutils literal notranslate"><span class="pre">S.strip([chars])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#s-strip-chars-str" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Return a copy of the string S with leading and trailing whitespace removed.</p></li>
+<li><p>If chars is given and not None, remove characters in chars instead.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;     this is string example....wow!!!     &quot;</span><span class="p">;</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">st</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span> <span class="p">);</span>
+<span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;88888888this is string example....wow!!!8888888&quot;</span><span class="p">;</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">st</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span> <span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">st</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span> <span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>this is string example....wow!!!     
+this is string example....wow!!!8888888
+this is string example....wow!!!
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-replace-old-new-count-str">
+<h2>10 <code class="docutils literal notranslate"><span class="pre">S.replace(old,</span> <span class="pre">new[,</span> <span class="pre">count])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#s-replace-old-new-count-str" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Return a copy of S with all occurrences of substring old replaced by new.</p></li>
+<li><p>If the optional argument count is given, only the first count occurrences are replaced.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;www.w3cschool.cc&quot;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;菜鸟教程新地址：&quot;</span><span class="p">,</span> <span class="n">st</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;菜鸟教程新地址：&quot;</span><span class="p">,</span> <span class="n">st</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;w3cschool.cc&quot;</span><span class="p">,</span> <span class="s2">&quot;runoob.com&quot;</span><span class="p">))</span>
+
+<span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;this is string example....wow!!!&quot;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;was&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>菜鸟教程新地址： www.w3cschool.cc
+菜鸟教程新地址： www.runoob.com
+thwas was string example....wow!!!
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-split-sep-none-maxsplit-1-list-of-strings">
+<h2>11 <code class="docutils literal notranslate"><span class="pre">S.split(sep=None,</span> <span class="pre">maxsplit=-1)</span> <span class="pre">-&gt;</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">strings</span></code><a class="headerlink" href="#s-split-sep-none-maxsplit-1-list-of-strings" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Return a list of the words in S, using sep as the delimiter string.</p></li>
+<li><p>If maxsplit is given, at most maxsplit splits are done.</p></li>
+<li><p>If sep is not specified or is None, any whitespace string is a separator and empty strings are removed from the result.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;this is string example....wow!!!&quot;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>[‘this’, ‘is’, ‘string’, ‘example…wow!!!’]
+[‘th’, ‘s is string example…wow!!!’]
+[‘this is string example…’, ‘o’, ‘!!!’]</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./drafts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="socket.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">网络</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="type.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Python 数据类型转换（draft）</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021, xinetzone.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

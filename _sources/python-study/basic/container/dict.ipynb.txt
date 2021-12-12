@@ -1,0 +1,352 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 字典\n",
+    "\n",
+    "使用 {dfn}`键值对` 的形式创建："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d = {'wang': '111', 'U': '123'}\n",
+    "d"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "使用 函数 {func}`dict` 创建：\n",
+    "\n",
+    "- 传入键值对位置参数："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d1 = dict([('A', 1), ('B', 2)])\n",
+    "d1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- 以关键字参数传入："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d2 = dict(A=1, B=2)\n",
+    "d2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "也可以是另一个字典作为参数："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d3 = dict(d2)\n",
+    "d3"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "或者使用字典解包："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "{**d3, 'c': 3}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "下面介绍一些关于字典的操作。\n",
+    "\n",
+    "## 通过键查找或修改\n",
+    "\n",
+    "示例："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d = {'wang': '111', 'U': '123'}\n",
+    "d['U'] # 查找元素"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d['wang'] = 111\n",
+    "d # 修改元素"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "del d['wang'] # 显式删除\n",
+    "d "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`clear()`：清除字典中所有的项"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d = {'wang': '111', 'U': '123'}\n",
+    "d.clear()\n",
+    "d"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 类似于序列的函数与方法\n",
+    "\n",
+    "- `len(字典)` 返回字典的项数\n",
+    "- `in`（类似于序列的用法）\n",
+    "\n",
+    "\n",
+    "## 复制 `copy()`\n",
+    "浅复制，得到一个键的指向完全相同原字典的副本。\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d={'wang':'111','U':[1,2,3,4]}\n",
+    "d1=d.copy()\n",
+    "d1\n",
+    "```\n",
+    "\n",
+    "\n",
+    "原地修改原字典d,相应的d1也会被修改,反之亦然。\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d1['U'].append('lr')\n",
+    "d1\n",
+    "```\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "如果使用deepcopy()函数则可以避免上述情况发生。\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d={'wang':'111','U':[1,2,3,4]}\n",
+    "from copy import deepcopy\n",
+    "d1=deepcopy(d)\n",
+    "d1\n",
+    "```\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d1['U'].append('lr')\n",
+    "d1\n",
+    "```\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "## get 方法，查找元素\n",
+    "\n",
+    "如若元素不存在，可以自定义返回的内容（默认为None）:\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d={}\n",
+    "d.get('name')\n",
+    "```\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d['name']='Tom'\n",
+    "d\n",
+    "```\n",
+    "\n",
+    "```python\n",
+    "d.get('name')\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d.get('phone','Unknown')\n",
+    "```\n",
+    "\n",
+    "\n",
+    "### setdefault方法，查找元素\n",
+    "\n",
+    "与get方法不同的是，当键不存在时，自定义的值和该键会组成一个新项被加入字典。\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d\n",
+    "```\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d.setdefault('phone','119')\n",
+    "```\n",
+    "\n",
+    "```python\n",
+    "d\n",
+    "```\n",
+    "\n",
+    "\n",
+    "## items(),keys(),values()均以列表的形式返回 `a set-like object`，其中的元素分别为\"项\"，\"键\"，\"值\"。\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d={'wang':'111','U':[1,2,3,4]}\n",
+    "```\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d.items()\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d.keys()\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d.values()\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "## pop(键)返回键对应的值，并删除字典中这个键对应的项\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d={'wang':'111','U':[1,2,3,4]}\n",
+    "d.pop('U')\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "### popitem()随机返回字典中的项，并从字典中m删除\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d={'wang':'111','U':[1,2,3,4]}\n",
+    "d.popitem()\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "## update 使用新字典更新旧字典\n",
+    "\n",
+    "新字典中有而旧字典中没有的项会被加入到旧字典中；      \n",
+    "新字典中有而旧字典中也有的值会被新字典的值所代替。\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d1={'n':'xx','p':'110'}\n",
+    "d2={'p':'120','a':'A'}\n",
+    "d1.update(d2)\n",
+    "```\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d1\n",
+    "```\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "```python\n",
+    "d2\n",
+    "```\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "language_info": {
+   "name": "python"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
