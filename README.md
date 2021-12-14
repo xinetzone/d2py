@@ -7,6 +7,6 @@
 可以使用 `pip` 安装：
 
 ```sh
-pip install p2py
+pip install d2py
 ```
 
