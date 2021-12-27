@@ -10,8 +10,6 @@
 
 现在反爬虫技术越来越厉害，常见的请求 + 解析爬虫随着频率变大和前端开发的复杂化变得并不是那么奏效。Requestium 的好处是，结合了 Chrome 59 以后的 headless 无头特性（代替了 phantomjs）。虽然效率稍微低一点，但是稳，前端渲染的网页也可以爬取解析。是 Requests, Selenium 和 Parsel 的结合体。
 
-## 深度学习：[Caffe2](https://github.com/caffe2/caffe2)
-
 ## 文本处理：[FlashText](https://github.com/vi3k6i5/flashtext)
 这个库的开发者在 medium 上发了一篇文章，标题是：[Regex was taking 5 days to run. So I built a tool that did it in 15 minutes](https://medium.freecodecamp.org/regex-was-taking-5-days-flashtext-does-it-in-15-minutes-55f04411025f). （正则要花5天时间才能完成，所以我做了个工具在15分钟内搞定）。这个库可以快速进行大规模语料库的文本搜索与替换。当关键词数量>500 的时候，FlashText 的搜索速度开始超过正则。
 
