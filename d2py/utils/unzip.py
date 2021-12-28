@@ -1,4 +1,4 @@
-'''解压中文路径乱码解决方案
+'''解压后中文路径乱码的解决方案
 '''
 
 from pathlib import Path
@@ -21,19 +21,19 @@ def decode_path(path):
 def extract(zip_name, out_dir):
     '''将 zip_name 文件解压到 out_dir 目录
     '''
+    out_dir = Path(out_dir)
     with ZipFile(zip_name, allowZip64=True) as Z:
         # 排除目录文件
         file_iter = (file for file in Z.filelist if not file.is_dir())
         for file in file_iter:
-            # 编码文件名称为 uft 格式
-            filename = decode_path(file.filename)
-            print(filename)
-            Z.extract(file, filename)
+            # 编码文件名称为 utf 格式
+            file.filename = decode_path(file.filename)
+            Z.extract(file, out_dir/file.filename)
 
 
 def extract_all(zip_root, out_dir):
-    '''解压 zip_root 目录下的文件到 out_dir 目录'''
-    for zip_dir in Path(zip_root).iterdir():
+    '''解压 zip_root 目录下的全部 zip 文件到 out_dir 目录'''
+    for zip_dir in Path(zip_root).rglob('*.zip'):
         # 解压单个数据集
         extract(zip_dir, out_dir)
     print("全部解压完成！")
