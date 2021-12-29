@@ -94,8 +94,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="搜索" href="../../../search.html" />
-    <link rel="next" title="流程控制" href="../controlflow.html" />
-    <link rel="prev" title="字典" href="dict.html" /> 
+    <link rel="next" title="序列" href="sequence.html" />
+    <link rel="prev" title="容器" href="index.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -222,6 +222,11 @@ commentsRunWhenDOMLoaded(addUtterances);
        </i>
       </label>
       <ul class="current">
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         集合
+        </a>
+       </li>
        <li class="toctree-l4">
         <a class="reference internal" href="sequence.html">
          序列
@@ -230,11 +235,6 @@ commentsRunWhenDOMLoaded(addUtterances);
        <li class="toctree-l4">
         <a class="reference internal" href="dict.html">
          字典
-        </a>
-       </li>
-       <li class="toctree-l4 current active">
-        <a class="current reference internal" href="#">
-         集合
         </a>
        </li>
       </ul>
@@ -542,9 +542,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/python-study/basic/container/set.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/python-study/basic/container/set.ipynb.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -565,7 +565,7 @@ commentsRunWhenDOMLoaded(addUtterances);
             href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/container/set.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/container/set.md"><button
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/container/set.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -580,6 +580,31 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/container/set.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/basic/container/set.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -592,77 +617,79 @@ commentsRunWhenDOMLoaded(addUtterances);
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   集合的基本操作
+   基本操作
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   集合的特殊操作
+   相等与不相等
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     等价(==) &amp; 不等价(!=)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     子集 &amp; 超集
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bigcup">
-     并(
-     <span class="math notranslate nohighlight">
-      \(\bigcup\)
-     </span>
-     ) ：使用
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       |
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bigcap">
-     交(
-     <span class="math notranslate nohighlight">
-      \(\bigcap\)
-     </span>
-     )：使用
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       &amp;
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     差(-) ：使用
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       -
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     对称差： 使用
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       ^
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notes">
-   Notes:
+  <a class="reference internal nav-link" href="#id4">
+   子集 与 超集
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bigcup">
+   并集（
+   <span class="math notranslate nohighlight">
+    \(\bigcup\)
+   </span>
+   ）使用
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     |
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bigcap">
+   交集（
+   <span class="math notranslate nohighlight">
+    \(\bigcap\)
+   </span>
+   ）使用
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     &amp;
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   差集（
+   <span class="math notranslate nohighlight">
+    \(-\)
+   </span>
+   ）使用
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     -
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   对称差使用
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ^
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   可变与不可变
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   集合的特性
   </a>
  </li>
 </ul>
@@ -677,205 +704,483 @@ commentsRunWhenDOMLoaded(addUtterances);
               <div>
                  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>集合<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>集合的元素必须是不可变对象，且元素间有互异性。分为两类：</p>
 <ul class="simple">
-<li><p>set()    可变集合</p></li>
-<li><p>frozen() 不可变集合</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#set" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>()：可变集合</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#frozenset" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a>()：不可变集合</p></li>
 </ul>
-<p>集合的元素必须是不可变对象（如字符串，元组等）,且元素间有互异性。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<p>它们的区别这与是否可变，以及写法上面。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#set" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> 的定义可以为：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="c1"># 写法 1</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;o&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;o&#39;}
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">}</span> <span class="c1"># 写法 2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;o&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#frozenset" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a> 的定义：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">frozenset</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frozenset({&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;o&#39;})
+</pre></div>
+</div>
+</div>
+</div>
+<p>下面先以 <a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#set" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> 为例看看它们的共性。</p>
 <div class="section" id="id2">
-<h2>集合的基本操作<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>基本操作<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p><strong>与序列一样拥有len(),min(),max()函数</strong></p></li>
-<li><p><strong>add方法，添加元素</strong></p></li>
+<li><p>支持 <code class="xref py py-meth docutils literal notranslate"><span class="pre">add()</span></code> 方法，添加元素</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="nb">set</span><span class="p">([</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span><span class="s1">&#39;is&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;magic&#39;</span><span class="p">,</span><span class="s1">&#39;language&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;, &#39;magic&#39;, &#39;Python&#39;, &#39;language&#39;, &#39;is&#39;}
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span><span class="s1">&#39;is&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;magic&#39;</span><span class="p">,</span><span class="s1">&#39;language&#39;</span><span class="p">])</span>
 <span class="n">s</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;!&#39;, &#39;Python&#39;, &#39;a&#39;, &#39;is&#39;, &#39;language&#39;, &#39;magic&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Python&#39;, &#39;a&#39;, &#39;is&#39;, &#39;language&#39;, &#39;magic&#39;}
 </pre></div>
 </div>
-<p>也支持更新（update）</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
-<span class="n">b</span><span class="o">=</span><span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;!&#39;, &#39;Python&#39;, &#39;a&#39;, &#39;is&#39;, &#39;language&#39;, &#39;magic&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>支持 函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#len" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a>、<a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#min" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">min()</span></code></a>、<a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#max" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">max()</span></code></a> 运算</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">}</span>
+<span class="n">s</span> <span class="c1"># 自动去重</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{2, 3, 5, 7, 9, 34, 35}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>支持更新（<code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code>）</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="n">a</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="n">a</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, 4, 5, 6}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, 4, 5, 6}
 </pre></div>
 </div>
+</div>
+</div>
 <ul class="simple">
-<li><p><strong>remove方法删除集合中元素</strong></p></li>
+<li><p>方法 <code class="xref py py-meth docutils literal notranslate"><span class="pre">remove()</span></code> 删除集合中元素</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 <span class="n">s</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;o&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;o&#39;}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;e&#39;, &#39;l&#39;, &#39;o&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;e&#39;, &#39;l&#39;, &#39;o&#39;}
 </pre></div>
 </div>
-<p>使用remove方法，若元素不存在，则会引发错误，而discard则不会。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s1">&#39;om&#39;</span><span class="p">)</span>
+</div>
+</div>
+<ul class="simple">
+<li><p>若 <code class="xref py py-meth docutils literal notranslate"><span class="pre">remove()</span></code> 元素不存在，则会引发错误；而 <code class="xref py py-meth docutils literal notranslate"><span class="pre">discard()</span></code> 则不会。</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;om&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1968</span><span class="o">/</span><span class="mf">2749324274.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">s</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;om&#39;</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &#39;om&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s1">&#39;om&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;e&#39;, &#39;l&#39;, &#39;o&#39;}
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="id3">
-<h2>集合的特殊操作<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>相等与不相等<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="id4">
-<h3>等价(==) &amp; 不等价(!=)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<h2>子集 与 超集<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>、<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>、<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>、<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> 用来判断前面一个集合是否是后面一个集合的严格子集，子集，严格超集，超集。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;HelloWorld&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>子集 &amp; 超集<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;,&lt;=,&gt;,&gt;=   用来判断前面一个集合是否是后面一个集合的严格子集，子集，严格超集，超集
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;HelloWorld&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-</pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
 </div>
 </div>
 <div class="section" id="bigcup">
-<h3>并(<span class="math notranslate nohighlight">\(\bigcup\)</span>) ：使用  <code class="docutils literal notranslate"><span class="pre">|</span></code><a class="headerlink" href="#bigcup" title="永久链接至标题">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
+<h2>并集（<span class="math notranslate nohighlight">\(\bigcup\)</span>）使用  <code class="docutils literal notranslate"><span class="pre">|</span></code><a class="headerlink" href="#bigcup" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;o&#39;, &#39;r&#39;, &#39;w&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;d&#39;, &#39;e&#39;, &#39;l&#39;, &#39;o&#39;, &#39;r&#39;, &#39;w&#39;}
 </pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="bigcap">
-<h3>交(<span class="math notranslate nohighlight">\(\bigcap\)</span>)：使用    <code class="docutils literal notranslate"><span class="pre">&amp;</span></code><a class="headerlink" href="#bigcap" title="永久链接至标题">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
+<h2>交集（<span class="math notranslate nohighlight">\(\bigcap\)</span>）使用 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code><a class="headerlink" href="#bigcap" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;l&#39;, &#39;o&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;l&#39;, &#39;o&#39;}
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>差集（<span class="math notranslate nohighlight">\(-\)</span>）使用 <code class="docutils literal notranslate"><span class="pre">-</span></code><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;e&#39;}
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="id6">
-<h3>差(-) ：使用   <code class="docutils literal notranslate"><span class="pre">-</span></code><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
+<h2>对称差使用 <code class="docutils literal notranslate"><span class="pre">^</span></code><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="o">^</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;e&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 5, 6}
 </pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="id7">
-<h3>对称差： 使用    <code class="docutils literal notranslate"><span class="pre">^</span></code><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">^</span><span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<h2>可变与不可变<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{1, 2, 5, 6}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{3}
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="notes">
-<h2>Notes:<a class="headerlink" href="#notes" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1968</span><span class="o">/</span><span class="mf">832828405.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">a</span>
+
+<span class="ne">AttributeError</span>: &#39;frozenset&#39; object has no attribute &#39;remove&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>集合的特性<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p>如是可变集合(set)与不可变集合 (frozenset)  进行运算，得到的新集合的类型与左操作数相同。<br />
-对于可变集合(set)可以进行就地修改：</p>
-<ul>
-<li><p>操作符为：<code class="docutils literal notranslate"><span class="pre">|=,&amp;=,-=,^=</span></code></p></li>
+<li><p>如是可变集合（<code class="docutils literal notranslate"><span class="pre">set</span></code>）与不可变集合（<code class="docutils literal notranslate"><span class="pre">frozenset</span></code>）进行运算，得到的新集合的类型与左操作数相同。</p></li>
+<li><p>对于可变集合（<code class="docutils literal notranslate"><span class="pre">set</span></code>）可以进行就地修改，支持操作符：<code class="docutils literal notranslate"><span class="pre">|=</span></code>、<code class="docutils literal notranslate"><span class="pre">&amp;=</span></code>、<code class="docutils literal notranslate"><span class="pre">-=</span></code>、<code class="docutils literal notranslate"><span class="pre">^=</span></code>。</p></li>
+<li><p>集合只能包含不可变的（即可散列的）对象类型。</p></li>
 </ul>
-</li>
-<li><p>集合只能包含不可变的 (即可散列的) 对象类型。</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
 <span class="n">a</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;P&#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;n&#39;, &#39;o&#39;, &#39;t&#39;, &#39;y&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;P&#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;n&#39;, &#39;o&#39;, &#39;t&#39;, &#39;y&#39;}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">&amp;=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
 <span class="n">a</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;o&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;o&#39;}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">-=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
 <span class="n">a</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;e&#39;, &#39;l&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;e&#39;, &#39;l&#39;}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">^=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
 <span class="n">a</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;P&#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;n&#39;, &#39;t&#39;, &#39;y&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;P&#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;n&#39;, &#39;t&#39;, &#39;y&#39;}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span><span class="o">|</span><span class="nb">frozenset</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="nb">frozenset</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
 <span class="n">b</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;P&#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;n&#39;, &#39;o&#39;, &#39;t&#39;, &#39;y&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;H&#39;, &#39;P&#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;n&#39;, &#39;o&#39;, &#39;t&#39;, &#39;y&#39;}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">=</span><span class="nb">frozenset</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span><span class="o">|</span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 <span class="n">c</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>frozenset({&#39;H&#39;, &#39;P&#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;n&#39;, &#39;o&#39;, &#39;t&#39;, &#39;y&#39;})
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frozenset({&#39;H&#39;, &#39;P&#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;n&#39;, &#39;o&#39;, &#39;t&#39;, &#39;y&#39;})
 </pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -908,17 +1213,17 @@ commentsRunWhenDOMLoaded(addUtterances);
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="dict.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">字典</p>
+            <p class="prev-next-title">容器</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../controlflow.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="sequence.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">流程控制</p>
+        <p class="prev-next-title">序列</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
