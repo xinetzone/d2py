@@ -11,7 +11,7 @@
     "- {class}`set`()：可变集合\n",
     "- {class}`frozenset`()：不可变集合\n",
     "\n",
-    "它们的区别这与是否可变，以及写法上面。\n",
+    "它们的区别主要在于是否可变，以及写法上面。\n",
     "\n",
     "{class}`set` 的定义可以为："
    ]
@@ -87,7 +87,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "下面先以 {class}`set` 为例看看它们的共性。\n",
+    "下面先以 {class}`set` 为例 Python 如何操作集合的。\n",
     "\n",
     "## 基本操作\n",
     "\n",
