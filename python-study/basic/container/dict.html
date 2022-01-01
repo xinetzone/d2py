@@ -92,8 +92,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="搜索" href="../../../search.html" />
-    <link rel="next" title="流程控制" href="../controlflow.html" />
-    <link rel="prev" title="序列" href="sequence.html" /> 
+    <link rel="next" title="序列" href="sequence.html" />
+    <link rel="prev" title="集合" href="set.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -225,14 +225,14 @@ commentsRunWhenDOMLoaded(addUtterances);
          集合
         </a>
        </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="sequence.html">
-         序列
-        </a>
-       </li>
        <li class="toctree-l4 current active">
         <a class="current reference internal" href="#">
          字典
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="sequence.html">
+         序列
         </a>
        </li>
       </ul>
@@ -578,6 +578,31 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/container/dict.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/basic/container/dict.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -594,8 +619,13 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   类似于序列的函数与方法
+  <a class="reference internal nav-link" href="#update">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     update
+    </span>
+   </code>
+   使用新字典更新旧字典
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -610,49 +640,66 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#get">
-   get 方法，查找元素
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     get
+    </span>
+   </code>
+   方法，查找元素
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#setdefault">
-     setdefault方法，查找元素
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       setdefault
+      </span>
+     </code>
+     方法，查找元素
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#items-keys-values-a-set-like-object">
-   items(),keys(),values()均以列表的形式返回
+  <a class="reference internal nav-link" href="#items-keys-values">
    <code class="docutils literal notranslate">
     <span class="pre">
-     a
-    </span>
-    <span class="pre">
-     set-like
-    </span>
-    <span class="pre">
-     object
+     items()
     </span>
    </code>
-   ，其中的元素分别为”项”，“键”，“值”。
+   、
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     keys()
+    </span>
+   </code>
+   、
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     values()
+    </span>
+   </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pop">
-   pop(键)返回键对应的值，并删除字典中这个键对应的项
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pop(键)
+    </span>
+   </code>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#popitem-m">
-     popitem()随机返回字典中的项，并从字典中m删除
+    <a class="reference internal nav-link" href="#popitem">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       popitem()
+      </span>
+     </code>
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#update">
-   update 使用新字典更新旧字典
-  </a>
  </li>
 </ul>
 
@@ -740,7 +787,34 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>下面介绍一些关于字典的操作。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len(字典)</span></code> 返回字典的项数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in</span></code>（类似于序列的用法）</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">d3</span><span class="p">)</span> <span class="c1"># 字典的大小</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;A&#39;</span> <span class="ow">in</span> <span class="n">d3</span> <span class="c1"># 判断是否存在某个元素</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="id2">
 <h2>通过键查找或修改<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>示例：</p>
@@ -799,124 +873,352 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>类似于序列的函数与方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">len(字典)</span></code> 返回字典的项数</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">in</span></code>（类似于序列的用法）</p></li>
-</ul>
+<div class="section" id="update">
+<h2><code class="docutils literal notranslate"><span class="pre">update</span></code> 使用新字典更新旧字典<a class="headerlink" href="#update" title="永久链接至标题">¶</a></h2>
+<p>新字典中有而旧字典中没有的项会被加入到旧字典中；新字典中有而旧字典中也有的值会被新字典的值所代替。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n&#39;</span><span class="p">:</span><span class="s1">&#39;xx&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="s1">&#39;110&#39;</span><span class="p">}</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="s1">&#39;120&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">}</span>
+<span class="n">d1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n&#39;: &#39;xx&#39;, &#39;p&#39;: &#39;120&#39;, &#39;a&#39;: &#39;A&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;p&#39;: &#39;120&#39;, &#39;a&#39;: &#39;A&#39;}
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="copy">
 <h2>复制 <code class="docutils literal notranslate"><span class="pre">copy()</span></code><a class="headerlink" href="#copy" title="永久链接至标题">¶</a></h2>
 <p>浅复制，得到一个键的指向完全相同原字典的副本。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
-<span class="n">d1</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">d1</span>
 </pre></div>
 </div>
-<p>原地修改原字典d,相应的d1也会被修改,反之亦然。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span><span class="p">[</span><span class="s1">&#39;U&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lr&#39;</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;, &#39;U&#39;: [1, 2, 3, 4]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>原地修改原字典 <code class="docutils literal notranslate"><span class="pre">d</span></code>，相应的 <code class="docutils literal notranslate"><span class="pre">d1</span></code> 也会被修改,反之亦然。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span><span class="p">[</span><span class="s1">&#39;U&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lr&#39;</span><span class="p">)</span>
 <span class="n">d1</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;, &#39;U&#39;: [1, 2, 3, 4, &#39;lr&#39;]}
 </pre></div>
 </div>
-<p>如果使用deepcopy()函数则可以避免上述情况发生。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="n">d1</span><span class="o">=</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;, &#39;U&#39;: [1, 2, 3, 4, &#39;lr&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>如果使用 <code class="docutils literal notranslate"><span class="pre">deepcopy()</span></code> 函数则可以避免上述情况发生。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
+
+<span class="n">d1</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="n">d1</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span><span class="p">[</span><span class="s1">&#39;U&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lr&#39;</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;, &#39;U&#39;: [1, 2, 3, 4]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;, &#39;U&#39;: [1, 2, 3, 4]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span><span class="p">[</span><span class="s1">&#39;U&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lr&#39;</span><span class="p">)</span>
 <span class="n">d1</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;, &#39;U&#39;: [1, 2, 3, 4, &#39;lr&#39;]}
 </pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;, &#39;U&#39;: [1, 2, 3, 4]}
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="get">
-<h2>get 方法，查找元素<a class="headerlink" href="#get" title="永久链接至标题">¶</a></h2>
-<p>如若元素不存在，可以自定义返回的内容（默认为None）:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="p">{}</span>
+<h2><code class="docutils literal notranslate"><span class="pre">get</span></code> 方法，查找元素<a class="headerlink" href="#get" title="永久链接至标题">¶</a></h2>
+<p>如若元素不存在，可以自定义返回的内容（默认为 <code class="docutils literal notranslate"><span class="pre">None</span></code>）:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;Tom&#39;</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Tom&#39;</span>
 <span class="n">d</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Tom&#39;}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phone&#39;</span><span class="p">,</span><span class="s1">&#39;Unknown&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Tom&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phone&#39;</span><span class="p">,</span><span class="s1">&#39;Unknown&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Unknown&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="setdefault">
-<h3>setdefault方法，查找元素<a class="headerlink" href="#setdefault" title="永久链接至标题">¶</a></h3>
-<p>与get方法不同的是，当键不存在时，自定义的值和该键会组成一个新项被加入字典。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;phone&#39;</span><span class="p">,</span><span class="s1">&#39;119&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+<h3><code class="docutils literal notranslate"><span class="pre">setdefault</span></code> 方法，查找元素<a class="headerlink" href="#setdefault" title="永久链接至标题">¶</a></h3>
+<p>与 <code class="docutils literal notranslate"><span class="pre">get</span></code> 方法不同的是，当键不存在时，自定义的值和该键会组成一个新项被加入字典。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="items-keys-values-a-set-like-object">
-<h2>items(),keys(),values()均以列表的形式返回 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span></code>，其中的元素分别为”项”，“键”，“值”。<a class="headerlink" href="#items-keys-values-a-set-like-object" title="永久链接至标题">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Tom&#39;}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;phone&#39;</span><span class="p">,</span><span class="s1">&#39;119&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;119&#39;
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Tom&#39;, &#39;phone&#39;: &#39;119&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="items-keys-values">
+<h2><code class="docutils literal notranslate"><span class="pre">items()</span></code>、<code class="docutils literal notranslate"><span class="pre">keys()</span></code>、<code class="docutils literal notranslate"><span class="pre">values()</span></code><a class="headerlink" href="#items-keys-values" title="永久链接至标题">¶</a></h2>
+<p>均以列表的形式返回 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span></code>，其中的元素分别为”项”，“键”，“值”。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
+<span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;, &#39;U&#39;: [1, 2, 3, 4]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;wang&#39;, &#39;111&#39;), (&#39;U&#39;, [1, 2, 3, 4])])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;wang&#39;, &#39;U&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_values([&#39;111&#39;, [1, 2, 3, 4]])
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="pop">
-<h2>pop(键)返回键对应的值，并删除字典中这个键对应的项<a class="headerlink" href="#pop" title="永久链接至标题">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
+<h2><code class="docutils literal notranslate"><span class="pre">pop(键)</span></code><a class="headerlink" href="#pop" title="永久链接至标题">¶</a></h2>
+<p>返回键对应的值，并删除字典中这个键对应的项。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
 <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4]
 </pre></div>
 </div>
-<div class="section" id="popitem-m">
-<h3>popitem()随机返回字典中的项，并从字典中m删除<a class="headerlink" href="#popitem-m" title="永久链接至标题">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="popitem">
+<h3><code class="docutils literal notranslate"><span class="pre">popitem()</span></code><a class="headerlink" href="#popitem" title="永久链接至标题">¶</a></h3>
+<p>随机返回字典中的项，并从字典中删除。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wang&#39;</span><span class="p">:</span><span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]}</span>
 <span class="n">d</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;U&#39;, [1, 2, 3, 4])
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="update">
-<h2>update 使用新字典更新旧字典<a class="headerlink" href="#update" title="永久链接至标题">¶</a></h2>
-<p>新字典中有而旧字典中没有的项会被加入到旧字典中；<br />
-新字典中有而旧字典中也有的值会被新字典的值所代替。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n&#39;</span><span class="p">:</span><span class="s1">&#39;xx&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="s1">&#39;110&#39;</span><span class="p">}</span>
-<span class="n">d2</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="s1">&#39;120&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">}</span>
-<span class="n">d1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;wang&#39;: &#39;111&#39;}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d2</span>
-</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -949,17 +1251,17 @@ commentsRunWhenDOMLoaded(addUtterances);
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="sequence.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="set.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">序列</p>
+            <p class="prev-next-title">集合</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../controlflow.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="sequence.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">流程控制</p>
+        <p class="prev-next-title">序列</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -11,9 +11,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 1,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111', 'U': '123'}"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "d = {'wang': '111', 'U': '123'}\n",
     "d"
@@ -30,9 +41,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 2,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'A': 1, 'B': 2}"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "d1 = dict([('A', 1), ('B', 2)])\n",
     "d1"
@@ -47,9 +69,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 3,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'A': 1, 'B': 2}"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "d2 = dict(A=1, B=2)\n",
     "d2"
@@ -64,9 +97,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 4,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'A': 1, 'B': 2}"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "d3 = dict(d2)\n",
     "d3"
@@ -81,9 +125,22 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
+   "execution_count": 5,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'A': 1, 'B': 2, 'c': 3}"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "{**d3, 'c': 3}"
    ]
@@ -92,8 +149,54 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "下面介绍一些关于字典的操作。\n",
-    "\n",
+    "- `len(字典)` 返回字典的项数\n",
+    "- `in`（类似于序列的用法）"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(d3) # 字典的大小"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "'A' in d3 # 判断是否存在某个元素"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## 通过键查找或修改\n",
     "\n",
     "示例："
@@ -101,9 +204,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 8,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'123'"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "d = {'wang': '111', 'U': '123'}\n",
     "d['U'] # 查找元素"
@@ -111,9 +225,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 9,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': 111, 'U': '123'}"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "d['wang'] = 111\n",
     "d # 修改元素"
@@ -121,9 +246,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 10,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'U': '123'}"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "del d['wang'] # 显式删除\n",
     "d "
@@ -138,9 +274,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 11,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{}"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "d = {'wang': '111', 'U': '123'}\n",
     "d.clear()\n",
@@ -151,201 +298,619 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 类似于序列的函数与方法\n",
+    "## `update` 使用新字典更新旧字典\n",
     "\n",
-    "- `len(字典)` 返回字典的项数\n",
-    "- `in`（类似于序列的用法）\n",
-    "\n",
-    "\n",
-    "## 复制 `copy()`\n",
-    "浅复制，得到一个键的指向完全相同原字典的副本。\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d={'wang':'111','U':[1,2,3,4]}\n",
-    "d1=d.copy()\n",
-    "d1\n",
-    "```\n",
-    "\n",
-    "\n",
-    "原地修改原字典d,相应的d1也会被修改,反之亦然。\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d1['U'].append('lr')\n",
-    "d1\n",
-    "```\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "如果使用deepcopy()函数则可以避免上述情况发生。\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d={'wang':'111','U':[1,2,3,4]}\n",
-    "from copy import deepcopy\n",
-    "d1=deepcopy(d)\n",
-    "d1\n",
-    "```\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d1['U'].append('lr')\n",
-    "d1\n",
-    "```\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "## get 方法，查找元素\n",
-    "\n",
-    "如若元素不存在，可以自定义返回的内容（默认为None）:\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d={}\n",
-    "d.get('name')\n",
-    "```\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d['name']='Tom'\n",
-    "d\n",
-    "```\n",
-    "\n",
-    "```python\n",
-    "d.get('name')\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d.get('phone','Unknown')\n",
-    "```\n",
-    "\n",
-    "\n",
-    "### setdefault方法，查找元素\n",
-    "\n",
-    "与get方法不同的是，当键不存在时，自定义的值和该键会组成一个新项被加入字典。\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d\n",
-    "```\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d.setdefault('phone','119')\n",
-    "```\n",
-    "\n",
-    "```python\n",
-    "d\n",
-    "```\n",
-    "\n",
-    "\n",
-    "## items(),keys(),values()均以列表的形式返回 `a set-like object`，其中的元素分别为\"项\"，\"键\"，\"值\"。\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d={'wang':'111','U':[1,2,3,4]}\n",
-    "```\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d.items()\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d.keys()\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d.values()\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "\n",
-    "## pop(键)返回键对应的值，并删除字典中这个键对应的项\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d={'wang':'111','U':[1,2,3,4]}\n",
-    "d.pop('U')\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "### popitem()随机返回字典中的项，并从字典中m删除\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d={'wang':'111','U':[1,2,3,4]}\n",
-    "d.popitem()\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "\n",
-    "## update 使用新字典更新旧字典\n",
-    "\n",
-    "新字典中有而旧字典中没有的项会被加入到旧字典中；      \n",
-    "新字典中有而旧字典中也有的值会被新字典的值所代替。\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d1={'n':'xx','p':'110'}\n",
-    "d2={'p':'120','a':'A'}\n",
-    "d1.update(d2)\n",
-    "```\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d1\n",
-    "```\n",
-    "\n",
-    "\n",
-    "\n",
-    "\n",
-    "\n",
-    "```python\n",
-    "d2\n",
-    "```\n"
+    "新字典中有而旧字典中没有的项会被加入到旧字典中；新字典中有而旧字典中也有的值会被新字典的值所代替。"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d1 = {'n':'xx','p':'110'}\n",
+    "d2 = {'p':'120','a':'A'}\n",
+    "d1.update(d2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'n': 'xx', 'p': '120', 'a': 'A'}"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'p': '120', 'a': 'A'}"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 复制 `copy()`\n",
+    "\n",
+    "浅复制，得到一个键的指向完全相同原字典的副本。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111', 'U': [1, 2, 3, 4]}"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d = {'wang':'111','U':[1,2,3,4]}\n",
+    "d1 = d.copy()\n",
+    "d1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "原地修改原字典 `d`，相应的 `d1` 也会被修改,反之亦然。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111', 'U': [1, 2, 3, 4, 'lr']}"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d1['U'].append('lr')\n",
+    "d1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111', 'U': [1, 2, 3, 4, 'lr']}"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "如果使用 `deepcopy()` 函数则可以避免上述情况发生。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111', 'U': [1, 2, 3, 4]}"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from copy import deepcopy\n",
+    "\n",
+    "d = {'wang':'111','U':[1,2,3,4]}\n",
+    "\n",
+    "d1 = deepcopy(d)\n",
+    "d1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111', 'U': [1, 2, 3, 4]}"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111', 'U': [1, 2, 3, 4, 'lr']}"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d1['U'].append('lr')\n",
+    "d1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111', 'U': [1, 2, 3, 4]}"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## `get` 方法，查找元素\n",
+    "\n",
+    "如若元素不存在，可以自定义返回的内容（默认为 `None`）:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d = {}\n",
+    "d.get('name')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{}"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'name': 'Tom'}"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d['name'] = 'Tom'\n",
+    "d"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Tom'"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d.get('name')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Unknown'"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d.get('phone','Unknown')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### `setdefault` 方法，查找元素\n",
+    "\n",
+    "与 `get` 方法不同的是，当键不存在时，自定义的值和该键会组成一个新项被加入字典。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'name': 'Tom'}"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'119'"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d.setdefault('phone','119')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'name': 'Tom', 'phone': '119'}"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## `items()`、`keys()`、`values()` \n",
+    "\n",
+    "均以列表的形式返回 `a set-like object`，其中的元素分别为\"项\"，\"键\"，\"值\"。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111', 'U': [1, 2, 3, 4]}"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d = {'wang':'111', 'U':[1,2,3,4]}\n",
+    "d"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_items([('wang', '111'), ('U', [1, 2, 3, 4])])"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d.items()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_keys(['wang', 'U'])"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d.keys()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_values(['111', [1, 2, 3, 4]])"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d.values()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## `pop(键)` \n",
+    "\n",
+    "返回键对应的值，并删除字典中这个键对应的项。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 4]"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d = {'wang':'111','U':[1,2,3,4]}\n",
+    "d.pop('U')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111'}"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### `popitem()` \n",
+    "\n",
+    "随机返回字典中的项，并从字典中删除。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "('U', [1, 2, 3, 4])"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d = {'wang':'111', 'U':[1,2,3,4]}\n",
+    "d.popitem()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'wang': '111'}"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
-  "language_info": {
-   "name": "python"
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
   },
-  "orig_nbformat": 4
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.0"
+  }
  },
  "nbformat": 4,
  "nbformat_minor": 2
