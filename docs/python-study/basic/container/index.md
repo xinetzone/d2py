@@ -9,6 +9,6 @@
 :maxdepth: 2
 
 set
-sequence
 dict
+sequence
 ```
