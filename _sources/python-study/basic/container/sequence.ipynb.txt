@@ -17,7 +17,7 @@
     "\n",
     "## 序列的基本操作\n",
     "\n",
-    "以列表为例。\n",
+    "以元组为例。\n",
     "\n",
     "### 索引\n",
     "\n",
@@ -47,7 +47,7 @@
     }
    ],
    "source": [
-    "a = [1, 2, 3, 4]\n",
+    "a = (1, 2, 3, 4)\n",
     "a[0] # 获取列表 a 的第一个元素"
    ]
   },
@@ -96,7 +96,7 @@
     {
      "data": {
       "text/plain": [
-       "[2, 3]"
+       "(2, 3)"
       ]
      },
      "execution_count": 3,
@@ -105,7 +105,7 @@
     }
    ],
    "source": [
-    "a = [1, 2, 3, 4, 5]\n",
+    "a = (1, 2, 3, 4, 5)\n",
     "a[1:3] # 获取 a 的子列表 [a[1], a[2]]\n"
    ]
   },
@@ -117,7 +117,7 @@
     {
      "data": {
       "text/plain": [
-       "[2, 3, 4]"
+       "(2, 3, 4)"
       ]
      },
      "execution_count": 4,
@@ -137,7 +137,7 @@
     {
      "data": {
       "text/plain": [
-       "[2, 3, 4, 5]"
+       "(2, 3, 4, 5)"
       ]
      },
      "execution_count": 5,
@@ -157,7 +157,7 @@
     {
      "data": {
       "text/plain": [
-       "[1, 2, 3, 4]"
+       "(1, 2, 3, 4)"
       ]
      },
      "execution_count": 6,
@@ -177,7 +177,7 @@
     {
      "data": {
       "text/plain": [
-       "[1, 2, 3, 4, 5]"
+       "(1, 2, 3, 4, 5)"
       ]
      },
      "execution_count": 7,
@@ -211,23 +211,23 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "['苹果1', '苹果2', '香蕉1', '香蕉2', '香蕉3']"
+       "('苹果1', '苹果2', '香蕉1', '香蕉2', '香蕉3')"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 9,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "一篮苹果 = ['苹果1', '苹果2']\n",
-    "一篮香蕉 = ['香蕉1', '香蕉2', '香蕉3']\n",
+    "一篮苹果 = ('苹果1', '苹果2')\n",
+    "一篮香蕉 = ('香蕉1', '香蕉2', '香蕉3')\n",
     "\n",
     "两篮水果 = 一篮苹果 + 一篮香蕉\n",
     "两篮水果"
@@ -242,16 +242,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "['苹果1', '苹果2']"
+       "('苹果1', '苹果2')"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 10,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -285,11 +285,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [],
    "source": [
-    "一箱苹果 = ['苹果1', '苹果2']\n",
+    "一箱苹果 = ('苹果1', '苹果2')\n",
     "两箱苹果 = 一箱苹果 * 2"
    ]
   },
@@ -332,7 +332,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -341,7 +341,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
@@ -350,7 +350,7 @@
        "[2, 2, 3, 4]"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 13,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -362,7 +362,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [
     {
@@ -371,7 +371,7 @@
        "[2, 5, 6, 4]"
       ]
      },
-     "execution_count": 13,
+     "execution_count": 14,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -383,7 +383,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -392,7 +392,7 @@
        "[2, 4]"
       ]
      },
-     "execution_count": 14,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -404,7 +404,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [
     {
@@ -413,7 +413,7 @@
        "[99, 88, 2, 4]"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 16,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -425,7 +425,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 17,
    "metadata": {},
    "outputs": [
     {
@@ -434,7 +434,7 @@
        "[99, 'h', 'e', 'l', 'l', 'o', 4]"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 17,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -446,31 +446,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 18,
    "metadata": {},
    "outputs": [],
    "source": [
     "del a[0] # 显式删除 `a` 的首位元素"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 18,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "['h', 'e', 'l', 'l', 'o', 4]"
-      ]
-     },
-     "execution_count": 18,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "a # 查看此时 a 的值"
    ]
   },
   {
@@ -481,10 +461,30 @@
     {
      "data": {
       "text/plain": [
-       "['l', 'o', 4]"
+       "['h', 'e', 'l', 'l', 'o', 4]"
       ]
      },
      "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a # 查看此时 a 的值"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['l', 'o', 4]"
+      ]
+     },
+     "execution_count": 20,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -511,7 +511,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 21,
    "metadata": {},
    "outputs": [
     {
@@ -520,7 +520,7 @@
        "[1, 2, 3, 4]"
       ]
      },
-     "execution_count": 20,
+     "execution_count": 21,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -534,7 +534,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 22,
    "metadata": {},
    "outputs": [
     {
@@ -543,7 +543,7 @@
        "[1, 2, 3, 4, [1, 5, 'fr']]"
       ]
      },
-     "execution_count": 21,
+     "execution_count": 22,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -565,7 +565,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 23,
    "metadata": {},
    "outputs": [
     {
@@ -574,7 +574,7 @@
        "2"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 23,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -595,7 +595,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 24,
    "metadata": {},
    "outputs": [
     {
@@ -604,7 +604,7 @@
        "[1, 2, 3, 4, 5, 6]"
       ]
      },
-     "execution_count": 23,
+     "execution_count": 24,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -626,7 +626,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [
     {
@@ -635,7 +635,7 @@
        "3"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -656,7 +656,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [
     {
@@ -665,7 +665,7 @@
        "[1, 2, 'hello', 3, 4]"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 26,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -678,7 +678,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 27,
    "metadata": {},
    "outputs": [
     {
@@ -687,7 +687,7 @@
        "[1, 2, 'hello', 3, 4, 'world']"
       ]
      },
-     "execution_count": 26,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -708,32 +708,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [],
    "source": [
     "a = [1, 2, 3, 4]\n",
     "last = a.pop()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 28,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "[1, 2, 3]"
-      ]
-     },
-     "execution_count": 28,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "a # 最后的元素被移除"
    ]
   },
   {
@@ -744,10 +724,30 @@
     {
      "data": {
       "text/plain": [
-       "[2, 3]"
+       "[1, 2, 3]"
       ]
      },
      "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a # 最后的元素被移除"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 3]"
+      ]
+     },
+     "execution_count": 30,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -768,7 +768,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 31,
    "metadata": {},
    "outputs": [
     {
@@ -777,7 +777,7 @@
        "[1, 2, 3, 4, 88, 2]"
       ]
      },
-     "execution_count": 30,
+     "execution_count": 31,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -799,7 +799,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 32,
    "metadata": {},
    "outputs": [
     {
@@ -808,7 +808,7 @@
        "[3, 5, 2, 4, 3, 2, 1]"
       ]
      },
-     "execution_count": 31,
+     "execution_count": 32,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -830,7 +830,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": 33,
    "metadata": {},
    "outputs": [
     {
@@ -839,7 +839,7 @@
        "[1, 2, 4, 6, 6, 7, 9]"
       ]
      },
-     "execution_count": 32,
+     "execution_count": 33,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -862,7 +862,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 33,
+   "execution_count": 34,
    "metadata": {},
    "outputs": [
     {
@@ -871,7 +871,7 @@
        "['Judy', 'Perter', 'Perkins']"
       ]
      },
-     "execution_count": 33,
+     "execution_count": 34,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -895,7 +895,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 35,
    "metadata": {},
    "outputs": [
     {
@@ -904,7 +904,7 @@
        "('python', '20150101', ['a', 'b'])"
       ]
      },
-     "execution_count": 34,
+     "execution_count": 35,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -923,7 +923,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 36,
    "metadata": {},
    "outputs": [
     {
@@ -933,7 +933,7 @@
      "traceback": [
       "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
       "\u001b[1;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[1;32m~\\AppData\\Local\\Temp/ipykernel_20292/12326120.py\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[1;32mdel\u001b[0m \u001b[0mb\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[1;32m~\\AppData\\Local\\Temp/ipykernel_12744/12326120.py\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[1;32mdel\u001b[0m \u001b[0mb\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
       "\u001b[1;31mTypeError\u001b[0m: 'tuple' object doesn't support item deletion"
      ]
     }
@@ -951,7 +951,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 36,
+   "execution_count": 37,
    "metadata": {},
    "outputs": [
     {
@@ -960,7 +960,7 @@
        "('python', '20150101', ['a', 'b', 'd'])"
       ]
      },
-     "execution_count": 36,
+     "execution_count": 37,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -969,6 +969,15 @@
     "b2 = b[2] # 取出 `b` 的第 3 个元素\n",
     "b2.append('d') # 修改 b2\n",
     "b # 可以看到 b 的第 3 个元素被修改了，这是因为 b2 是可变的"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 推导式\n",
+    "\n",
+    "元组和列表支持推导式。"
    ]
   }
  ],
@@ -991,7 +1000,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.9.7"
+   "version": "3.10.0"
   },
   "orig_nbformat": 4
  },

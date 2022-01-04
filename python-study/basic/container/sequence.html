@@ -773,6 +773,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    不可变变序列
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   推导式
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -796,7 +801,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="id2">
 <h2>序列的基本操作<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>以列表为例。</p>
+<p>以元组为例。</p>
 <div class="section" id="id3">
 <h3>索引<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>索引，类似于获取数学中集合的元素的操作：返回序列中的元素。</p>
@@ -806,7 +811,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>示例：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 获取列表 a 的第一个元素</span>
 </pre></div>
 </div>
@@ -840,13 +845,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p><code class="docutils literal notranslate"><span class="pre">步长</span></code> 若为 <code class="docutils literal notranslate"><span class="pre">1</span></code>，可以省略：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 获取 a 的子列表 [a[1], a[2]]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3)
 </pre></div>
 </div>
 </div>
@@ -858,7 +863,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3, 4)
 </pre></div>
 </div>
 </div>
@@ -870,7 +875,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4, 5]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3, 4, 5)
 </pre></div>
 </div>
 </div>
@@ -882,7 +887,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 2, 3, 4)
 </pre></div>
 </div>
 </div>
@@ -894,7 +899,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 2, 3, 4, 5)
 </pre></div>
 </div>
 </div>
@@ -913,8 +918,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>使用 Python 表示：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">一篮苹果</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;苹果1&#39;</span><span class="p">,</span> <span class="s1">&#39;苹果2&#39;</span><span class="p">]</span>
-<span class="n">一篮香蕉</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;香蕉1&#39;</span><span class="p">,</span> <span class="s1">&#39;香蕉2&#39;</span><span class="p">,</span> <span class="s1">&#39;香蕉3&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">一篮苹果</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;苹果1&#39;</span><span class="p">,</span> <span class="s1">&#39;苹果2&#39;</span><span class="p">)</span>
+<span class="n">一篮香蕉</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;香蕉1&#39;</span><span class="p">,</span> <span class="s1">&#39;香蕉2&#39;</span><span class="p">,</span> <span class="s1">&#39;香蕉3&#39;</span><span class="p">)</span>
 
 <span class="n">两篮水果</span> <span class="o">=</span> <span class="n">一篮苹果</span> <span class="o">+</span> <span class="n">一篮香蕉</span>
 <span class="n">两篮水果</span>
@@ -922,7 +927,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;苹果1&#39;, &#39;苹果2&#39;, &#39;香蕉1&#39;, &#39;香蕉2&#39;, &#39;香蕉3&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;苹果1&#39;, &#39;苹果2&#39;, &#39;香蕉1&#39;, &#39;香蕉2&#39;, &#39;香蕉3&#39;)
 </pre></div>
 </div>
 </div>
@@ -935,7 +940,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;苹果1&#39;, &#39;苹果2&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;苹果1&#39;, &#39;苹果2&#39;)
 </pre></div>
 </div>
 </div>
@@ -955,7 +960,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Python 写作：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">一箱苹果</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;苹果1&#39;</span><span class="p">,</span> <span class="s1">&#39;苹果2&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">一箱苹果</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;苹果1&#39;</span><span class="p">,</span> <span class="s1">&#39;苹果2&#39;</span><span class="p">)</span>
 <span class="n">两箱苹果</span> <span class="o">=</span> <span class="n">一箱苹果</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
 </div>
@@ -1353,7 +1358,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1844</span><span class="o">/</span><span class="mf">12326120.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1848</span><span class="o">/</span><span class="mf">12326120.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">del</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="ne">TypeError</span>: &#39;tuple&#39; object doesn&#39;t support item deletion
@@ -1376,6 +1381,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="id11">
+<h2>推导式<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>元组和列表支持推导式。</p>
 </div>
 </div>
 
