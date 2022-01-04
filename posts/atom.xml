@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://xinetzone.github.io/d2py</id>
   <title>Blog</title>
-  <updated>2022-01-01T12:37:54.366568+00:00</updated>
+  <updated>2022-01-04T09:15:02.472812+00:00</updated>
   <link href="https://xinetzone.github.io/d2py"/>
   <link href="https://xinetzone.github.io/d2py/zh_CN/posts/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.21">ABlog</generator>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.23">ABlog</generator>
   <entry>
     <id>https://xinetzone.github.io/d2py/zh_CN/posts/basic/python-intro.html</id>
     <title>Python 初体验</title>
@@ -13,7 +13,9 @@
     <author>
       <name>刘新伟</name>
     </author>
-    <content type="html">&lt;p&gt;叩开 Python 的大门！&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;叩开 Python 的大门！&lt;/p&gt;
+&lt;/div&gt;
 
     &lt;script type="text/x-thebe-config"&gt;
     {
@@ -46,7 +48,9 @@
     <author>
       <name>刘新伟</name>
     </author>
-    <content type="html">&lt;p&gt;本站默认 Python 为 Python3。&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;本站默认 Python 为 Python3。&lt;/p&gt;
+&lt;/div&gt;
 
     &lt;script type="text/x-thebe-config"&gt;
     {
@@ -79,7 +83,9 @@
     <author>
       <name>刘新伟</name>
     </author>
-    <content type="html">&lt;p&gt;&lt;a class="reference external" href="https://udata.hs.net/home?channel_source=vnpy"&gt;恒有数&lt;/a&gt; 提供了大量金融数据相关的接口，借助此平台讲解 Python 基础知识。&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://udata.hs.net/home?channel_source=vnpy"&gt;恒有数&lt;/a&gt; 提供了大量金融数据相关的接口，借助此平台讲解 Python 基础知识。&lt;/p&gt;
+&lt;/div&gt;
 
     &lt;script type="text/x-thebe-config"&gt;
     {
@@ -113,7 +119,9 @@
     <author>
       <name>刘新伟</name>
     </author>
-    <content type="html">&lt;p&gt;登录平台，&lt;a class="reference external" href="https://udata.hs.net/help/292"&gt;获取Token&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;登录平台，&lt;a class="reference external" href="https://udata.hs.net/help/292"&gt;获取Token&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
     &lt;script type="text/x-thebe-config"&gt;
     {
