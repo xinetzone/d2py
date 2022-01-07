@@ -75,7 +75,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script src="../../_static/translations.js"></script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
@@ -159,7 +159,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
@@ -524,8 +524,8 @@ commentsRunWhenDOMLoaded(addUtterances);
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="切换导航" aria-controls="site-navigation"
+                title="切换导航" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -533,19 +533,19 @@ commentsRunWhenDOMLoaded(addUtterances);
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/basic/controlflow.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+        <a class="dropdown-buttons" href="../../_sources/python-study/basic/controlflow.ipynb.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -557,79 +557,110 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="源库"><i
+                    class="fab fa-github"></i>资料库</button></a>
         <a class="issues-button"
             href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/controlflow.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/controlflow.md"><button
+                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/controlflow.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
+        title="全屏模式"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/controlflow.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/basic/controlflow.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="发射 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="发射 Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> 导航
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   流程控制
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     比较、相等和真值
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     真值测试
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
-       短路计算
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#assert">
-   断言（assert）
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   比较、相等和真值
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   真值测试
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   短路计算
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   断言
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#if">
-   if 条件
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     if
+    </span>
+   </code>
+   条件
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#while">
-   while 循环
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     while
+    </span>
+   </code>
+   循环
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#for">
-   for 循环
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     for
+    </span>
+   </code>
+   循环
   </a>
  </li>
 </ul>
@@ -640,7 +671,75 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>流程控制</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   比较、相等和真值
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   真值测试
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   短路计算
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   断言
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     if
+    </span>
+   </code>
+   条件
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#while">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     while
+    </span>
+   </code>
+   循环
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     for
+    </span>
+   </code>
+   循环
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>流程控制<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
@@ -648,46 +747,79 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="section" id="id2">
 <h2>比较、相等和真值<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">==</span></code> 操作符测试值的相等性</strong>。</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">is</span></code> 表达式测试对象的一致性</strong>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> 操作符测试值的相等性。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is</span></code> 表达式测试对象的一致性。</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S1</span> <span class="o">=</span> <span class="s1">&#39;spam&#39;</span>
+<p>真值判断：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S1</span> <span class="o">=</span> <span class="s1">&#39;spam&#39;</span>
 <span class="n">S2</span> <span class="o">=</span> <span class="s1">&#39;spam&#39;</span>
 
 <span class="n">S1</span> <span class="o">==</span> <span class="n">S2</span><span class="p">,</span> <span class="n">S1</span> <span class="ow">is</span> <span class="n">S2</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(True, True)
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, True)
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>           <span class="c1"># Same value, unique objects </span>
+</div>
+</div>
+<p>比较：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span> 
 <span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
 
 <span class="n">L1</span> <span class="o">==</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L1</span> <span class="ow">is</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L1</span> <span class="o">&lt;</span> <span class="n">L2</span><span class="p">,</span> <span class="n">L1</span> <span class="o">&gt;</span> <span class="n">L2</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(True, False, False, False)
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False, False, False)
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>False
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="ow">and</span> <span class="mi">4</span>
+</div>
+</div>
+<p>惰性求值：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="ow">and</span> <span class="mi">4</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="ow">or</span> <span class="mi">4</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="ow">or</span> <span class="mi">4</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
-<p>Python <strong>语句</strong>就是告诉你的程序应该做什么的句子。</p>
+</div>
+</div>
+<p>Python <strong>语句</strong> 就是告诉你的程序应该做什么的句子。</p>
 <ul class="simple">
 <li><p>程序由模块构成。</p></li>
 <li><p>模块包含语句。</p></li>
@@ -698,13 +830,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="section" id="id3">
 <h2>真值测试<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p>All objects have an inherent Boolean true or false value.</p></li>
-<li><p>Any nonzero number or nonempty object is true.</p></li>
-<li><p>Zero numbers, empty objects, and the special object <code class="docutils literal notranslate"><span class="pre">None</span></code> are considered false.</p></li>
-<li><p>Comparisons and equality tests are applied recursively to data structures.</p></li>
-<li><p>Comparisons and equality tests return <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> (custom versions of <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>).</p></li>
-<li><p>Boolean <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> operators return a true or false operand object.</p></li>
-<li><p>Boolean operators stop evaluating (“short circuit”) as soon as a result is known</p></li>
+<li><p>所有的对象都有一个固有的布尔值：真或假。</p></li>
+<li><p>任何非零的数字或非空的对象都是真。</p></li>
+<li><p>零数、空对象和特殊对象 <code class="docutils literal notranslate"><span class="pre">None</span></code> 被视为假。</p></li>
+<li><p>比较和相等测试是递归地应用于数据结构。</p></li>
+<li><p>比较和相等测试返回 <code class="docutils literal notranslate"><span class="pre">True</span></code> 或 <code class="docutils literal notranslate"><span class="pre">False</span></code>。</p></li>
+<li><p>布尔运算符 <code class="docutils literal notranslate"><span class="pre">and</span></code> 和 <code class="docutils literal notranslate"><span class="pre">or</span></code> 返回一个真或假的操作对象。</p></li>
+<li><p>一旦知道结果，布尔运算符就会停止评估（“短路”）。</p></li>
 </ul>
 <table class="colwidths-auto table">
 <thead>
@@ -714,87 +846,124 @@ commentsRunWhenDOMLoaded(addUtterances);
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">and</span> <span class="pre">Y</span></code></p></td>
-<td class="text-align:left"><p>Is true if both <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> are true</p></td>
+<td class="text-align:left"><p>如果 <code class="docutils literal notranslate"><span class="pre">X</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Y</span></code> 都为真，则为真。</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">or</span> <span class="pre">Y</span></code></p></td>
-<td class="text-align:left"><p>Is true if either <code class="docutils literal notranslate"><span class="pre">X</span></code> or <code class="docutils literal notranslate"><span class="pre">Y</span></code> is true</p></td>
+<td class="text-align:left"><p>如果 <code class="docutils literal notranslate"><span class="pre">X</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Y</span></code> 为真，则为真。</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">X</span></code></p></td>
-<td class="text-align:left"><p>Is true if <code class="docutils literal notranslate"><span class="pre">X</span></code> is false (the expression returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></td>
+<td class="text-align:left"><p>如果 <code class="docutils literal notranslate"><span class="pre">X</span></code> 是假的，则为真。</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="section" id="id4">
-<h3>短路计算<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<h2>短路计算<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">or</span></code>: 从左到右求算操作对象，然后返回第一个为真的操作对象。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">and</span></code>: 从左到右求算操作对象，然后返回第一个为假的操作对象。</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="ow">or</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="ow">or</span> <span class="mi">2</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="ow">or</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="ow">or</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(2, 3)
-</pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[]</span> <span class="ow">or</span> <span class="mi">3</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[]</span> <span class="ow">or</span> <span class="p">{}</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{}
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="ow">and</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">2</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(3, 2)
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[]</span> <span class="ow">and</span> <span class="p">{}</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[]
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="ow">and</span> <span class="p">[]</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[]
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3)
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="assert">
-<h1>断言（assert）<a class="headerlink" href="#assert" title="永久链接至标题">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="k">assert</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;num should be positive!&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[]</span> <span class="ow">or</span> <span class="mi">3</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[]</span> <span class="ow">or</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="ow">and</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[]</span> <span class="ow">and</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="ow">and</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>断言<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>用于测试推断：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">assert</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;num 应该为正数！&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1880</span><span class="o">/</span><span class="mf">29738572.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">assert</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;num 应该为正数！&#39;</span>
 
-AssertionError                            Traceback (most recent call last)
-
-&lt;ipython-input-13-68d5a766c1dc&gt; in &lt;module&gt;()
-      1 num = -1
-----&gt; 2 assert num &gt; 0, &#39;num should be positive!&#39;
-
-
-AssertionError: num should be positive!
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">assert</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;num should be positive!&#39;</span>
+<span class="ne">AssertionError</span>: num 应该为正数！
 </pre></div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="if">
-<h1>if 条件<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入年份：&#39;</span><span class="p">))</span>
+</div>
+</div>
+<div class="section" id="if">
+<h2><code class="docutils literal notranslate"><span class="pre">if</span></code> 条件<a class="headerlink" href="#if" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="mi">1990</span>
 <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;闰年&#39;</span><span class="p">)</span>
@@ -806,102 +975,121 @@ AssertionError: num should be positive!
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;平年&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>请输入年份：1990
-平年
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>平年
 </pre></div>
 </div>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">and</span></code> 与 <code class="docutils literal notranslate"><span class="pre">or</span></code> 的短路逻辑：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入年份：&#39;</span><span class="p">))</span>
+</div>
+</div>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">and</span></code> 与 <code class="docutils literal notranslate"><span class="pre">or</span></code> 的短路逻辑简化表达式：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="mi">1990</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;闰年&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;平年&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>请输入年份：1990
-平年
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>平年
 </pre></div>
 </div>
+</div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">if</span></code> 的短路（short-ciecuit）计算：<code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">Y</span> <span class="pre">if</span> <span class="pre">X</span> <span class="pre">else</span> <span class="pre">Z</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入年份：&#39;</span><span class="p">))</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="mi">1990</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;闰年&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;平年&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>请输入年份：1990
-平年
-</pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;t&#39;</span> <span class="k">if</span> <span class="s1">&#39;spam&#39;</span> <span class="k">else</span> <span class="s1">&#39;f&#39;</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;t&#39;
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">[Z,</span> <span class="pre">Y][bol(X)]</span></code> 从列表中挑选真假值 (不推荐使用)：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">][</span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;f&#39;
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">][</span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;t&#39;
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;w&#39;</span> <span class="s1">&#39;d&#39;</span> <span class="s1">&#39;de&#39;</span>
-<span class="n">a</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;wdde&#39;
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>平年
 </pre></div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="while">
-<h1>while 循环<a class="headerlink" href="#while" title="永久链接至标题">¶</a></h1>
-<p>通用循环结构：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">test</span><span class="p">:</span>  <span class="c1"># Loop test</span>
-    <span class="n">statements</span>  <span class="c1"># Loop body</span>
-<span class="k">else</span><span class="p">:</span>  <span class="c1"># Optional else 只有当循环正常离开时才会执行 (也就是没有碰到 `break` 语句)</span>
-    <span class="n">statements</span>  <span class="c1"># Run if didn&#39;t exit loop with break, </span>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;t&#39;</span> <span class="k">if</span> <span class="s1">&#39;spam&#39;</span> <span class="k">else</span> <span class="s1">&#39;f&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;t&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="while">
+<h2><code class="docutils literal notranslate"><span class="pre">while</span></code> 循环<a class="headerlink" href="#while" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">while</span></code> 循环结构：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">test</span><span class="p">:</span>  <span class="c1"># 循环测试</span>
+    <span class="n">statements</span>  <span class="c1"># 循环体</span>
+<span class="k">else</span><span class="p">:</span>  <span class="c1"># 可选，只有当循环正常离开时才会执行 (也就是没有碰到 `break` 语句)</span>
+    <span class="n">statements</span>  <span class="c1"># 如果没有用 break 退出循环，则运行。</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code>：跳到最近所在循环的开头处 (来到循环的首行)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">break</span></code>：跳出最近所在的循环 (跳过整个循环语句)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code>：跳到最近所在循环的开头处（来到循环的首行）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">break</span></code>：跳出最近所在的循环（跳过整个循环语句）</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pass</span></code> 或 <code class="docutils literal notranslate"><span class="pre">...</span></code>：空占位语句</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;spam&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;spam&#39;</span>
 <span class="k">while</span> <span class="n">x</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>spam pam am m 
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spam pam am m 
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="o">...</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="o">...</span>
 <span class="n">X</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ellipsis
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ellipsis
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 初值条件</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 初值条件</span>
 <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># 终止条件</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">27</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 28
 55
 82
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 拉兹猜想</span>
-<span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入初始值：&#39;</span><span class="p">)))</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 拉兹猜想</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">while</span> <span class="n">num</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">num</span> <span class="o">/=</span> <span class="mi">2</span>
@@ -910,15 +1098,20 @@ AssertionError: num should be positive!
     <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>请输入初始值：5
-16
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 8.0
 4.0
 2.0
 1.0
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">while</span> <span class="n">x</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
@@ -926,24 +1119,22 @@ AssertionError: num should be positive!
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>8 6 4 2 0 
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 6 4 2 0 
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter name: &#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;stop&#39;</span><span class="p">:</span> <span class="k">break</span>
     <span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter age: &#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter name: H
-Enter age: 25
-Hello  H =&gt; 625
-Enter name: stop
-</pre></div>
-</div>
 <p>和循环 <code class="docutils literal notranslate"><span class="pre">else</span></code> 子句结合，<code class="docutils literal notranslate"><span class="pre">break</span></code> 语句通常可以忽略其他语言中所需要的搜索状态标志位。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;输入数字：&#39;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;输入数字：&#39;</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">//</span> <span class="mi">2</span>
 <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">y</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -954,13 +1145,9 @@ Enter name: stop
     <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;是质数！&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>输入数字：6
-6 有因子 3
-</pre></div>
-</div>
 <p><strong>循环 <code class="docutils literal notranslate"><span class="pre">else</span></code> 分句是 Python 特有的，它提供了常见的编写代码的明确语法：这是编写代码的结构，让你捕捉循环的“另一条”出路，而不通过设定和检查标志位或条件。</strong></p>
 <p>例如，假设你要写一个循环搜索列表的值，而且需要知道在离开循环后该值是否已经找到，可能会用下面的方式编写该任务：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="k">while</span> <span class="n">x</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">match</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ni&#39;</span><span class="p">)</span>
@@ -972,7 +1159,7 @@ Enter name: stop
 </pre></div>
 </div>
 <p>我们亦可使用循环 <code class="docutils literal notranslate"><span class="pre">else</span></code> 分句来简化上述代码：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">x</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">x</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">match</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ni&#39;</span><span class="p">)</span>
         <span class="k">break</span>
@@ -982,102 +1169,90 @@ Enter name: stop
 </pre></div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="for">
-<h1>for 循环<a class="headerlink" href="#for" title="永久链接至标题">¶</a></h1>
+<div class="section" id="for">
+<h2><code class="docutils literal notranslate"><span class="pre">for</span></code> 循环<a class="headerlink" href="#for" title="永久链接至标题">¶</a></h2>
 <p>遍历序列对象：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="nb">object</span><span class="p">:</span>                 <span class="c1"># Assign object items to target    </span>
-    <span class="n">statements</span>                        <span class="c1"># Repeated loop body: use target </span>
-<span class="k">else</span><span class="p">:</span>                                 <span class="c1"># Optional else part    </span>
-    <span class="n">statements</span>                        <span class="c1"># If we didn&#39;t hit a &#39;break&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="nb">object</span><span class="p">:</span>                 <span class="c1"># 将对象项目分配给目标   </span>
+    <span class="n">statements</span>                        <span class="c1"># 循环体</span>
+<span class="k">else</span><span class="p">:</span>                                 <span class="c1"># 可选的 else 子句  </span>
+    <span class="n">statements</span>                        <span class="c1"># 如果我们没有遇到 `break` 的话</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="o">...</span>  <span class="c1"># 等价于 pass</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 2
 3
 4
 5
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 7]
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 7]
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 阶乘</span>
-<span class="n">x</span><span class="o">=</span><span class="mi">1</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 阶乘</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">*=</span><span class="n">i</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;10!=&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;10!=&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10!= 3628800
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10!= 3628800
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+
 <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
         <span class="n">s</span> <span class="o">+=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">s</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">*</span><span class="si">%d</span><span class="s1">=</span><span class="si">%2d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">()</span>
-</pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>|1*1= 1|
-|2*1= 2||2*2= 4|
-|3*1= 3||3*2= 6||3*3= 9|
-|4*1= 4||4*2= 8||4*3=12||4*4=16|
-|5*1= 5||5*2=10||5*3=15||5*4=20||5*5=25|
-|6*1= 6||6*2=12||6*3=18||6*4=24||6*5=30||6*6=36|
-|7*1= 7||7*2=14||7*3=21||7*4=28||7*5=35||7*6=42||7*7=49|
-|8*1= 8||8*2=16||8*3=24||8*4=32||8*5=40||8*6=48||8*7=56||8*8=64|
-|9*1= 9||9*2=18||9*3=27||9*4=36||9*5=45||9*6=54||9*7=63||9*8=72||9*9=81|
-</pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;k3&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>k1 : 1
-k2 : 2
-k3 : 3
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;k3&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>k1 : 1
-k2 : 2
-k3 : 3
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span>
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(1, [2, 3, 4], 5)
-</pre></div>
 </div>
 </div>
 
@@ -1106,8 +1281,8 @@ k3 : 3
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="container/sequence.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
@@ -1124,19 +1299,17 @@ k3 : 3
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By xinetzone<br/>
-        
-            &copy; Copyright 2021, xinetzone.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      通过 xinetzone<br/>
+    
+        &copy; 版权 2021, xinetzone.<br/>
+  </p>
+</footer>
 </main>
 
 
