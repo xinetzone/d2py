@@ -651,6 +651,16 @@ commentsRunWhenDOMLoaded(addUtterances);
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#index">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       index
+      </span>
+     </code>
+     方法
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#in">
      <code class="docutils literal notranslate">
       <span class="pre">
@@ -701,16 +711,6 @@ commentsRunWhenDOMLoaded(addUtterances);
      <code class="docutils literal notranslate">
       <span class="pre">
        extend
-      </span>
-     </code>
-     方法
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#index">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       index
       </span>
      </code>
      方法
@@ -834,6 +834,16 @@ commentsRunWhenDOMLoaded(addUtterances);
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#index">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       index
+      </span>
+     </code>
+     方法
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#in">
      <code class="docutils literal notranslate">
       <span class="pre">
@@ -884,16 +894,6 @@ commentsRunWhenDOMLoaded(addUtterances);
      <code class="docutils literal notranslate">
       <span class="pre">
        extend
-      </span>
-     </code>
-     方法
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#index">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       index
       </span>
      </code>
      方法
@@ -1152,6 +1152,23 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>这个比喻并不恰当，因为，不可能存在两箱完全相同的苹果。这个例子仅仅是为了说明序列乘法的，大家不用考虑细节。</p>
 </div>
 </div>
+<div class="section" id="index">
+<h3><code class="docutils literal notranslate"><span class="pre">index</span></code> 方法<a class="headerlink" href="#index" title="永久链接至标题">¶</a></h3>
+<p>返回某个元素的索引，如若此元素不存在，则会引发异常。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">84</span><span class="p">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="in">
 <h3><code class="docutils literal notranslate"><span class="pre">in</span></code><a class="headerlink" href="#in" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">in</span></code>，类似于判断某个元素是否属于某个集合，并返回判断结果。</p>
@@ -1353,23 +1370,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<div class="section" id="index">
-<h3><code class="docutils literal notranslate"><span class="pre">index</span></code> 方法<a class="headerlink" href="#index" title="永久链接至标题">¶</a></h3>
-<p>返回某个元素的索引，如若此元素不存在，则会引发异常。</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">84</span><span class="p">]</span>
-<span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="insert">
 <h3><code class="docutils literal notranslate"><span class="pre">insert</span></code> 方法<a class="headerlink" href="#insert" title="永久链接至标题">¶</a></h3>
 <p>在序列的某个位置插入一个元素：</p>
@@ -1539,7 +1539,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1757</span><span class="o">/</span><span class="mf">12326120.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1780</span><span class="o">/</span><span class="mf">12326120.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">del</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="ne">TypeError</span>: &#39;tuple&#39; object doesn&#39;t support item deletion
