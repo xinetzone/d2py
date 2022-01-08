@@ -51,7 +51,7 @@ Python 3.10 在标准库中加入了一个新函数：{func}`inspect.get_annotat
 ## 任何版本 Python 中使用 `__annotations__` 的最佳实践
 
 - 应避免直接给对象的 `__annotations__` 成员赋值。请让 Python 来管理 `__annotations__`。
-- 如果直接给某对象的 `__annotations__` 成员赋值，应该确保设成一个 {type}`dict` 对象。
+- 如果直接给某对象的 `__annotations__` 成员赋值，应该确保设成一个 {class}`dict` 对象。
 - 如果直接访问某个对象的 `__annotations__` 成员，在解析其值之前，应先确认其为字典类型。
 - 应避免修改 `__annotations__` 字典。
 - 应避免删除对象的 `__annotations__` 属性。
