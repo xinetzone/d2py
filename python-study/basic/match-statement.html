@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>match 语句（raw） &#8212; d2py 0.1 文档</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/d2py");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/basic/match-statement.html" />
+    <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Python 主题手册" href="../topics/index.html" />
+    <link rel="prev" title="输入与输出" href="input-output.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">d2py 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   Python 学习手册
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
+     Python 基础教程
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="intro/index.html">
+       Python 简介
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="intro/understand-python.html">
+         解读 Python 世界的修炼体系
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="intro/basic-type.html">
+         Python 基本数据类型
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="function.html">
+       函数
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="container/index.html">
+       容器
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="container/set.html">
+         集合
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="container/dict.html">
+         字典
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="container/sequence.html">
+         序列
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="controlflow.html">
+       流程控制
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modules.html">
+       模块
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="input-output.html">
+       输入与输出
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         match
+        </span>
+       </code>
+       语句（raw）
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../topics/index.html">
+     Python 主题手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../topics/abc.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         abc
+        </span>
+       </code>
+       抽象基类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../topics/annotations.html">
+       注解
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../topics/f-string.html">
+       格式字符串字面值
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../topics/sys.html">
+       系统相关
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../faqs/index.html">
+     常见问题
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../refs/index.html">
+     Python 参考手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../refs/constants.html">
+       内置常量
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../refs/terms.html">
+       术语中英对照表
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../refs/glossary/index.html">
+       术语表
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../refs/glossary/basic.html">
+         基本术语
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../refs/glossary/exec.html">
+         异常
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../refs/glossary/identifier.html">
+         标识符
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../refs/glossary/value.html">
+         字面值
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../refs/sources.html">
+       Python 学习资源
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../posts/index.html">
+   博客
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/feature.html">
+     特性
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/use.html">
+     项目使用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../CODE_OF_CONDUCT.html">
+     行为准则
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../CONTRIBUTING.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../SECURITY.html">
+     安全策略
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../news/index.html">
+   Python 新闻
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../drafts/index.html">
+   草稿
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/101.html">
+     一、5 个值得在 2018 年关注的库
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/22.html">
+     存储数据
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/33.html">
+     类也是对象
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/44.html">
+     描述器是什么？
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/55.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/66.html">
+     类型和运算 (Types and Operations)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/88.html">
+     函数基础
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/class.html">
+     class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/draft.html">
+     回收站
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/exc.html">
+     异常（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/file.html">
+     I/O操作（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/iter.html">
+     迭代&amp;生成（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/math.html">
+     Python 中的数学（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/oop.html">
+     OOP: The Big Picture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/op.html">
+     运算符（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/re.html">
+     re
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/socket.html">
+     网络
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/str.html">
+     字符编码方法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/type.html">
+     Python 数据类型转换（draft）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../drafts/%E7%88%AC%E8%99%AB.html">
+     爬虫
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebook.html">
+   Jupyter Notebook
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="切换导航" aria-controls="site-navigation"
+                title="切换导航" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/python-study/basic/match-statement.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="源库"><i
+                    class="fab fa-github"></i>资料库</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/match-statement.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/match-statement.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
+        title="全屏模式"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>match 语句（raw）</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="match-raw">
+<h1><code class="docutils literal notranslate"><span class="pre">match</span></code> 语句（raw）<a class="headerlink" href="#match-raw" title="永久链接至标题">¶</a></h1>
+<p>Python 3.10 及其以上版本的特性。</p>
+<p><code class="docutils literal notranslate"><span class="pre">match</span></code> 语句接受一个表达式并将它的值与以一个或多个 <code class="docutils literal notranslate"><span class="pre">case</span></code> 语句块形式给出的一系列模式进行比较。这在表面上很类似 C, Java 或 JavaScript（以及许多其他语言）中的 <code class="docutils literal notranslate"><span class="pre">switch</span></code> 语句，但它还能够从值中提取子部分（序列元素或对象属性）并赋值给变量。</p>
+<p>最简单的形式是将一个目标值与一个或多个字面值进行比较：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">http_error</span><span class="p">(</span><span class="n">status</span><span class="p">):</span>
+    <span class="k">match</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">case</span> <span class="mi">400</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Bad request&quot;</span>
+        <span class="k">case</span> <span class="mi">404</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Not found&quot;</span>
+        <span class="k">case</span> <span class="mi">418</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;I&#39;m a teapot&quot;</span>
+        <span class="k">case</span> <span class="k">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Something&#39;s wrong with the internet&quot;</span>
+</pre></div>
+</div>
+<p>请注意最后一个代码块: “变量名” <code class="docutils literal notranslate"><span class="pre">_</span></code> 被作为 通配符 并必定会匹配成功。 如果没有任何 <code class="docutils literal notranslate"><span class="pre">case</span></code> 语句匹配成功，则任何分支都不会被执行。</p>
+<p>你可以使用 <code class="docutils literal notranslate"><span class="pre">|</span></code> （“或”）在一个模式中组合几个字面值：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">case</span> <span class="mi">401</span> <span class="o">|</span> <span class="mi">403</span> <span class="o">|</span> <span class="mi">404</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;Not allowed&quot;</span>
+</pre></div>
+</div>
+<p>模式的形式可以类似于解包赋值，并可被用于绑定变量：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">match</span> <span class="n">point</span><span class="p">:</span>
+    <span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Origin&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, Y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="k">_</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not a point&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>请仔细研究此代码！ 第一个模式有两个字面值，可以看作是上面所示字面值模式的扩展。 但接下来的两个模式结合了一个字面值和一个变量，而变量 绑定 了一个来自目标的值（<code class="docutils literal notranslate"><span class="pre">point</span></code>）。 第四个模式捕获了两个值，这使得它在概念上类似于解包赋值 <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span> <span class="pre">=</span> <span class="pre">point</span></code>。</p>
+<p>如果你使用类来结构化你的数据，你可以使用类名之后跟一个类似于构造器的参数列表，这样能够捕获属性放入到变量中：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="k">def</span> <span class="nf">where_is</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+    <span class="k">match</span> <span class="n">point</span><span class="p">:</span>
+        <span class="k">case</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Origin&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="n">Point</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Somewhere else&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="k">_</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not a point&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>你可以在某些为其属性提供了排序的内置类（例如 <code class="docutils literal notranslate"><span class="pre">dataclass</span></code>）中使用位置参数。你也可以通过在你的类中设置 <code class="docutils literal notranslate"><span class="pre">__match_args__</span></code> 特殊属性来为模式中的属性定义一个专门的位置。如果它被设为 <code class="docutils literal notranslate"><span class="pre">(&quot;x&quot;,</span> <span class="pre">&quot;y&quot;)</span></code>，则以下模式均为等价的（并且都是将 <code class="docutils literal notranslate"><span class="pre">y</span></code> 属性绑定到 <code class="docutils literal notranslate"><span class="pre">var</span></code> 变量）：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">var</span><span class="p">)</span>
+<span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">var</span><span class="p">)</span>
+<span class="n">Point</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">var</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>读取模式的推荐方式是将它们看做是你会在赋值操作左侧放置的内容的扩展形式，以便理解各个变量将会被设置的值。 只有单独的名称（例如上面的 <code class="docutils literal notranslate"><span class="pre">var</span></code>）会被 <code class="docutils literal notranslate"><span class="pre">match</span></code> 语句所赋值。带点号的名称（例如 <code class="docutils literal notranslate"><span class="pre">foo.bar</span></code>）、属性名称（例如上面的 <code class="docutils literal notranslate"><span class="pre">x=</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y=</span></code>） 或类名称（通过其后的 “<code class="docutils literal notranslate"><span class="pre">(...)</span></code>” 来识别，例如上面的 <code class="docutils literal notranslate"><span class="pre">Point</span></code>）都绝不会被赋值。</p>
+<p>模式可以任意地嵌套。例如，如果我们有一个由点组成的短列表，则可以这样匹配它：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">match</span> <span class="n">points</span><span class="p">:</span>
+    <span class="k">case</span> <span class="p">[]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No points&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The origin&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Single point </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y2</span><span class="p">)]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Two on the Y axis at </span><span class="si">{</span><span class="n">y1</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="k">_</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something else&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>我们可以向一个模式添加 <code class="docutils literal notranslate"><span class="pre">if</span></code> 子句，称为“守护项”。 如果守护项为假值，则 <code class="docutils literal notranslate"><span class="pre">match</span></code> 将继续尝试下一个 <code class="docutils literal notranslate"><span class="pre">case</span></code> 语句块。请注意值的捕获发生在守护项被求值之前：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">match</span> <span class="n">point</span><span class="p">:</span>
+    <span class="k">case</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y=X at </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Not on the diagonal&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>此语句的一些其他关键特性：</p>
+<ul>
+<li><p>类似于解包赋值，元组和列表模式具有完全相同的含义并且实际上能匹配任意序列。一个重要的例外是它们不能匹配迭代器或字符串。</p></li>
+<li><p>序列模式支持扩展解包操作: <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">*rest]</span></code> 和 <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">*rest)</span></code> 的作用类似于解包赋值。在 <code class="docutils literal notranslate"><span class="pre">*</span></code> 之后的名称也可以为 <code class="docutils literal notranslate"><span class="pre">_</span></code>，因此 <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">*_)</span></code> 可以匹配包含至少两个条目的序列而不必绑定其余的条目。</p></li>
+<li><p>Mapping patterns: <code class="docutils literal notranslate"><span class="pre">{&quot;bandwidth&quot;:</span> <span class="pre">b,</span> <span class="pre">&quot;latency&quot;:</span> <span class="pre">l}</span></code> captures the <code class="docutils literal notranslate"><span class="pre">&quot;bandwidth&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;latency&quot;</span></code> values from a dictionary. Unlike sequence patterns, extra keys are ignored. An unpacking like <code class="docutils literal notranslate"><span class="pre">**rest</span></code> is also supported. (But <code class="docutils literal notranslate"><span class="pre">**_</span></code> would be redundant, so it is not allowed.)</p></li>
+<li><p>子模式可使用 <code class="docutils literal notranslate"><span class="pre">as</span></code> 关键字来捕获：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">case</span> <span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span> <span class="k">as</span> <span class="n">p2</span><span class="p">):</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>将把输入的第二个元素捕获为 <code class="docutils literal notranslate"><span class="pre">p2</span></code> （只要输入是包含两个点的序列）</p>
+</li>
+<li><p>大多数字面值是按相等性比较的，但是单例对象 <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> 和 <code class="docutils literal notranslate"><span class="pre">None</span></code> 则是按标识号比较的。</p></li>
+<li><p>模式可以使用命名常量。这些命名常量必须为带点号的名称以防止它们被解读为捕获变量：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your choice of &#39;red&#39;, &#39;blue&#39; or &#39;green&#39;: &quot;</span><span class="p">))</span>
+
+<span class="k">match</span> <span class="n">color</span><span class="p">:</span>
+    <span class="k">case</span> <span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I see red!&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">Color</span><span class="o">.</span><span class="n">GREEN</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grass is green&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">Color</span><span class="o">.</span><span class="n">BLUE</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m feeling the blues :(&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>要获取更详细的说明和额外的示例，你可以参阅以教程格式撰写的 <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0636"><strong>PEP 636</strong></a>。</p>
+<hr class="docutils" />
+<p>循环 <code class="docutils literal notranslate"><span class="pre">else</span></code> 子句提供了常见的编写代码的明确语法：这是编写代码的结构，让你捕捉循环的“另一条”出路，而不通过设定和检查标志位或条件。</p>
+<p>例如，假设你要写一个循环搜索列表的值，而且需要知道在离开循环后该值是否已经找到，可能会用下面的方式编写该任务：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">while</span> <span class="n">x</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">match</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ni&#39;</span><span class="p">)</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;not found&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>我们亦可使用循环 <code class="docutils literal notranslate"><span class="pre">else</span></code> 分句来简化上述代码：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">x</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">match</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ni&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;not found&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./python-study/basic"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="input-output.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">输入与输出</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../topics/index.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Python 主题手册</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      通过 xinetzone<br/>
+    
+        &copy; 版权 2021, xinetzone.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

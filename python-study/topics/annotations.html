@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>格式字符串字面值 &#8212; d2py 0.1 文档</title>
+    <title>注解 &#8212; d2py 0.1 文档</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -88,12 +88,12 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/topics/f-string.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/topics/annotations.html" />
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="系统相关" href="sys.html" />
-    <link rel="prev" title="注解" href="annotations.html" /> 
+    <link rel="next" title="格式字符串字面值" href="f-string.html" />
+    <link rel="prev" title="abc 抽象基类" href="abc.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -284,13 +284,13 @@ commentsRunWhenDOMLoaded(addUtterances);
        抽象基类
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="annotations.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        注解
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="f-string.html">
        格式字符串字面值
       </a>
      </li>
@@ -575,9 +575,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/topics/f-string.ipynb.txt"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/python-study/topics/annotations.md.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -595,10 +595,10 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="源库"><i
                     class="fab fa-github"></i>资料库</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/topics/f-string.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/topics/annotations.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/topics/f-string.ipynb"><button
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/topics/annotations.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -613,36 +613,50 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/topics/f-string.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/topics/f-string.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="发射 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="发射 Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   类型提示
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   变量标注
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   函数标注
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-3-10">
+   在 Python 3.10 以上版本中访问对象的注解字典
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-annotations">
+   任何版本 Python 中使用
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __annotations__
+    </span>
+   </code>
+   的最佳实践
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -650,169 +664,104 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>格式字符串字面值</h1>
+                <h1>注解</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   类型提示
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   变量标注
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   函数标注
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-3-10">
+   在 Python 3.10 以上版本中访问对象的注解字典
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-annotations">
+   任何版本 Python 中使用
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __annotations__
+    </span>
+   </code>
+   的最佳实践
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>格式字符串字面值<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<p>格式字符串字面值 或称 f-string 是标注了 <code class="docutils literal notranslate"><span class="pre">'f'</span></code> 或 <code class="docutils literal notranslate"><span class="pre">'F'</span></code> 前缀的字符串字面值。这种字符串可包含替换字段，即以 <code class="docutils literal notranslate"><span class="pre">{}</span></code> 标注的表达式。其他字符串字面值只是常量，格式字符串字面值则是可在运行时求值的表达式。</p>
-<p>句法格式：</p>
-<pre>
-<strong id="grammar-token-python-grammar-f_string"><span id="grammar-token-f-string"></span>f_string         </strong> ::=  (<a class="reference internal" href="#grammar-token-python-grammar-literal_char"><code class="xref docutils literal notranslate"><span class="pre">literal_char</span></code></a> | &quot;{{&quot; | &quot;}}&quot; | <a class="reference internal" href="#grammar-token-python-grammar-replacement_field"><code class="xref docutils literal notranslate"><span class="pre">replacement_field</span></code></a>)*
-<strong id="grammar-token-python-grammar-replacement_field"><span id="grammar-token-replacement-field"></span>replacement_field</strong> ::=  &quot;{&quot; <a class="reference internal" href="#grammar-token-python-grammar-f_expression"><code class="xref docutils literal notranslate"><span class="pre">f_expression</span></code></a> [&quot;=&quot;] [&quot;!&quot; <a class="reference internal" href="#grammar-token-python-grammar-conversion"><code class="xref docutils literal notranslate"><span class="pre">conversion</span></code></a>] [&quot;:&quot; <a class="reference internal" href="#grammar-token-python-grammar-format_spec"><code class="xref docutils literal notranslate"><span class="pre">format_spec</span></code></a>] &quot;}&quot;
-<strong id="grammar-token-python-grammar-f_expression"><span id="grammar-token-f-expression"></span>f_expression     </strong> ::=  (<a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-conditional_expression" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">conditional_expression</span></code></a> | &quot;*&quot; <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-or_expr" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">or_expr</span></code></a>)
-                         (&quot;,&quot; <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-conditional_expression" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">conditional_expression</span></code></a> | &quot;,&quot; &quot;*&quot; <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-or_expr" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">or_expr</span></code></a>)* [&quot;,&quot;]
-                       | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-yield_expression" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">yield_expression</span></code></a>
-<strong id="grammar-token-python-grammar-conversion"><span id="grammar-token-conversion"></span>conversion       </strong> ::=  &quot;s&quot; | &quot;r&quot; | &quot;a&quot;
-<strong id="grammar-token-python-grammar-format_spec"><span id="grammar-token-format-spec"></span>format_spec      </strong> ::=  (<a class="reference internal" href="#grammar-token-python-grammar-literal_char"><code class="xref docutils literal notranslate"><span class="pre">literal_char</span></code></a> | NULL | <a class="reference internal" href="#grammar-token-python-grammar-replacement_field"><code class="xref docutils literal notranslate"><span class="pre">replacement_field</span></code></a>)*
-<strong id="grammar-token-python-grammar-literal_char"><span id="grammar-token-literal-char"></span>literal_char     </strong> ::=  &lt;any code point except &quot;{&quot;, &quot;}&quot; or NULL&gt;
-</pre>
-<p>除非字面值标记为原始字符串，否则，与在普通字符串字面值中一样，转义序列也会被解码。</p>
-<ul class="simple">
-<li><p>双花括号 <code class="docutils literal notranslate"><span class="pre">'{{'</span></code> 或 <code class="docutils literal notranslate"><span class="pre">'}}'</span></code> 被替换为单花括号，花括号外的字符串仍按字面值处理。</p></li>
-<li><p>单左花括号 <code class="docutils literal notranslate"><span class="pre">'{'</span></code> 标记以 Python 表达式开头的替换字段。替换字段以右花括号 <code class="docutils literal notranslate"><span class="pre">'}'</span></code> 为结尾。</p></li>
-<li><p>在表达式后加等于号 <code class="docutils literal notranslate"><span class="pre">'='</span></code>，可在求值后，同时显示表达式文本及其结果（用于调试）。</p></li>
-<li><p>用叹号 <code class="docutils literal notranslate"><span class="pre">'!'</span></code> 标记的转换字段。</p></li>
-<li><p>还可以在冒号 <code class="docutils literal notranslate"><span class="pre">':'</span></code> 后附加格式说明符。</p></li>
-<li><p>指定了转换符时，表达式求值的结果会先转换，再格式化。转换符 <code class="docutils literal notranslate"><span class="pre">'!s'</span></code> 调用 <code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code> 转换求值结果，<code class="docutils literal notranslate"><span class="pre">'!r'</span></code> 调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#repr" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>，<code class="docutils literal notranslate"><span class="pre">'!a'</span></code> 调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#ascii" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">ascii()</span></code></a>。</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Fred&quot;</span>
-<span class="sa">f</span><span class="s2">&quot;He said his name is </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">.&quot;</span>
+<h1>注解<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>详见 <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3107"><strong>PEP 3107</strong></a> 和 <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0484"><strong>PEP 484</strong></a></p>
+<div class="section" id="id2">
+<h2>类型提示<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-annotation" title="(在 Python v3.11)"><span class="xref std std-term">annotation</span></a> 为变量、类属性、函数的形参或返回值指定预期的类型。</p>
+<p>类型提示（type hint）属于可选项，Python 不要求提供，但其可对静态类型分析工具起作用，并可协助 IDE 实现代码补全与重构。</p>
+<p>全局变量、类属性和函数的类型提示可以使用 <a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#typing.get_type_hints" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">typing.get_type_hints()</span></code></a> 来访问，但局部变量则不可以。</p>
+</div>
+<div class="section" id="id3">
+<h2>变量标注<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>对变量或类属性的 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-annotation" title="(在 Python v3.11)"><span class="xref std std-term">annotation</span></a>。</p>
+<p>在标注变量或类属性时，还可选择为其赋值：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+    <span class="n">field</span><span class="p">:</span> <span class="s1">&#39;annotation&#39;</span>
+</pre></div>
+</div>
+<p>变量标注通常被用作 <strong>类型提示</strong>。例如以下变量预期接受 <code class="docutils literal notranslate"><span class="pre">int</span></code> 类型的值：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;He said his name is &#39;Fred&#39;.&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;He said his name is </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>  <span class="c1"># repr() is equivalent to !r</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;He said his name is &#39;Fred&#39;.&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">decimal</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">precision</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;12.34567&quot;</span><span class="p">)</span>
-<span class="sa">f</span><span class="s2">&quot;result: </span><span class="si">{</span><span class="n">value</span><span class="si">:{</span><span class="n">width</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">precision</span><span class="si">}}</span><span class="s2">&quot;</span>  <span class="c1"># nested fields</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;result:      12.35&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="section" id="id4">
+<h2>函数标注<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-annotation" title="(在 Python v3.11)"><span class="xref std std-term">annotation</span></a> 以字典的形式存放在函数的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 属性中，并且不会影响函数的任何其他部分。形参标注的定义方式是在形参名后加冒号，后面跟一个表达式，该表达式会被求值为标注的值。返回值标注的定义方式是加组合符号 <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>，后面跟一个表达式，该标注位于形参列表和表示 <code class="docutils literal notranslate"><span class="pre">def</span></code> 语句结束的冒号之间。下面的示例有一个必须的参数，一个可选的关键字参数以及返回值都带有相应的标注：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">ham</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eggs</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;eggs&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;注解：&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="vm">__annotations__</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;参数：&quot;</span><span class="p">,</span> <span class="n">ham</span><span class="p">,</span> <span class="n">eggs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ham</span> <span class="o">+</span> <span class="s1">&#39; 和 &#39;</span> <span class="o">+</span> <span class="n">eggs</span>
 
-<span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
-<span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="si">:</span><span class="s2">%B %d, %Y</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># using date format specifier</span>
+<span class="n">f</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;January 27, 2017&#39;
-</pre></div>
+<div class="section" id="python-3-10">
+<h2>在 Python 3.10 以上版本中访问对象的注解字典<a class="headerlink" href="#python-3-10" title="永久链接至标题">¶</a></h2>
+<p>Python 3.10 在标准库中加入了一个新函数：<a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.get_annotations" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a>。在 Python 3.10 以上的版本中，调用该函数就是访问对象注解字典的最佳做法。该函数还可以“解析”字符串形式的注解。</p>
+<p>有时会因为某些原因看不到 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.get_annotations" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a>，也可以直接访问 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 数据成员。这方面的最佳实践在 Python 3.10 中也发生了变化：从 Python 3.10 开始，Python 函数、类和模块的 <code class="docutils literal notranslate"><span class="pre">o.__annotations__</span></code> 保证 可用。如果确定是要查看这三种对象，只要利用 <code class="docutils literal notranslate"><span class="pre">o.__annotations__</span></code> 读取对象的注释字典即可。</p>
+<p>不过其他类型的可调用对象可能就没有定义 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 属性，比如由 <a class="reference external" href="https://daobook.github.io/cpython/library/functools.html#functools.partial" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a> 创建的可调用对象。当访问某个未知对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 时，Python 3.10 以上版本的最佳做法是带三个参数去调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#getattr" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr()</span></code></a>，比如 <code class="docutils literal notranslate"><span class="pre">getattr(o,</span> <span class="pre">'__annotations__',</span> <span class="pre">None)</span></code>。</p>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="si">=:</span><span class="s2">%B %d, %Y</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># using date format specifier and debugging</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;today=January 27, 2017&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">1024</span>
-<span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s2">#0x</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># using integer format specifier</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0x400&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>
-<span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span> <span class="n">foo</span> <span class="si">= }</span><span class="s2">&quot;</span> <span class="c1"># preserves whitespace</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot; foo = &#39;bar&#39;&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;The mill&#39;s closed&quot;</span>
-<span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span> <span class="si">= }</span><span class="s2">&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;line = &quot;The mill\&#39;s closed&quot;&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span> <span class="si">= :</span><span class="s2">20</span><span class="si">}</span><span class="s2">&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;line = The mill&#39;s closed   &quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span> <span class="si">= !r:</span><span class="s2">20</span><span class="si">}</span><span class="s2">&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;line = &quot;The mill\&#39;s closed&quot; &#39;
-</pre></div>
-</div>
-</div>
+<div class="section" id="python-annotations">
+<h2>任何版本 Python 中使用 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 的最佳实践<a class="headerlink" href="#python-annotations" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>应避免直接给对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员赋值。请让 Python 来管理 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>。</p></li>
+<li><p>如果直接给某对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员赋值，应该确保设成一个 <a href="#id5"><span class="problematic" id="id6">:type:`dict`</span></a> 对象。</p></li>
+<li><p>如果直接访问某个对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员，在解析其值之前，应先确认其为字典类型。</p></li>
+<li><p>应避免修改 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 字典。</p></li>
+<li><p>应避免删除对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 属性。</p></li>
+</ul>
 </div>
 </div>
 
@@ -844,17 +793,17 @@ commentsRunWhenDOMLoaded(addUtterances);
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="annotations.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="abc.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">注解</p>
+            <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">abc</span></code> 抽象基类</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="sys.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="f-string.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">系统相关</p>
+        <p class="prev-next-title">格式字符串字面值</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
