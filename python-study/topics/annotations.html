@@ -295,6 +295,11 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="metaclass.html">
+       元类
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="sys.html">
        系统相关
       </a>
@@ -757,7 +762,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h2>任何版本 Python 中使用 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 的最佳实践<a class="headerlink" href="#python-annotations" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>应避免直接给对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员赋值。请让 Python 来管理 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>。</p></li>
-<li><p>如果直接给某对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员赋值，应该确保设成一个 <a href="#id5"><span class="problematic" id="id6">:type:`dict`</span></a> 对象。</p></li>
+<li><p>如果直接给某对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员赋值，应该确保设成一个 <a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#dict" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> 对象。</p></li>
 <li><p>如果直接访问某个对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员，在解析其值之前，应先确认其为字典类型。</p></li>
 <li><p>应避免修改 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 字典。</p></li>
 <li><p>应避免删除对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 属性。</p></li>

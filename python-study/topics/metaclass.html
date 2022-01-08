@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>模块 &#8212; d2py 0.1 文档</title>
+    <title>元类 &#8212; d2py 0.1 文档</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -88,12 +88,12 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/basic/modules.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/topics/metaclass.html" />
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="输入与输出" href="input-output.html" />
-    <link rel="prev" title="流程控制" href="controlflow.html" /> 
+    <link rel="next" title="系统相关" href="sys.html" />
+    <link rel="prev" title="格式字符串字面值" href="f-string.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -173,18 +173,18 @@ commentsRunWhenDOMLoaded(addUtterances);
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="index.html">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../basic/index.html">
      Python 基础教程
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul class="current">
+    <ul>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="intro/index.html">
+      <a class="reference internal" href="../basic/intro/index.html">
        Python 简介
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -194,24 +194,24 @@ commentsRunWhenDOMLoaded(addUtterances);
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="intro/understand-python.html">
+        <a class="reference internal" href="../basic/intro/understand-python.html">
          解读 Python 世界的修炼体系
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="intro/basic-type.html">
+        <a class="reference internal" href="../basic/intro/basic-type.html">
          Python 基本数据类型
         </a>
        </li>
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="function.html">
+      <a class="reference internal" href="../basic/function.html">
        函数
       </a>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="container/index.html">
+      <a class="reference internal" href="../basic/container/index.html">
        容器
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -221,39 +221,39 @@ commentsRunWhenDOMLoaded(addUtterances);
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="container/set.html">
+        <a class="reference internal" href="../basic/container/set.html">
          集合
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="container/dict.html">
+        <a class="reference internal" href="../basic/container/dict.html">
          字典
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="container/sequence.html">
+        <a class="reference internal" href="../basic/container/sequence.html">
          序列
         </a>
        </li>
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="controlflow.html">
+      <a class="reference internal" href="../basic/controlflow.html">
        流程控制
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../basic/modules.html">
        模块
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="input-output.html">
+      <a class="reference internal" href="../basic/input-output.html">
        输入与输出
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="match-statement.html">
+      <a class="reference internal" href="../basic/match-statement.html">
        <code class="docutils literal notranslate">
         <span class="pre">
          match
@@ -264,18 +264,18 @@ commentsRunWhenDOMLoaded(addUtterances);
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../topics/index.html">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
      Python 主题手册
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul>
+    <ul class="current">
      <li class="toctree-l3">
-      <a class="reference internal" href="../topics/abc.html">
+      <a class="reference internal" href="abc.html">
        <code class="docutils literal notranslate">
         <span class="pre">
          abc
@@ -285,22 +285,22 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../topics/annotations.html">
+      <a class="reference internal" href="annotations.html">
        注解
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../topics/f-string.html">
+      <a class="reference internal" href="f-string.html">
        格式字符串字面值
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../topics/metaclass.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        元类
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../topics/sys.html">
+      <a class="reference internal" href="sys.html">
        系统相关
       </a>
      </li>
@@ -580,9 +580,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/basic/modules.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/python-study/topics/metaclass.ipynb.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -600,10 +600,10 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="源库"><i
                     class="fab fa-github"></i>资料库</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/modules.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/topics/metaclass.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/modules.md"><button
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/topics/metaclass.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -618,6 +618,31 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/topics/metaclass.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/topics/metaclass.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="发射 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="发射 Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -630,7 +655,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>模块</h1>
+                <h1>元类</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -641,7 +666,59 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>元类<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p><strong>元类</strong> 用于创建和管理类（<code class="docutils literal notranslate"><span class="pre">class</span></code>）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span> <span class="o">...</span>
+
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Foo</span></code> 是由 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#type" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> 创建的：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">class</span></code> 语句创建新类：</p>
+<ol class="simple">
+<li><p>类主体将作为其私有字典内的一系列语句执行。</p></li>
+<li><p>类内语句的执行过程与正常代码执行过程相同，只是增加了会在私有成员（名称以 <code class="docutils literal notranslate"><span class="pre">__</span></code> 开头）上发生的名称变形。</p></li>
+<li><p>类的名称、基类类别和字典将传递给元类的构造函数，以构建相应的类对象。</p></li>
+</ol>
+</div>
+<ul>
+<li><p>可以显式地指定元类：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="nb">type</span><span class="p">):</span> <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p>如果没有显式指定元类，<code class="docutils literal notranslate"><span class="pre">class</span></code> 语句将检查基类元组（如果存在）中的第一项。</p></li>
+<li><p>如果没有指定基类，<code class="docutils literal notranslate"><span class="pre">class</span></code> 语句将检查全局变量 <code class="docutils literal notranslate"><span class="pre">__metaclass__</span></code> 是否存在。比如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__metaclass__</span> <span class="o">=</span> <span class="nb">type</span>
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span> <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>在 Python3 中默认元类是 <code class="docutils literal notranslate"><span class="pre">type</span></code>。</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -657,7 +734,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./python-study/basic"
+            path: "./python-study/topics"
         },
         predefinedOutput: true
     }
@@ -672,17 +749,17 @@ commentsRunWhenDOMLoaded(addUtterances);
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="controlflow.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="f-string.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">流程控制</p>
+            <p class="prev-next-title">格式字符串字面值</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="input-output.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="sys.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">输入与输出</p>
+        <p class="prev-next-title">系统相关</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
