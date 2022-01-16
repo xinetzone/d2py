@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>格式字符串字面值 &#8212; d2py 0.1 文档</title>
+    <title>argparse 用法总结 &#8212; d2py 0.1 文档</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -88,12 +88,12 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/topics/f-string.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/topics/argparse.html" />
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="元类" href="metaclass.html" />
-    <link rel="prev" title="argparse 用法总结" href="argparse.html" /> 
+    <link rel="next" title="格式字符串字面值" href="f-string.html" />
+    <link rel="prev" title="注解" href="annotations.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -294,8 +294,8 @@ commentsRunWhenDOMLoaded(addUtterances);
        注解
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="argparse.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        <code class="docutils literal notranslate">
         <span class="pre">
          argparse
@@ -304,8 +304,8 @@ commentsRunWhenDOMLoaded(addUtterances);
        用法总结
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="f-string.html">
        格式字符串字面值
       </a>
      </li>
@@ -595,7 +595,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/topics/f-string.ipynb.txt"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/python-study/topics/argparse.ipynb.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -615,10 +615,10 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="源库"><i
                     class="fab fa-github"></i>资料库</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/topics/f-string.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/topics/argparse.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/topics/f-string.ipynb"><button
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/topics/argparse.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -638,7 +638,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/topics/f-string.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/topics/argparse.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -646,7 +646,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/topics/f-string.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/topics/argparse.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="发射 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -664,6 +664,34 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   基础
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   位置参数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   可选参数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   短选项
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -671,167 +699,375 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>格式字符串字面值</h1>
+                <h1>argparse 用法总结</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   基础
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   位置参数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   可选参数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   短选项
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>格式字符串字面值<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<p>格式字符串字面值 或称 f-string 是标注了 <code class="docutils literal notranslate"><span class="pre">'f'</span></code> 或 <code class="docutils literal notranslate"><span class="pre">'F'</span></code> 前缀的字符串字面值。这种字符串可包含替换字段，即以 <code class="docutils literal notranslate"><span class="pre">{}</span></code> 标注的表达式。其他字符串字面值只是常量，格式字符串字面值则是可在运行时求值的表达式。</p>
-<p>句法格式：</p>
-<pre>
-<strong id="grammar-token-python-grammar-f_string"><span id="grammar-token-f-string"></span>f_string         </strong> ::=  (<a class="reference internal" href="#grammar-token-python-grammar-literal_char"><code class="xref docutils literal notranslate"><span class="pre">literal_char</span></code></a> | &quot;{{&quot; | &quot;}}&quot; | <a class="reference internal" href="#grammar-token-python-grammar-replacement_field"><code class="xref docutils literal notranslate"><span class="pre">replacement_field</span></code></a>)*
-<strong id="grammar-token-python-grammar-replacement_field"><span id="grammar-token-replacement-field"></span>replacement_field</strong> ::=  &quot;{&quot; <a class="reference internal" href="#grammar-token-python-grammar-f_expression"><code class="xref docutils literal notranslate"><span class="pre">f_expression</span></code></a> [&quot;=&quot;] [&quot;!&quot; <a class="reference internal" href="#grammar-token-python-grammar-conversion"><code class="xref docutils literal notranslate"><span class="pre">conversion</span></code></a>] [&quot;:&quot; <a class="reference internal" href="#grammar-token-python-grammar-format_spec"><code class="xref docutils literal notranslate"><span class="pre">format_spec</span></code></a>] &quot;}&quot;
-<strong id="grammar-token-python-grammar-f_expression"><span id="grammar-token-f-expression"></span>f_expression     </strong> ::=  (<a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-conditional_expression" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">conditional_expression</span></code></a> | &quot;*&quot; <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-or_expr" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">or_expr</span></code></a>)
-                         (&quot;,&quot; <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-conditional_expression" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">conditional_expression</span></code></a> | &quot;,&quot; &quot;*&quot; <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-or_expr" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">or_expr</span></code></a>)* [&quot;,&quot;]
-                       | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-yield_expression" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">yield_expression</span></code></a>
-<strong id="grammar-token-python-grammar-conversion"><span id="grammar-token-conversion"></span>conversion       </strong> ::=  &quot;s&quot; | &quot;r&quot; | &quot;a&quot;
-<strong id="grammar-token-python-grammar-format_spec"><span id="grammar-token-format-spec"></span>format_spec      </strong> ::=  (<a class="reference internal" href="#grammar-token-python-grammar-literal_char"><code class="xref docutils literal notranslate"><span class="pre">literal_char</span></code></a> | NULL | <a class="reference internal" href="#grammar-token-python-grammar-replacement_field"><code class="xref docutils literal notranslate"><span class="pre">replacement_field</span></code></a>)*
-<strong id="grammar-token-python-grammar-literal_char"><span id="grammar-token-literal-char"></span>literal_char     </strong> ::=  &lt;any code point except &quot;{&quot;, &quot;}&quot; or NULL&gt;
-</pre>
-<p>除非字面值标记为原始字符串，否则，与在普通字符串字面值中一样，转义序列也会被解码。</p>
-<ul class="simple">
-<li><p>双花括号 <code class="docutils literal notranslate"><span class="pre">'{{'</span></code> 或 <code class="docutils literal notranslate"><span class="pre">'}}'</span></code> 被替换为单花括号，花括号外的字符串仍按字面值处理。</p></li>
-<li><p>单左花括号 <code class="docutils literal notranslate"><span class="pre">'{'</span></code> 标记以 Python 表达式开头的替换字段。替换字段以右花括号 <code class="docutils literal notranslate"><span class="pre">'}'</span></code> 为结尾。</p></li>
-<li><p>在表达式后加等于号 <code class="docutils literal notranslate"><span class="pre">'='</span></code>，可在求值后，同时显示表达式文本及其结果（用于调试）。</p></li>
-<li><p>用叹号 <code class="docutils literal notranslate"><span class="pre">'!'</span></code> 标记的转换字段。</p></li>
-<li><p>还可以在冒号 <code class="docutils literal notranslate"><span class="pre">':'</span></code> 后附加格式说明符。</p></li>
-<li><p>指定了转换符时，表达式求值的结果会先转换，再格式化。转换符 <code class="docutils literal notranslate"><span class="pre">'!s'</span></code> 调用 <code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code> 转换求值结果，<code class="docutils literal notranslate"><span class="pre">'!r'</span></code> 调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#repr" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>，<code class="docutils literal notranslate"><span class="pre">'!a'</span></code> 调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#ascii" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">ascii()</span></code></a>。</p></li>
-</ul>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="argparse">
+<h1><code class="docutils literal notranslate"><span class="pre">argparse</span></code> 用法总结<a class="headerlink" href="#argparse" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/argparse.html#module-argparse" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a>：命令行选项、参数和子命令解析器</p>
+<div class="section" id="id1">
+<h2>基础<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>我们编写最简单的例子：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># examples/argparse/simple.py</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>在没有任何选项的情况下运行脚本不会在标准输出显示任何内容。这没有什么用处：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Fred&quot;</span>
-<span class="sa">f</span><span class="s2">&quot;He said his name is </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">.&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/simple.py
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-help" title="(在 Python v3.11)"><code class="xref std std-option docutils literal notranslate"><span class="pre">--help</span></code></a> 选项，也可缩写为 <a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-h" title="(在 Python v3.11)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-h</span></code></a>，是唯一一个可以直接使用的选项（即不需要指定该选项的内容）：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/simple.py --help
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;He said his name is &#39;Fred&#39;.&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;He said his name is </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>  <span class="c1"># repr() is equivalent to !r</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;He said his name is &#39;Fred&#39;.&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">decimal</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">precision</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;12.34567&quot;</span><span class="p">)</span>
-<span class="sa">f</span><span class="s2">&quot;result: </span><span class="si">{</span><span class="n">value</span><span class="si">:{</span><span class="n">width</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">precision</span><span class="si">}}</span><span class="s2">&quot;</span>  <span class="c1"># nested fields</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;result:      12.35&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: simple.py [-h]
 
-<span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
-<span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="si">:</span><span class="s2">%B %d, %Y</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># using date format specifier</span>
+options:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+</div>
+<p>指定其他任何内容都会导致错误。即便如此，我们也能直接得到一条有用的用法信息。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/simple.py --verbose
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;January 27, 2017&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: simple.py [-h]
+simple.py: error: unrecognized arguments: --verbose
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="si">=:</span><span class="s2">%B %d, %Y</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1"># using date format specifier and debugging</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/simple.py foo
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;today=January 27, 2017&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: simple.py [-h]
+simple.py: error: unrecognized arguments: foo
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>位置参数<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>举个例子：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># examples/argparse/echos.py</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;echo&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">echo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>运行此程序：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/echos.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: echos.py [-h] echo
+echos.py: error: the following arguments are required: echo
+</pre></div>
+</div>
+</div>
+</div>
+<p>增加了 <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_argument()</span></code> 方法，该方法用于指定程序能够接受哪些命令行选项。在这个例子中，我将选项命名为 <code class="docutils literal notranslate"><span class="pre">echo</span></code>，与其功能一致。</p>
+<p>现在调用我们的程序必须要指定一个选项：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/echos.py foo
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>foo
+</pre></div>
+</div>
+</div>
+</div>
+<p>查看帮助信息：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/echos.py -h
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: echos.py [-h] echo
+
+positional arguments:
+  echo
+
+options:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以给位置参数一些辅助信息：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;echo&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;echo the string you use here&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">echo</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/echos_help.py -h
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: echos_help.py [-h] echo
+
+positional arguments:
+  echo        echo the string you use here
+
+options:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+</div>
+<p>传入的位置参数选项的值默认是作为字符串传递的，可以修改其为其他类型：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;square&quot;</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;display a square of a given number&quot;</span><span class="p">,</span>
+                    <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">square</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>以下是该代码的运行结果：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/square.py <span class="m">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<p>输错类型，会触发异常：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/square.py <span class="s1">&#39;4&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<p>当程序在收到错误的无效的输入时，它甚至能在执行计算之前先退出，还能显示很有帮助的错误信息。</p>
+</div>
+<div class="section" id="id3">
+<h2>可选参数<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>下面看看如何添加可选参数：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--verbosity&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;increase output verbosity&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbosity</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verbosity turned on&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这一程序被设计为当指定 <code class="xref std std-option docutils literal notranslate"><span class="pre">--verbosity</span></code> 选项时显示某些东西，否则不显示。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/option.py --verbosity <span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>verbosity turned on
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">1024</span>
-<span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">:</span><span class="s2">#0x</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># using integer format specifier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/option.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>如果一个可选参数没有被使用时，相关变量被赋值为 <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/option.py --help
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0x400&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: option.py [-h] [--verbosity VERBOSITY]
+
+options:
+  -h, --help            show this help message and exit
+  --verbosity VERBOSITY
+                        increase output verbosity
+</pre></div>
+</div>
+</div>
+</div>
+<p>上述例子接受任何整数值作为 <code class="xref std std-option docutils literal notranslate"><span class="pre">--verbosity</span></code> 的参数，但对于简单程序而言，只有两个值有实际意义：<code class="docutils literal notranslate"><span class="pre">True</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">False</span></code>。据此修改代码：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;increase output verbosity&quot;</span><span class="p">,</span>
+                    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verbosity turned on&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>现在，这一选项多了一个旗标，而非需要接受一个值的什么东西。我们甚至改变了选项的名字来符合这一思路。注意我们现在指定了一个新的关键词 <code class="docutils literal notranslate"><span class="pre">action</span></code>，并赋值为 <code class="docutils literal notranslate"><span class="pre">&quot;store_true&quot;</span></code>。这意味着，当这一选项存在时，为 <code class="docutils literal notranslate"><span class="pre">args.verbose</span></code> 赋值为 <code class="docutils literal notranslate"><span class="pre">True</span></code>。没有指定时则隐含地赋值为 <code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/option_action.py --verbose
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>verbosity turned on
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span>
-<span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span> <span class="n">foo</span> <span class="si">= }</span><span class="s2">&quot;</span> <span class="c1"># preserves whitespace</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/option_action.py --verbose <span class="m">1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot; foo = &#39;bar&#39;&quot;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: option_action.py [-h] [--verbose]
+option_action.py: error: unrecognized arguments: 1
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;The mill&#39;s closed&quot;</span>
-<span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span> <span class="si">= }</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/option_action.py -h
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;line = &quot;The mill\&#39;s closed&quot;&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: option_action.py [-h] [--verbose]
+
+options:
+  -h, --help  show this help message and exit
+  --verbose   increase output verbosity
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>短选项<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>例如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;increase output verbosity&quot;</span><span class="p">,</span>
+                    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;verbosity turned on&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>效果就像这样：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/short.py -h
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usage: short.py [-h] [-v]
+
+options:
+  -h, --help     show this help message and exit
+  -v, --verbose  increase output verbosity
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span> <span class="si">= :</span><span class="s2">20</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python examples/argparse/short.py -v
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;line = The mill&#39;s closed   &quot;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>verbosity turned on
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span> <span class="si">= !r:</span><span class="s2">20</span><span class="si">}</span><span class="s2">&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;line = &quot;The mill\&#39;s closed&quot; &#39;
-</pre></div>
 </div>
 </div>
 </div>
@@ -865,17 +1101,17 @@ commentsRunWhenDOMLoaded(addUtterances);
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="argparse.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="annotations.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">argparse</span></code> 用法总结</p>
+            <p class="prev-next-title">注解</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="metaclass.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="f-string.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">元类</p>
+        <p class="prev-next-title">格式字符串字面值</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
