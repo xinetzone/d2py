@@ -103,10 +103,7 @@ extlinks = {
     #            'roles.html#%s', ''),
     # 'dudir': ('https://docutils.sourceforge.io/docs/ref/rst/'
     #           'directives.html#%s', ''),
-    'py-doc': ('https://daobook.github.io/cpython/%s', ''),
-    'github': ('https://github.com/%s', ''),
     'daobook': ('https://daobook.github.io/%s', ''),
-    'ablog': ('https://daobook.github.io/ablog/zh-CN/%s', '')
 }
 
 intersphinx_mapping = {
@@ -275,4 +272,4 @@ post_date_format_short = '%b %d, %Y'
 # 避免将 jupter 执行报错的信息输出到 cmd
 nb_merge_streams = True
 execution_allow_errors = True
-jupyter_execute_notebooks = "cache"
+jupyter_execute_notebooks = "off"

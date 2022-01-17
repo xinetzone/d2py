@@ -2,7 +2,7 @@
 
 参考：
 
-- [官方教程中文版](https://daobook.github.io/nuitka-doc/zh_CN/)
+- {daobook}`官方教程中文版 <nuitka-doc/zh_CN/>`
 - [Nuitka常见问题解决集锦-独孤九剑之破Bug式](https://zhuanlan.zhihu.com/p/156883484)
 
 Nuitka 将 Python 模块翻译成 C 级程序，然后使用 `libpython` 和自己的静态 C 文件，以 CPython 的方式执行。

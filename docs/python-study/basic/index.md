@@ -9,6 +9,7 @@ function
 container/index
 controlflow
 modules
+class
 argparse
 input-output
 match-statement

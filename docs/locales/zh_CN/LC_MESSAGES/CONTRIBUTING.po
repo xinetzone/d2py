@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sphinx demo \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-12 10:49+0800\n"
+"POT-Creation-Date: 2022-01-17 13:19+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: xinetzone <735613050@qq.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,6 @@ msgid "Contributing"
 msgstr "贡献"
 
 #: ../../CONTRIBUTING.md:3
-msgid "see [Contributing](https://daobook.github.io/.github/CONTRIBUTING.html)."
-msgstr ""
-"请阅读 [贡献](https://daobook.github.io/.github/CONTRIBUTING.html)。"
+msgid "see {daobook}`Contributing <.github/CONTRIBUTING.html>`."
+msgstr "请阅读 {daobook}`贡献 <.github/CONTRIBUTING.html>`。"
+

@@ -1,6 +1,6 @@
 # 特性
 
-- 支持 {ablog}`ABlog <#>`
+- 支持 {daobook}`ABlog <ablog/>zh-CN/>`
 - Python 基本语法及数据结构
 - Python 操作数据库、文件以及办公软件
 - 由浅入深，以项目为导向
