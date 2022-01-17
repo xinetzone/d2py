@@ -33,7 +33,7 @@ python -m ipykernel install --user --name hs
 
 ## 安装 Jupyter 插件
 
-参考：{github}`ipython-contrib/jupyter_contrib_nbextensions`
+参考：https://github.com/ipython-contrib/jupyter_contrib_nbextensions
 
 安装插件：
 

@@ -77,8 +77,6 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script src="../../_static/translations.js"></script>
     <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".cell"
@@ -92,8 +90,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="abc 抽象基类" href="abc.html" />
-    <link rel="prev" title="match 语句（raw）" href="../basic/match-statement.html" /> 
+    <link rel="next" title="Python 编译器 Nuitka" href="Nuitka.html" />
+    <link rel="prev" title="match 语句" href="../basic/match-statement.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -253,6 +251,20 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../basic/class.html">
+       类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../basic/argparse.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         argparse
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../basic/input-output.html">
        输入与输出
       </a>
@@ -264,7 +276,7 @@ commentsRunWhenDOMLoaded(addUtterances);
          match
         </span>
        </code>
-       语句（raw）
+       语句
       </a>
      </li>
     </ul>
@@ -279,6 +291,11 @@ commentsRunWhenDOMLoaded(addUtterances);
      </i>
     </label>
     <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="Nuitka.html">
+       Python 编译器 Nuitka
+      </a>
+     </li>
      <li class="toctree-l3">
       <a class="reference internal" href="abc.html">
        <code class="docutils literal notranslate">
@@ -301,7 +318,6 @@ commentsRunWhenDOMLoaded(addUtterances);
          argparse
         </span>
        </code>
-       用法总结
       </a>
      </li>
      <li class="toctree-l3">
@@ -659,6 +675,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h1>Python 主题手册<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Nuitka.html">Python 编译器 Nuitka</a></li>
 <li class="toctree-l1"><a class="reference internal" href="abc.html"><code class="docutils literal notranslate"><span class="pre">abc</span></code> 抽象基类</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="abc.html#abc-abcmeta"><code class="docutils literal notranslate"><span class="pre">abc.ABCMeta</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="abc.html#abc-abc"><code class="docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></li>
@@ -675,11 +692,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li class="toctree-l2"><a class="reference internal" href="annotations.html#python-annotations">任何版本 Python 中使用 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 的最佳实践</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="argparse.html"><code class="docutils literal notranslate"><span class="pre">argparse</span></code> 用法总结</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="argparse.html#id1">基础</a></li>
-<li class="toctree-l2"><a class="reference internal" href="argparse.html#id2">位置参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="argparse.html#id3">可选参数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="argparse.html#id4">短选项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparse.html"><code class="docutils literal notranslate"><span class="pre">argparse</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="argparse.html#argumentparser"><code class="docutils literal notranslate"><span class="pre">ArgumentParser</span></code> 对象</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="f-string.html">格式字符串字面值</a></li>
@@ -722,13 +736,13 @@ commentsRunWhenDOMLoaded(addUtterances);
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">match</span></code> 语句（raw）</p>
+            <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">match</span></code> 语句</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="abc.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="Nuitka.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">abc</span></code> 抽象基类</p>
+        <p class="prev-next-title">Python 编译器 Nuitka</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

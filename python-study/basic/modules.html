@@ -77,8 +77,6 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script src="../../_static/translations.js"></script>
     <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".cell"
@@ -92,7 +90,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="输入与输出" href="input-output.html" />
+    <link rel="next" title="类" href="class.html" />
     <link rel="prev" title="流程控制" href="controlflow.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
@@ -253,6 +251,20 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="class.html">
+       类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="argparse.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         argparse
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="input-output.html">
        输入与输出
       </a>
@@ -264,7 +276,7 @@ commentsRunWhenDOMLoaded(addUtterances);
          match
         </span>
        </code>
-       语句（raw）
+       语句
       </a>
      </li>
     </ul>
@@ -279,6 +291,11 @@ commentsRunWhenDOMLoaded(addUtterances);
      </i>
     </label>
     <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../topics/Nuitka.html">
+       Python 编译器 Nuitka
+      </a>
+     </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../topics/abc.html">
        <code class="docutils literal notranslate">
@@ -301,7 +318,6 @@ commentsRunWhenDOMLoaded(addUtterances);
          argparse
         </span>
        </code>
-       用法总结
       </a>
      </li>
      <li class="toctree-l3">
@@ -595,9 +611,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/basic/modules.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/python-study/basic/modules.ipynb.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -618,7 +634,7 @@ commentsRunWhenDOMLoaded(addUtterances);
             href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/modules.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/modules.md"><button
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/modules.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -633,11 +649,92 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/modules.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/basic/modules.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="发射 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="发射 Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   模块详解
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   基础
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     以脚本方式执行模块
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     模块搜索路径
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python">
+     “已编译的” Python 文件
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   标准模块
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dir">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dir
+    </span>
+   </code>
+   函数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   包
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -650,6 +747,61 @@ commentsRunWhenDOMLoaded(addUtterances);
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   模块详解
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   基础
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     以脚本方式执行模块
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     模块搜索路径
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python">
+     “已编译的” Python 文件
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   标准模块
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dir">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     dir
+    </span>
+   </code>
+   函数
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   包
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -657,6 +809,410 @@ commentsRunWhenDOMLoaded(addUtterances);
               <div>
                  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>随着程序越来越多，仅仅靠单个文件管理代码是很不好的行为。可以把程序分成不同逻辑单元并放入不同的文件（一般后缀为 <code class="docutils literal notranslate"><span class="pre">.py</span></code>）中，这些文件在 Python 中称为 <strong>模块</strong>。</p>
+<p>模块中的定义可以导入到其他模块或主模块（在顶层和计算器模式下，执行脚本中可访问的变量集）。</p>
+<p>在模块内部，通过全局变量 <code class="docutils literal notranslate"><span class="pre">__name__</span></code> 可以获取模块名（即字符串）。</p>
+<p>例如，用文本编辑器在目录 <code class="docutils literal notranslate"><span class="pre">examples/modules/</span></code> 下创建 <code class="docutils literal notranslate"><span class="pre">fibo.py</span></code> 文件，输入以下内容：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;打印斐波那契数列，直至 n&#39;&#39;&#39;</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">fib2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;返回斐波那契数列，直至 n&#39;&#39;&#39;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">fib</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>用以下命令导入该模块：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> examples/modules
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d:\xinetzone\d2py\docs\python-study\basic\examples\modules
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fibo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>这项操作不直接把 <code class="docutils literal notranslate"><span class="pre">fibo</span></code> 函数定义的名称导入到当前符号表，只导入模块名 fibo 。要使用模块名访问函数：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibo</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibo</span><span class="o">.</span><span class="n">fib2</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibo</span><span class="o">.</span><span class="vm">__name__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;fibo&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>如果经常使用某个函数，可以把它赋值给局部变量：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span> <span class="o">=</span> <span class="n">fibo</span><span class="o">.</span><span class="n">fib</span>
+<span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>模块详解<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>模块包含可执行语句及函数定义。这些语句用于初始化模块，且仅在 <code class="docutils literal notranslate"><span class="pre">import</span></code> 语句首次遇到模块名时执行。（文件作为脚本运行时，也会执行这些语句。）</p>
+<p>模块有自己的私有符号表，用作模块中所有函数的全局符号表。因此，在模块内使用全局变量时，不用担心与用户定义的全局变量发生冲突。另一方面，可以用与访问模块函数一样的标记法，访问模块的全局变量，<code class="docutils literal notranslate"><span class="pre">modname.itemname</span></code>。</p>
+<p>可以把其他模块导入模块。按惯例，所有 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#import" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 语句都放在模块（或脚本）开头，但这不是必须的。导入的模块名存在导入模块的全局符号表里。</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code> 语句有一个变体，可以直接把模块里的名称导入到另一个模块的符号表。例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fibo</span> <span class="kn">import</span> <span class="n">fib</span><span class="p">,</span> <span class="n">fib2</span>
+<span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 
+</pre></div>
+</div>
+</div>
+</div>
+<p>这段代码不会把模块名导入到局部符号表里。</p>
+<p>还有一种变体可以导入模块内定义的所有名称：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fibo</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 
+</pre></div>
+</div>
+</div>
+</div>
+<p>这种方式会导入所有不以下划线（<code class="docutils literal notranslate"><span class="pre">_</span></code>）开头的名称。大多数情况下，不要用这个功能，这种方式向解释器导入了一批未知的名称，可能会覆盖已经定义的名称。</p>
+<p>模块名后使用 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#as" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> 时，直接把 <code class="docutils literal notranslate"><span class="pre">as</span></code> 后的名称与导入模块绑定。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fibo</span> <span class="k">as</span> <span class="nn">fib</span>
+<span class="n">fib</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 
+</pre></div>
+</div>
+</div>
+</div>
+<p>与 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">fibo</span></code> 一样，这种方式也可以有效地导入模块，唯一的区别是，导入的名称变成 <code class="docutils literal notranslate"><span class="pre">fib</span></code>。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#from" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">from</span></code></a> 中也可以使用这种方式，效果类似：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fibo</span> <span class="kn">import</span> <span class="n">fib</span> <span class="k">as</span> <span class="n">fibonacci</span>
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>为了保证运行效率，每次解释器会话只导入一次模块。如果更改了模块内容，必须重启解释器；仅交互测试一个模块时，也可以使用 <a class="reference external" href="https://daobook.github.io/cpython/library/importlib.html#importlib.reload" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.reload()</span></code></a>，例如 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">importlib;</span> <span class="pre">importlib.reload(modulename)</span></code>。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>基础<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h3>以脚本方式执行模块<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>可以用以下方式运行 Python 模块：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python fibo.py &lt;arguments&gt;
+</pre></div>
+</div>
+<p>这项操作将执行模块里的代码，和导入模块一样，但会把 <code class="docutils literal notranslate"><span class="pre">__name__</span></code> 赋值为 <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code>。 也就是把下列代码添加到模块末尾：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">fib</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>既可以把这个文件当脚本使用，也可以用作导入的模块，因为，解析命令行的代码只有在模块以 “<code class="docutils literal notranslate"><span class="pre">main</span></code>” 文件执行时才会运行：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python fibo.py <span class="m">50</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 
+</pre></div>
+</div>
+</div>
+</div>
+<p>导入模块时，不运行这些代码：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fibo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>这种操作常用于为模块提供便捷用户接口，或用于测试（把模块当作执行测试套件的脚本运行）。</p>
+</div>
+<div class="section" id="id5">
+<h3>模块搜索路径<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>导入 <code class="docutils literal notranslate"><span class="pre">spam</span></code> 模块时，解释器首先查找名为 <code class="docutils literal notranslate"><span class="pre">spam</span></code> 的内置模块。如果没找到，解释器再从 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 变量中的目录列表里查找 <code class="docutils literal notranslate"><span class="pre">spam.py</span></code> 文件。<a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 初始化时包含以下位置：</p>
+<ul class="simple">
+<li><p>输入脚本的目录（或未指定文件时的当前目录）。</p></li>
+<li><p><span class="target" id="index-0"></span><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#envvar-PYTHONPATH" title="(在 Python v3.11)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> （目录列表，与 shell 变量 <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> 的语法一样）。</p></li>
+<li><p>依赖于安装的默认值（按惯例包括一个 <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> 目录，由 <a class="reference external" href="https://daobook.github.io/cpython/library/site.html#module-site" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> 模块处理）。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在支持 symlink 的文件系统中，输入脚本目录是在追加 symlink 后计算出来的。换句话说，包含 symlink 的目录并 没有 添加至模块搜索路径。</p>
+</div>
+<p>初始化后，Python 程序可以更改 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>。运行脚本的目录在标准库路径之前，置于搜索路径的开头。即，加载的是该目录里的脚本，而不是标准库的同名模块。 除非刻意替换，否则会报错。</p>
+</div>
+<div class="section" id="python">
+<h3>“已编译的” Python 文件<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h3>
+<p>为了快速加载模块，Python 把模块的编译版缓存在 <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> 目录中，文件名为 <code class="docutils literal notranslate"><span class="pre">module.version.pyc</span></code>，<code class="docutils literal notranslate"><span class="pre">version</span></code> 对编译文件格式进行编码，一般是 Python 的版本号。例如，CPython 的 3.3 发行版中，<code class="docutils literal notranslate"><span class="pre">spam.py</span></code> 的编译版本缓存为 <code class="docutils literal notranslate"><span class="pre">__pycache__/spam.cpython-33.pyc</span></code>。使用这种命名惯例，可以让不同 Python 发行版及不同版本的已编译模块共存。</p>
+<p>Python 对比编译版本与源码的修改日期，查看它是否已过期，是否要重新编译，此过程完全自动化。此外，编译模块与平台无关，因此，可在不同架构系统之间共享相同的支持库。</p>
+<p>Python 在两种情况下不检查缓存。其一，从命令行直接载入模块，只重新编译，不存储编译结果；其二，没有源模块，就不会检查缓存。为了支持无源文件（仅编译）发行版本， 编译模块必须在源目录下，并且绝不能有源模块。</p>
+<div class="tip admonition">
+<p class="admonition-title">给专业人士的一些小建议</p>
+<ol class="simple">
+<li><p>在 Python 命令中使用 <a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-O" title="(在 Python v3.11)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> 或 <a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-OO" title="(在 Python v3.11)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-OO</span></code></a> 开关，可以减小编译模块的大小。<code class="docutils literal notranslate"><span class="pre">-O</span></code> 去除断言语句，<code class="docutils literal notranslate"><span class="pre">-OO</span></code> 去除断言语句和 <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> 字符串。有些程序可能依赖于这些内容，因此，没有十足的把握，不要使用这两个选项。“优化过的” 模块带有 <code class="docutils literal notranslate"><span class="pre">opt-</span></code> 标签，并且文件通常会一小些。将来的发行版或许会改进优化的效果。</p></li>
+<li><p>从 .pyc 文件读取的程序不比从 .py 读取的执行速度快，.pyc 文件只是加载速度更快。</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/compileall.html#module-compileall" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compileall</span></code></a> 模块可以为一个目录下的所有模块创建 <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> 文件。</p></li>
+</ol>
+<p>本过程的细节及决策流程图，详见 <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3147"><strong>PEP 3147</strong></a>。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>标准模块<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>Python 自带一个标准模块的库，它在 Python 库参考（此处以下称为”库参考” ）里另外描述。 一些模块是内嵌到编译器里面的， 它们给一些虽并非语言核心但却内嵌的操作提供接口，要么是为了效率，要么是给操作系统基础操作例如系统调入提供接口。 这些模块集是一个配置选项， 并且还依赖于底层的操作系统。 例如，<a class="reference external" href="https://daobook.github.io/cpython/library/winreg.html#module-winreg" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">winreg</span></code></a> 模块只在 Windows 系统上提供。一个特别值得注意的模块 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#module-sys" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a>，它被内嵌到每一个 Python 编译器中。<code class="docutils literal notranslate"><span class="pre">sys.ps1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">sys.ps2</span></code> 变量定义了一些字符，它们可以用作主提示符和辅助提示符:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">ps1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;In : &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">ps2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;...: &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">ps1</span> <span class="o">=</span> <span class="s1">&#39;C&gt; &#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>只有解释器用于交互模式时，才定义这两个变量。</p>
+<p>变量 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 是字符串列表，用于确定解释器的模块搜索路径。该变量以环境变量 <span class="target" id="index-3"></span><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#envvar-PYTHONPATH" title="(在 Python v3.11)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> 提取的默认路径进行初始化，如未设置 <span class="target" id="index-4"></span><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#envvar-PYTHONPATH" title="(在 Python v3.11)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a>，则使用内置的默认路径。可以用标准列表操作修改该变量：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/ufs/guido/lib/python&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dir">
+<h2><code class="docutils literal notranslate"><span class="pre">dir</span></code> 函数<a class="headerlink" href="#dir" title="永久链接至标题">¶</a></h2>
+<p>内置函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 用于查找模块定义的名称。返回结果是经过排序的字符串列表：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fibo</span><span class="o">,</span> <span class="nn">sys</span>
+
+<span class="nb">dir</span><span class="p">(</span><span class="n">fibo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;fib&#39;,
+ &#39;fib2&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>没有参数时，<a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 列出当前定义的名称：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;In&#39;, &#39;Out&#39;, &#39;_&#39;, &#39;_13&#39;, &#39;_14&#39;, &#39;_16&#39;, &#39;_17&#39;, &#39;_18&#39;, &#39;_20&#39;, &#39;_22&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>该函数列出所有类型的名称：变量、模块、函数等。</p>
+</div>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 不会列出内置函数和变量的名称。这些内容的定义在标准模块 <a class="reference external" href="https://daobook.github.io/cpython/library/builtins.html#module-builtins" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> 里：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">builtins</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">builtins</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ArithmeticError&#39;,
+ &#39;AssertionError&#39;,
+ &#39;AttributeError&#39;,
+ &#39;BaseException&#39;,
+ &#39;BlockingIOError&#39;,
+ &#39;BrokenPipeError&#39;,
+ &#39;BufferError&#39;,
+ &#39;BytesWarning&#39;,
+ &#39;ChildProcessError&#39;,
+ &#39;ConnectionAbortedError&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>包<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>包是一种用“点式模块名”构造 Python 模块命名空间的方法。</p>
+<p>例如，模块名 <code class="docutils literal notranslate"><span class="pre">A.B</span></code> 表示包 <code class="docutils literal notranslate"><span class="pre">A</span></code> 中名为 <code class="docutils literal notranslate"><span class="pre">B</span></code> 的子模块。正如模块可以区分不同模块之间的全局变量名称一样，点式模块名可以区分 NumPy 或 Pillow 等不同多模块包之间的模块名称。</p>
+<p>假设要为统一处理声音文件与声音数据设计一个模块集（“包”）。声音文件的格式很多（通常以扩展名来识别，例如：<code class="docutils literal notranslate"><span class="pre">.wav</span></code>， <code class="docutils literal notranslate"><span class="pre">.aiff</span></code>， <code class="docutils literal notranslate"><span class="pre">.au</span></code>），因此，为了不同文件格式之间的转换，需要创建和维护一个不断增长的模块集合。为了实现对声音数据的不同处理（例如，混声、添加回声、均衡器功能、创造人工立体声效果），还要编写无穷无尽的模块流。下面这个分级文件树展示了这个包的架构：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sound</span><span class="o">/</span>                          <span class="n">Top</span><span class="o">-</span><span class="n">level</span> <span class="n">package</span>
+      <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>               <span class="n">Initialize</span> <span class="n">the</span> <span class="n">sound</span> <span class="n">package</span>
+      <span class="n">formats</span><span class="o">/</span>                  <span class="n">Subpackage</span> <span class="k">for</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">conversions</span>
+              <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">wavread</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">wavwrite</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">aiffread</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">aiffwrite</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">auread</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">auwrite</span><span class="o">.</span><span class="n">py</span>
+              <span class="o">...</span>
+      <span class="n">effects</span><span class="o">/</span>                  <span class="n">Subpackage</span> <span class="k">for</span> <span class="n">sound</span> <span class="n">effects</span>
+              <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">echo</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">surround</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">reverse</span><span class="o">.</span><span class="n">py</span>
+              <span class="o">...</span>
+      <span class="n">filters</span><span class="o">/</span>                  <span class="n">Subpackage</span> <span class="k">for</span> <span class="n">filters</span>
+              <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">equalizer</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">vocoder</span><span class="o">.</span><span class="n">py</span>
+              <span class="n">karaoke</span><span class="o">.</span><span class="n">py</span>
+              <span class="o">...</span>
+</pre></div>
+</div>
+<p>导入包时，Python 搜索 <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> 里的目录，查找包的子目录。</p>
+<p>Python 只把含 <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> 文件的目录当成包。这样可以防止以 <code class="docutils literal notranslate"><span class="pre">string</span></code> 等通用名称命名的目录，无意中屏蔽出现在后方模块搜索路径中的有效模块。 最简情况下，<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> 只是一个空文件，但该文件也可以执行包的初始化代码，或设置 <code class="docutils literal notranslate"><span class="pre">__all__</span></code> 变量，详见下文。</p>
+<p>还可以从包中导入单个模块，例如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sound.effects.echo</span>
+</pre></div>
+</div>
+<p>这段代码加载子模块 <code class="docutils literal notranslate"><span class="pre">sound.effects.echo</span></code>，但引用时必须使用子模块的全名：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sound</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">echo</span><span class="o">.</span><span class="n">echofilter</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>另一种导入子模块的方法是 ：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sound.effects</span> <span class="kn">import</span> <span class="n">echo</span>
+</pre></div>
+</div>
+<p>这段代码还可以加载子模块 <code class="docutils literal notranslate"><span class="pre">echo</span></code> ，不加包前缀也可以使用。因此，可以按如下方式使用：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span><span class="o">.</span><span class="n">echofilter</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Import 语句的另一种变体是直接导入所需的函数或变量：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sound.effects.echo</span> <span class="kn">import</span> <span class="n">echofilter</span>
+</pre></div>
+</div>
+<p>同样，这样也会加载子模块 <code class="docutils literal notranslate"><span class="pre">echo</span></code>，但可以直接使用函数 <code class="docutils literal notranslate"><span class="pre">echofilter()</span></code>：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">echofilter</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>注意，使用 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">item</span></code> 时，<code class="docutils literal notranslate"><span class="pre">item</span></code> 可以是包的子模块（或子包），也可以是包中定义的函数、类或变量等其他名称。<code class="docutils literal notranslate"><span class="pre">import</span></code> 语句首先测试包中是否定义了 <code class="docutils literal notranslate"><span class="pre">item</span></code>；如果未在包中定义，则假定 <code class="docutils literal notranslate"><span class="pre">item</span></code> 是模块，并尝试加载。如果找不到 <code class="docutils literal notranslate"><span class="pre">item</span></code>，则触发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#ImportError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> 异常。</p>
+<p>相反，使用 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">item.subitem.subsubitem</span></code> 句法时，除最后一项外，每个 <code class="docutils literal notranslate"><span class="pre">item</span></code> 都必须是包；最后一项可以是模块或包，但不能是上一项中定义的类、函数或变量。</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -694,10 +1250,10 @@ commentsRunWhenDOMLoaded(addUtterances);
             <p class="prev-next-title">流程控制</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="input-output.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="class.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">输入与输出</p>
+        <p class="prev-next-title">类</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

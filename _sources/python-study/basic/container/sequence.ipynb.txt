@@ -536,7 +536,9 @@
     "对象.方法(参数)\n",
     "```\n",
     "\n",
-    "### `append` 方法"
+    "### `append` 方法\n",
+    "\n",
+    "`list.append(x)` ~ `a[len(a):] = [x]`"
    ]
   },
   {
@@ -619,7 +621,9 @@
    "metadata": {},
    "source": [
     "### `extend` 方法\n",
-    "  \n",
+    "\n",
+    "`list.extend(iterable)` ~ `a[len(a):] = iterable`\n",
+    "\n",
     "使用其他列表拓展原有列表，其他列表的元素被添加到原有列表的末尾：\n"
    ]
   },
@@ -650,6 +654,8 @@
    "metadata": {},
    "source": [
     "### `insert` 方法\n",
+    "\n",
+    "在指定位置插入元素。第一个参数是插入元素的索引，因此，`a.insert(0, x)` 在列表开头插入元素， `a.insert(len(a), x)` 等同于 `a.append(x)`。\n",
     "\n",
     "在序列的某个位置插入一个元素："
    ]

@@ -77,8 +77,6 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script src="../../_static/translations.js"></script>
     <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".cell"
@@ -253,6 +251,20 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="class.html">
+       类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="argparse.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         argparse
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="input-output.html">
        输入与输出
       </a>
@@ -264,7 +276,7 @@ commentsRunWhenDOMLoaded(addUtterances);
          match
         </span>
        </code>
-       语句（raw）
+       语句
       </a>
      </li>
     </ul>
@@ -279,6 +291,11 @@ commentsRunWhenDOMLoaded(addUtterances);
      </i>
     </label>
     <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../topics/Nuitka.html">
+       Python 编译器 Nuitka
+      </a>
+     </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../topics/abc.html">
        <code class="docutils literal notranslate">
@@ -301,7 +318,6 @@ commentsRunWhenDOMLoaded(addUtterances);
          argparse
         </span>
        </code>
-       用法总结
       </a>
      </li>
      <li class="toctree-l3">
@@ -904,7 +920,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </dl>
 <p>关键字形参也可称为 <strong>命名形参</strong>。</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>使用仅限位置形参，可以让用户无法使用形参名。形参名没有实际意义时，强制调用函数的实参顺序时，或同时接收位置形参和关键字时，这种方式很有用。</p>
 <p>当形参名有实际意义，且显式名称可以让函数定义更易理解时，阻止用户依赖传递实参的位置时，才使用关键字。</p>
 <p>对于 API，使用仅限位置形参，可以防止未来修改形参名时造成破坏性的 API 变动。</p>

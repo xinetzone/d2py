@@ -77,8 +77,6 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script src="../../_static/translations.js"></script>
     <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".cell"
@@ -93,7 +91,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
     <link rel="next" title="注解" href="annotations.html" />
-    <link rel="prev" title="Python 主题手册" href="index.html" /> 
+    <link rel="prev" title="Python 编译器 Nuitka" href="Nuitka.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -253,6 +251,20 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../basic/class.html">
+       类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../basic/argparse.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         argparse
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../basic/input-output.html">
        输入与输出
       </a>
@@ -264,7 +276,7 @@ commentsRunWhenDOMLoaded(addUtterances);
          match
         </span>
        </code>
-       语句（raw）
+       语句
       </a>
      </li>
     </ul>
@@ -279,6 +291,11 @@ commentsRunWhenDOMLoaded(addUtterances);
      </i>
     </label>
     <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="Nuitka.html">
+       Python 编译器 Nuitka
+      </a>
+     </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
        <code class="docutils literal notranslate">
@@ -301,7 +318,6 @@ commentsRunWhenDOMLoaded(addUtterances);
          argparse
         </span>
        </code>
-       用法总结
       </a>
      </li>
      <li class="toctree-l3">
@@ -863,7 +879,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="section" id="subclasshook-subclass">
 <h3><code class="docutils literal notranslate"><span class="pre">__subclasshook__(subclass)</span></code><a class="headerlink" href="#subclasshook-subclass" title="永久链接至标题">¶</a></h3>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p><code class="docutils literal notranslate"><span class="pre">__subclasshook__(subclass)</span></code> 必须定义为类方法。</p>
 </div>
 <p>检查 <code class="docutils literal notranslate"><span class="pre">subclass</span></code> 是否是该抽象基类的子类。也就是说对于那些你希望定义为该抽象基类的子类的类，你不用对每个类都调用 <a class="reference external" href="https://daobook.github.io/cpython/library/abc.html#abc.ABCMeta.register" title="(在 Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">register()</span></code></a> 方法了，而是可以直接自定义 <code class="docutils literal notranslate"><span class="pre">issubclass</span></code> 的行为。（这个类方法是在抽象基类的 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__subclasscheck__()</span></code> 方法中调用的。）</p>
@@ -1049,11 +1065,11 @@ commentsRunWhenDOMLoaded(addUtterances);
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="Nuitka.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">Python 主题手册</p>
+            <p class="prev-next-title">Python 编译器 Nuitka</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="annotations.html" title="下一页 页">

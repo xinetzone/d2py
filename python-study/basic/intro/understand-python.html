@@ -77,10 +77,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script src="../../../_static/translations.js"></script>
     <script src="../../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".cell"
@@ -255,6 +253,20 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../class.html">
+       类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../argparse.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         argparse
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../input-output.html">
        输入与输出
       </a>
@@ -266,7 +278,7 @@ commentsRunWhenDOMLoaded(addUtterances);
          match
         </span>
        </code>
-       语句（raw）
+       语句
       </a>
      </li>
     </ul>
@@ -281,6 +293,11 @@ commentsRunWhenDOMLoaded(addUtterances);
      </i>
     </label>
     <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../topics/Nuitka.html">
+       Python 编译器 Nuitka
+      </a>
+     </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../topics/abc.html">
        <code class="docutils literal notranslate">
@@ -303,7 +320,6 @@ commentsRunWhenDOMLoaded(addUtterances);
          argparse
         </span>
        </code>
-       用法总结
       </a>
      </li>
      <li class="toctree-l3">
@@ -1274,7 +1290,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>这里使用了关键字、数字、运算符、分隔符以及 <code class="docutils literal notranslate"><span class="pre">#</span></code>，它们的具体含义，暂且不表。</p>
 </div>
 <p>以反斜杠结尾的行，不能加注释；反斜杠也不能拼接注释。除字符串字面值外，反斜杠不能拼接形符（如，除字符串字面值外，不能用反斜杠把形符切分至两个物理行）。反斜杠只能在代码的字符串字面值里，在其他任何位置都是非法的。</p>
@@ -1341,7 +1357,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <p>（实际上，解释器可以识别前三个错误；只有最后一个错误由词法分析器识别 — <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">r</span></code> 的缩进无法匹配从栈里移除的缩进层级。）</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>连续行的缩进层级以堆栈形式生成 <code class="docutils literal notranslate"><span class="pre">INDENT</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 形符，说明如下：</p>
 <p>读取文件第一行前，先向栈推入一个零值，该零值不会被移除。推入栈的层级值从底至顶持续增加。每个逻辑行开头的行缩进层级将与栈顶行比较。如果相等，则不做处理。如果新行层级较高，则会被推入栈顶，并生成一个 <code class="docutils literal notranslate"><span class="pre">INDENT</span></code> 形符。如果新行层级较低，则应当是栈中的层级数值之一；栈中高于该层级的所有数值都将被移除，每移除一级数值生成一个 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 形符。文件末尾，栈中剩余的每个大于零的数值生成一个 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 形符。</p>
 </div>
