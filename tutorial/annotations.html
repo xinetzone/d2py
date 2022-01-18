@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>关于 &#8212; d2py 0.1 文档</title>
+    <title>对象注解 &#8212; d2py 0.1 文档</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -86,12 +86,12 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-    <link rel="canonical" href="https://xinetzone.github.io/d2py/about/index.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/tutorial/annotations.html" />
     <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="特性" href="feature.html" />
-    <link rel="prev" title="博客" href="../posts/index.html" /> 
+    <link rel="next" title="类型提示" href="typing.html" />
+    <link rel="prev" title="教程" href="index.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -166,23 +166,23 @@ commentsRunWhenDOMLoaded(addUtterances);
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../tutorial/index.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
    教程
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../tutorial/annotations.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      对象注解
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../tutorial/typing.html">
+    <a class="reference internal" href="typing.html">
      类型提示
     </a>
    </li>
@@ -547,23 +547,23 @@ commentsRunWhenDOMLoaded(addUtterances);
    博客
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../about/index.html">
    关于
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
   <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="feature.html">
+    <a class="reference internal" href="../about/feature.html">
      特性
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="use.html">
+    <a class="reference internal" href="../about/use.html">
      项目使用
     </a>
    </li>
@@ -633,9 +633,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/about/index.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tutorial/annotations.ipynb.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -653,10 +653,10 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="源库"><i
                     class="fab fa-github"></i>资料库</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fabout/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Ftutorial/annotations.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/about/index.md"><button
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/tutorial/annotations.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -671,11 +671,62 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/tutorial/annotations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/tutorial/annotations.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="发射 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="发射 Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspect">
+   inspect 用于对象检查
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     签名与形参
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     注解
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -683,33 +734,241 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>关于</h1>
+                <h1>对象注解</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspect">
+   inspect 用于对象检查
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     签名与形参
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     注解
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>关于<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="toctree-wrapper compound">
+<h1>对象注解<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>参考：<a class="reference external" href="https://daobook.github.io/howto/annotations.html">howto/annotations.html</a></p>
+<p><span class="guilabel">限制</span>： Python 3.10 及其以上版本</p>
+<div class="section" id="inspect">
+<h2>inspect 用于对象检查<a class="headerlink" href="#inspect" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#module-inspect" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">inspect</span></code></a> 模块支持：类型检查、获取源代码、检查类与函数、检查解释器的调用堆栈。</p>
+<div class="section" id="id2">
+<h3>签名与形参<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">inspect.Signature(parameters=None,</span> <span class="pre">*,</span> <span class="pre">return_annotation=Signature.empty)</span></code> 代表了一个函数的整体签名。它为每个被函数接受的参数存储一个 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Parameter" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> 对象。可以使用辅助函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.signature(obj)()</span></code> 获取对象 <code class="docutils literal notranslate"><span class="pre">obj</span></code> 的签名。</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="feature.html">特性</a></li>
-<li class="toctree-l1"><a class="reference internal" href="use.html">项目使用</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="use.html#id2">离线使用</a></li>
+<li><p>可选的 <code class="docutils literal notranslate"><span class="pre">parameters</span></code> 实参是一个 <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> 对象的序列，它被验证以检查是否有名称重复的形参，以及形参的顺序是否正确，即先是仅有位置的形参，然后是有位置或关键字的形参，以及有默认值的形参紧随没有默认值的形参。</p></li>
+<li><p>可选的 <code class="docutils literal notranslate"><span class="pre">return_annotation</span></code> 实参，可以是一个任意的 Python 对象，是可调用对象的 “return” 注解。</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">行为准则</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">贡献</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">安全策略</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../SECURITY.html#supported-versions">所支持的版本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SECURITY.html#reporting-a-vulnerability">报告漏洞</a></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">inspect.Parameter(name,</span> <span class="pre">kind,</span> <span class="pre">*,</span> <span class="pre">default=Parameter.empty,</span> <span class="pre">annotation=Parameter.empty)</span></code> 代表函数签名中的一个参数。</p></li>
 </ul>
-</li>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Signature" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Parameter" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> 对象均是不可变的。分别使用 <code class="xref py py-func docutils literal notranslate"><span class="pre">Signature.replace()</span></code> 与 <code class="xref py py-func docutils literal notranslate"><span class="pre">Parameter.replace()</span></code> 来制作一个修改的副本。</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Signature" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Parameter" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> 对象是可提取（picklable）和可散列的。</p></li>
 </ul>
+</div>
+<p>看一个例子：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">signature</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="o">...</span>
+    
+<span class="c1"># 获取 `foo` 的签名</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+<span class="n">sig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Signature (a, *, b: int, **kwargs)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span> <span class="c1"># 转换为字符串</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;(a, *, b: int, **kwargs)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig</span><span class="o">.</span><span class="n">parameters</span> <span class="c1"># 形参名称与相应的 Parameter 对象的有序映射。</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mappingproxy({&#39;a&#39;: &lt;Parameter &quot;a&quot;&gt;,
+              &#39;b&#39;: &lt;Parameter &quot;b: int&quot;&gt;,
+              &#39;kwargs&#39;: &lt;Parameter &quot;**kwargs&quot;&gt;})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="c1"># 获取给定名称的参数</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Parameter &quot;b: int&quot;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">annotation</span> <span class="c1"># 获取参数的注解</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 创建新的签名</span>
+<span class="n">new_sig</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">return_annotation</span><span class="o">=</span><span class="s2">&quot;new return anno&quot;</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">new_sig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;(a, *, b: int, **kwargs) -&gt; &#39;new return anno&#39;&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">Parameter</span>
+
+<span class="c1"># 创建参数实例</span>
+<span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">KEYWORD_ONLY</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;foo=42&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">replace</span><span class="p">())</span> <span class="c1"># param 的浅拷贝</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;foo=42&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 添加注解</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">Parameter</span><span class="o">.</span><span class="n">empty</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="s1">&#39;spam&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;foo: &#39;spam&#39;&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>参数传值：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s1">&#39;ham&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span> <span class="o">...</span>
+<span class="n">ba</span> <span class="o">=</span> <span class="n">signature</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">)</span>
+
+<span class="nb">str</span><span class="p">(</span><span class="n">ba</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;&lt;BoundArguments (a=&#39;spam&#39;)&gt;&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ba</span><span class="o">.</span><span class="n">arguments</span> <span class="c1"># 查看实参</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;: &#39;spam&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ba</span><span class="o">.</span><span class="n">apply_defaults</span><span class="p">()</span> <span class="c1"># 应用默认值</span>
+<span class="n">ba</span><span class="o">.</span><span class="n">arguments</span> <span class="c1"># 查看实参</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;: &#39;spam&#39;, &#39;b&#39;: &#39;ham&#39;, &#39;args&#39;: ()}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>注解<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations(obj,</span> <span class="pre">*,</span> <span class="pre">globals=None,</span> <span class="pre">locals=None,</span> <span class="pre">eval_str=False)()</span></code> 计算一个对象的注解 dict。</p>
+<p><code class="docutils literal notranslate"><span class="pre">obj</span></code> 可以是一个 callable，类，或模块。传入任何其他类型的对象会引发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#TypeError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.get_annotations" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a> 每次调用都会返回一个新的 dict；对同一个对象调用两次会返回两个不同但等价的 dict。</p>
+<p>对象注解属性的最佳实践：</p>
+<p>Python 3.10 以上版本的最佳做法：使用三个参数去调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#getattr" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr()</span></code></a>，比如 <code class="docutils literal notranslate"><span class="pre">getattr(o,</span> <span class="pre">'__annotations__',</span> <span class="pre">None)</span></code>。</p>
+</div>
 </div>
 </div>
 
@@ -726,7 +985,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./about"
+            path: "./tutorial"
         },
         predefinedOutput: true
     }
@@ -741,17 +1000,17 @@ commentsRunWhenDOMLoaded(addUtterances);
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../posts/index.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">博客</p>
+            <p class="prev-next-title">教程</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="feature.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="typing.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">特性</p>
+        <p class="prev-next-title">类型提示</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

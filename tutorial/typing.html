@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Python 中的数学（draft） &#8212; d2py 0.1 文档</title>
+    <title>类型提示 &#8212; d2py 0.1 文档</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -86,12 +86,12 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-    <link rel="canonical" href="https://xinetzone.github.io/d2py/drafts/math.html" />
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/tutorial/typing.html" />
     <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="OOP: The Big Picture" href="oop.html" />
-    <link rel="prev" title="迭代&amp;生成（draft）" href="iter.html" /> 
+    <link rel="next" title="Python 学习手册" href="../python-study/index.html" />
+    <link rel="prev" title="对象注解" href="annotations.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -166,12 +166,34 @@ commentsRunWhenDOMLoaded(addUtterances);
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   教程
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="annotations.html">
+     对象注解
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     类型提示
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python-study/index.html">
    Python 学习手册
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -180,8 +202,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <a class="reference internal" href="../python-study/basic/index.html">
      Python 基础教程
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -190,8 +212,8 @@ commentsRunWhenDOMLoaded(addUtterances);
       <a class="reference internal" href="../python-study/basic/intro/index.html">
        Python 简介
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-      <label for="toctree-checkbox-3">
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -217,8 +239,8 @@ commentsRunWhenDOMLoaded(addUtterances);
       <a class="reference internal" href="../python-study/basic/container/index.html">
        容器
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-      <label for="toctree-checkbox-4">
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -285,8 +307,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <a class="reference internal" href="../python-study/topics/index.html">
      Python 主题手册
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -346,8 +368,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <a class="reference internal" href="../python-study/refs/index.html">
      Python 参考手册
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -366,8 +388,8 @@ commentsRunWhenDOMLoaded(addUtterances);
       <a class="reference internal" href="../python-study/refs/glossary/index.html">
        术语表
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-      <label for="toctree-checkbox-7">
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -401,6 +423,123 @@ commentsRunWhenDOMLoaded(addUtterances);
      </li>
     </ul>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python-study/demo.html">
+     Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python-study/drafts/index.html">
+     草稿
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/101.html">
+       一、5 个值得在 2018 年关注的库
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/22.html">
+       存储数据
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/33.html">
+       类也是对象
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/44.html">
+       描述器是什么？
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/55.html">
+       字符编码方法
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/66.html">
+       类型和运算 (Types and Operations)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/88.html">
+       函数基础
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/class.html">
+       class
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/draft.html">
+       回收站
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/exc.html">
+       异常（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/file.html">
+       I/O操作（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/iter.html">
+       迭代&amp;生成（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/math.html">
+       Python 中的数学（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/oop.html">
+       OOP: The Big Picture
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/op.html">
+       运算符（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/re.html">
+       re
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/socket.html">
+       网络
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/str.html">
+       字符编码方法
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/type.html">
+       Python 数据类型转换（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python-study/drafts/%E7%88%AC%E8%99%AB.html">
+       爬虫
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -412,8 +551,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../about/index.html">
    关于
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -448,123 +587,6 @@ commentsRunWhenDOMLoaded(addUtterances);
  <li class="toctree-l1">
   <a class="reference internal" href="../news/index.html">
    Python 新闻
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="index.html">
-   草稿
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="101.html">
-     一、5 个值得在 2018 年关注的库
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="22.html">
-     存储数据
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="33.html">
-     类也是对象
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="44.html">
-     描述器是什么？
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="55.html">
-     字符编码方法
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="66.html">
-     类型和运算 (Types and Operations)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="88.html">
-     函数基础
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="class.html">
-     class
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="draft.html">
-     回收站
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exc.html">
-     异常（draft）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="file.html">
-     I/O操作（draft）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="iter.html">
-     迭代&amp;生成（draft）
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Python 中的数学（draft）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="oop.html">
-     OOP: The Big Picture
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="op.html">
-     运算符（draft）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="re.html">
-     re
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="socket.html">
-     网络
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="str.html">
-     字符编码方法
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="type.html">
-     Python 数据类型转换（draft）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="%E7%88%AC%E8%99%AB.html">
-     爬虫
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebook.html">
-   Jupyter Notebook
   </a>
  </li>
 </ul>
@@ -611,9 +633,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/drafts/math.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tutorial/typing.ipynb.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -631,10 +653,10 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="源库"><i
                     class="fab fa-github"></i>资料库</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fdrafts/math.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Ftutorial/typing.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/drafts/math.md"><button
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/tutorial/typing.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -649,6 +671,32 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/tutorial/typing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/tutorial/typing.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="发射 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="发射 Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -660,23 +708,13 @@ commentsRunWhenDOMLoaded(addUtterances);
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   数学函数
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   随机数函数
+   类型别名
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   三角函数
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   数学常量
+  <a class="reference internal nav-link" href="#newtype">
+   NewType
   </a>
  </li>
 </ul>
@@ -689,7 +727,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Python 中的数学（draft）</h1>
+                <h1>类型提示</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -700,23 +738,13 @@ commentsRunWhenDOMLoaded(addUtterances);
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   数学函数
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   随机数函数
+   类型别名
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   三角函数
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   数学常量
+  <a class="reference internal nav-link" href="#newtype">
+   NewType
   </a>
  </li>
 </ul>
@@ -727,154 +755,99 @@ commentsRunWhenDOMLoaded(addUtterances);
             </div>
             
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="python-draft">
-<h1>Python 中的数学（draft）<a class="headerlink" href="#python-draft" title="永久链接至标题">¶</a></h1>
-<div class="section" id="id1">
-<h2>数学函数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>函数</p></th>
-<th class="text-align:left head"><p>返回值 ( 描述 )</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></p></td>
-<td class="text-align:left"><p>返回数字的绝对值或复数的模</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">ceil(x)</span></code></p></td>
-<td class="text-align:left"><p>返回数字的上入整数，如<code class="docutils literal notranslate"><span class="pre">math.ceil(4.1)</span> <span class="pre">返回</span> <span class="pre">5</span></code></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">cmp(x,</span> <span class="pre">y)</span></code></p></td>
-<td class="text-align:left"><p>如果 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span> <span class="pre">返回</span> <span class="pre">-1,</span> <span class="pre">如果</span> <span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span> <span class="pre">返回</span> <span class="pre">0,</span> <span class="pre">如果</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span> <span class="pre">返回</span> <span class="pre">1。</span></code> Python 3 已废弃 。使用 使用<code class="docutils literal notranslate"><span class="pre">(x&gt;y)-(x&lt;y)</span></code>替换。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">exp(x)</span></code></p></td>
-<td class="text-align:left"><p>返回<code class="docutils literal notranslate"><span class="pre">e的x次幂(ex),如math.exp(1)</span> <span class="pre">返回2.718281828459045</span></code></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">fabs(x)</span></code></p></td>
-<td class="text-align:left"><p>返回数字的绝对值，如<code class="docutils literal notranslate"><span class="pre">math.fabs(-10)</span> <span class="pre">返回10.0</span></code></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">floor(x)</span></code></p></td>
-<td class="text-align:left"><p>返回数字的下舍整数，如<code class="docutils literal notranslate"><span class="pre">math.floor(4.9)</span></code>返回 4</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">log(x)</span></code></p></td>
-<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">如math.log(math.e)返回1.0,math.log(100,10)返回2.0</span></code></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">log10(x)</span></code></p></td>
-<td class="text-align:left"><p>返回以10为基数的x的对数</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">max(x1,</span> <span class="pre">x2,...)</span></code></p></td>
-<td class="text-align:left"><p>返回给定参数的最大值，参数可以为序列。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">min(x1,</span> <span class="pre">x2,...)</span></code></p></td>
-<td class="text-align:left"><p>返回给定参数的最小值，参数可以为序列。</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">modf(x)</span></code></p></td>
-<td class="text-align:left"><p>返回x的整数部分与小数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span></code></p></td>
-<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x**y</span></code> 运算后的值。</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">round(x</span> <span class="pre">[,n])</span></code></p></td>
-<td class="text-align:left"><p>返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">sqrt(x)</span></code></p></td>
-<td class="text-align:left"><p>返回数字x的平方根，数字可以为负数，返回类型为实数</p></td>
-</tr>
-</tbody>
-</table>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>类型提示<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#module-typing" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> 提供了对类型提示的运行时支持。最基本的支持包括 <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>, 和 <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>。</p>
+<p>示例：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello &#39;</span> <span class="o">+</span> <span class="n">name</span>
+
+<span class="nb">getattr</span><span class="p">(</span><span class="n">greeting</span><span class="p">,</span> <span class="s1">&#39;__annotations__&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: str, &#39;return&#39;: str}
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="id2">
-<h2>随机数函数<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>随机数可以用于数学，游戏，安全等领域中，还经常被嵌入到算法中，用以提高算法效率，并提高程序的安全性。</p>
-<p>Python包含以下常用随机数函数：</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>函数</p></th>
-<th class="text-align:left head"><p>描述</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>choice(seq)</p></td>
-<td class="text-align:left"><p>从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>randrange ([start,] stop [,step])</p></td>
-<td class="text-align:left"><p>从指定范围内，按指定基数递增的集合中获取一个随机数，基数缺省值为1</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>random()</p></td>
-<td class="text-align:left"><p>随机生成下一个实数，它在[0,1)范围内。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>seed([x])</p></td>
-<td class="text-align:left"><p>改变随机数生成器的种子seed。如果你不了解其原理，你不必特别去设定seed，Python会帮你选择seed。</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>shuffle(lst)</p></td>
-<td class="text-align:left"><p>将序列的所有元素随机排序</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>uniform(x, y)</p></td>
-<td class="text-align:left"><p>随机生成下一个实数，它在[x,y]范围内。</p></td>
-</tr>
-</tbody>
-</table>
+<h2>类型别名<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>把类型赋给别名，就可以定义类型别名。本例中，<code class="docutils literal notranslate"><span class="pre">Vector</span></code> 和 <code class="docutils literal notranslate"><span class="pre">list[float]</span></code> 相同，可互换：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vector</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">scalar</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">vector</span><span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">scalar</span> <span class="o">*</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">vector</span><span class="p">]</span>
+
+<span class="c1"># 类型检查；一个浮点数的列表可以作为一个向量</span>
+<span class="n">new_vector</span> <span class="o">=</span> <span class="n">scale</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.2</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">])</span>
+<span class="n">new_vector</span>
+</pre></div>
 </div>
-<div class="section" id="id3">
-<h2>三角函数<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>Python包括以下三角函数：</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>函数</p></th>
-<th class="text-align:left head"><p>描述</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>acos(x)</p></td>
-<td class="text-align:left"><p>返回x的反余弦弧度值。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>asin(x)</p></td>
-<td class="text-align:left"><p>返回x的反正弦弧度值。</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>atan(x)</p></td>
-<td class="text-align:left"><p>返回x的反正切弧度值。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>atan2(y, x)</p></td>
-<td class="text-align:left"><p>返回给定的 X 及 Y 坐标值的反正切值。</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>cos(x)</p></td>
-<td class="text-align:left"><p>返回x的弧度的余弦值。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>hypot(x, y)</p></td>
-<td class="text-align:left"><p>返回欧几里德范数 <code class="docutils literal notranslate"><span class="pre">sqrt(x*x</span> <span class="pre">+</span> <span class="pre">y*y)</span></code>。</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>sin(x)</p></td>
-<td class="text-align:left"><p>返回的x弧度的正弦值。</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>tan(x)</p></td>
-<td class="text-align:left"><p>返回x弧度的正切值。</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>degrees(x)</p></td>
-<td class="text-align:left"><p>将弧度转换为角度,如<code class="docutils literal notranslate"><span class="pre">degrees(math.pi/2)</span></code>返回90.0</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>radians(x)</p></td>
-<td class="text-align:left"><p>将角度转换为弧度</p></td>
-</tr>
-</tbody>
-</table>
 </div>
-<div class="section" id="id4">
-<h2>数学常量<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>常量</p></th>
-<th class="text-align:left head"><p>描述</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>pi</p></td>
-<td class="text-align:left"><p>数学常量 pi（圆周率，一般以π来表示）</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>e</p></td>
-<td class="text-align:left"><p>数学常量 e，e即自然常数（自然常数）。</p></td>
-</tr>
-</tbody>
-</table>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.0, -8.4, 10.8]
+</pre></div>
+</div>
+</div>
+</div>
+<p>类型别名适用于简化复杂的类型签名。例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NoReturn</span>
+
+
+<span class="n">ConnectionOptions</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+<span class="n">Address</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+<span class="n">Server</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Address</span><span class="p">,</span> <span class="n">ConnectionOptions</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">broadcast_message</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">servers</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Server</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="o">...</span>
+
+<span class="c1"># 静态类型检查器会将之前的类型签名视为与此完全等价。</span>
+<span class="k">def</span> <span class="nf">broadcast_message</span><span class="p">(</span>
+        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">servers</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]])</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="newtype">
+<h2>NewType<a class="headerlink" href="#newtype" title="永久链接至标题">¶</a></h2>
+<p>使用 <a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#typing.NewType" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.NewType</span></code></a> 辅助类来创建不同的类型</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NewType</span>
+
+<span class="n">UserId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s1">&#39;UserId&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">some_id</span> <span class="o">=</span> <span class="n">UserId</span><span class="p">(</span><span class="mi">524313</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>静态类型检查器把新类型当作原始类型的子类，这种方式适用于捕捉逻辑错误：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_user_name</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="n">UserId</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="o">...</span>
+
+<span class="c1"># 类型检查</span>
+<span class="n">user_a</span> <span class="o">=</span> <span class="n">get_user_name</span><span class="p">(</span><span class="n">UserId</span><span class="p">(</span><span class="mi">42351</span><span class="p">))</span>
+
+<span class="c1"># 没有进行类型检查；int 不是 UserId。</span>
+<span class="n">user_b</span> <span class="o">=</span> <span class="n">get_user_name</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -891,7 +864,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./drafts"
+            path: "./tutorial"
         },
         predefinedOutput: true
     }
@@ -906,17 +879,17 @@ commentsRunWhenDOMLoaded(addUtterances);
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="iter.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="annotations.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">迭代&amp;生成（draft）</p>
+            <p class="prev-next-title">对象注解</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="oop.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="../python-study/index.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">OOP: The Big Picture</p>
+        <p class="prev-next-title">Python 学习手册</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
