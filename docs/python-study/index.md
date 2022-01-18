@@ -15,6 +15,8 @@ basic/index
 topics/index
 faqs/index
 refs/index
+demo
+drafts/index
 ```
 
 待更：

@@ -7,12 +7,11 @@
 :maxdepth: 2
 :hidden:
 
+tutorial/index
 python-study/index
 posts/index
 about/index
 news/index
-drafts/index
-notebook
 ```
 
 # 索引和表格
