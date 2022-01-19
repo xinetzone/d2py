@@ -10,6 +10,10 @@ container/index
 controlflow
 modules
 class
+template
+threading
+logging
+weakref
 argparse
 input-output
 match-statement

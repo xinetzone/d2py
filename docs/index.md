@@ -7,8 +7,8 @@
 :maxdepth: 2
 :hidden:
 
-tutorial/index
 python-study/index
+FunctionalAnalysis/index
 posts/index
 about/index
 news/index
