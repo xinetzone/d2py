@@ -23,3 +23,19 @@ Python有“自带电池”的理念。通过其包的复杂和强大功能可�
 - {mod}`sqlite3` 模块是 SQLite 数据库库的包装器，提供了一个可以使用稍微非标准的 SQL 语法更新和访问的持久数据库。
 - 国际化由许多模块支持，包括 {mod}`gettext`， {mod}`locale`，以及 {mod}`codecs` 包。
 - {mod}`Python Profilers 分析器 <profile>`
+- [用Pydor进行『异常检测』: 开发无监督机器学习工具库(一)](https://zhuanlan.zhihu.com/p/29868365)
+- [教你制作语音识别系统](https://zhuanlan.zhihu.com/p/37083530)
+- [Doxygen 中文文档](https://zhuanlan.zhihu.com/p/122523174)
+- [Learn Makefiles](https://makefiletutorial.com/)
+- [【译】一个简单的 make & makefile 教程](https://zhuanlan.zhihu.com/p/92010728)
+- [makefile_quick_guide](https://www.tutorialspoint.com/makefile/makefile_quick_guide.htm)
+- [CMake Cookbook](https://www.bookstack.cn/read/CMake-Cookbook/README.md)
+- [cling](https://github.com/root-project/cling) & [ROOT](https://root.cern/manual/root_files/)
+- [CMake](https://cmake.org/cmake/help/v3.22/guide/tutorial/index.html)
+- [Bazel](https://bzl.io/)
+- [[PVLDB 12] GraphLab : 分布式机器学习大规模图处理系统 学习总结](https://zhuanlan.zhihu.com/p/38038867)
+- [CuPy](https://docs.cupy.dev/en/stable/install.html)
+- [Python操作分布式流处理系统Kafka](https://zhuanlan.zhihu.com/p/32805628)
+- [Menger:大规模分布式强化学习架构](https://zhuanlan.zhihu.com/p/265889356)
+- [Ray](https://docs.ray.io/en/latest/index.html)
+- [Image-to-Image Demo](https://affinelayer.com/pixsrv/)
