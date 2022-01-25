@@ -16,7 +16,7 @@ homepage = ""
 [tool.pdm]
 [[tool.pdm.source]]
 name = "pypi"
-# url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+url = "https://pypi.org/simple" # "https://pypi.tuna.tsinghua.edu.cn/simple"
 # verify_ssl = true
 
 [build-system]
