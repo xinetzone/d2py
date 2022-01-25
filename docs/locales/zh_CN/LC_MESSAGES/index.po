@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, xinetzone
+# This file is distributed under the same license as the d2py package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: d2py \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-25 14:28+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../index.md:1
+msgid "动手学习 Python"
+msgstr ""
+
+#: ../../../README.md:1
+msgid ""
+"[![PyPI](https://img.shields.io/pypi/v/d2py.svg)](https://pypi.org/project/d2py/)"
+" "
+"[![Downloads](https://pepy.tech/badge/d2py/week)](https://pepy.tech/project/d2py)"
+" [![GitHub "
+"issues](https://img.shields.io/github/issues/xinetzone/d2py)](https://github.com/xinetzone/d2py/issues)"
+" [![GitHub "
+"forks](https://img.shields.io/github/forks/xinetzone/d2py)](https://github.com/xinetzone/d2py/network)"
+" [![GitHub "
+"stars](https://img.shields.io/github/stars/xinetzone/d2py)](https://github.com/xinetzone/d2py/stargazers)"
+" [![GitHub "
+"license](https://img.shields.io/github/license/xinetzone/d2py)](https://github.com/xinetzone/d2py/blob/main/LICENSE)"
+" ![repo size](https://img.shields.io/github/repo-size/xinetzone/d2py.svg)"
+" "
+"[![contributors](https://img.shields.io/github/contributors/xinetzone/d2py.svg)](https://github.com/xinetzone/d2py/graphs/contributors)"
+" "
+"[![watcher](https://img.shields.io/github/watchers/xinetzone/d2py.svg)](https://github.com/xinetzone/d2py/watchers)"
+" "
+"[![Downloads](https://pepy.tech/badge/d2py)](https://pepy.tech/project/d2py)"
+msgstr ""
+
+#: ../../../README.md:1 ../../../README.md:5
+msgid "PyPI"
+msgstr ""
+
+#: ../../../README.md:1
+msgid "Downloads"
+msgstr ""
+
+#: ../../../README.md:1
+msgid "GitHub issues"
+msgstr ""
+
+#: ../../../README.md:1
+msgid "GitHub forks"
+msgstr ""
+
+#: ../../../README.md:1
+msgid "GitHub stars"
+msgstr ""
+
+#: ../../../README.md:1
+msgid "GitHub license"
+msgstr ""
+
+#: ../../../README.md:1
+msgid "repo size"
+msgstr ""
+
+#: ../../../README.md:1
+msgid "contributors"
+msgstr ""
+
+#: ../../../README.md:1
+msgid "watcher"
+msgstr ""
+
+#: ../../../README.md:3
+msgid "Discover and create anything interesting!"
+msgstr "发现和创造任何有趣的事情！"
+
+#: ../../../README.md:7
+msgid "Provide PyPI support:"
+msgstr "提供 PyPI 支持："
+
+#: ../../../README.md:13
+msgid "For documentation see [d2py](https://xinetzone.github.io/d2py)."
+msgstr "文档主页：[d2py](https://xinetzone.github.io/d2py)。"
+
+#: ../../index.md:6
+msgid "看看谁在使用"
+msgstr ""
+
+#: ../../index.md:8
+msgid "使用 [libraries.io](https://libraries.io/pypi/d2py) 查看谁在使用 d2py。"
+msgstr ""
+
+#: ../../index.md:24
+msgid "索引和表格"
+msgstr ""
+
+#: ../../index.md:26
+msgid "{ref}`genindex`"
+msgstr ""
+
+#: ../../index.md:27
+msgid "{ref}`modindex`"
+msgstr ""
+
+#: ../../index.md:28
+msgid "{ref}`search`"
+msgstr ""
+

@@ -45,6 +45,8 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_comments",
     "sphinxcontrib.mermaid",
+    "sphinx_panels",
+    "sphinx_inline_tabs",
     # "sphinx.ext.todo",
     # "sphinxcontrib.bibtex",
     # "sphinx_togglebutton",

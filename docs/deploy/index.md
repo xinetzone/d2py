@@ -3,6 +3,7 @@
 ```{toctree}
 :maxdepth: 2
 
+pdm/index
 packaging
 other
 ```

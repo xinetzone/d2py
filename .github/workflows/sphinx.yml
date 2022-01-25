@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: 🛎️ Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # fetch all history so that last modified date-times are accurate
 
       - name: 🐍 Set up Python 3.10
         uses: actions/setup-python@v2
@@ -58,5 +56,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/_build/html
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"

@@ -15,5 +15,5 @@ dynamic = ["version", "description"]
 Home = "https://github.com/xinetzone/d2py"
 
 [tool.flit.sdist]
-include = ["docs/"]
-exclude = ["docs/*.html", '.git', '.github']
+# include = ["docs/"]
+exclude = ['docs', '.git', '.github']
