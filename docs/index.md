@@ -9,6 +9,9 @@
 
 python-study/index
 FunctionalAnalysis/index
+GUI/index
+web/index
+deploy/index
 posts/index
 about/index
 news/index

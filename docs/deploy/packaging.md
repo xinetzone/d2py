@@ -1,0 +1,77 @@
+# 打包
+
+参考：{daobook}`packaging.python.org/tutorials/installing-packages.html`
+
+## 准备
+
+1. 确保 Python 正确安装：
+
+````{tab} CMD
+```bash
+python --version
+```
+````
+
+````{tab} IPython/Jupyter
+```bash
+import sys
+!{sys.executable} --version
+```
+````
+
+2. 确保 `pip` 可用：
+
+```bash
+python -m pip --version
+```
+
+若 `pip` 没有安装，则可以（或者其他方法）：
+
+```bash
+python -m ensurepip --default-pip
+```
+
+3. 确保 pip、setuptools 和 wheel 是最新的：
+
+```bash
+python -m pip install --upgrade pip setuptools wheel
+```
+
+4. 可选地，创建一个虚拟环境
+
+```bash
+python -m venv tutorial_env
+```
+
+````{tab} Unix/macOS
+```bash
+source tutorial_env/bin/activate
+```
+````
+
+````{tab} Windows
+```bash
+tutorial_env\Scripts\activate
+```
+````
+
+## 创建虚拟环境
+
+Python “虚拟环境” 允许 Python 包 为特定的应用程序安装在一个孤立的位置，而不是全局安装。
+
+* [venv](https://docs.python.org/3/library/venv.html "(在 Python v3.10)") 在 Python 3.3 及以后的版本中默认可用，并在 Python 3.4 及以后的版本中把 [pip](https://daobook.github.io/packaging.python.org/key_projects.html#pip) 和 [setuptools](https://daobook.github.io/packaging.python.org/key_projects.html#setuptools) 安装到创建的虚拟环境中。
+
+## 打包工具
+
+参考：[packaging](https://daobook.github.io/packaging.python.org/key_projects.html#flit)
+
+- [Flit](https://github.com/daobook/flit) 是一种将 Python 包和模块放在 PyPI 上的简单方法。它试图让你在打包时少花心思，并帮助你避免常见的错误。
+
+
+- [hatch](https://github.com/ofek/hatch) 对项目管理工作流程中更多的步骤进行了观点上的覆盖，如递增版本、标记发布，以及从项目模板创建新的骨架项目。
+- [micropipenv](https://github.com/thoth-station/micropipenv) for a lightweight wrapper around pip that supports `requirements.txt`, Pipenv and Poetry lock files, or converting them to pip-tools compatible output. Designed for containerized Python applications, but not limited to them.
+- [PDM](https://github.com/pdm-project/pdm) for a modern Python package management tool supporting [**PEP 582**](https://www.python.org/dev/peps/pep-0582) (replacing virtual environments with `__pypackages__` directory for package installation) and relying on standards such as [**PEP 517**](https://www.python.org/dev/peps/pep-0517) and [**PEP 621**](https://www.python.org/dev/peps/pep-0621).
+- [pip-tools](https://github.com/jazzband/pip-tools) for creating a lock file of all dependencies from a list of packages directly used in a project, and ensuring that only those dependencies are installed.
+- [Poetry](https://github.com/python-poetry/poetry) for a tool comparable in scope to Pipenv that focuses more directly on use cases where the project being managed is structured as a distributable Python package with a valid `pyproject.toml` file. By contrast, Pipenv explicitly avoids making the assumption that the application being worked on will support distribution as a `pip`-installable Python package.
+
+- [pex](https://daobook.github.io/pex/) 是 “Python Executable” 的缩写。它提供了通用 Python 环境虚拟化解决方案。（对 Windows 支持不好）
