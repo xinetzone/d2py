@@ -40,7 +40,8 @@ jobs:
         shell: bash
         run: |
           pip install --upgrade pip
-          pip install -r docs/requirements.txt
+          pip install .
+          pip install .[doc]
 
       - name: 🔧 Build HTML
         run: |
