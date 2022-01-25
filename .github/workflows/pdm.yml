@@ -19,6 +19,7 @@ jobs:
           enable-pep582: true  # Enable PEP 582 package loading globally
       - name: Install dependencies
         run: |
+          pip uninstall resolvelib
           cd docs
           pdm install
           make html
