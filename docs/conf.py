@@ -47,15 +47,16 @@ extensions = [
     "sphinxcontrib.mermaid",
     "sphinx_panels",
     "sphinx_inline_tabs",
+    # "sphinx.ext.autodoc",
+    # "sphinx.ext.autosummary",
+    "sphinx_automodapi.automodapi",
     # "sphinx.ext.todo",
     # "sphinxcontrib.bibtex",
     # "sphinx_togglebutton",
     # "sphinx.ext.viewcode",
-    # "sphinx.ext.autodoc",
     # "sphinx.ext.doctest",
     # "sphinx_design",
     # "sphinx.ext.ifconfig",
-    # "sphinx_automodapi.automodapi",
     # "sphinxext.opengraph",
 ]
 

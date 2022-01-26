@@ -1,7 +1,7 @@
-# 用法
+# 插件
 
 ```{toctree}
 :maxdepth: 2
 
-dependency
+write
 ```

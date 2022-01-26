@@ -3,23 +3,22 @@
 ```{include} ../README.md
 ```
 
-## 看看谁在使用
-
-使用 [libraries.io](https://libraries.io/pypi/d2py) 查看谁在使用 d2py。
-
 ```{toctree}
 :maxdepth: 2
 :hidden:
 
 python-study/index
-FunctionalAnalysis/index
-GUI/index
-web/index
-deploy/index
+analysis/index
+reference/index
+chaos/index
 posts/index
 about/index
 news/index
 ```
+
+## 看看谁在使用
+
+使用 [libraries.io](https://libraries.io/pypi/d2py) 查看谁在使用 {mod}`d2py`。
 
 # 索引和表格
 
