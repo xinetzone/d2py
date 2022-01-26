@@ -181,30 +181,30 @@ dev1 = ["pytest"]
 dev2 = ["mkdocs"]
 ```
 
-| Command                         | What it does                                                         | Comments                  |
+| 命令                        |               功能                                           | 备注                  |
 | ------------------------------- | -------------------------------------------------------------------- | ------------------------- |
-| `pdm install`                   | install prod and dev deps (no optional)                              |                           |
-| `pdm install -G extra1`         | install prod deps, dev deps, and "extra1" optional group             |                           |
-| `pdm install -G dev1`           | install prod deps and only "dev1" dev group                          |                           |
-| `pdm install -G:all`            | install prod deps, dev deps and "extra1", "extra2" optional groups   |                           |
-| `pdm install -G extra1 -G dev1` | install prod deps, "extra1" optional group and only "dev1" dev group |                           |
-| `pdm install --prod`            | install prod only                                                    |                           |
-| `pdm install --prod -G extra1`  | install prod deps and "extra1" optional                              |                           |
-| `pdm install --prod -G dev1`    | Fail, `--prod` can't be given with dev dependencies                  | Leave the `--prod` option |
+| `pdm install`                   | 安装 prod 和 dev deps（没有可选）。                              |                           |
+| `pdm install -G extra1`         | 安装 prod deps, dev deps 和 "extra1" 可选组               |                           |
+| `pdm install -G dev1`           | 安装 prod deps，只安装 "dev1" 开发组。                         |                           |
+| `pdm install -G:all`            | 安装 prod deps、dev deps 和 "extra1"、"extra2" 可选组   |                           |
+| `pdm install -G extra1 -G dev1` | 安装 prod deps，"extra1" 可选组和仅 "dev1" 开发组 |                           |
+| `pdm install --prod`            | 只安装 prod                                              |                           |
+| `pdm install --prod -G extra1`  | 安装 prod deps 和 "extra1" 选项                              |                           |
+| `pdm install --prod -G dev1`    | 失败，`--prod` 不能与 dev 依赖关系一起给定。            | 留下 `--prod` 选项 |
 
-**All** development dependencies are included as long as `--prod` is not passed and `-G` doesn't specify any dev groups.
+只要不通过 `--prod`，并且 `-G` 没有指定任何开发组，所有的开发依赖都被包括在内。
 
-Besides, if you don't want the root project to be installed, add `--no-self` option, and `--no-editable` can be used when you want all packages to be installed in non-editable versions. With `--no-editable` turn on, you can safely archive the whole `__pypackages__` and copy it to the target environment for deployment.
+此外，如果你不希望安装根项目，可以添加 `--no-self` 选项，而 `--no-editable` 可以在你希望所有软件包以不可编辑版本安装时使用。打开 `--no-editable`，你可以安全地归档整个 `__pypackages__` 并复制到目标环境进行部署。
 
-## Show what packages are installed
+## 显示安装了哪些软件包
 
-Similar to `pip list`, you can list all packages installed in the packages directory:
+类似于 `pip list`，你可以列出软件包目录下安装的所有软件包：
 
 ```console
 pdm list
 ```
 
-Or show a dependency graph by:
+或通过以下方式显示依赖关系图：
 
 ```
 $ pdm list --graph
@@ -221,29 +221,28 @@ black 19.10b0
 bump2version 1.0.0
 ```
 
-## Set PyPI index URL
+## 设置 PyPI 索引 URL
 
-You can specify a PyPI mirror URL by following commands:
+你可以通过以下命令指定一个 PyPI 镜像 URL：
 
 ```console
 pdm config pypi.url https://test.pypi.org/simple
 ```
 
-By default, PDM will read the pip's configuration files to decide the PyPI URL, and fallback
-to `https://pypi.org/simple` if none is found.
+默认情况下，PDM 会读取 pip 的配置文件来决定 PyPI 的 URL，如果没有找到，则回退到 `https://pypi.org/simple`，如果没有找到。
 
-## Allow prerelease versions to be installed
+## 允许安装预先发布的版本
 
-Include the following setting in `pyproject.toml` to enable:
+在 `pyproject.toml` 中包括以下设置以启用：
 
 ```toml
 [tool.pdm]
 allow_prereleases = true
 ```
 
-## Solve the locking failure
+## 解决锁定失败的问题
 
-If PDM is not able to find a resolution to satisfy the requirements, it will raise an error. For example,
+如果 PDM 不能找到满足要求的解决方案，它将引发一个错误。例如：
 
 ```bash
 pdm django==3.1.4 "asgiref<3"
@@ -255,31 +254,26 @@ Unable to find a resolution for asgiref because of the following conflicts:
 To fix this, you could loosen the dependency version constraints in pyproject.toml. If that is not possible, you could also override the resolved version in [tool.pdm.overrides] table.
 ```
 
-You can either change to a lower version of `django` or remove the upper bound of `asgiref`. But if it is not eligible for your project,
-you can tell PDM to forcedly resolve `asgiref` to a specific version by adding the following lines to `pyproject.toml`:
-
-_New in version 1.12.0_
+你可以改成较低版本的 `django`，或者删除 `asgiref` 的上限。但如果你的项目不符合条件。你可以通过在 `pyproject.toml` 中添加以下几行来告诉 PDM 强制将 `asgiref` 解析为一个特定的版本。
 
 ```toml
 [tool.pdm.overrides]
 asgiref = "3.2.10"
 ```
-Each entry of that table is a package name with the wanted version. The value can also be a URL to a file or a VCS repository like `git+https://...`.
-On reading this, PDM will pin `asgiref@3.2.10` in the lock file no matter whether there is any other resolution available.
 
-!!! NOTE
-    By using `[tool.pdm.overrides]` setting, you are at your own risk of any incompatibilities from that resolution. It can only be
-    used if there is no valid resolution for your requirements and you know the specific version works.
-    Most of the time, you can just add any transient constraints to the `dependencies` array.
+该表的每个条目都是一个带有所需版本的软件包名称。这个值也可以是一个文件或 VCS 仓库的 URL，比如 `git+https://...`。读取后，PDM 将在锁文件中钉住 `asgiref@3.2.10`，不管是否有其他可用的解决方案。
 
-## Environment variables expansion
+```{note}
+通过使用 `[tool.pdm.overrides]` 设置，你要自己承担该决议带来的任何不兼容的风险。它只有在没有符合你要求的有效分辨率，并且你知道特定的版本可以使用时才能使用。
 
-For convenience, PDM supports environment variables expansion in the dependency specification under some circumstances:
+大多数时候，你可以把任何暂时性的约束添加到 `dependencies` 数组中。
+```
 
-- Environment variables in the URL auth part will be expanded: `https://${USERNAME}:${PASSWORD}/artifacts.io/Flask-1.1.2.tar.gz`.
-  It is also okay to not give the auth part in the URL directly, PDM will ask for them when `-v/--verbose` is on.
-- `${PROJECT_ROOT}` will be expanded with the absolute path of the project root, in POSIX style(i.e. forward slash `/`, even on Windows).
-  For consistency, URLs that refer to a local path under `${PROJECT_ROOT}` must start with `file:///`(three slashes), e.g.
-  `file:///${PROJECT_ROOT}/artifacts/Flask-1.1.2.tar.gz`.
+## 环境变量扩展
 
-Don't worry about credential leakage, the environment variables will be expanded when needed and kept untouched in the lock file.
+为了方便起见，PDM 在某些情况下支持在依赖关系规范中扩展环境变量：
+
+- URL auth 部分的环境变量将被展开：`https://${USERNAME}:${PASSWORD}/artifacts.io/Flask-1.1.2.tar.gz`。不直接给出 URL 中的 auth 部分也是可以的，当 `-v/--verbose` 开启时，PDM 会询问他们。
+- `${PROJECT_ROOT}` 将以项目根的绝对路径展开，采用 POSIX 风格（即正斜杠 `/`，即使在 Windows 上也是如此）。为了保持一致性，引用 `${PROJECT_ROOT}` 下的本地路径的 URL 必须以 `file:///`（三个斜线）开始，例如 `file:///${PROJECT_ROOT}/artifacts/Flask-1.1.2.tar.gz`。
+
+不要担心凭证泄漏，环境变量将在需要时被扩展，并在锁文件中保持不动。

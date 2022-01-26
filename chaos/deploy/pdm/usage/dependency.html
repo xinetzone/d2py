@@ -960,28 +960,28 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#show-what-packages-are-installed">
-   Show what packages are installed
+  <a class="reference internal nav-link" href="#id13">
+   显示安装了哪些软件包
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-pypi-index-url">
-   Set PyPI index URL
+  <a class="reference internal nav-link" href="#pypi-url">
+   设置 PyPI 索引 URL
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#allow-prerelease-versions-to-be-installed">
-   Allow prerelease versions to be installed
+  <a class="reference internal nav-link" href="#id14">
+   允许安装预先发布的版本
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solve-the-locking-failure">
-   Solve the locking failure
+  <a class="reference internal nav-link" href="#id15">
+   解决锁定失败的问题
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#environment-variables-expansion">
-   Environment variables expansion
+  <a class="reference internal nav-link" href="#id16">
+   环境变量扩展
   </a>
  </li>
 </ul>
@@ -1069,28 +1069,28 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#show-what-packages-are-installed">
-   Show what packages are installed
+  <a class="reference internal nav-link" href="#id13">
+   显示安装了哪些软件包
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-pypi-index-url">
-   Set PyPI index URL
+  <a class="reference internal nav-link" href="#pypi-url">
+   设置 PyPI 索引 URL
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#allow-prerelease-versions-to-be-installed">
-   Allow prerelease versions to be installed
+  <a class="reference internal nav-link" href="#id14">
+   允许安装预先发布的版本
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solve-the-locking-failure">
-   Solve the locking failure
+  <a class="reference internal nav-link" href="#id15">
+   解决锁定失败的问题
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#environment-variables-expansion">
-   Environment variables expansion
+  <a class="reference internal nav-link" href="#id16">
+   环境变量扩展
   </a>
  </li>
 </ul>
@@ -1261,56 +1261,56 @@ pdm remove -dG <span class="nb">test</span> pytest-cov
 </div>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Command</p></th>
-<th class="head"><p>What it does</p></th>
-<th class="head"><p>Comments</p></th>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>功能</p></th>
+<th class="head"><p>备注</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code></p></td>
-<td><p>install prod and dev deps (no optional)</p></td>
+<td><p>安装 prod 和 dev deps（没有可选）。</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span> <span class="pre">-G</span> <span class="pre">extra1</span></code></p></td>
-<td><p>install prod deps, dev deps, and “extra1” optional group</p></td>
+<td><p>安装 prod deps, dev deps 和 “extra1” 可选组</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span> <span class="pre">-G</span> <span class="pre">dev1</span></code></p></td>
-<td><p>install prod deps and only “dev1” dev group</p></td>
+<td><p>安装 prod deps，只安装 “dev1” 开发组。</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span> <span class="pre">-G:all</span></code></p></td>
-<td><p>install prod deps, dev deps and “extra1”, “extra2” optional groups</p></td>
+<td><p>安装 prod deps、dev deps 和 “extra1”、“extra2” 可选组</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span> <span class="pre">-G</span> <span class="pre">extra1</span> <span class="pre">-G</span> <span class="pre">dev1</span></code></p></td>
-<td><p>install prod deps, “extra1” optional group and only “dev1” dev group</p></td>
+<td><p>安装 prod deps，“extra1” 可选组和仅 “dev1” 开发组</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span> <span class="pre">--prod</span></code></p></td>
-<td><p>install prod only</p></td>
+<td><p>只安装 prod</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span> <span class="pre">--prod</span> <span class="pre">-G</span> <span class="pre">extra1</span></code></p></td>
-<td><p>install prod deps and “extra1” optional</p></td>
+<td><p>安装 prod deps 和 “extra1” 选项</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span> <span class="pre">--prod</span> <span class="pre">-G</span> <span class="pre">dev1</span></code></p></td>
-<td><p>Fail, <code class="docutils literal notranslate"><span class="pre">--prod</span></code> can’t be given with dev dependencies</p></td>
-<td><p>Leave the <code class="docutils literal notranslate"><span class="pre">--prod</span></code> option</p></td>
+<td><p>失败，<code class="docutils literal notranslate"><span class="pre">--prod</span></code> 不能与 dev 依赖关系一起给定。</p></td>
+<td><p>留下 <code class="docutils literal notranslate"><span class="pre">--prod</span></code> 选项</p></td>
 </tr>
 </tbody>
 </table>
-<p><strong>All</strong> development dependencies are included as long as <code class="docutils literal notranslate"><span class="pre">--prod</span></code> is not passed and <code class="docutils literal notranslate"><span class="pre">-G</span></code> doesn’t specify any dev groups.</p>
-<p>Besides, if you don’t want the root project to be installed, add <code class="docutils literal notranslate"><span class="pre">--no-self</span></code> option, and <code class="docutils literal notranslate"><span class="pre">--no-editable</span></code> can be used when you want all packages to be installed in non-editable versions. With <code class="docutils literal notranslate"><span class="pre">--no-editable</span></code> turn on, you can safely archive the whole <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code> and copy it to the target environment for deployment.</p>
+<p>只要不通过 <code class="docutils literal notranslate"><span class="pre">--prod</span></code>，并且 <code class="docutils literal notranslate"><span class="pre">-G</span></code> 没有指定任何开发组，所有的开发依赖都被包括在内。</p>
+<p>此外，如果你不希望安装根项目，可以添加 <code class="docutils literal notranslate"><span class="pre">--no-self</span></code> 选项，而 <code class="docutils literal notranslate"><span class="pre">--no-editable</span></code> 可以在你希望所有软件包以不可编辑版本安装时使用。打开 <code class="docutils literal notranslate"><span class="pre">--no-editable</span></code>，你可以安全地归档整个 <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code> 并复制到目标环境进行部署。</p>
 </div>
-<div class="section" id="show-what-packages-are-installed">
-<h2>Show what packages are installed<a class="headerlink" href="#show-what-packages-are-installed" title="永久链接至标题">¶</a></h2>
-<p>Similar to <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code>, you can list all packages installed in the packages directory:</p>
+<div class="section" id="id13">
+<h2>显示安装了哪些软件包<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<p>类似于 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code>，你可以列出软件包目录下安装的所有软件包：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pdm list</span>
 </pre></div>
 </div>
-<p>Or show a dependency graph by:</p>
+<p>或通过以下方式显示依赖关系图：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pdm list --graph
 tempenv 0.0.0
 └── click 7.0 [ required: &lt;7.0.0,&gt;=6.7 ]
@@ -1326,26 +1326,25 @@ bump2version 1.0.0
 </pre></div>
 </div>
 </div>
-<div class="section" id="set-pypi-index-url">
-<h2>Set PyPI index URL<a class="headerlink" href="#set-pypi-index-url" title="永久链接至标题">¶</a></h2>
-<p>You can specify a PyPI mirror URL by following commands:</p>
+<div class="section" id="pypi-url">
+<h2>设置 PyPI 索引 URL<a class="headerlink" href="#pypi-url" title="永久链接至标题">¶</a></h2>
+<p>你可以通过以下命令指定一个 PyPI 镜像 URL：</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pdm config pypi.url https://test.pypi.org/simple</span>
 </pre></div>
 </div>
-<p>By default, PDM will read the pip’s configuration files to decide the PyPI URL, and fallback
-to <code class="docutils literal notranslate"><span class="pre">https://pypi.org/simple</span></code> if none is found.</p>
+<p>默认情况下，PDM 会读取 pip 的配置文件来决定 PyPI 的 URL，如果没有找到，则回退到 <code class="docutils literal notranslate"><span class="pre">https://pypi.org/simple</span></code>，如果没有找到。</p>
 </div>
-<div class="section" id="allow-prerelease-versions-to-be-installed">
-<h2>Allow prerelease versions to be installed<a class="headerlink" href="#allow-prerelease-versions-to-be-installed" title="永久链接至标题">¶</a></h2>
-<p>Include the following setting in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> to enable:</p>
+<div class="section" id="id14">
+<h2>允许安装预先发布的版本<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p>在 <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 中包括以下设置以启用：</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm]</span><span class="w"></span>
 <span class="n">allow_prereleases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="solve-the-locking-failure">
-<h2>Solve the locking failure<a class="headerlink" href="#solve-the-locking-failure" title="永久链接至标题">¶</a></h2>
-<p>If PDM is not able to find a resolution to satisfy the requirements, it will raise an error. For example,</p>
+<div class="section" id="id15">
+<h2>解决锁定失败的问题<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p>如果 PDM 不能找到满足要求的解决方案，它将引发一个错误。例如：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm <span class="nv">django</span><span class="o">==</span><span class="m">3</span>.1.4 <span class="s2">&quot;asgiref&lt;3&quot;</span>
 ...
 🔒 Lock failed
@@ -1355,31 +1354,26 @@ Unable to find a resolution <span class="k">for</span> asgiref because of the fo
 To fix this, you could loosen the dependency version constraints <span class="k">in</span> pyproject.toml. If that is not possible, you could also override the resolved version <span class="k">in</span> <span class="o">[</span>tool.pdm.overrides<span class="o">]</span> table.
 </pre></div>
 </div>
-<p>You can either change to a lower version of <code class="docutils literal notranslate"><span class="pre">django</span></code> or remove the upper bound of <code class="docutils literal notranslate"><span class="pre">asgiref</span></code>. But if it is not eligible for your project,
-you can tell PDM to forcedly resolve <code class="docutils literal notranslate"><span class="pre">asgiref</span></code> to a specific version by adding the following lines to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>:</p>
-<p><em>New in version 1.12.0</em></p>
+<p>你可以改成较低版本的 <code class="docutils literal notranslate"><span class="pre">django</span></code>，或者删除 <code class="docutils literal notranslate"><span class="pre">asgiref</span></code> 的上限。但如果你的项目不符合条件。你可以通过在 <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 中添加以下几行来告诉 PDM 强制将 <code class="docutils literal notranslate"><span class="pre">asgiref</span></code> 解析为一个特定的版本。</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm.overrides]</span><span class="w"></span>
 <span class="n">asgiref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;3.2.10&quot;</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Each entry of that table is a package name with the wanted version. The value can also be a URL to a file or a VCS repository like <code class="docutils literal notranslate"><span class="pre">git+https://...</span></code>.
-On reading this, PDM will pin <code class="docutils literal notranslate"><span class="pre">asgiref&#64;3.2.10</span></code> in the lock file no matter whether there is any other resolution available.</p>
-<p>!!! NOTE
-By using <code class="docutils literal notranslate"><span class="pre">[tool.pdm.overrides]</span></code> setting, you are at your own risk of any incompatibilities from that resolution. It can only be
-used if there is no valid resolution for your requirements and you know the specific version works.
-Most of the time, you can just add any transient constraints to the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> array.</p>
+<p>该表的每个条目都是一个带有所需版本的软件包名称。这个值也可以是一个文件或 VCS 仓库的 URL，比如 <code class="docutils literal notranslate"><span class="pre">git+https://...</span></code>。读取后，PDM 将在锁文件中钉住 <code class="docutils literal notranslate"><span class="pre">asgiref&#64;3.2.10</span></code>，不管是否有其他可用的解决方案。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>通过使用 <code class="docutils literal notranslate"><span class="pre">[tool.pdm.overrides]</span></code> 设置，你要自己承担该决议带来的任何不兼容的风险。它只有在没有符合你要求的有效分辨率，并且你知道特定的版本可以使用时才能使用。</p>
+<p>大多数时候，你可以把任何暂时性的约束添加到 <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> 数组中。</p>
 </div>
-<div class="section" id="environment-variables-expansion">
-<h2>Environment variables expansion<a class="headerlink" href="#environment-variables-expansion" title="永久链接至标题">¶</a></h2>
-<p>For convenience, PDM supports environment variables expansion in the dependency specification under some circumstances:</p>
+</div>
+<div class="section" id="id16">
+<h2>环境变量扩展<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<p>为了方便起见，PDM 在某些情况下支持在依赖关系规范中扩展环境变量：</p>
 <ul class="simple">
-<li><p>Environment variables in the URL auth part will be expanded: <code class="docutils literal notranslate"><span class="pre">https://${USERNAME}:${PASSWORD}/artifacts.io/Flask-1.1.2.tar.gz</span></code>.
-It is also okay to not give the auth part in the URL directly, PDM will ask for them when <code class="docutils literal notranslate"><span class="pre">-v/--verbose</span></code> is on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">${PROJECT_ROOT}</span></code> will be expanded with the absolute path of the project root, in POSIX style(i.e. forward slash <code class="docutils literal notranslate"><span class="pre">/</span></code>, even on Windows).
-For consistency, URLs that refer to a local path under <code class="docutils literal notranslate"><span class="pre">${PROJECT_ROOT}</span></code> must start with <code class="docutils literal notranslate"><span class="pre">file:///</span></code>(three slashes), e.g.
-<code class="docutils literal notranslate"><span class="pre">file:///${PROJECT_ROOT}/artifacts/Flask-1.1.2.tar.gz</span></code>.</p></li>
+<li><p>URL auth 部分的环境变量将被展开：<code class="docutils literal notranslate"><span class="pre">https://${USERNAME}:${PASSWORD}/artifacts.io/Flask-1.1.2.tar.gz</span></code>。不直接给出 URL 中的 auth 部分也是可以的，当 <code class="docutils literal notranslate"><span class="pre">-v/--verbose</span></code> 开启时，PDM 会询问他们。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">${PROJECT_ROOT}</span></code> 将以项目根的绝对路径展开，采用 POSIX 风格（即正斜杠 <code class="docutils literal notranslate"><span class="pre">/</span></code>，即使在 Windows 上也是如此）。为了保持一致性，引用 <code class="docutils literal notranslate"><span class="pre">${PROJECT_ROOT}</span></code> 下的本地路径的 URL 必须以 <code class="docutils literal notranslate"><span class="pre">file:///</span></code>（三个斜线）开始，例如 <code class="docutils literal notranslate"><span class="pre">file:///${PROJECT_ROOT}/artifacts/Flask-1.1.2.tar.gz</span></code>。</p></li>
 </ul>
-<p>Don’t worry about credential leakage, the environment variables will be expanded when needed and kept untouched in the lock file.</p>
+<p>不要担心凭证泄漏，环境变量将在需要时被扩展，并在锁文件中保持不动。</p>
 </div>
 </div>
 
