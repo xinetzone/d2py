@@ -938,8 +938,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#activate-the-plugin">
-   Activate the plugin
+  <a class="reference internal nav-link" href="#id9">
+   激活插件
   </a>
  </li>
 </ul>
@@ -1005,8 +1005,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#activate-the-plugin">
-   Activate the plugin
+  <a class="reference internal nav-link" href="#id9">
+   激活插件
   </a>
  </li>
 </ul>
@@ -1131,8 +1131,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="id8">
 <h2>发布插件<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
-<p>Now you have defined your plugin already, let’s distribute it to PyPI. PDM’s plugins are discovered by entry point types.
-Create an <code class="docutils literal notranslate"><span class="pre">pdm</span></code> entry point and point to your plugin callable (yeah, it doesn’t need to be a function, any callable object can work):</p>
+<p>现在你已经定义了你的插件，让我们把它分发到 PyPI。PDM 的插件是通过入口点类型发现的。创建一个 <code class="docutils literal notranslate"><span class="pre">pdm</span></code> 入口点，并指向你的插件可调用（是的，它不需要是一个函数，任何可调用对象都可以）：</p>
 <p><strong>PEP 621</strong>:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># pyproject.toml</span><span class="w"></span>
 
@@ -1151,20 +1150,19 @@ Create an <code class="docutils literal notranslate"><span class="pre">pdm</span
 </pre></div>
 </div>
 </div>
-<div class="section" id="activate-the-plugin">
-<h2>Activate the plugin<a class="headerlink" href="#activate-the-plugin" title="永久链接至标题">¶</a></h2>
-<p>As plugins are loaded via entry points, they can be activated with no more steps than just installing the plugin.
-For convenience, PDM provides a <code class="docutils literal notranslate"><span class="pre">plugin</span></code> command group to manage plugins.</p>
-<p>Assume your plugin is published as <code class="docutils literal notranslate"><span class="pre">pdm-hello</span></code>:</p>
+<div class="section" id="id9">
+<h2>激活插件<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>由于插件是通过入口点加载的，它们可以在没有更多步骤的情况下被激活，而只是安装插件。为了方便，PDM 提供了一个 <code class="docutils literal notranslate"><span class="pre">plugin</span></code> 命令组来管理插件。</p>
+<p>假设你的插件是以 <code class="docutils literal notranslate"><span class="pre">pdm-hello</span></code> 的名义发布的：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm plugin add pdm-hello
 </pre></div>
 </div>
-<p>Now type <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">--help</span></code> in the terminal, you will see the new added <code class="docutils literal notranslate"><span class="pre">hello</span></code> command and use it:</p>
+<p>现在在终端输入 <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">--help</span></code>，你会看到新增加的 <code class="docutils literal notranslate"><span class="pre">hello</span></code> 命令并使用它：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pdm hello Jack
 Hello, Jack
 </pre></div>
 </div>
-<p>See more plugin management subcommands by typing <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">plugin</span> <span class="pre">--help</span></code> in the terminal.</p>
+<p>通过在终端键入 <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">plugin</span> <span class="pre">--help</span></code> 查看更多插件管理子命令。</p>
 </div>
 </div>
 
