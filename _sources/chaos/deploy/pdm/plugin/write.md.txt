@@ -1,27 +1,23 @@
-# Write a plugin
+# 编写插件
 
-PDM is aiming at being a community driven package manager.
-It is shipped with a full-featured plug-in system, with which you can:
+PDM 的目标是成为一个社区驱动的软件包管理器。它配备了一个全功能的插件系统，你可以用它：
 
-- Develop a new command for PDM
-- Add additional options to existing PDM commands
-- Change PDM's behavior by reading additional config items
-- Control the process of dependency resolution or installation
+- 为 PDM 开发新的命令
+- 为现有的 PDM 命令添加额外的选项
+- 通过读取额外的配置项来改变 PDM 的行为
+- 控制依赖关系的解决或安装过程
 
-## What should a plugin do
+## 插件应该做什么
 
-The core PDM project focuses on dependency management and package publishing. Other
-functionalities you wish to integrate with PDM are preferred to lie in their own plugins
-and released as standalone PyPI projects. In case the plugin is considered a good supplement
-of the core project it may have a chance to be absorbed into PDM.
+核心的 PDM 项目专注于依赖性管理和包的发布。你希望与 PDM 集成的其他功能，最好放在自己的插件中并作为独立的 PyPI 项目发布。如果该插件被认为是核心项目的一个很好的补充，它可能有机会被吸收到 PDM 中。
 
-## Write your own plugin
+## 编写你自己的插件
 
-In the following sections, I will show an example of adding a new command `hello` which reads the `hello.name` config.
+在下面的章节中，我将展示一个添加新命令 `hello` 的例子，它读取 `hello.name` 的配置。
 
-### Write the command
+### 编写命令
 
-The PDM's CLI module is designed in a way that user can easily "inherit and modify". To write a new command:
+PDM 的 CLI 模块的设计方式是，用户可以很容易地 "继承和修改"。要编写新的命令：
 
 ```python
 from pdm.cli.commands.base import BaseCommand
@@ -42,18 +38,14 @@ class HelloCommand(BaseCommand):
         print(f"Hello, {name}")
 ```
 
-First, let's create a new `HelloCommand` class inheriting from `pdm.cli.commands.base.BaseCommand`. It has two major functions:
+首先，让我们创建一个新的 `HelloCommand` 类，继承自 `pdm.cli.command.base.BaseCommand`。它有两个主要功能：
 
-- `add_arguments()` to manipulate the argument parser passed as the only argument,
-  where you can add additional command line arguments to it
-- `handle()` to do something when the subcommand is matched, you can do nothing by writing a single `pass` statement.
-  It accepts two arguments: an `pdm.project.Project` object as the first one and the parsed `argparse.Namespace` object as the second.
+- `add_arguments()` 来操作作为唯一参数传递的参数解析器。在这里你可以向它添加额外的命令行参数
+- `handle()` 在子命令被匹配时做一些事情，你可以通过写一个 `pass` 语句来做任何事情。它接受两个参数：第一个是 `pdm.project.Project` 对象，第二个是解析后的 `argparse.Namespace` 对象。
 
-The document string will serve as the command help text, which will be shown in `pdm --help`.
+该文件字符串将作为命令帮助文本，在 `pdm --help` 中显示。
 
-Besides, PDM's subcommand has two default options: `-v/--verbose` to change the verbosity level and `-g/--global` to enable global project.
-If you don't want these default options, override the `arguments` class attribute to a list of `pdm.cli.options.Option` objects, or
-assign it to an empty list to have no default options:
+此外，PDM 的子命令有两个默认选项：`-v/--verbose` 用于改变 verbosity 程度，`-g/--global` 用于启用全局项目。如果你不想要这些默认选项，可以将 `arguments` 类属性覆盖到 `pdm.cli.options.Option` 对象的列表中，或者将其分配到一个空列表中，就没有默认选项了：
 
 ```python hl_lines="3"
 class HelloCommand(BaseCommand):
@@ -61,25 +53,24 @@ class HelloCommand(BaseCommand):
     arguments = []
 ```
 
-!!! note
-    The default options are loaded first, then `add_arguments()` is called.
+```{note}
+首先加载默认选项，然后调用 `add_arguments()`。
+```
+    
+### 将命令注册到核心对象
 
-### Register the command to the core object
-
-Write a function somewhere in your plugin project. There is no limit on what the name of the function is,
-but the function should take only one argument -- the PDM core object:
+在你的插件项目的某个地方写一个函数。对函数的名称没有限制。但该函数应该只接受一个参数 -- PDM 核心对象：
 
 ```python hl_lines="2"
 def hello_plugin(core):
     core.register_command(HelloCommand, "hello")
 ```
 
-Call `core.register_command()` to register the command. The second argument as the name of the subcommand is optional.
-PDM will look for the `HelloCommand`'s `name` attribute if the name is not passed.
+调用 `core.register_command()` 来注册该命令。第二个参数作为子命令的名称是可选的。如果没有传递名称，PDM 将寻找 `HelloCommand` 的 `name` 属性。
 
-### Add a new config item
+### 添加新的配置项
 
-Let's recall the first code snippet, `hello.name` config key is consulted for the name if not passed via the command line.
+让我们回顾一下第一个代码片断，如果不是通过命令行传递，`hello.name` 配置键会被查询到名字。
 
 ```python hl_lines="11"
 class HelloCommand(BaseCommand):
@@ -98,8 +89,7 @@ class HelloCommand(BaseCommand):
         print(f"Hello, {name}")
 ```
 
-Till now, if you query the config value by `pdm config get hello.name`, an error will pop up saying it is not a valid config key.
-You need to register the config item, too:
+到现在为止，如果你通过 `pdm config get hello.name` 查询配置值，会弹出一个错误，说它不是一个有效的配置键。你也需要注册这个配置项：
 
 ```python hl_lines="5"
 from pdm.project.config import ConfigItem
@@ -109,38 +99,30 @@ def hello_plugin(core):
     core.add_config("hello.name", ConfigItem("The person's name", "John"))
 ```
 
-where `ConfigItem` class takes 4 parameters, in the following order:
+其中 `ConfigItem` 类需要 4 个参数，顺序如下：
 
-- `description`: a description of the config item
-- `default`: default value of the config item
-- `global_only`: whether the config is allowed to set in home config only
-- `env_var`: the name of environment variable which will be read as the config value
+- `description`：对配置项的描述
+- `default`：配置项的默认值 
+- `global_only`：是否只允许在主配置中设置配置
+- `env_var`：环境变量的名称，将作为配置值被读取
 
-### Other plugin points
+### 其他插件点
 
-Besides of commands and configurations, the `core` object exposes some other methods and attributes to override.
-PDM also provides some signals you can listen to.
-Please read the [API reference](https://pdm.fming.dev/plugin/reference/) for more details.
+除了命令和配置，"核心" 对象还暴露了一些其他的方法和属性来覆盖。PDM 还提供了一些你可以监听的信号。请阅读 [API参考](https://pdm.fming.dev/plugin/reference/) 了解更多细节。
 
-### Tips about developing a PDM plugin.
+### 关于开发 PDM 插件的提示
 
-When developing a plugin, one hopes to activate and plugin in development and get updated when the code changes. This is usually done
-by `pip install -e .` or `python setup.py develop` in the **traditional** Python packaging world which leverages `setup.py` to do so. However,
-as there is no such `setup.py` in a PDM project, how can we do that?
+在开发插件时，人们希望在开发中激活和插件，并在代码改变时得到更新。这通常是通过 `pip install -e .` 或 `python setup.py develop` 在传统的 Python 包装世界中，利用 `setup.py` 来实现。然而。由于在 PDM 项目中没有这样的 `setup.py`，我们如何才能做到呢？
 
-Fortunately, it becomes even easier with PDM and PEP 582. First, you should enable PEP 582 globally following the
-[corresponding part of this doc](../index.md#enable-pep-582-globally). Then you just need to install all dependencies into the `__pypackages__` directory by:
+幸运的是，有了 PDM 和 PEP 582，它变得更加容易。首先，你应该在全局范围内启用 {pep}`582`，按照 [本文档的相应部分](../index.md#enable-pep-582-globally)。然后你只需要通过以下方式将所有的依赖项安装到 `__pypackages__` 目录中：
 
 ```bash
 pdm install
 ```
 
-After that, all the dependencies are available with a compatible Python interpreter, including the plugin itself, in editable mode. That means any change
-to the codebase will take effect immediately without re-installation. The `pdm` executable also uses a Python interpreter under the hood,
-so if you run `pdm` from inside the plugin project, the plugin in development will be activated automatically, and you can do some testing to see how it works.
-That is how PEP 582 benefits our development workflow.
+之后，所有的依赖都可以用兼容的 Python 解释器，包括插件本身，在可编辑模式下。这意味着对代码库的任何改变都会立即生效，而不需要重新安装。`pdm` 可执行文件也在引擎盖下使用 Python 解释器。所以如果你在插件项目中运行 `pdm`，开发中的插件将被自动激活，你可以做一些测试，看看它是如何工作的。这就是 PEP 582 对我们开发工作流程的好处。
 
-## Publish your plugin
+## 发布插件
 
 Now you have defined your plugin already, let's distribute it to PyPI. PDM's plugins are discovered by entry point types.
 Create an `pdm` entry point and point to your plugin callable (yeah, it doesn't need to be a function, any callable object can work):

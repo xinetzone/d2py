@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Write a plugin &#8212; d2py 0.1 文档</title>
+    <title>编写插件 &#8212; d2py 0.1 文档</title>
     
   <link href="../../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -896,45 +896,45 @@ commentsRunWhenDOMLoaded(addUtterances);
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-should-a-plugin-do">
-   What should a plugin do
+  <a class="reference internal nav-link" href="#id2">
+   插件应该做什么
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#write-your-own-plugin">
-   Write your own plugin
+  <a class="reference internal nav-link" href="#id3">
+   编写你自己的插件
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#write-the-command">
-     Write the command
+    <a class="reference internal nav-link" href="#id4">
+     编写命令
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#register-the-command-to-the-core-object">
-     Register the command to the core object
+    <a class="reference internal nav-link" href="#id5">
+     将命令注册到核心对象
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-a-new-config-item">
-     Add a new config item
+    <a class="reference internal nav-link" href="#id6">
+     添加新的配置项
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-plugin-points">
-     Other plugin points
+    <a class="reference internal nav-link" href="#id7">
+     其他插件点
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tips-about-developing-a-pdm-plugin">
-     Tips about developing a PDM plugin.
+    <a class="reference internal nav-link" href="#pdm">
+     关于开发 PDM 插件的提示
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#publish-your-plugin">
-   Publish your plugin
+  <a class="reference internal nav-link" href="#id8">
+   发布插件
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -952,7 +952,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Write a plugin</h1>
+                <h1>编写插件</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -963,45 +963,45 @@ commentsRunWhenDOMLoaded(addUtterances);
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-should-a-plugin-do">
-   What should a plugin do
+  <a class="reference internal nav-link" href="#id2">
+   插件应该做什么
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#write-your-own-plugin">
-   Write your own plugin
+  <a class="reference internal nav-link" href="#id3">
+   编写你自己的插件
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#write-the-command">
-     Write the command
+    <a class="reference internal nav-link" href="#id4">
+     编写命令
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#register-the-command-to-the-core-object">
-     Register the command to the core object
+    <a class="reference internal nav-link" href="#id5">
+     将命令注册到核心对象
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-a-new-config-item">
-     Add a new config item
+    <a class="reference internal nav-link" href="#id6">
+     添加新的配置项
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-plugin-points">
-     Other plugin points
+    <a class="reference internal nav-link" href="#id7">
+     其他插件点
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tips-about-developing-a-pdm-plugin">
-     Tips about developing a PDM plugin.
+    <a class="reference internal nav-link" href="#pdm">
+     关于开发 PDM 插件的提示
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#publish-your-plugin">
-   Publish your plugin
+  <a class="reference internal nav-link" href="#id8">
+   发布插件
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1017,29 +1017,25 @@ commentsRunWhenDOMLoaded(addUtterances);
             </div>
             
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="write-a-plugin">
-<h1>Write a plugin<a class="headerlink" href="#write-a-plugin" title="永久链接至标题">¶</a></h1>
-<p>PDM is aiming at being a community driven package manager.
-It is shipped with a full-featured plug-in system, with which you can:</p>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>编写插件<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>PDM 的目标是成为一个社区驱动的软件包管理器。它配备了一个全功能的插件系统，你可以用它：</p>
 <ul class="simple">
-<li><p>Develop a new command for PDM</p></li>
-<li><p>Add additional options to existing PDM commands</p></li>
-<li><p>Change PDM’s behavior by reading additional config items</p></li>
-<li><p>Control the process of dependency resolution or installation</p></li>
+<li><p>为 PDM 开发新的命令</p></li>
+<li><p>为现有的 PDM 命令添加额外的选项</p></li>
+<li><p>通过读取额外的配置项来改变 PDM 的行为</p></li>
+<li><p>控制依赖关系的解决或安装过程</p></li>
 </ul>
-<div class="section" id="what-should-a-plugin-do">
-<h2>What should a plugin do<a class="headerlink" href="#what-should-a-plugin-do" title="永久链接至标题">¶</a></h2>
-<p>The core PDM project focuses on dependency management and package publishing. Other
-functionalities you wish to integrate with PDM are preferred to lie in their own plugins
-and released as standalone PyPI projects. In case the plugin is considered a good supplement
-of the core project it may have a chance to be absorbed into PDM.</p>
+<div class="section" id="id2">
+<h2>插件应该做什么<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>核心的 PDM 项目专注于依赖性管理和包的发布。你希望与 PDM 集成的其他功能，最好放在自己的插件中并作为独立的 PyPI 项目发布。如果该插件被认为是核心项目的一个很好的补充，它可能有机会被吸收到 PDM 中。</p>
 </div>
-<div class="section" id="write-your-own-plugin">
-<h2>Write your own plugin<a class="headerlink" href="#write-your-own-plugin" title="永久链接至标题">¶</a></h2>
-<p>In the following sections, I will show an example of adding a new command <code class="docutils literal notranslate"><span class="pre">hello</span></code> which reads the <code class="docutils literal notranslate"><span class="pre">hello.name</span></code> config.</p>
-<div class="section" id="write-the-command">
-<h3>Write the command<a class="headerlink" href="#write-the-command" title="永久链接至标题">¶</a></h3>
-<p>The PDM’s CLI module is designed in a way that user can easily “inherit and modify”. To write a new command:</p>
+<div class="section" id="id3">
+<h2>编写你自己的插件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>在下面的章节中，我将展示一个添加新命令 <code class="docutils literal notranslate"><span class="pre">hello</span></code> 的例子，它读取 <code class="docutils literal notranslate"><span class="pre">hello.name</span></code> 的配置。</p>
+<div class="section" id="id4">
+<h3>编写命令<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>PDM 的 CLI 模块的设计方式是，用户可以很容易地 “继承和修改”。要编写新的命令：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pdm.cli.commands.base</span> <span class="kn">import</span> <span class="n">BaseCommand</span>
 
 <span class="k">class</span> <span class="nc">HelloCommand</span><span class="p">(</span><span class="n">BaseCommand</span><span class="p">):</span>
@@ -1058,39 +1054,35 @@ of the core project it may have a chance to be absorbed into PDM.</p>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>First, let’s create a new <code class="docutils literal notranslate"><span class="pre">HelloCommand</span></code> class inheriting from <code class="docutils literal notranslate"><span class="pre">pdm.cli.commands.base.BaseCommand</span></code>. It has two major functions:</p>
+<p>首先，让我们创建一个新的 <code class="docutils literal notranslate"><span class="pre">HelloCommand</span></code> 类，继承自 <code class="docutils literal notranslate"><span class="pre">pdm.cli.command.base.BaseCommand</span></code>。它有两个主要功能：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">add_arguments()</span></code> to manipulate the argument parser passed as the only argument,
-where you can add additional command line arguments to it</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">handle()</span></code> to do something when the subcommand is matched, you can do nothing by writing a single <code class="docutils literal notranslate"><span class="pre">pass</span></code> statement.
-It accepts two arguments: an <code class="docutils literal notranslate"><span class="pre">pdm.project.Project</span></code> object as the first one and the parsed <code class="docutils literal notranslate"><span class="pre">argparse.Namespace</span></code> object as the second.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_arguments()</span></code> 来操作作为唯一参数传递的参数解析器。在这里你可以向它添加额外的命令行参数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handle()</span></code> 在子命令被匹配时做一些事情，你可以通过写一个 <code class="docutils literal notranslate"><span class="pre">pass</span></code> 语句来做任何事情。它接受两个参数：第一个是 <code class="docutils literal notranslate"><span class="pre">pdm.project.Project</span></code> 对象，第二个是解析后的 <code class="docutils literal notranslate"><span class="pre">argparse.Namespace</span></code> 对象。</p></li>
 </ul>
-<p>The document string will serve as the command help text, which will be shown in <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">--help</span></code>.</p>
-<p>Besides, PDM’s subcommand has two default options: <code class="docutils literal notranslate"><span class="pre">-v/--verbose</span></code> to change the verbosity level and <code class="docutils literal notranslate"><span class="pre">-g/--global</span></code> to enable global project.
-If you don’t want these default options, override the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> class attribute to a list of <code class="docutils literal notranslate"><span class="pre">pdm.cli.options.Option</span></code> objects, or
-assign it to an empty list to have no default options:</p>
+<p>该文件字符串将作为命令帮助文本，在 <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">--help</span></code> 中显示。</p>
+<p>此外，PDM 的子命令有两个默认选项：<code class="docutils literal notranslate"><span class="pre">-v/--verbose</span></code> 用于改变 verbosity 程度，<code class="docutils literal notranslate"><span class="pre">-g/--global</span></code> 用于启用全局项目。如果你不想要这些默认选项，可以将 <code class="docutils literal notranslate"><span class="pre">arguments</span></code> 类属性覆盖到 <code class="docutils literal notranslate"><span class="pre">pdm.cli.options.Option</span></code> 对象的列表中，或者将其分配到一个空列表中，就没有默认选项了：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HelloCommand</span><span class="p">(</span><span class="n">BaseCommand</span><span class="p">):</span>
 
     <span class="n">arguments</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
-<p>!!! note
-The default options are loaded first, then <code class="docutils literal notranslate"><span class="pre">add_arguments()</span></code> is called.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>首先加载默认选项，然后调用 <code class="docutils literal notranslate"><span class="pre">add_arguments()</span></code>。</p>
 </div>
-<div class="section" id="register-the-command-to-the-core-object">
-<h3>Register the command to the core object<a class="headerlink" href="#register-the-command-to-the-core-object" title="永久链接至标题">¶</a></h3>
-<p>Write a function somewhere in your plugin project. There is no limit on what the name of the function is,
-but the function should take only one argument – the PDM core object:</p>
+</div>
+<div class="section" id="id5">
+<h3>将命令注册到核心对象<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>在你的插件项目的某个地方写一个函数。对函数的名称没有限制。但该函数应该只接受一个参数 – PDM 核心对象：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_plugin</span><span class="p">(</span><span class="n">core</span><span class="p">):</span>
     <span class="n">core</span><span class="o">.</span><span class="n">register_command</span><span class="p">(</span><span class="n">HelloCommand</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Call <code class="docutils literal notranslate"><span class="pre">core.register_command()</span></code> to register the command. The second argument as the name of the subcommand is optional.
-PDM will look for the <code class="docutils literal notranslate"><span class="pre">HelloCommand</span></code>’s <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute if the name is not passed.</p>
+<p>调用 <code class="docutils literal notranslate"><span class="pre">core.register_command()</span></code> 来注册该命令。第二个参数作为子命令的名称是可选的。如果没有传递名称，PDM 将寻找 <code class="docutils literal notranslate"><span class="pre">HelloCommand</span></code> 的 <code class="docutils literal notranslate"><span class="pre">name</span></code> 属性。</p>
 </div>
-<div class="section" id="add-a-new-config-item">
-<h3>Add a new config item<a class="headerlink" href="#add-a-new-config-item" title="永久链接至标题">¶</a></h3>
-<p>Let’s recall the first code snippet, <code class="docutils literal notranslate"><span class="pre">hello.name</span></code> config key is consulted for the name if not passed via the command line.</p>
+<div class="section" id="id6">
+<h3>添加新的配置项<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>让我们回顾一下第一个代码片断，如果不是通过命令行传递，<code class="docutils literal notranslate"><span class="pre">hello.name</span></code> 配置键会被查询到名字。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HelloCommand</span><span class="p">(</span><span class="n">BaseCommand</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Say hello to the specified person.</span>
 <span class="sd">    If none is given, will read from &quot;hello.name&quot; config.</span>
@@ -1107,8 +1099,7 @@ PDM will look for the <code class="docutils literal notranslate"><span class="pr
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Till now, if you query the config value by <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">config</span> <span class="pre">get</span> <span class="pre">hello.name</span></code>, an error will pop up saying it is not a valid config key.
-You need to register the config item, too:</p>
+<p>到现在为止，如果你通过 <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">config</span> <span class="pre">get</span> <span class="pre">hello.name</span></code> 查询配置值，会弹出一个错误，说它不是一个有效的配置键。你也需要注册这个配置项：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pdm.project.config</span> <span class="kn">import</span> <span class="n">ConfigItem</span>
 
 <span class="k">def</span> <span class="nf">hello_plugin</span><span class="p">(</span><span class="n">core</span><span class="p">):</span>
@@ -1116,38 +1107,30 @@ You need to register the config item, too:</p>
     <span class="n">core</span><span class="o">.</span><span class="n">add_config</span><span class="p">(</span><span class="s2">&quot;hello.name&quot;</span><span class="p">,</span> <span class="n">ConfigItem</span><span class="p">(</span><span class="s2">&quot;The person&#39;s name&quot;</span><span class="p">,</span> <span class="s2">&quot;John&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">ConfigItem</span></code> class takes 4 parameters, in the following order:</p>
+<p>其中 <code class="docutils literal notranslate"><span class="pre">ConfigItem</span></code> 类需要 4 个参数，顺序如下：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>: a description of the config item</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code>: default value of the config item</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">global_only</span></code>: whether the config is allowed to set in home config only</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">env_var</span></code>: the name of environment variable which will be read as the config value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>：对配置项的描述</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code>：配置项的默认值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">global_only</span></code>：是否只允许在主配置中设置配置</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">env_var</span></code>：环境变量的名称，将作为配置值被读取</p></li>
 </ul>
 </div>
-<div class="section" id="other-plugin-points">
-<h3>Other plugin points<a class="headerlink" href="#other-plugin-points" title="永久链接至标题">¶</a></h3>
-<p>Besides of commands and configurations, the <code class="docutils literal notranslate"><span class="pre">core</span></code> object exposes some other methods and attributes to override.
-PDM also provides some signals you can listen to.
-Please read the <a class="reference external" href="https://pdm.fming.dev/plugin/reference/">API reference</a> for more details.</p>
+<div class="section" id="id7">
+<h3>其他插件点<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>除了命令和配置，“核心” 对象还暴露了一些其他的方法和属性来覆盖。PDM 还提供了一些你可以监听的信号。请阅读 <a class="reference external" href="https://pdm.fming.dev/plugin/reference/">API参考</a> 了解更多细节。</p>
 </div>
-<div class="section" id="tips-about-developing-a-pdm-plugin">
-<h3>Tips about developing a PDM plugin.<a class="headerlink" href="#tips-about-developing-a-pdm-plugin" title="永久链接至标题">¶</a></h3>
-<p>When developing a plugin, one hopes to activate and plugin in development and get updated when the code changes. This is usually done
-by <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></code> in the <strong>traditional</strong> Python packaging world which leverages <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> to do so. However,
-as there is no such <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> in a PDM project, how can we do that?</p>
-<p>Fortunately, it becomes even easier with PDM and PEP 582. First, you should enable PEP 582 globally following the
-<a class="reference external" href="../index.md#enable-pep-582-globally">corresponding part of this doc</a>. Then you just need to install all dependencies into the <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code> directory by:</p>
+<div class="section" id="pdm">
+<h3>关于开发 PDM 插件的提示<a class="headerlink" href="#pdm" title="永久链接至标题">¶</a></h3>
+<p>在开发插件时，人们希望在开发中激活和插件，并在代码改变时得到更新。这通常是通过 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> 或 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></code> 在传统的 Python 包装世界中，利用 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> 来实现。然而。由于在 PDM 项目中没有这样的 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>，我们如何才能做到呢？</p>
+<p>幸运的是，有了 PDM 和 PEP 582，它变得更加容易。首先，你应该在全局范围内启用 <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0582"><strong>PEP 582</strong></a>，按照 <a class="reference external" href="../index.md#enable-pep-582-globally">本文档的相应部分</a>。然后你只需要通过以下方式将所有的依赖项安装到 <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code> 目录中：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm install
 </pre></div>
 </div>
-<p>After that, all the dependencies are available with a compatible Python interpreter, including the plugin itself, in editable mode. That means any change
-to the codebase will take effect immediately without re-installation. The <code class="docutils literal notranslate"><span class="pre">pdm</span></code> executable also uses a Python interpreter under the hood,
-so if you run <code class="docutils literal notranslate"><span class="pre">pdm</span></code> from inside the plugin project, the plugin in development will be activated automatically, and you can do some testing to see how it works.
-That is how PEP 582 benefits our development workflow.</p>
+<p>之后，所有的依赖都可以用兼容的 Python 解释器，包括插件本身，在可编辑模式下。这意味着对代码库的任何改变都会立即生效，而不需要重新安装。<code class="docutils literal notranslate"><span class="pre">pdm</span></code> 可执行文件也在引擎盖下使用 Python 解释器。所以如果你在插件项目中运行 <code class="docutils literal notranslate"><span class="pre">pdm</span></code>，开发中的插件将被自动激活，你可以做一些测试，看看它是如何工作的。这就是 PEP 582 对我们开发工作流程的好处。</p>
 </div>
 </div>
-<div class="section" id="publish-your-plugin">
-<h2>Publish your plugin<a class="headerlink" href="#publish-your-plugin" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h2>发布插件<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>Now you have defined your plugin already, let’s distribute it to PyPI. PDM’s plugins are discovered by entry point types.
 Create an <code class="docutils literal notranslate"><span class="pre">pdm</span></code> entry point and point to your plugin callable (yeah, it doesn’t need to be a function, any callable object can work):</p>
 <p><strong>PEP 621</strong>:</p>

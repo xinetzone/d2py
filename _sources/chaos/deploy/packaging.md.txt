@@ -117,12 +117,12 @@ poetry completions zsh > ~/.zprezto/modules/completion/external/src/_poetry
 
 Hatch 是一个现代的、可扩展的 Python 项目管理器。支持：
 
-    - 标准化的 [构建系统](https://ofek.dev/hatch/dev/build/#packaging-ecosystem)，默认为可重复构建
-    - 强大的 [环境管理](https://ofek.dev/hatch/dev/environment/)，支持自定义脚本
-    - 轻松 [发布](https://ofek.dev/hatch/dev/publish/) 到 PyPI 或其他资源
-    - [版本管理](https://ofek.dev/hatch/dev/version/)
-    - 可配置的 [项目生成](https://ofek.dev/hatch/dev/config/project-templates/)，具有合理的默认值
-    - 反应灵敏的 CLI，比同等工具快 2-3 倍
+- 标准化的 [构建系统](https://ofek.dev/hatch/dev/build/#packaging-ecosystem)，默认为可重复构建
+- 强大的 [环境管理](https://ofek.dev/hatch/dev/environment/)，支持自定义脚本
+- 轻松 [发布](https://ofek.dev/hatch/dev/publish/) 到 PyPI 或其他资源
+- [版本管理](https://ofek.dev/hatch/dev/version/)
+- 可配置的 [项目生成](https://ofek.dev/hatch/dev/config/project-templates/)，具有合理的默认值
+- 反应灵敏的 CLI，比同等工具快 2-3 倍
 
 [安装](https://ofek.dev/hatch/dev/install/)：
 
