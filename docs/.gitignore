@@ -1,2 +1,9 @@
 *.mo
-api/
+# locales/zh_CN/LC_MESSAGES/**/
+locales/zh_CN/LC_MESSAGES/about
+locales/zh_CN/LC_MESSAGES/analysis
+locales/zh_CN/LC_MESSAGES/chaos
+locales/zh_CN/LC_MESSAGES/news
+locales/zh_CN/LC_MESSAGES/posts
+locales/zh_CN/LC_MESSAGES/python-study
+locales/zh_CN/LC_MESSAGES/reference

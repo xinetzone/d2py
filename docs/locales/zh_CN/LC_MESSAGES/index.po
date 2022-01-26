@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d2py \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-25 14:28+0800\n"
+"POT-Creation-Date: 2022-01-26 10:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,27 +91,30 @@ msgstr "提供 PyPI 支持："
 msgid "For documentation see [d2py](https://xinetzone.github.io/d2py)."
 msgstr "文档主页：[d2py](https://xinetzone.github.io/d2py)。"
 
-#: ../../index.md:6
+#: ../../index.md:19
 msgid "看看谁在使用"
 msgstr ""
 
-#: ../../index.md:8
-msgid "使用 [libraries.io](https://libraries.io/pypi/d2py) 查看谁在使用 d2py。"
+#: ../../index.md:21
+msgid "使用 [libraries.io](https://libraries.io/pypi/d2py) 查看谁在使用 {mod}`d2py`。"
 msgstr ""
 
-#: ../../index.md:24
+#: ../../index.md:23
 msgid "索引和表格"
 msgstr ""
 
-#: ../../index.md:26
+#: ../../index.md:25
 msgid "{ref}`genindex`"
 msgstr ""
 
-#: ../../index.md:27
+#: ../../index.md:26
 msgid "{ref}`modindex`"
 msgstr ""
 
-#: ../../index.md:28
+#: ../../index.md:27
 msgid "{ref}`search`"
 msgstr ""
+
+#~ msgid "使用 [libraries.io](https://libraries.io/pypi/d2py) 查看谁在使用 d2py。"
+#~ msgstr ""
 

@@ -2,25 +2,24 @@
 参考
 ####################
 
+.. currentmodule:: d2py
+
+    
 .. toctree::
     :hidden:
     
     analysis/index
-    utils/index
+    utils
 
-.. currentmodule:: d2py
-
-.. automodapi:: d2py
-
-``d2py.analysis``
+``analysis``
 ===================
 
 .. autosummary::
 
-    d2py.analysis
+    d2py.analysis.numbers
 
 
-``d2py.utils``
+``utils``
 ================
 
 .. autosummary::
