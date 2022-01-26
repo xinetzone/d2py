@@ -124,8 +124,7 @@ pdm install
 
 ## 发布插件
 
-Now you have defined your plugin already, let's distribute it to PyPI. PDM's plugins are discovered by entry point types.
-Create an `pdm` entry point and point to your plugin callable (yeah, it doesn't need to be a function, any callable object can work):
+现在你已经定义了你的插件，让我们把它分发到 PyPI。PDM 的插件是通过入口点类型发现的。创建一个 `pdm` 入口点，并指向你的插件可调用（是的，它不需要是一个函数，任何可调用对象都可以）：
 
 **PEP 621**:
 
@@ -148,22 +147,21 @@ setup(
 )
 ```
 
-## Activate the plugin
+## 激活插件
 
-As plugins are loaded via entry points, they can be activated with no more steps than just installing the plugin.
-For convenience, PDM provides a `plugin` command group to manage plugins.
+由于插件是通过入口点加载的，它们可以在没有更多步骤的情况下被激活，而只是安装插件。为了方便，PDM 提供了一个 `plugin` 命令组来管理插件。
 
-Assume your plugin is published as `pdm-hello`:
+假设你的插件是以 `pdm-hello` 的名义发布的：
 
 ```bash
 pdm plugin add pdm-hello
 ```
 
-Now type `pdm --help` in the terminal, you will see the new added `hello` command and use it:
+现在在终端输入 `pdm --help`，你会看到新增加的 `hello` 命令并使用它：
 
 ```bash
 $ pdm hello Jack
 Hello, Jack
 ```
 
-See more plugin management subcommands by typing `pdm plugin --help` in the terminal.
+通过在终端键入 `pdm plugin --help` 查看更多插件管理子命令。
