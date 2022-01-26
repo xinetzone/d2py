@@ -1,0 +1,1537 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage project &#8212; d2py 0.1 文档</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/tabs.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/d2py");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="../../../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/chaos/deploy/pdm/usage/project.html" />
+    <link rel="shortcut icon" href="../../../../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../search.html" />
+    <link rel="next" title="Advanced Usage" href="advanced.html" />
+    <link rel="prev" title="管理依赖" href="dependency.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">d2py 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../python-study/index.html">
+   Python 学习手册
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../python-study/basic/index.html">
+     Python 基础教程
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../python-study/basic/intro/index.html">
+       Python 简介
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python-study/basic/intro/understand-python.html">
+         解读 Python 世界的修炼体系
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python-study/basic/intro/basic-type.html">
+         Python 基本数据类型
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/function.html">
+       函数
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../python-study/basic/container/index.html">
+       容器
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+      <label for="toctree-checkbox-4">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python-study/basic/container/set.html">
+         集合
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python-study/basic/container/dict.html">
+         字典
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python-study/basic/container/sequence.html">
+         序列
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/controlflow.html">
+       流程控制
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/modules.html">
+       模块
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/class.html">
+       类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/template.html">
+       模板
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/threading.html">
+       多线程
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/logging.html">
+       日志记录
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/weakref.html">
+       弱引用
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/argparse.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         argparse
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/input-output.html">
+       输入与输出
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/basic/match-statement.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         match
+        </span>
+       </code>
+       语句
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../python-study/topics/index.html">
+     Python 主题手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/topics/Nuitka.html">
+       Python 编译器 Nuitka
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/topics/abc.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         abc
+        </span>
+       </code>
+       抽象基类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/topics/annotations.html">
+       注解
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/topics/argparse.html">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         argparse
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/topics/custom-numbers.html">
+       自定义数字
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/topics/f-string.html">
+       格式字符串字面值
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/topics/metaclass.html">
+       元类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/topics/refs.html">
+       临时区
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/topics/sys.html">
+       系统相关
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python-study/faqs/index.html">
+     常见问题
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../python-study/refs/index.html">
+     Python 参考手册
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/refs/constants.html">
+       内置常量
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/refs/terms.html">
+       术语中英对照表
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../python-study/refs/glossary/index.html">
+       术语表
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python-study/refs/glossary/basic.html">
+         基本术语
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python-study/refs/glossary/exec.html">
+         异常
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python-study/refs/glossary/identifier.html">
+         标识符
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../python-study/refs/glossary/value.html">
+         字面值
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/refs/sources.html">
+       Python 学习资源
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../python-study/demo.html">
+     Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../python-study/drafts/index.html">
+     草稿
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/101.html">
+       一、5 个值得在 2018 年关注的库
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/22.html">
+       存储数据
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/33.html">
+       类也是对象
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/44.html">
+       描述器是什么？
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/55.html">
+       字符编码方法
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/66.html">
+       类型和运算 (Types and Operations)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/88.html">
+       函数基础
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/class.html">
+       class
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/draft.html">
+       回收站
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/exc.html">
+       异常（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/file.html">
+       I/O操作（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/iter.html">
+       迭代&amp;生成（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/math.html">
+       Python 中的数学（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/oop.html">
+       OOP: The Big Picture
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/op.html">
+       运算符（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/re.html">
+       re
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/socket.html">
+       网络
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/str.html">
+       字符编码方法
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/type.html">
+       Python 数据类型转换（draft）
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../python-study/drafts/%E7%88%AC%E8%99%AB.html">
+       爬虫
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../analysis/index.html">
+   泛函分析
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../analysis/draft/index.html">
+     回收站
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../analysis/draft/abc.html">
+       抽象基类
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../analysis/draft/annotations.html">
+       对象注解
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../analysis/draft/descriptor.html">
+       描述器
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../analysis/draft/typing.html">
+       类型提示
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../reference/index.html">
+   参考
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../reference/analysis/index.html">
+     现代分析
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../reference/analysis/numbers.html">
+       数的抽象基类
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../reference/utils/index.html">
+     utils
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../reference/utils/file.html">
+       file
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../api/d2py.utils.file.mkdir.html">
+         mkdir
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../reference/utils/unzip.html">
+       unzip
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../api/d2py.utils.unzip.decode_path.html">
+         decode_path
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../api/d2py.utils.unzip.extract.html">
+         extract
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../api/d2py.utils.unzip.extract_all.html">
+         extract_all
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../../index.html">
+   混沌
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../GUI/index.html">
+     GUI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../web/index.html">
+     Web
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../../index.html">
+     部署
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="../index.html">
+       PDM
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+      <label for="toctree-checkbox-18">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../intro.html">
+         简介
+        </a>
+       </li>
+       <li class="toctree-l4 current active">
+        <a class="reference internal" href="index.html">
+         用法
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../pyproject/index.html">
+         编写
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           pyproject.toml
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../configuration.html">
+         配置
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../plugin/index.html">
+         插件
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../dev/index.html">
+         开发
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../packaging.html">
+       打包
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../other.html">
+       其他
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../posts/index.html">
+   博客
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../about/feature.html">
+     特性
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../about/use.html">
+     项目使用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../CODE_OF_CONDUCT.html">
+     行为准则
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../CONTRIBUTING.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../SECURITY.html">
+     安全策略
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../news/index.html">
+   Python 新闻
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">切换导航</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/chaos/deploy/pdm/usage/project.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="源库"><i
+                    class="fab fa-github"></i>资料库</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fchaos/deploy/pdm/usage/project.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/chaos/deploy/pdm/usage/project.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
+        title="全屏模式"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choose-a-python-interpreter">
+   Choose a Python interpreter
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-requires-python-controls-the-project">
+     How
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       requires-python
+      </span>
+     </code>
+     controls the project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-distribution-artifacts">
+   Build distribution artifacts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show-the-current-python-environment">
+   Show the current Python environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configure-the-project">
+   Configure the project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cache-the-installation-of-wheels">
+   Cache the installation of wheels
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-global-project">
+   Manage global project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-a-virtualenv">
+   Working with a virtualenv
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-project-metadata-from-existing-project-files">
+   Import project metadata from existing project files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#export-locked-packages-to-alternative-formats">
+   Export locked packages to alternative formats
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hide-the-credentials-from-pyproject-toml">
+   Hide the credentials from pyproject.toml
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-scripts-in-isolated-environment">
+   Run Scripts in Isolated Environment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normal-command">
+     Normal command
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shell-script">
+     Shell script
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#call-a-python-function">
+     Call a Python function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#environment-variables-support">
+     Environment variables support
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-site-packages-in-the-running-environment">
+     Load site-packages in the running environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#show-the-list-of-scripts-shortcuts">
+     Show the list of scripts shortcuts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-caches">
+   Manage caches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-we-make-pep-582-packages-available-to-the-python-interpreter">
+   How we make PEP 582 packages available to the Python interpreter
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Manage project</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choose-a-python-interpreter">
+   Choose a Python interpreter
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-requires-python-controls-the-project">
+     How
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       requires-python
+      </span>
+     </code>
+     controls the project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-distribution-artifacts">
+   Build distribution artifacts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show-the-current-python-environment">
+   Show the current Python environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configure-the-project">
+   Configure the project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cache-the-installation-of-wheels">
+   Cache the installation of wheels
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-global-project">
+   Manage global project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-a-virtualenv">
+   Working with a virtualenv
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-project-metadata-from-existing-project-files">
+   Import project metadata from existing project files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#export-locked-packages-to-alternative-formats">
+   Export locked packages to alternative formats
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hide-the-credentials-from-pyproject-toml">
+   Hide the credentials from pyproject.toml
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-scripts-in-isolated-environment">
+   Run Scripts in Isolated Environment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normal-command">
+     Normal command
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shell-script">
+     Shell script
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#call-a-python-function">
+     Call a Python function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#environment-variables-support">
+     Environment variables support
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-site-packages-in-the-running-environment">
+     Load site-packages in the running environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#show-the-list-of-scripts-shortcuts">
+     Show the list of scripts shortcuts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manage-caches">
+   Manage caches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-we-make-pep-582-packages-available-to-the-python-interpreter">
+   How we make PEP 582 packages available to the Python interpreter
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="manage-project">
+<h1>Manage project<a class="headerlink" href="#manage-project" title="永久链接至标题">¶</a></h1>
+<p>PDM can act as a PEP 517 build backend, to enable that, write the following lines in your
+<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. If you used <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">init</span></code> to create it for you, it should be done already.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span><span class="w"></span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;pdm-pep517&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pdm.pep517.api&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> will read the backend settings to install or build a package.</p>
+<div class="section" id="choose-a-python-interpreter">
+<h2>Choose a Python interpreter<a class="headerlink" href="#choose-a-python-interpreter" title="永久链接至标题">¶</a></h2>
+<p>If you have used <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">init</span></code>, you must have already seen how PDM detects and selects the Python
+interpreter. After initialized, you can also change the settings by <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">use</span> <span class="pre">&lt;python_version_or_path&gt;</span></code>.
+The argument can be either a version specifier of any length, or a relative or absolute path to the
+python interpreter, but remember the Python interpreter must conform with the <code class="docutils literal notranslate"><span class="pre">python_requires</span></code>
+constraint in the project file.</p>
+<div class="section" id="how-requires-python-controls-the-project">
+<h3>How <code class="docutils literal notranslate"><span class="pre">requires-python</span></code> controls the project<a class="headerlink" href="#how-requires-python-controls-the-project" title="永久链接至标题">¶</a></h3>
+<p>PDM respects the value of <code class="docutils literal notranslate"><span class="pre">requires-python</span></code> in the way that it tries to pick package candidates that can work
+on all python versions that <code class="docutils literal notranslate"><span class="pre">requires-python</span></code> contains. For example, if <code class="docutils literal notranslate"><span class="pre">requires-python</span></code> is <code class="docutils literal notranslate"><span class="pre">&gt;=2.7</span></code>, PDM will try
+to find the latest version of <code class="docutils literal notranslate"><span class="pre">foo</span></code>, whose <code class="docutils literal notranslate"><span class="pre">requires-python</span></code> version range is a <strong>superset</strong> of <code class="docutils literal notranslate"><span class="pre">&gt;=2.7</span></code>.</p>
+<p>So, make sure you write <code class="docutils literal notranslate"><span class="pre">requires-python</span></code> properly if you don’t want any outdated packages to be locked.</p>
+</div>
+</div>
+<div class="section" id="build-distribution-artifacts">
+<h2>Build distribution artifacts<a class="headerlink" href="#build-distribution-artifacts" title="永久链接至标题">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pdm build
+<span class="go">- Building sdist...</span>
+<span class="go">- Built pdm-test-0.0.0.tar.gz</span>
+<span class="go">- Building wheel...</span>
+<span class="go">- Built pdm_test-0.0.0-py3-none-any.whl</span>
+</pre></div>
+</div>
+<p>The artifacts can then be uploaded to PyPI by <a class="reference external" href="https://pypi.org/project/twine">twine</a> or using the
+<a class="reference external" href="https://github.com/branchvincent/pdm-publish">pdm-publish</a> plugin. Available options can be found by
+typing <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">build</span> <span class="pre">--help</span></code>.</p>
+</div>
+<div class="section" id="show-the-current-python-environment">
+<h2>Show the current Python environment<a class="headerlink" href="#show-the-current-python-environment" title="永久链接至标题">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pdm info
+<span class="go">Python Interpreter: D:/Programs/Python/Python38/python.exe (3.8.0)</span>
+<span class="go">Project Root:       D:/Workspace/pdm</span>
+<span class="go">                                                                                                                                   [10:42]</span>
+<span class="gp">$ </span>pdm info --env
+<span class="go">{</span>
+<span class="go">  &quot;implementation_name&quot;: &quot;cpython&quot;,</span>
+<span class="go">  &quot;implementation_version&quot;: &quot;3.8.0&quot;,</span>
+<span class="go">  &quot;os_name&quot;: &quot;nt&quot;,</span>
+<span class="go">  &quot;platform_machine&quot;: &quot;AMD64&quot;,</span>
+<span class="go">  &quot;platform_release&quot;: &quot;10&quot;,</span>
+<span class="go">  &quot;platform_system&quot;: &quot;Windows&quot;,</span>
+<span class="go">  &quot;platform_version&quot;: &quot;10.0.18362&quot;,</span>
+<span class="go">  &quot;python_full_version&quot;: &quot;3.8.0&quot;,</span>
+<span class="go">  &quot;platform_python_implementaiton&quot;: &quot;CPython&quot;,</span>
+<span class="go">  &quot;python_version&quot;: &quot;3.8&quot;,</span>
+<span class="go">  &quot;sys_platform&quot;: &quot;win32&quot;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-project">
+<h2>Configure the project<a class="headerlink" href="#configure-the-project" title="永久链接至标题">¶</a></h2>
+<p>PDM’s <code class="docutils literal notranslate"><span class="pre">config</span></code> command works just like <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code>, except that <code class="docutils literal notranslate"><span class="pre">--list</span></code> isn’t needed to
+show configurations.</p>
+<p>Show the current configurations:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pdm config</span>
+</pre></div>
+</div>
+<p>Get one single configuration:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pdm config pypi.url</span>
+</pre></div>
+</div>
+<p>Change a configuration value and store in home configuration:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pdm config pypi.url &quot;https://test.pypi.org/simple&quot;</span>
+</pre></div>
+</div>
+<p>By default, the configuration are changed globally, if you want to make the config seen by this project only, add a <code class="docutils literal notranslate"><span class="pre">--local</span></code> flag:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pdm config --local pypi.url &quot;https://test.pypi.org/simple&quot;</span>
+</pre></div>
+</div>
+<p>Any local configurations will be stored in <code class="docutils literal notranslate"><span class="pre">.pdm.toml</span></code> under the project root directory.</p>
+<p>The configuration files are searched in the following order:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;PROJECT_ROOT&gt;/.pdm.toml</span></code> - The project configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.pdm/config.toml</span></code> - The home configuration</p></li>
+</ol>
+<p>If <code class="docutils literal notranslate"><span class="pre">-g/--global</span></code> option is used, the first item will be replaced by <code class="docutils literal notranslate"><span class="pre">~/.pdm/global-project/.pdm.toml</span></code>.</p>
+<p>You can find all available configuration items in <a class="reference internal" href="../configuration.html"><span class="doc std std-doc">Configuration Page</span></a>.</p>
+</div>
+<div class="section" id="cache-the-installation-of-wheels">
+<h2>Cache the installation of wheels<a class="headerlink" href="#cache-the-installation-of-wheels" title="永久链接至标题">¶</a></h2>
+<p>If a package is required by many projects on the system, each project has to keep its own copy. This may become a waste of disk space especially for data science and machine learning libraries.</p>
+<p>PDM supports <em>caching</em> the installations of the same wheel by installing it into a centralized package repository and linking to that installation in different projects. To enabled it, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm config feature.install_cache on
+</pre></div>
+</div>
+<p>It can be enabled on a project basis, by adding <code class="docutils literal notranslate"><span class="pre">--local</span></code> option to the command.</p>
+<p>The caches are located under <code class="docutils literal notranslate"><span class="pre">$(pdm</span> <span class="pre">config</span> <span class="pre">cache_dir)/packages</span></code>. One can view the cache usage by <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">cache</span> <span class="pre">info</span></code>. But be noted the cached installations are managed automatically – They get deleted when not linked from any projects. Manually deleting the caches from the disk may break some projects on the system.</p>
+<p>!!! note
+Only the installation of <em>named requirements</em> resolved from PyPI can be cached.</p>
+</div>
+<div class="section" id="manage-global-project">
+<h2>Manage global project<a class="headerlink" href="#manage-global-project" title="永久链接至标题">¶</a></h2>
+<p>Sometimes users may want to keep track of the dependencies of global Python interpreter as well.
+It is easy to do so with PDM, via <code class="docutils literal notranslate"><span class="pre">-g/--global</span></code> option which is supported by most subcommands.</p>
+<p>If the option is passed, <code class="docutils literal notranslate"><span class="pre">~/.pdm/global-project</span></code> will be used as the project directory, which is
+almost the same as normal project except that <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> will be created automatically for you
+and it doesn’t support build features. The idea is taken from Haskell’s <a class="reference external" href="https://docs.haskellstack.org">stack</a>.</p>
+<p>However, unlike <code class="docutils literal notranslate"><span class="pre">stack</span></code>, by default, PDM won’t use global project automatically if a local project is not found.
+Users should pass <code class="docutils literal notranslate"><span class="pre">-g/--global</span></code> explicitly to activate it, since it is not very pleasing if packages go to a wrong place.
+But PDM also leave the decision to users, just set the config <code class="docutils literal notranslate"><span class="pre">auto_global</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>If you want global project to track another project file other than <code class="docutils literal notranslate"><span class="pre">~/.pdm/global-project</span></code>, you can provide the
+project path via <code class="docutils literal notranslate"><span class="pre">-p/--project</span> <span class="pre">&lt;path&gt;</span></code> option.</p>
+<p>!!! attention “CAUTION”
+Be careful with <code class="docutils literal notranslate"><span class="pre">remove</span></code> and <code class="docutils literal notranslate"><span class="pre">sync</span> <span class="pre">--clean</span></code> commands when global project is used, because it may remove packages installed in your system Python.</p>
+</div>
+<div class="section" id="working-with-a-virtualenv">
+<h2>Working with a virtualenv<a class="headerlink" href="#working-with-a-virtualenv" title="永久链接至标题">¶</a></h2>
+<p>Although PDM enforces PEP 582 by default, it also allows users to install packages into the virtualenv. It is controlled
+by the configuration item <code class="docutils literal notranslate"><span class="pre">use_venv</span></code>. When it is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, PDM will use the virtualenv if:</p>
+<ul class="simple">
+<li><p>a virtualenv is already activated.</p></li>
+<li><p>any of <code class="docutils literal notranslate"><span class="pre">venv</span></code>, <code class="docutils literal notranslate"><span class="pre">.venv</span></code>, <code class="docutils literal notranslate"><span class="pre">env</span></code> is a valid virtualenv folder.</p></li>
+</ul>
+<p>Besides, when <code class="docutils literal notranslate"><span class="pre">use-venv</span></code> is on and the interpreter path given is a venv-like path, PDM will reuse that venv directory as well.</p>
+<p>For enhanced virtualenv support such as virtualenv management and auto-creation, please go for <a class="reference external" href="https://github.com/pdm-project/pdm-venv">pdm-venv</a>,
+which can be installed as a plugin.</p>
+</div>
+<div class="section" id="import-project-metadata-from-existing-project-files">
+<h2>Import project metadata from existing project files<a class="headerlink" href="#import-project-metadata-from-existing-project-files" title="永久链接至标题">¶</a></h2>
+<p>If you are already other package manager tools like Pipenv or Poetry, it is easy to migrate to PDM.
+PDM provides <code class="docutils literal notranslate"><span class="pre">import</span></code> command so that you don’t have to initialize the project manually, it now supports:</p>
+<ol class="simple">
+<li><p>Pipenv’s <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code></p></li>
+<li><p>Poetry’s section in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></p></li>
+<li><p>Flit’s section in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> format used by Pip</p></li>
+</ol>
+<p>Also, when you are executing <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">init</span></code> or <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code>, PDM can auto-detect possible files to import
+if your PDM project has not been initialized yet.</p>
+</div>
+<div class="section" id="export-locked-packages-to-alternative-formats">
+<h2>Export locked packages to alternative formats<a class="headerlink" href="#export-locked-packages-to-alternative-formats" title="永久链接至标题">¶</a></h2>
+<p>You can also export <code class="docutils literal notranslate"><span class="pre">pdm.lock</span></code> to other formats, to ease the CI flow or image building process. Currently,
+only <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> format is supported:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pdm export -o requirements.txt</span>
+<span class="go">pdm export -f setuppy -o setup.py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hide-the-credentials-from-pyproject-toml">
+<h2>Hide the credentials from pyproject.toml<a class="headerlink" href="#hide-the-credentials-from-pyproject-toml" title="永久链接至标题">¶</a></h2>
+<p>There are many times when we need to use sensitive information, such as login credentials for the PyPI server
+and username passwords for VCS repositories. We do not want to expose this information in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> and upload it to git.</p>
+<p>PDM provides several methods to achieve this:</p>
+<ol>
+<li><p>User can give the auth information with environment variables which are encoded in the URL directly:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[[tool.pdm.source]]</span><span class="w"></span>
+<span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://${INDEX_USER}:${INDEX_PASSWD}@test.pypi.org/simple&quot;</span><span class="w"></span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="w"></span>
+<span class="n">verify_ssl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+
+<span class="k">[project]</span><span class="w"></span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;mypackage @ git+http://${VCS_USER}:${VCS_PASSWD}@test.git.com/test/mypackage.git@master&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Environment variables must be encoded in the form <code class="docutils literal notranslate"><span class="pre">${ENV_NAME}</span></code>, other forms are not supported. Besides, only auth part will be expanded.</p>
+</li>
+<li><p>If the credentials are not provided in the URL and a 401 response is received from the server, PDM will prompt for username and password when <code class="docutils literal notranslate"><span class="pre">-v/--verbose</span></code>
+is passed as command line argument, otherwise PDM will fail with an error telling users what happens. Users can then choose to store the credentials in the
+keyring after a confirmation question.</p></li>
+<li><p>A VCS repository applies the first method only, and an index server applies both methods.</p></li>
+</ol>
+</div>
+<div class="section" id="run-scripts-in-isolated-environment">
+<h2>Run Scripts in Isolated Environment<a class="headerlink" href="#run-scripts-in-isolated-environment" title="永久链接至标题">¶</a></h2>
+<p>With PDM, you can run arbitrary scripts or commands with local packages loaded:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm run flask run -p <span class="m">54321</span>
+</pre></div>
+</div>
+<p>PDM also supports custom script shortcuts in the optional <code class="docutils literal notranslate"><span class="pre">[tool.pdm.scripts]</span></code> section of <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
+<p>You can then run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span> <span class="pre">&lt;shortcut_name&gt;</span></code> to invoke the script in the context of your PDM project. For example:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm.scripts]</span><span class="w"></span>
+<span class="n">start_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;flask run -p 54321&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>And then in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pdm run start_server
+Flask server started at http://127.0.0.1:54321
+</pre></div>
+</div>
+<p>Any extra arguments will be appended to the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pdm run start_server -h <span class="m">0</span>.0.0.0
+Flask server started at http://0.0.0.0:54321
+</pre></div>
+</div>
+<p>PDM supports 3 types of scripts:</p>
+<div class="section" id="normal-command">
+<h3>Normal command<a class="headerlink" href="#normal-command" title="永久链接至标题">¶</a></h3>
+<p>Plain text scripts are regarded as normal command, or you can explicitly specify it:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm.scripts]</span><span class="w"></span>
+<span class="n">start_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;flask run -p 54321&quot;</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In some cases, such as when wanting to add comments between parameters, it might be more convenient
+to specify the command as an array instead of a string:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm.scripts]</span><span class="w"></span>
+<span class="n">start_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;flask&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;run&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="c1"># Important comment here about always using port 54321</span><span class="w"></span>
+<span class="w">	</span><span class="s">&quot;-p&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;54321&quot;</span><span class="w"></span>
+<span class="p">]}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shell-script">
+<h3>Shell script<a class="headerlink" href="#shell-script" title="永久链接至标题">¶</a></h3>
+<p>Shell scripts can be used to run more shell-specific tasks, such as pipeline and output redirecting.
+This is basically run via <code class="docutils literal notranslate"><span class="pre">subprocess.Popen()</span></code> with <code class="docutils literal notranslate"><span class="pre">shell=True</span></code>:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm.scripts]</span><span class="w"></span>
+<span class="n">filter_error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cat error.log|grep CRITICAL &gt; critical.log&quot;</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="call-a-python-function">
+<h3>Call a Python function<a class="headerlink" href="#call-a-python-function" title="永久链接至标题">¶</a></h3>
+<p>The script can be also defined as calling a python function in the form <code class="docutils literal notranslate"><span class="pre">&lt;module_name&gt;:&lt;func_name&gt;</span></code>:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm.scripts]</span><span class="w"></span>
+<span class="n">foobar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">call</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;foo_package.bar_module:main&quot;</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The function can be supplied with literal arguments:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm.scripts]</span><span class="w"></span>
+<span class="n">foobar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">call</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;foo_package.bar_module:main(&#39;dev&#39;)&quot;</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="environment-variables-support">
+<h3>Environment variables support<a class="headerlink" href="#environment-variables-support" title="永久链接至标题">¶</a></h3>
+<p>All environment variables set in the current shell can be seen by <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span></code> and will be expanded when executed.
+Besides, you can also define some fixed environment variables in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm.scripts]</span><span class="w"></span>
+<span class="n">start_server</span><span class="p">.</span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;flask run -p 54321&quot;</span><span class="w"></span>
+<span class="n">start_server</span><span class="p">.</span><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">FOO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bar&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FLASK_ENV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;development&quot;</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Note how we use <a class="reference external" href="https://github.com/toml-lang/toml">TOML’s syntax</a> to define a compound dictionary.</p>
+<p>A dotenv file is also supported via <code class="docutils literal notranslate"><span class="pre">env_file</span> <span class="pre">=</span> <span class="pre">&quot;&lt;file_path&gt;&quot;</span></code> setting.</p>
+<p>For environment variables and/or dotenv file shared by all scripts, you can define <code class="docutils literal notranslate"><span class="pre">env</span></code> and <code class="docutils literal notranslate"><span class="pre">env_file</span></code>
+settings under a special key named <code class="docutils literal notranslate"><span class="pre">_</span></code> of <code class="docutils literal notranslate"><span class="pre">tool.pdm.scripts</span></code> table:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pdm.scripts]</span><span class="w"></span>
+<span class="n">_</span><span class="p">.</span><span class="n">env_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;.env&quot;</span><span class="w"></span>
+<span class="n">start_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;flask run -p 54321&quot;</span><span class="w"></span>
+<span class="n">migrate_db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;flask db upgrade&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Besides, PDM also injects the root path of the project via <code class="docutils literal notranslate"><span class="pre">PDM_PROJECT_ROOT</span></code> environment variable.</p>
+</div>
+<div class="section" id="load-site-packages-in-the-running-environment">
+<h3>Load site-packages in the running environment<a class="headerlink" href="#load-site-packages-in-the-running-environment" title="永久链接至标题">¶</a></h3>
+<p>To make sure the running environment is properly isolated from the outer Python interpreter,
+site-packages from the selected interpreter WON’T be loaded into <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>, unless any of the following conditions holds:</p>
+<ol class="simple">
+<li><p>The executable is from <code class="docutils literal notranslate"><span class="pre">PATH</span></code> but not inside the <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code> folder.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-s/--site-packages</span></code> flag is following <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">site_packages</span> <span class="pre">=</span> <span class="pre">true</span></code> is in either the script table or the global setting key <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p></li>
+</ol>
+<p>Note that site-packages will always be loaded if running with PEP 582 enabled(without the <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span></code> prefix).</p>
+</div>
+<div class="section" id="show-the-list-of-scripts-shortcuts">
+<h3>Show the list of scripts shortcuts<a class="headerlink" href="#show-the-list-of-scripts-shortcuts" title="永久链接至标题">¶</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span> <span class="pre">--list/-l</span></code> to show the list of available script shortcuts:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pdm run --list
+Name        Type  Script           Description
+----------- ----- ---------------- ----------------------
+test_cmd    cmd   flask db upgrade
+test_script call  test_script:main call a python <span class="k">function</span>
+test_shell  shell <span class="nb">echo</span> <span class="nv">$FOO</span>        shell <span class="nb">command</span>
+</pre></div>
+</div>
+<p>You can add an <code class="docutils literal notranslate"><span class="pre">help</span></code> option with the description of the script, and it will be displayed in the <code class="docutils literal notranslate"><span class="pre">Description</span></code> column in the above output.</p>
+</div>
+</div>
+<div class="section" id="manage-caches">
+<h2>Manage caches<a class="headerlink" href="#manage-caches" title="永久链接至标题">¶</a></h2>
+<p>PDM provides a convenient command group to manage the cache, there are four kinds of caches:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wheels/</span></code> stores the built results of non-wheel distributions and files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http/</span></code> stores the HTTP response content.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata/</span></code> stores package metadata retrieved by the resolver.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hashes/</span></code> stores the file hashes fetched from the package index or calculated locally.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">packages/</span></code> The centrialized repository for installed wheels.</p></li>
+</ol>
+<p>See the current cache usage by typing <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">cache</span> <span class="pre">info</span></code>. Besides, you can use <code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">remove</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code> subcommands to manage the cache content.
+Find the usage by the <code class="docutils literal notranslate"><span class="pre">--help</span></code> option of each command.</p>
+</div>
+<div class="section" id="how-we-make-pep-582-packages-available-to-the-python-interpreter">
+<h2>How we make PEP 582 packages available to the Python interpreter<a class="headerlink" href="#how-we-make-pep-582-packages-available-to-the-python-interpreter" title="永久链接至标题">¶</a></h2>
+<p>Thanks to the <a class="reference external" href="https://docs.python.org/3/library/site.html">site packages loading</a> on Python startup. It is possible to patch the <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>
+by executing the <code class="docutils literal notranslate"><span class="pre">sitecustomize.py</span></code> shipped with PDM. The interpreter can search the directories
+for the nearest <code class="docutils literal notranslate"><span class="pre">__pypackage__</span></code> folder and append it to the <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> variable.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chaos/deploy/pdm/usage"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="dependency.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">管理依赖</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="advanced.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Advanced Usage</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      通过 xinetzone<br/>
+    
+        &copy; 版权 2021, xinetzone.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
