@@ -9,7 +9,7 @@
     "{guilabel}`视频`\n",
     "\n",
     "<iframe id=\"Python\"\n",
-    "    title=\"Python 函数\"\n",
+    "    title=\"Python 集合\"\n",
     "    width=\"100%\"\n",
     "    height=\"600\"\n",
     "    src=\"https://developer.hs.net/thread/1865\">\n",

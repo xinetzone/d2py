@@ -6,6 +6,23 @@
    "source": [
     "# 字典\n",
     "\n",
+    "{guilabel}`视频`\n",
+    "\n",
+    "<iframe id=\"Python\"\n",
+    "    title=\"python dict 表示映射关系\"\n",
+    "    width=\"100%\"\n",
+    "    height=\"600\"\n",
+    "    src=\"https://developer.hs.net/thread/1959\">\n",
+    "</iframe>\n",
+    "\n",
+    "<iframe id=\"Python\"\n",
+    "    title=\"Python for 语句与字典，打印乘法表\"\n",
+    "    width=\"100%\"\n",
+    "    height=\"600\"\n",
+    "    src=\"https://developer.hs.net/thread/1968\">\n",
+    "</iframe>\n",
+    "\n",
+    "\n",
     "使用 {dfn}`键值对` 的形式创建："
    ]
   },
