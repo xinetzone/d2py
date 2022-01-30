@@ -106,7 +106,7 @@ extlinks = {
     #            'roles.html#%s', ''),
     # 'dudir': ('https://docutils.sourceforge.io/docs/ref/rst/'
     #           'directives.html#%s', ''),
-    'daobook': ('https://daobook.github.io/%s', ''),
+    # 'daobook': ('https://daobook.github.io/%s', ''),
 }
 
 intersphinx_mapping = {

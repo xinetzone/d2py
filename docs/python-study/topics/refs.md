@@ -2,16 +2,11 @@
 
 - {mod}`计算差异的辅助工具 <difflib>`
 - {mod}`文件及目录的比较 <filecmp>`
-- {daobook}`日志操作手册 <cpython/howto/logging-cookbook.html>`
+- [日志操作手册](https://daobook.github.io/cpython/howto/logging-cookbook.html)
 - [CVPR 2021 | TCANet：最强时序动作提名修正网络解读【Arxiv链接已更新】](https://zhuanlan.zhihu.com/p/358754602) & https://github.com/daobook/Temporal-Context-Aggregation-Network-Pytorch
 - {mod}`操作类似图的结构的功能 <graphlib>`
 - [Practical Python Projects](https://yasoob.me/posts/practical-python-projects-book-released/)
 - [Python Tips](https://book.pythontips.com/en/latest/index.html)
-
-
-
-Python有“自带电池”的理念。通过其包的复杂和强大功能可以最好地看到这一点。例如:
-
 
 Python有“自带电池”的理念。通过其包的复杂和强大功能可以最好地看到这一点。例如:
 

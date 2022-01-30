@@ -1,7 +1,5 @@
 # 解读 Python 世界的修炼体系
 
-参考：{daobook}`Python 词法分析 <cpython/reference/lexical_analysis.html>` & {daobook}`数据模型 <cpython/reference/datamodel.html>`
-
 {guilabel}`视频`
 
 <iframe id="Python"
@@ -270,8 +268,6 @@ assert     del        global     not        with
 async      elif       if         or         yield
 ```
 
-还有其他特殊标识符，如 [软关键字](soft-keywords) 和 {daobook}`保留的标识符类 <cpython/reference/lexical_analysis.html#reserved-classes-of-identifiers>`。
-
 ### 行结构
 
 使用编辑器打开一个模块文件，可以看到模块被组织成行结构。你当下看到的行，被称为 **物理行**。
@@ -380,8 +376,6 @@ for i in range(len(l)):             # 错误：没有缩进
 
 ## 名称绑定与对象引用
 
-参考：{daobook}`cpython/reference/executionmodel.html`
-
 Python 标识符可以细分为两类：常量与变量。
 
 `常量`
@@ -461,13 +455,9 @@ Python 标识符可以细分为两类：常量与变量。
 
     比如，可以要求 `马仙洪` 去学习英语，可以使用 `学习(英语)` 这种表示方法。
 
-### 其他表达式
-
-其他表达式及其细节见：{daobook}`cpython/reference/expressions.html`。
-
 ## 作用域
 
-详细内容见：{daobook}`行结构 <cpython/reference/lexical_analysis.html#line-structure>`。
+详细内容见：[行结构](reference/lexical_analysis.html#line-structure)。
 
 Python 世界有一个“基准”平面控制了其环境的边界。为了方便管理 Python 世界，还需要将此“基准”平面划分为不同的区域，称之为 **作用域**。
 
