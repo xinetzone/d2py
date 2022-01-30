@@ -1,3 +1,3 @@
 # Contributing
 
-see {daobook}`Contributing <.github/CONTRIBUTING.html>`.
+see [Contributing](https://daobook.github.io/.github/CONTRIBUTING.html).

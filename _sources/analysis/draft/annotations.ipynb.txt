@@ -6,8 +6,6 @@
    "source": [
     "# 对象注解\n",
     "\n",
-    "参考：{daobook}`howto/annotations.html`\n",
-    "\n",
     "{guilabel}`限制`： Python 3.10 及其以上版本\n",
     "\n",
     "## inspect 用于对象检查\n",

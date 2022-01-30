@@ -1,7 +1,5 @@
 # 打包
 
-参考：{daobook}`packaging.python.org/tutorials/installing-packages.html`
-
 ## 准备
 
 1. 确保 Python 正确安装：
