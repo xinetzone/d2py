@@ -5,46 +5,46 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Posts &#8212; d2py 0.1 文档</title>
+    <title>鸭子与白鹅类型 &#8212; d2py 0.1 文档</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="_static/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/tabs.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script kind="utterances">
 
@@ -80,15 +80,24 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="_static/translations.js"></script>
-    <script src="_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-    <link rel="canonical" href="https://xinetzone.github.io/d2py/posts.html" />
-    <link rel="shortcut icon" href="_static/page-logo.jfif"/>
-    <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="搜索" href="search.html" /> 
+    <link rel="canonical" href="https://xinetzone.github.io/d2py/python-study/basic/interface.html" />
+    <link rel="shortcut icon" href="../../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="类" href="class.html" />
+    <link rel="prev" title="argparse" href="argparse.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -98,8 +107,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <link
   rel="alternate"
   type="application/atom+xml"
-  href="posts/atom.xml"
-  title=""
+  href="../../posts/atom.xml"
+  title="Blog"
 />
  
 <style type="text/css">
@@ -145,46 +154,46 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="_static/logo.jpg" class="logo" alt="logo">
+      <img src="../../_static/logo.jpg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">d2py 0.1 文档</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="python-study/index.html">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
    Python 学习手册
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="python-study/basic/index.html">
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
      Python 基础教程
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul>
+    <ul class="current">
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="python-study/basic/intro/index.html">
+      <a class="reference internal" href="intro/index.html">
        Python 简介
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -194,24 +203,24 @@ commentsRunWhenDOMLoaded(addUtterances);
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="python-study/basic/intro/understand-python.html">
+        <a class="reference internal" href="intro/understand-python.html">
          解读 Python 世界的修炼体系
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python-study/basic/intro/basic-type.html">
+        <a class="reference internal" href="intro/basic-type.html">
          Python 基本数据类型
         </a>
        </li>
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/function.html">
+      <a class="reference internal" href="function.html">
        函数
       </a>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="python-study/basic/container/index.html">
+      <a class="reference internal" href="container/index.html">
        容器
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -221,34 +230,34 @@ commentsRunWhenDOMLoaded(addUtterances);
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="python-study/basic/container/set.html">
+        <a class="reference internal" href="container/set.html">
          集合
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python-study/basic/container/dict.html">
+        <a class="reference internal" href="container/dict.html">
          字典
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python-study/basic/container/sequence.html">
+        <a class="reference internal" href="container/sequence.html">
          序列
         </a>
        </li>
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/controlflow.html">
+      <a class="reference internal" href="controlflow.html">
        流程控制
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/modules.html">
+      <a class="reference internal" href="modules.html">
        模块
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/argparse.html">
+      <a class="reference internal" href="argparse.html">
        <code class="docutils literal notranslate">
         <span class="pre">
          argparse
@@ -256,43 +265,43 @@ commentsRunWhenDOMLoaded(addUtterances);
        </code>
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/interface.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        鸭子与白鹅类型
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/class.html">
+      <a class="reference internal" href="class.html">
        类
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/template.html">
+      <a class="reference internal" href="template.html">
        模板
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/threading.html">
+      <a class="reference internal" href="threading.html">
        多线程
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/logging.html">
+      <a class="reference internal" href="logging.html">
        日志记录
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/weakref.html">
+      <a class="reference internal" href="weakref.html">
        弱引用
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/input-output.html">
+      <a class="reference internal" href="input-output.html">
        输入与输出
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/basic/match-statement.html">
+      <a class="reference internal" href="match-statement.html">
        <code class="docutils literal notranslate">
         <span class="pre">
          match
@@ -304,7 +313,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="python-study/topics/index.html">
+    <a class="reference internal" href="../topics/index.html">
      Python 主题手册
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -314,12 +323,12 @@ commentsRunWhenDOMLoaded(addUtterances);
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/topics/Nuitka.html">
+      <a class="reference internal" href="../topics/Nuitka.html">
        Python 编译器 Nuitka
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/topics/abc.html">
+      <a class="reference internal" href="../topics/abc.html">
        <code class="docutils literal notranslate">
         <span class="pre">
          abc
@@ -329,12 +338,12 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/topics/annotations.html">
+      <a class="reference internal" href="../topics/annotations.html">
        注解
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/topics/argparse.html">
+      <a class="reference internal" href="../topics/argparse.html">
        <code class="docutils literal notranslate">
         <span class="pre">
          argparse
@@ -343,39 +352,39 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/topics/custom-numbers.html">
+      <a class="reference internal" href="../topics/custom-numbers.html">
        自定义数字
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/topics/f-string.html">
+      <a class="reference internal" href="../topics/f-string.html">
        格式字符串字面值
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/topics/metaclass.html">
+      <a class="reference internal" href="../topics/metaclass.html">
        元类
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/topics/refs.html">
+      <a class="reference internal" href="../topics/refs.html">
        临时区
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/topics/sys.html">
+      <a class="reference internal" href="../topics/sys.html">
        系统相关
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="python-study/faqs/index.html">
+    <a class="reference internal" href="../faqs/index.html">
      常见问题
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="python-study/refs/index.html">
+    <a class="reference internal" href="../refs/index.html">
      Python 参考手册
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
@@ -385,17 +394,17 @@ commentsRunWhenDOMLoaded(addUtterances);
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/refs/constants.html">
+      <a class="reference internal" href="../refs/constants.html">
        内置常量
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/refs/terms.html">
+      <a class="reference internal" href="../refs/terms.html">
        术语中英对照表
       </a>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="python-study/refs/glossary/index.html">
+      <a class="reference internal" href="../refs/glossary/index.html">
        术语表
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
@@ -405,41 +414,41 @@ commentsRunWhenDOMLoaded(addUtterances);
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="python-study/refs/glossary/basic.html">
+        <a class="reference internal" href="../refs/glossary/basic.html">
          基本术语
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python-study/refs/glossary/exec.html">
+        <a class="reference internal" href="../refs/glossary/exec.html">
          异常
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python-study/refs/glossary/identifier.html">
+        <a class="reference internal" href="../refs/glossary/identifier.html">
          标识符
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python-study/refs/glossary/value.html">
+        <a class="reference internal" href="../refs/glossary/value.html">
          字面值
         </a>
        </li>
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/refs/sources.html">
+      <a class="reference internal" href="../refs/sources.html">
        Python 学习资源
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="python-study/demo.html">
+    <a class="reference internal" href="../demo.html">
      Jupyter Notebook
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="python-study/drafts/index.html">
+    <a class="reference internal" href="../drafts/index.html">
      草稿
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
@@ -449,102 +458,102 @@ commentsRunWhenDOMLoaded(addUtterances);
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/101.html">
+      <a class="reference internal" href="../drafts/101.html">
        一、5 个值得在 2018 年关注的库
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/22.html">
+      <a class="reference internal" href="../drafts/22.html">
        存储数据
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/33.html">
+      <a class="reference internal" href="../drafts/33.html">
        类也是对象
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/44.html">
+      <a class="reference internal" href="../drafts/44.html">
        描述器是什么？
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/55.html">
+      <a class="reference internal" href="../drafts/55.html">
        字符编码方法
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/66.html">
+      <a class="reference internal" href="../drafts/66.html">
        类型和运算 (Types and Operations)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/88.html">
+      <a class="reference internal" href="../drafts/88.html">
        函数基础
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/class.html">
+      <a class="reference internal" href="../drafts/class.html">
        class
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/draft.html">
+      <a class="reference internal" href="../drafts/draft.html">
        回收站
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/exc.html">
+      <a class="reference internal" href="../drafts/exc.html">
        异常（draft）
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/file.html">
+      <a class="reference internal" href="../drafts/file.html">
        I/O操作（draft）
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/iter.html">
+      <a class="reference internal" href="../drafts/iter.html">
        迭代&amp;生成（draft）
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/math.html">
+      <a class="reference internal" href="../drafts/math.html">
        Python 中的数学（draft）
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/oop.html">
+      <a class="reference internal" href="../drafts/oop.html">
        OOP: The Big Picture
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/op.html">
+      <a class="reference internal" href="../drafts/op.html">
        运算符（draft）
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/re.html">
+      <a class="reference internal" href="../drafts/re.html">
        re
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/socket.html">
+      <a class="reference internal" href="../drafts/socket.html">
        网络
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/str.html">
+      <a class="reference internal" href="../drafts/str.html">
        字符编码方法
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/type.html">
+      <a class="reference internal" href="../drafts/type.html">
        Python 数据类型转换（draft）
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="python-study/drafts/%E7%88%AC%E8%99%AB.html">
+      <a class="reference internal" href="../drafts/%E7%88%AC%E8%99%AB.html">
        爬虫
       </a>
      </li>
@@ -553,7 +562,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="algebra/index.html">
+  <a class="reference internal" href="../../algebra/index.html">
    现代代数
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -563,14 +572,14 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="algebra/intro.html">
+    <a class="reference internal" href="../../algebra/intro.html">
      介绍
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="analysis/index.html">
+  <a class="reference internal" href="../../analysis/index.html">
    现代分析
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
@@ -580,7 +589,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="analysis/draft/index.html">
+    <a class="reference internal" href="../../analysis/draft/index.html">
      回收站
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
@@ -590,22 +599,22 @@ commentsRunWhenDOMLoaded(addUtterances);
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="analysis/draft/abc.html">
+      <a class="reference internal" href="../../analysis/draft/abc.html">
        抽象基类
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="analysis/draft/annotations.html">
+      <a class="reference internal" href="../../analysis/draft/annotations.html">
        对象注解
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="analysis/draft/descriptor.html">
+      <a class="reference internal" href="../../analysis/draft/descriptor.html">
        描述器
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="analysis/draft/typing.html">
+      <a class="reference internal" href="../../analysis/draft/typing.html">
        类型提示
       </a>
      </li>
@@ -614,7 +623,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="reference/index.html">
+  <a class="reference internal" href="../../reference/index.html">
    参考
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
@@ -624,7 +633,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="reference/analysis/index.html">
+    <a class="reference internal" href="../../reference/analysis/index.html">
      现代分析
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
@@ -634,14 +643,14 @@ commentsRunWhenDOMLoaded(addUtterances);
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="reference/analysis/numbers.html">
+      <a class="reference internal" href="../../reference/analysis/numbers.html">
        数的抽象基类
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="reference/utils.html">
+    <a class="reference internal" href="../../reference/utils.html">
      <code class="docutils literal notranslate">
       <span class="pre">
        utils
@@ -655,22 +664,22 @@ commentsRunWhenDOMLoaded(addUtterances);
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="api/d2py.utils.file.mkdir.html">
+      <a class="reference internal" href="../../api/d2py.utils.file.mkdir.html">
        mkdir
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="api/d2py.utils.unzip.decode_path.html">
+      <a class="reference internal" href="../../api/d2py.utils.unzip.decode_path.html">
        decode_path
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="api/d2py.utils.unzip.extract.html">
+      <a class="reference internal" href="../../api/d2py.utils.unzip.extract.html">
        extract
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="api/d2py.utils.unzip.extract_all.html">
+      <a class="reference internal" href="../../api/d2py.utils.unzip.extract_all.html">
        extract_all
       </a>
      </li>
@@ -679,7 +688,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chaos/index.html">
+  <a class="reference internal" href="../../chaos/index.html">
    混沌
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
@@ -689,17 +698,17 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chaos/GUI/index.html">
+    <a class="reference internal" href="../../chaos/GUI/index.html">
      GUI
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chaos/web/index.html">
+    <a class="reference internal" href="../../chaos/web/index.html">
      Web
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="chaos/deploy/index.html">
+    <a class="reference internal" href="../../chaos/deploy/index.html">
      部署
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
@@ -709,7 +718,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     </label>
     <ul>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="chaos/deploy/pdm/index.html">
+      <a class="reference internal" href="../../chaos/deploy/pdm/index.html">
        PDM
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
@@ -719,17 +728,17 @@ commentsRunWhenDOMLoaded(addUtterances);
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="chaos/deploy/pdm/intro.html">
+        <a class="reference internal" href="../../chaos/deploy/pdm/intro.html">
          简介
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="chaos/deploy/pdm/usage/index.html">
+        <a class="reference internal" href="../../chaos/deploy/pdm/usage/index.html">
          用法
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="chaos/deploy/pdm/pyproject/index.html">
+        <a class="reference internal" href="../../chaos/deploy/pdm/pyproject/index.html">
          编写
          <code class="docutils literal notranslate">
           <span class="pre">
@@ -739,29 +748,29 @@ commentsRunWhenDOMLoaded(addUtterances);
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="chaos/deploy/pdm/configuration.html">
+        <a class="reference internal" href="../../chaos/deploy/pdm/configuration.html">
          配置
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="chaos/deploy/pdm/plugin/index.html">
+        <a class="reference internal" href="../../chaos/deploy/pdm/plugin/index.html">
          插件
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="chaos/deploy/pdm/dev/index.html">
+        <a class="reference internal" href="../../chaos/deploy/pdm/dev/index.html">
          开发
         </a>
        </li>
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="chaos/deploy/packaging.html">
+      <a class="reference internal" href="../../chaos/deploy/packaging.html">
        打包
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="chaos/deploy/other.html">
+      <a class="reference internal" href="../../chaos/deploy/other.html">
        其他
       </a>
      </li>
@@ -770,12 +779,12 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="posts/index.html">
+  <a class="reference internal" href="../../posts/index.html">
    博客
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="about/index.html">
+  <a class="reference internal" href="../../about/index.html">
    关于
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
@@ -785,34 +794,34 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="about/feature.html">
+    <a class="reference internal" href="../../about/feature.html">
      特性
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="about/use.html">
+    <a class="reference internal" href="../../about/use.html">
      项目使用
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="CODE_OF_CONDUCT.html">
+    <a class="reference internal" href="../../CODE_OF_CONDUCT.html">
      行为准则
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="CONTRIBUTING.html">
+    <a class="reference internal" href="../../CONTRIBUTING.html">
      贡献
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="SECURITY.html">
+    <a class="reference internal" href="../../SECURITY.html">
      安全策略
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="news/index.html">
+  <a class="reference internal" href="../../news/index.html">
    Python 新闻
   </a>
  </li>
@@ -852,6 +861,23 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
             </div>
             
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/python-study/basic/interface.ipynb.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
             <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -863,10 +889,12 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="源库"><i
                     class="fab fa-github"></i>资料库</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fposts.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/interface.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        
+        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/interface.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -891,7 +919,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1></h1>
+                <h1>鸭子与白鹅类型</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -901,311 +929,30 @@ commentsRunWhenDOMLoaded(addUtterances);
             </div>
             
               <div>
-                
+                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>鸭子与白鹅类型<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/d2py",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./python-study/basic"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 <div class="section">
-  <h1>
-     All  Posts 
-  </h1>
-   
-
-  <div class="section ablog-post">
-    <h2 class="ablog-post-title">
-      <a href="posts/hs/udata-python.html"
-        >Python udata 取数</a
-      >
-    </h2>
-
-    <ul class="ablog-archive">
-      <li>
-         <i class="fa fa-calendar"></i> Wed Nov 24 00:00:00 2021 
-      </li>
-       
-<li id="author">
-  <span
-    ><i class="fa-fw fa fa-user"></i></span
-  >
-   
-  <a href="posts/author/%E5%88%98%E6%96%B0%E4%BC%9F.html">刘新伟</a>  
-</li>
-  
-<li id="language">
-  <span
-    ><i class="fa-fw fa fa-language"></i></span
-  >
-   
-  <a href="posts/language/chinese.html">Chinese</a>  
-</li>
- 
-<li id="category">
-  <span
-    ><i class="fa-fw fa fa-folder-open"></i></span
-  >
-   
-  <a href="posts/category/python.html">Python</a>  
-</li>
- 
-<li id="tags">
-  <span
-    ><i class="fa-fw fa fa-tags"></i> </span
-  >
-   
-  <a href="posts/tag/basic.html">basic</a>   
-  <a href="posts/tag/udata.html">udata</a>  
-</li>
- 
-    </ul>
-    <div class="ablog-post-excerpt docutils container">
-<p>登录平台，<a class="reference external" href="https://udata.hs.net/help/292">获取Token</a></p>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "xinetzone/d2py",
-            ref: "main",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-    <p class="ablog-post-expand"><a href="posts/hs/udata-python.html"><em>阅读更多 ...</em></a></p>
-    <hr />
-  </div>
-  
-
-  <div class="section ablog-post">
-    <h2 class="ablog-post-title">
-      <a href="posts/hs/udata.html"
-        >恒有数 Python 接口</a
-      >
-    </h2>
-
-    <ul class="ablog-archive">
-      <li>
-         <i class="fa fa-calendar"></i> Wed Nov 10 18:00:00 2021 
-      </li>
-       
-<li id="author">
-  <span
-    ><i class="fa-fw fa fa-user"></i></span
-  >
-   
-  <a href="posts/author/%E5%88%98%E6%96%B0%E4%BC%9F.html">刘新伟</a>  
-</li>
-  
-<li id="language">
-  <span
-    ><i class="fa-fw fa fa-language"></i></span
-  >
-   
-  <a href="posts/language/chinese.html">Chinese</a>  
-</li>
- 
-<li id="category">
-  <span
-    ><i class="fa-fw fa fa-folder-open"></i></span
-  >
-   
-  <a href="posts/category/python.html">Python</a>  
-</li>
- 
-<li id="tags">
-  <span
-    ><i class="fa-fw fa fa-tags"></i> </span
-  >
-   
-  <a href="posts/tag/basic.html">basic</a>   
-  <a href="posts/tag/udata.html">udata</a>  
-</li>
- 
-    </ul>
-    <div class="ablog-post-excerpt docutils container">
-<p><a class="reference external" href="https://udata.hs.net/home?channel_source=vnpy">恒有数</a> 提供了大量金融数据相关的接口，借助此平台讲解 Python 基础知识。</p>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "xinetzone/d2py",
-            ref: "main",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-    <p class="ablog-post-expand"><a href="posts/hs/udata.html"><em>阅读更多 ...</em></a></p>
-    <hr />
-  </div>
-  
-
-  <div class="section ablog-post">
-    <h2 class="ablog-post-title">
-      <a href="posts/basic/python-use.html"
-        >如何使用 Python？</a
-      >
-    </h2>
-
-    <ul class="ablog-archive">
-      <li>
-         <i class="fa fa-calendar"></i> Wed Nov  3 23:00:00 2021 
-      </li>
-       
-<li id="author">
-  <span
-    ><i class="fa-fw fa fa-user"></i></span
-  >
-   
-  <a href="posts/author/%E5%88%98%E6%96%B0%E4%BC%9F.html">刘新伟</a>  
-</li>
-  
-<li id="language">
-  <span
-    ><i class="fa-fw fa fa-language"></i></span
-  >
-   
-  <a href="posts/language/chinese.html">Chinese</a>  
-</li>
- 
-<li id="category">
-  <span
-    ><i class="fa-fw fa fa-folder-open"></i></span
-  >
-   
-  <a href="posts/category/python.html">Python</a>  
-</li>
- 
-<li id="tags">
-  <span
-    ><i
-      class="fa-fw fa fa-tag"
-    ></i
-    ></span
-  >
-   
-  <a href="posts/tag/basic.html">basic</a>  
-</li>
- 
-    </ul>
-    <div class="ablog-post-excerpt docutils container">
-<p>本站默认 Python 为 Python3。</p>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "xinetzone/d2py",
-            ref: "main",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-    <p class="ablog-post-expand"><a href="posts/basic/python-use.html"><em>阅读更多 ...</em></a></p>
-    <hr />
-  </div>
-  
-
-  <div class="section ablog-post">
-    <h2 class="ablog-post-title">
-      <a href="posts/basic/python-intro.html"
-        >Python 初体验</a
-      >
-    </h2>
-
-    <ul class="ablog-archive">
-      <li>
-         <i class="fa fa-calendar"></i> Mon Nov  1 18:00:00 2021 
-      </li>
-       
-<li id="author">
-  <span
-    ><i class="fa-fw fa fa-user"></i></span
-  >
-   
-  <a href="posts/author/%E5%88%98%E6%96%B0%E4%BC%9F.html">刘新伟</a>  
-</li>
-  
-<li id="language">
-  <span
-    ><i class="fa-fw fa fa-language"></i></span
-  >
-   
-  <a href="posts/language/chinese.html">Chinese</a>  
-</li>
- 
-<li id="category">
-  <span
-    ><i class="fa-fw fa fa-folder-open"></i></span
-  >
-   
-  <a href="posts/category/python.html">Python</a>  
-</li>
- 
-<li id="tags">
-  <span
-    ><i
-      class="fa-fw fa fa-tag"
-    ></i
-    ></span
-  >
-   
-  <a href="posts/tag/basic.html">basic</a>  
-</li>
- 
-    </ul>
-    <div class="ablog-post-excerpt docutils container">
-<p>叩开 Python 的大门！</p>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "xinetzone/d2py",
-            ref: "main",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-    <p class="ablog-post-expand"><a href="posts/basic/python-intro.html"><em>阅读更多 ...</em></a></p>
-    <hr />
-  </div>
    
 </div>
 
@@ -1213,7 +960,21 @@ commentsRunWhenDOMLoaded(addUtterances);
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="argparse.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">argparse</span></code></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="class.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">类</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
@@ -1232,7 +993,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
