@@ -8,6 +8,7 @@
 :hidden:
 
 python-study/index
+algebra/index
 analysis/index
 reference/index
 chaos/index

@@ -1,4 +1,4 @@
-# 泛函分析
+# 现代分析
 
 ```{toctree}
 :maxdepth: 2
