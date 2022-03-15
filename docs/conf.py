@@ -36,7 +36,6 @@ html_baseurl = 'https://xinetzone.github.io/d2py'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx_book_theme",
     "ablog",
     "myst_nb",
     "sphinx.ext.extlinks",
@@ -152,22 +151,24 @@ gettext_compact = False  # optional.
 
 # 定制主侧栏
 html_sidebars = {
-    "*": [
-        # 显示标志和网站标题。
+    "*" : [
         "sidebar-logo.html",
-        #一个基于 bootstrap 的搜索栏（来自 PyData Sphinx Theme）
         "search-field.html",
-        # 一个用于你的书基于 bootstrap 的导航菜单。
-        "sbt-sidebar-nav.html",
-        # 一个 可配置的 HTML 片段，用于添加到侧边栏（默认情况下，它被放置在底部）。
-        "sbt-sidebar-footer.html",
-    ],
-    "posts/**": [
         "postcard.html",
         "recentposts.html",
         "tagcloud.html",
         "categories.html",
         "archives.html",
+        "sbt-sidebar-nav.html",
+    ],
+    "posts/**": [
+        # "about.html",
+        "postcard.html",
+        "recentposts.html",
+        "tagcloud.html",
+        "categories.html",
+        "archives.html",
+        "searchbox.html",
     ],
 }
 
