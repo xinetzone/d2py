@@ -13,7 +13,6 @@ requires-python = ">=3.9"
 
 dependencies = [
   "sphinx>=4.4,<5",
-  "sphinx-book-theme>=0.1.6",
   "invoke",
 ]
 
@@ -26,6 +25,7 @@ Home = "https://github.com/xinetzone/d2py"
 
 [project.optional-dependencies]
 doc = [
+  "sphinx-book-theme>=0.1.6",
   "ablog",
   "myst-nb",
   "sphinx-thebe",
