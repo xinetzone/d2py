@@ -9,10 +9,10 @@ dynamic = ["version", "description"]
 license = {file = "LICENSE"}
 name = "d2py"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 
 dependencies = [
-  "sphinx>=4.4,<5",
+  "sphinx>=4.5",
   "invoke",
 ]
 
@@ -34,7 +34,6 @@ doc = [
   "plotly",
   "pandas",
   "matplotlib",
-  "sphinx>=4.3",
   "sphinxcontrib-mermaid",
   "sphinx-panels",
   "sphinx-inline-tabs",
@@ -43,4 +42,4 @@ doc = [
 
 [tool.flit.sdist]
 # include = ["docs/"]
-exclude = ['docs', '.git', '.github']
+exclude = ['docs', '.git', '.github', 'output']
