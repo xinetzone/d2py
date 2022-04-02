@@ -4,11 +4,13 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>类型和运算 (Types and Operations) &#8212; d2py 0.1 文档</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,24 +20,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -83,9 +82,9 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -141,7 +140,21 @@ const thebe_selector_output = ".output, .cell_output"
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -150,14 +163,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -170,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
@@ -830,95 +839,200 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
 <div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">切换导航</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/drafts/66.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源库"><i
-                    class="fab fa-github"></i>资料库</button></a>
-        <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/66.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/66.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 导航
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xinetzone/d2py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/66.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/66.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/python-study/drafts/66.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> 导航
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introducing-python-object-types">
    Introducing Python Object Types
@@ -1016,12 +1130,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>类型和运算 (Types and Operations)</h1>
@@ -1135,12 +1248,13 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="types-and-operations">
-<h1>类型和运算 (Types and Operations)<a class="headerlink" href="#types-and-operations" title="永久链接至标题">¶</a></h1>
-<div class="section" id="introducing-python-object-types">
-<h2>Introducing Python Object Types<a class="headerlink" href="#introducing-python-object-types" title="永久链接至标题">¶</a></h2>
+                 <section class="tex2jax_ignore mathjax_ignore" id="types-and-operations">
+<h1>类型和运算 (Types and Operations)<a class="headerlink" href="#types-and-operations" title="永久链接至标题">#</a></h1>
+<section id="introducing-python-object-types">
+<h2>Introducing Python Object Types<a class="headerlink" href="#introducing-python-object-types" title="永久链接至标题">#</a></h2>
 <p>在非正式的意义上, 在 Python 中, 我们用一些东西做事情.</p>
 <ul class="simple">
 <li><p>“事物” 采取像加法和串联的形式的操作。</p></li>
@@ -1150,17 +1264,17 @@ const thebe_selector_output = ".output, .cell_output"
 <blockquote>
 <div><p>As we’ll see, <em>everything</em> is an object in a Python script. Even simple numbers qualify, with values (e.g., 99), and supported operations (addition, subtraction, and so on).</p>
 </div></blockquote>
-<div class="section" id="the-python-conceptual-hierarchy">
-<h3>The Python Conceptual Hierarchy (概念上的层级结构)<a class="headerlink" href="#the-python-conceptual-hierarchy" title="永久链接至标题">¶</a></h3>
+<section id="the-python-conceptual-hierarchy">
+<h3>The Python Conceptual Hierarchy (概念上的层级结构)<a class="headerlink" href="#the-python-conceptual-hierarchy" title="永久链接至标题">#</a></h3>
 <ol class="simple">
 <li><p>Programs are composed of modules. (程序由模块构成)</p></li>
 <li><p>Modules contain statements. (模块包含语句)</p></li>
 <li><p>Statements contain expressions. (语句包含表达式)</p></li>
 <li><p><em>Expressions create and process objects</em>. (表达式建立和处理对象)</p></li>
 </ol>
-</div>
-<div class="section" id="built-in-types">
-<h3>Built-in Types (内置类型)<a class="headerlink" href="#built-in-types" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="built-in-types">
+<h3>Built-in Types (内置类型)<a class="headerlink" href="#built-in-types" title="永久链接至标题">#</a></h3>
 <p><img alt="" src="https://img2018.cnblogs.com/blog/685754/201810/685754-20181022212950268-496111479.png" /></p>
 <ul class="simple">
 <li><p><strong>在 Python 中没有类型声明，运行的表达式的语法决定了创建和使用的对象的类型。</strong></p></li>
@@ -1169,10 +1283,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>在正式术语中, 这意味着 Python 是动态类型的, 它会自动跟踪类型, 而不是要求声明代码, 但它也是强类型的, 这意味着您可以在仅对象操作上执行对其j进行适合该类型的有效操作。</p>
 <p>在 Python 中的每一个对象都可以分为不可变性和可变性。比如数字、字符串、元组是不可变的。<strong>不可变的</strong>：在创建后不能就地改变。</p>
 <p><strong>多态</strong>意味着一个操作符 (如 <code class="docutils literal notranslate"><span class="pre">+</span></code>) 的意义取决于被操作的对象。这将是 Python 的关键思想：<strong>不要将代码限制在特定的类型上，使代码自动适用于多种类型。</strong></p>
-</div>
-</div>
-<div class="section" id="numeric-types">
-<h2>数字类型 (Numeric Types)<a class="headerlink" href="#numeric-types" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="numeric-types">
+<h2>数字类型 (Numeric Types)<a class="headerlink" href="#numeric-types" title="永久链接至标题">#</a></h2>
 <blockquote>
 <div><p>In Python, numbers are not really a single object type, but a category of similar types.</p>
 </div></blockquote>
@@ -1213,16 +1327,16 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<div class="section" id="numeric-literals">
-<h3>Numeric Literals (数值常量)<a class="headerlink" href="#numeric-literals" title="永久链接至标题">¶</a></h3>
+<section id="numeric-literals">
+<h3>Numeric Literals (数值常量)<a class="headerlink" href="#numeric-literals" title="永久链接至标题">#</a></h3>
 <p><img alt="" src="https://img2018.cnblogs.com/blog/685754/201810/685754-20181022213014823-1574370475.png" /></p>
 <blockquote>
 <div><p>Integers may be coded in decimal (base 10), hexadecimal (base 16), octal (base 8), or binary (base 2), the last three of which are common in some programming domains. Hexadecimals start with a leading <code class="docutils literal notranslate"><span class="pre">0x</span></code> or <code class="docutils literal notranslate"><span class="pre">0X</span></code>, followed by a string of hexadecimal digits (<span class="math notranslate nohighlight">\(0\sim 9\)</span> and <span class="math notranslate nohighlight">\(A\sim F\)</span>). Hex digits may be coded in lower- or uppercase. Octal literals start with a leading <code class="docutils literal notranslate"><span class="pre">0o</span></code> or <code class="docutils literal notranslate"><span class="pre">0O</span></code> (zero and lower- or uppercase letter <code class="docutils literal notranslate"><span class="pre">o</span></code>), followed by a string of digits (<span class="math notranslate nohighlight">\(0\sim 7\)</span>). In 2.X, octal literals can also be coded with just a leading <code class="docutils literal notranslate"><span class="pre">0</span></code>, but not in 3.X—this original octal form is too easily confused with decimal, and is replaced by the new <code class="docutils literal notranslate"><span class="pre">0o</span></code> format, which can also be used in 2.X as of 2.6. Binary literals, new as of 2.6 and 3.0, begin with a leading <code class="docutils literal notranslate"><span class="pre">0b</span></code> or <code class="docutils literal notranslate"><span class="pre">0B</span></code>, followed by binary digits (<span class="math notranslate nohighlight">\(0\sim 1\)</span>).</p>
 </div></blockquote>
 <p><img alt="" src="https://img2018.cnblogs.com/blog/685754/201810/685754-20181022213154822-1267097064.png" /></p>
-</div>
-<div class="section" id="floor">
-<h3>Floor 除法和截断除法<a class="headerlink" href="#floor" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="floor">
+<h3>Floor 除法和截断除法<a class="headerlink" href="#floor" title="永久链接至标题">#</a></h3>
 <p>请注意，在 Python 3.X 中 <code class="docutils literal notranslate"><span class="pre">//</span></code> (floor, 向下取整) 运算: 如果是浮点型, 则结果为浮点型;否则, 它是一个整数。下面展示一些 Floor 除法和截断除法的运算：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">20</span> <span class="o">//</span> <span class="mi">3</span>
 </pre></div>
@@ -1293,9 +1407,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-2
 </pre></div>
 </div>
-</div>
-<div class="section" id="id1">
-<h3>进制数<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id1">
+<h3>进制数<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mo">0o1</span><span class="p">,</span> <span class="mo">0o20</span><span class="p">,</span> <span class="mo">0o377</span> <span class="c1"># 八进制</span>
 </pre></div>
 </div>
@@ -1351,9 +1465,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;100, ff, FF&#39;
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
-<h3>位操作<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id2">
+<h3>位操作<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span> <span class="c1"># Shift left 2 bits</span>
@@ -1390,9 +1504,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>使用<strong>分数</strong>和<strong>小数</strong>可以避免精度的损失！</p>
-</div>
-<div class="section" id="id3">
-<h3>小数<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id3">
+<h3>小数<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">getcontext</span>
 </pre></div>
 </div>
@@ -1408,8 +1522,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Decimal(&#39;1.25&#39;)
 </pre></div>
 </div>
-<div class="section" id="id4">
-<h4>设置全局精度<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+<section id="id4">
+<h4>设置全局精度<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1431,10 +1545,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Decimal(&#39;0.1429&#39;)
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id5">
-<h3>分数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id5">
+<h3>分数<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
 </pre></div>
 </div>
@@ -1534,10 +1648,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Fraction(5, 3)
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id6">
-<h2>集合<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id6">
+<h2>集合<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h2>
 <p><strong>集合本质上具有基本的数学特性，与数学中的集合的概念十分吻合！</strong></p>
 <p>有两种创建方式：<code class="docutils literal notranslate"><span class="pre">set()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">'f'}</span></code></p>
 <p>注意，空集合只能使用 <code class="docutils literal notranslate"><span class="pre">set()</span></code> 创建，因为 <code class="docutils literal notranslate"><span class="pre">{}</span></code> 表示空字典。</p>
@@ -1592,22 +1706,22 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unhashable type: &#39;list&#39;
 </pre></div>
 </div>
-<div class="section" id="id7">
-<h3>集合解析<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<section id="id7">
+<h3>集合解析<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">x</span><span class="o">*</span><span class="mi">4</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;spam&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;aaaa&#39;, &#39;mmmm&#39;, &#39;pppp&#39;, &#39;ssss&#39;}
 </pre></div>
 </div>
-</div>
-<div class="section" id="id8">
-<h3>集合的作用<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id8">
+<h3>集合的作用<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">set()</span></code> 具有元素的去重功能。</p>
-</div>
-</div>
-<div class="section" id="id9">
-<h2>动态类型简介<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id9">
+<h2>动态类型简介<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h2>
 <p>在 Python 中，类型是在运行过程中自动决定的，而不是通过代码声明。这意味着没有必要事先声明变量 (只要记住，这个概念实质上对变量、对象和它们之间的关系都适用)。</p>
 <ul class="simple">
 <li><p><strong>变量创建</strong>：一个变量（也就是变量名），就像 <code class="docutils literal notranslate"><span class="pre">a</span></code>, 当代码第一次给它赋值时就创建了它。之后的赋值将会改变已经创建的变量名的值。从技术上讲，python 在代码运行之前先检测变量名，可以当成是最初的赋值创建变量。</p></li>
@@ -1615,8 +1729,8 @@ TypeError: unhashable type: &#39;list&#39;
 <li><p><strong>变量使用</strong>：当变量出现在表达式中，它会马上被当前所引用的对象所代替，无论这个对象是什么类型。此外，所有的变量必须在其使用前明确的赋值，使用未赋值的变量会产生错误。</p></li>
 </ul>
 <p>总而言之，变量在赋值的时候才创建，它可以引用任何类型的对象，并且必须在引用之前赋值。</p>
-<div class="section" id="id10">
-<h3>变量<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<section id="id10">
+<h3>变量<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h3>
 <ul class="simple">
 <li><p>Variables are created when they are first assigned values.</p></li>
 <li><p>Variables are replaced with their values when used in expressions.</p></li>
@@ -1634,14 +1748,14 @@ TypeError: unhashable type: &#39;list&#39;
 <li><p>类型标志符：标识对象类型；</p></li>
 <li><p>引用计数器：用来决定是不是可以回收对象。</p></li>
 </ul>
-</div>
-<div class="section" id="id11">
-<h3>对象的垃圾收集<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id11">
+<h3>对象的垃圾收集<a class="headerlink" href="#id11" title="永久链接至标题">#</a></h3>
 <p>垃圾收集：自动回收对象空间的技术。在 python 中，每当一个变量名被赋予了一个新的对象，之前的那个对象占用的空间就会被回收 (如果没有被其他变量名或对象所引用的话)。</p>
 <p>需要注意<strong>共享引用</strong>和<strong>原地修改</strong>的区别。</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1668,9 +1782,11 @@ TypeError: unhashable type: &#39;list&#39;
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="55.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1686,24 +1802,28 @@ TypeError: unhashable type: &#39;list&#39;
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By xinetzone<br/>
+  
+      &copy; Copyright 2021, xinetzone.<br/>
+</p>
+        </footer>
+    </div>
     
-      通过 xinetzone<br/>
-    
-        &copy; 版权 2021, xinetzone.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

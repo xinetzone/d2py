@@ -4,11 +4,13 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>函数基础 &#8212; d2py 0.1 文档</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,24 +20,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -83,9 +82,9 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -141,7 +140,21 @@ const thebe_selector_output = ".output, .cell_output"
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -150,14 +163,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -170,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
@@ -830,95 +839,200 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
 <div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">切换导航</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/drafts/88.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源库"><i
-                    class="fab fa-github"></i>资料库</button></a>
-        <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/88.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/88.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 导航
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xinetzone/d2py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/88.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/88.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/python-study/drafts/88.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> 导航
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    函数基础
@@ -1182,12 +1296,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>函数基础</h1>
@@ -1467,10 +1580,11 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>函数基础<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+                 <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>函数基础<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <p>一个函数就是将一些语句集合在一起的部件，它们能够不止一次地在程序中运行。函数的主要作用：</p>
 <ul class="simple">
 <li><p>最大化的代码重用和最小化代码冗余</p></li>
@@ -1490,8 +1604,8 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">def</span></code> 在运行时才进行评估，而在 <code class="docutils literal notranslate"><span class="pre">def</span></code> 之中的代码在函数调用后才会评估。</p>
-<div class="section" id="python">
-<h2>Python 中的多态<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h2>
+<section id="python">
+<h2>Python 中的多态<a class="headerlink" href="#python" title="永久链接至标题">#</a></h2>
 <p>下面以一个 <code class="docutils literal notranslate"><span class="pre">times()</span></code> 函数为例来说明：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
@@ -1519,9 +1633,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>从上面我们可以看出：<code class="docutils literal notranslate"><span class="pre">times</span></code> 函数中表达式 <code class="docutils literal notranslate"><span class="pre">x*y</span></code> 的意义完全取决于 <code class="docutils literal notranslate"><span class="pre">x</span></code> 与 <code class="docutils literal notranslate"><span class="pre">y</span></code> 的对象类型。这种依赖类型的行为称为<strong>多态</strong>。任何支持函数所预期的<strong>接口</strong> (函数所执行的一组方法和表达式运算符) 都能够被函数所支持。</p>
-</div>
-<div class="section" id="id2">
-<h2>作用域<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id2">
+<h2>作用域<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <p>当你在一个程序中使用变量名时，Python 创建、改变或查找变量名都是在所谓的<strong>命名空间</strong> (作用域，一个保存变量名的地方) 中进行的。也就是说，在代码中变量名被赋值的位置决定了这个变量名能被访问到的范围。包括作用域的定义在内，所有变量名都是在 Python 赋值时产生的。</p>
 <ul class="simple">
 <li><p>内嵌的模块是全局作用域</p></li>
@@ -1532,9 +1646,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>对函数的每次调用都会创建一个新的本地作用域</p></li>
 </ul>
 <p>对对象的就地更改（in-place changes）不将变量归类为局部变量;只有实际的名称分配。例如, 如果将名称 <code class="docutils literal notranslate"><span class="pre">L</span></code> 分配给模块顶层的列表, 函数中的语句 <code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">X</span></code> 会将 <code class="docutils literal notranslate"><span class="pre">L</span></code> 作为本地分类, 但 <code class="docutils literal notranslate"><span class="pre">L.append(X)</span></code> 不会。在后一种情况下, 我们正在更改 <code class="docutils literal notranslate"><span class="pre">L</span></code> 引用的 <code class="docutils literal notranslate"><span class="pre">list</span></code> 对象, 而不是 <code class="docutils literal notranslate"><span class="pre">L</span></code> 本身在全局范围中像往常一样被发现, 并且 Python 在不需要全局 (或非本地) 声明的情况下愉快地修改它。与往常一样, 它有助于保持名称和对象之间的区分清楚: <strong>更改对象不是对名称的赋值。</strong></p>
-</div>
-<div class="section" id="name-resolution-the-legb-rule">
-<h2>Name Resolution: The LEGB Rule<a class="headerlink" href="#name-resolution-the-legb-rule" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="name-resolution-the-legb-rule">
+<h2>Name Resolution: The LEGB Rule<a class="headerlink" href="#name-resolution-the-legb-rule" title="永久链接至标题">#</a></h2>
 <p>变量名解析：LEGB 原则</p>
 <ul class="simple">
 <li><p>Name assignments create or change local names by default.</p></li>
@@ -1542,9 +1656,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Names declared in global and nonlocal statements map assigned names to enclosing module and function scopes, respectively.</p></li>
 </ul>
 <p><img alt="" src="https://img2018.cnblogs.com/blog/685754/201810/685754-20181028190908768-1099229425.jpg" /></p>
-</div>
-<div class="section" id="id3">
-<h2>工厂函数<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id3">
+<h2>工厂函数<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
 <p><strong>闭合</strong> (closure) 或者工厂函数：一个能够记住嵌套作用域的变量值的函数，尽管那个作用域或许已经不存在了。</p>
 <p>例如，工厂函数有时用于需要及时生成事件处理、实时对不同情况进行反馈的程序中：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">maker</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
@@ -1572,9 +1686,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2>函数的不定长参数<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id4">
+<h2>函数的不定长参数<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h2>
 <p>当函数的参数不确定时，可以使用<code class="docutils literal notranslate"><span class="pre">*args</span></code> 和<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code> 是可变的 positional arguments 列表(表示任何多个无名参数，它是一个 tuple)</p></li>
@@ -1654,9 +1768,9 @@ kwargs= {&#39;a&#39;: 1, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: 3}
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}
 </pre></div>
 </div>
-</div>
-<div class="section" id="id5">
-<h2>函数设计原则<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id5">
+<h2>函数设计原则<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
 <ul class="simple">
 <li><p>耦合性</p>
 <ul>
@@ -1682,10 +1796,10 @@ kwargs= {&#39;a&#39;: 1, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: 3}
 </li>
 </ul>
 <p>简言之，我们应该竭力使函数和其他编程组件中的外部依赖性最小化。函数的自我包含性越好，它就越容易被理解、复用和修改。</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id6">
-<h1>递归（程序调用自身的编程技巧）<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id6">
+<h1>递归（程序调用自身的编程技巧）<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h1>
 <p>递归通常把一个大型复杂的问题，转化为一个与原问题相似的，且规模较小的问题来求解。<br />
 递归策略只需少量的程序就可以描述出解题的所需的多次重复计算，大大减少了程序的代码量。</p>
 <p>递归函数一般包括：</p>
@@ -1693,8 +1807,8 @@ kwargs= {&#39;a&#39;: 1, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: 3}
 <li><p>当函数直接结束是时有基本的返回值。</p></li>
 <li><p>递归调用函数自身：包括一个或多个对自身函数的调用。</p></li>
 </ul>
-<div class="section" id="n">
-<h2>求 <span class="math notranslate nohighlight">\(n!\)</span><a class="headerlink" href="#n" title="永久链接至标题">¶</a></h2>
+<section id="n">
+<h2>求 <span class="math notranslate nohighlight">\(n!\)</span><a class="headerlink" href="#n" title="永久链接至标题">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Factorial</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">a</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
@@ -1723,9 +1837,9 @@ kwargs= {&#39;a&#39;: 1, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: 3}
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3628800
 </pre></div>
 </div>
-</div>
-<div class="section" id="id7">
-<h2>求序列的和<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id7">
+<h2>求序列的和<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">seq_sum</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">L</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
@@ -1816,25 +1930,25 @@ kwargs= {&#39;a&#39;: 1, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: 3}
     <span class="k">return</span> <span class="n">first</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">rest</span> <span class="k">else</span> <span class="n">first</span> <span class="o">+</span> <span class="n">seq_sum</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="functional-programming">
-<h1>函数式编程（Functional programming）<a class="headerlink" href="#functional-programming" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="functional-programming">
+<h1>函数式编程（Functional programming）<a class="headerlink" href="#functional-programming" title="永久链接至标题">#</a></h1>
 <p>参考资料：</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html">函数式编程入门教程</a></p></li>
 <li><p><a class="reference external" href="http://www.cnblogs.com/xiami303/archive/2012/05/31/2528588.html">python —函数式编程指南【转】</a></p></li>
 </ul>
-<div class="section" id="id8">
-<h2>什么是函数式编程？<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<section id="id8">
+<h2>什么是函数式编程？<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h2>
 <blockquote>
 <div><p>函数式编程使用一系列的函数解决问题。函数仅接受输入并产生输出，不包含任何能影响产生输出的内部状态。任何情况下，使用相同的参数调用函数始终能产生同样的结果。
 在一个函数式的程序中，输入的数据“流过”一系列的函数，每一个函数根据它的输入产生输出。函数式风格避免编写有“边界效应”(side effects)的函数：修改内部状态，或者是其他无法反应在输出上的变化。完全没有边界效应的函数被称为“纯函数式的”(purely functional)。避免边界效应意味着不使用在程序运行时可变的数据结构，输出只依赖于输入。<br />
 可以认为函数式编程刚好站在了面向对象编程的对立面。对象通常包含内部状态（字段），和许多能修改这些状态的函数，程序则由不断修改状态构成；函数式编程则极力避免状态改动，并通过在函数间传递数据流进行工作。但这并不是说无法同时使用函数式编程和面向对象编程，事实上，复杂的系统一般会采用面向对象技术建模，但混合使用函数式风格还能让你额外享受函数式风格的优点。</p>
 </div></blockquote>
-</div>
-<div class="section" id="id9">
-<h2>为什么使用函数式编程？<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id9">
+<h2>为什么使用函数式编程？<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h2>
 <blockquote>
 <div><p>函数式的风格通常被认为有如下优点：</p>
 </div></blockquote>
@@ -1852,9 +1966,9 @@ kwargs= {&#39;a&#39;: 1, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: 3}
 <li><p><strong>更高的生产率</strong>:
 函数式编程产生的代码比其他技术更少（往往是其他技术的一半左右），并且更容易阅读和维护。</p></li>
 </ul>
-</div>
-<div class="section" id="id10">
-<h2>如何辨认函数式风格？<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id10">
+<h2>如何辨认函数式风格？<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h2>
 <blockquote>
 <div><p>支持函数式编程的语言通常具有如下特征，大量使用这些特征的代码即可被认为是函数式的：</p>
 </div></blockquote>
@@ -1891,12 +2005,12 @@ kwargs= {&#39;a&#39;: 1, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: 3}
 <blockquote>
 <div><p>在函数式编程中，函数就是一个管道（pipe）。这头进去一个值，那头就会出来一个新的值，没有其他副作用。</p>
 </div></blockquote>
-</div>
-<div class="section" id="id11">
-<h2>函数的合成与柯里化<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id11">
+<h2>函数的合成与柯里化<a class="headerlink" href="#id11" title="永久链接至标题">#</a></h2>
 <p>函数式编程有两个最基本的运算：合成和柯里化。</p>
-<div class="section" id="id12">
-<h3>函数的合成:<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<section id="id12">
+<h3>函数的合成:<a class="headerlink" href="#id12" title="永久链接至标题">#</a></h3>
 <p>如果一个值要经过多个函数，才能变成另外一个值，就可以把所有中间步骤合并成一个函数，这叫做”函数的合成”（compose）。<br />
 函数合成就是将那些管道(pipe)连了起来，让数据一口气从多个管道中穿过。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1910,9 +2024,9 @@ kwargs= {&#39;a&#39;: 1, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: 3}
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>20
 </pre></div>
 </div>
-</div>
-<div class="section" id="id13">
-<h3>柯里化:<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id13">
+<h3>柯里化:<a class="headerlink" href="#id13" title="永久链接至标题">#</a></h3>
 <p><span class="math notranslate nohighlight">\(f(x)\)</span> 和<span class="math notranslate nohighlight">\(g(x)\)</span> 合成为 <span class="math notranslate nohighlight">\(f(g(x))\)</span>，有一个隐藏的前提，就是 <span class="math notranslate nohighlight">\(f\)</span> 和 <span class="math notranslate nohighlight">\(g\)</span> 都只能接受一个参数。如果可以接受多个参数，比如 <span class="math notranslate nohighlight">\(f(x, y)\)</span> 和 <span class="math notranslate nohighlight">\(g(a, b, c)\)</span>，函数合成就非常麻烦。 这时就需要函数柯里化了。</p>
 <p><strong>所谓”柯里化”，就是把一个多参数的函数，转化为单参数函数。</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 柯里化之前</span>
@@ -1939,9 +2053,9 @@ kwargs= {&#39;a&#39;: 1, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: 3}
 </pre></div>
 </div>
 <p>有了柯里化以后，我们就能做到，所有函数只接受一个参数。后文的内容除非另有说明，都默认函数只有一个参数，就是所要处理的那个值。</p>
-</div>
-<div class="section" id="id14">
-<h3>函子<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id14">
+<h3>函子<a class="headerlink" href="#id14" title="永久链接至标题">#</a></h3>
 <p>函数不仅可以用于同一个范畴之中值的转换，还可以用于将一个范畴转成另一个范畴。这就涉及到了函子（Functor）。</p>
 <p>函子是函数式编程里面最重要的数据类型，也是基本的运算单位和功能单位。</p>
 <p>它首先是一种范畴，也就是说，是一个容器，包含了值和变形关系。比较特殊的是，它的变形关系可以依次作用于每一个值，将当前容器变形成另一个容器。</p>
@@ -1969,10 +2083,10 @@ map(f,range(10))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id15">
-<h2>函数柯里化<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id15">
+<h2>函数柯里化<a class="headerlink" href="#id15" title="永久链接至标题">#</a></h2>
 <p>一个函数有多个参数，我们希望能固定其中几个参数的值。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 
@@ -2006,9 +2120,9 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 103
 </pre></div>
 </div>
-</div>
-<div class="section" id="uncurrying">
-<h2>反柯里化(Uncurrying)<a class="headerlink" href="#uncurrying" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="uncurrying">
+<h2>反柯里化(Uncurrying)<a class="headerlink" href="#uncurrying" title="永久链接至标题">#</a></h2>
 <p>顾名思义，是柯里化的逆过程。将多个只含单个参数的函数模拟成一个多参数函数。你可以像这样调用：<code class="docutils literal notranslate"><span class="pre">foo(1)(4)</span></code> 或 <code class="docutils literal notranslate"><span class="pre">(foo(1))(4)</span></code>，都能得到正确的结果 <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
@@ -2024,8 +2138,8 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 </div>
 <p>上接 <a class="reference external" href="https://www.cnblogs.com/q735613050/p/7347181.html">python 函数式编程学习笔记</a></p>
 <p>参考：www.sigai.cn/</p>
-<div class="section" id="id16">
-<h3>1  函数式编程概述<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<section id="id16">
+<h3>1  函数式编程概述<a class="headerlink" href="#id16" title="永久链接至标题">#</a></h3>
 <ul class="simple">
 <li><p>前提：函数在 Python 中是⼀等对象</p></li>
 <li><p>工具：<strong>built-in</strong> ⾼阶函数；<strong>lambda</strong> 函数；<strong>operator</strong> 模块；<strong>functools</strong> 模块</p></li>
@@ -2036,26 +2150,26 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 <blockquote>
 <div><p>何为 No Side Eﬀect？ 函数的所有功能就仅仅是返回一个新的值而已，没有其他行为，尤其是不得修改外部变量。因⽽，各个独⽴的部分的执⾏顺序可以随意打乱，带来执⾏顺序上的⾃自使得⼀系列新的特性得以实现：⽆锁的并发；惰性求值；编译器器级别的性能优化等</p>
 </div></blockquote>
-<div class="section" id="id17">
-<h4>1.1  程序的状态与命令式编程<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
+<section id="id17">
+<h4>1.1  程序的状态与命令式编程<a class="headerlink" href="#id17" title="永久链接至标题">#</a></h4>
 <ul class="simple">
 <li><p>程序的状态首先包含了当前定义的全部变量</p></li>
 <li><p>有了程序的状态，我们的程序才能不断往前推进</p></li>
 <li><p>命令式编程，就是通过不断修改变量的值，来保存当前运⾏的状态，来步步推进</p></li>
 </ul>
-</div>
-<div class="section" id="id18">
-<h4>1.2  函数式编程<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id18">
+<h4>1.2  函数式编程<a class="headerlink" href="#id18" title="永久链接至标题">#</a></h4>
 <ul class="simple">
 <li><p>通过函数来保存程序的状态（通过函数创建新的参数和返回值来保存状态）</p></li>
 <li><p>函数一层层的叠加起来，每个函数的参数或返回值代表了⼀个中间状态</p></li>
 <li><p>命令式编程⾥一次变量值的修改，在函数式编程⾥变成了⼀个函数的转换</p></li>
 <li><p>最自然的方式：递归</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id19">
-<h3>2  一等函数<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id19">
+<h3>2  一等函数<a class="headerlink" href="#id19" title="永久链接至标题">#</a></h3>
 <p><strong>一等对象</strong>的定义：</p>
 <ul class="simple">
 <li><p>在运⾏时创建</p></li>
@@ -2064,11 +2178,11 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 <li><p>能作为函数的返回结果</p></li>
 </ul>
 <p>Python 中，所有函数的都是一等对象，简称为<strong>一等函数</strong></p>
-<div class="section" id="id20">
-<h4>2.1  高阶函数<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h4>
+<section id="id20">
+<h4>2.1  高阶函数<a class="headerlink" href="#id20" title="永久链接至标题">#</a></h4>
 <p>定义：接受函数为参数，或把函数作为返回结果的函数</p>
-<div class="section" id="map">
-<h5>2.1.1  <code class="docutils literal notranslate"><span class="pre">map</span></code> 映射<a class="headerlink" href="#map" title="永久链接至标题">¶</a></h5>
+<section id="map">
+<h5>2.1.1  <code class="docutils literal notranslate"><span class="pre">map</span></code> 映射<a class="headerlink" href="#map" title="永久链接至标题">#</a></h5>
 <p><code class="docutils literal notranslate"><span class="pre">map()</span></code> 是 Python 内置的高阶函数，它接收一个函数 <code class="docutils literal notranslate"><span class="pre">f</span></code> 和一个<strong>可迭代对象</strong>，并通过把函数 <code class="docutils literal notranslate"><span class="pre">f</span></code> 依次作用在 可迭代对象 的每个元素上，并返回一个新的可迭代对象。</p>
 <hr class="docutils" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -2105,9 +2219,9 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 </pre></div>
 </div>
 <p>因而，列表推导可以很好的替换 map 函数。</p>
-</div>
-<div class="section" id="filter">
-<h5>2.1.2  <code class="docutils literal notranslate"><span class="pre">filter</span></code> 过滤器<a class="headerlink" href="#filter" title="永久链接至标题">¶</a></h5>
+</section>
+<section id="filter">
+<h5>2.1.2  <code class="docutils literal notranslate"><span class="pre">filter</span></code> 过滤器<a class="headerlink" href="#filter" title="永久链接至标题">#</a></h5>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[(),</span> <span class="p">[],</span> <span class="p">{},</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
 
 <span class="n">x_result</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 
@@ -2133,9 +2247,9 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="reduce">
-<h5>2.1.3  <code class="docutils literal notranslate"><span class="pre">reduce</span></code> 递推<a class="headerlink" href="#reduce" title="永久链接至标题">¶</a></h5>
+</section>
+<section id="reduce">
+<h5>2.1.3  <code class="docutils literal notranslate"><span class="pre">reduce</span></code> 递推<a class="headerlink" href="#reduce" title="永久链接至标题">#</a></h5>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 
 <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
@@ -2156,9 +2270,9 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>24
 </pre></div>
 </div>
-</div>
-<div class="section" id="zip">
-<h5>2.1.4  <code class="docutils literal notranslate"><span class="pre">zip</span></code> 并行<a class="headerlink" href="#zip" title="永久链接至标题">¶</a></h5>
+</section>
+<section id="zip">
+<h5>2.1.4  <code class="docutils literal notranslate"><span class="pre">zip</span></code> 并行<a class="headerlink" href="#zip" title="永久链接至标题">#</a></h5>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;zip( [1, 2, 3], [4, 5, 6]):&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])))</span>
 </pre></div>
 </div>
@@ -2166,9 +2280,9 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zip( [1, 2, 3], [4, 5, 6]): [(1, 4), (2, 5), (3, 6)]
 </pre></div>
 </div>
-</div>
-<div class="section" id="sorted">
-<h5>2.1.5  <code class="docutils literal notranslate"><span class="pre">sorted</span></code> 排序<a class="headerlink" href="#sorted" title="永久链接至标题">¶</a></h5>
+</section>
+<section id="sorted">
+<h5>2.1.5  <code class="docutils literal notranslate"><span class="pre">sorted</span></code> 排序<a class="headerlink" href="#sorted" title="永久链接至标题">#</a></h5>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">([</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
 </pre></div>
 </div>
@@ -2194,10 +2308,10 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">min</span></code> 与 <code class="docutils literal notranslate"><span class="pre">max</span></code> 同理。</p>
-</div>
-</div>
-<div class="section" id="partial">
-<h4>2.2  <code class="docutils literal notranslate"><span class="pre">partial</span></code><a class="headerlink" href="#partial" title="永久链接至标题">¶</a></h4>
+</section>
+</section>
+<section id="partial">
+<h4>2.2  <code class="docutils literal notranslate"><span class="pre">partial</span></code><a class="headerlink" href="#partial" title="永久链接至标题">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">functools</span></code> 这货用于高阶函数：指那些作用于函数或者返回其他函数的函数。通常情况下，只要是可以被当做函数调用的对象就是这个模块的目标。</p>
 <p>假设有如下函数：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -2299,10 +2413,10 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[-9, 8, -7, 6, -5, 4, -3, 2, -1, 0]
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id21">
-<h4>2.3  匿名函数<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<section id="id21">
+<h4>2.3  匿名函数<a class="headerlink" href="#id21" title="永久链接至标题">#</a></h4>
 <ul class="simple">
 <li><p>定义：使⽤用 <code class="docutils literal notranslate"><span class="pre">lambda</span></code> 表达式创建的函数，函数本身没有名字</p></li>
 <li><p>特点：只能使⽤用纯表达式，不能赋值，不能使⽤用 <code class="docutils literal notranslate"><span class="pre">while</span></code> 和 <code class="docutils literal notranslate"><span class="pre">try</span></code> 等块语句</p></li>
@@ -2311,8 +2425,8 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 <blockquote>
 <div><p>Expressions get a value; Statements do something</p>
 </div></blockquote>
-<div class="section" id="lambda-def">
-<h5><code class="docutils literal notranslate"><span class="pre">lambda</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">def</span></code><a class="headerlink" href="#lambda-def" title="永久链接至标题">¶</a></h5>
+<section id="lambda-def">
+<h5><code class="docutils literal notranslate"><span class="pre">lambda</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">def</span></code><a class="headerlink" href="#lambda-def" title="永久链接至标题">#</a></h5>
 <p>写法上：</p>
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> 可以用代码块，一个代码块包含多个语句</p></li>
@@ -2390,12 +2504,12 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 </div>
 <hr class="docutils" />
 <p>大家可以思考为什么会出现这个意想不到的结果？</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="decorator">
-<h3>函数修饰器（Decorator）其他相关知识<a class="headerlink" href="#decorator" title="永久链接至标题">¶</a></h3>
+<section id="decorator">
+<h3>函数修饰器（Decorator）其他相关知识<a class="headerlink" href="#decorator" title="永久链接至标题">#</a></h3>
 <p>Python中的函数是对象,故函数可以被当做变量使用。</p>
 <p>参考资料：</p>
 <ul class="simple">
@@ -2403,10 +2517,10 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 <li><p><a class="reference external" href="http://www.cnblogs.com/huxi/archive/2011/03/01/1967600.html">Python装饰器与面向切面编程</a></p></li>
 <li><p><a class="reference external" href="http://www.open-open.com/lib/view/open1395285030019.html">Python修饰器的函数式编程</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id22">
-<h2>作用：<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id22">
+<h2>作用：<a class="headerlink" href="#id22" title="永久链接至标题">#</a></h2>
 <p>对已有的函数添加一些小功能，却又不希望对函数内容有太多的刚性的修改。</p>
 <ul class="simple">
 <li><p>将需要添加功能的函数像普通对象一样作为参数传入修饰器在中；</p></li>
@@ -2422,11 +2536,11 @@ map(lambda x:x**2,range(10)))： [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 </pre></div>
 </div>
 <p>等同于 <code class="docutils literal notranslate"><span class="pre">f=deco3(deco2(deco1(f)))</span></code></p>
-</div>
-<div class="section" id="id23">
-<h2>示例<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
-<div class="section" id="hello-world">
-<h3>添加水印 <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World_</span></code><a class="headerlink" href="#hello-world" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id23">
+<h2>示例<a class="headerlink" href="#id23" title="永久链接至标题">#</a></h2>
+<section id="hello-world">
+<h3>添加水印 <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World_</span></code><a class="headerlink" href="#hello-world" title="永久链接至标题">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deco</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>          <span class="c1">#修饰器deco</span>
     <span class="k">def</span> <span class="nf">wrappedFunc</span><span class="p">():</span>          <span class="c1">#内嵌函数wrappedFunc(所有对于传入函数的修饰逻辑都将在此内嵌函数中实现。)</span>
         <span class="k">return</span> <span class="s1">&#39;Hello World_&#39;</span><span class="o">+</span><span class="n">func</span><span class="p">()</span>
@@ -2460,9 +2574,9 @@ I am g
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 56]
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2489,9 +2603,11 @@ I am g
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="66.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -2507,24 +2623,28 @@ I am g
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By xinetzone<br/>
+  
+      &copy; Copyright 2021, xinetzone.<br/>
+</p>
+        </footer>
+    </div>
     
-      通过 xinetzone<br/>
-    
-        &copy; 版权 2021, xinetzone.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

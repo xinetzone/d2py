@@ -4,11 +4,13 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>编写插件 &#8212; d2py 0.1 文档</title>
     
-  <link href="../../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,24 +20,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/default.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/default.css" />
     
-  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
     <script src="../../../../_static/jquery.js"></script>
@@ -83,9 +82,9 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -139,7 +138,21 @@ const thebe_selector_output = ".output, .cell_output"
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -148,14 +161,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -168,7 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
@@ -828,95 +837,200 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
 <div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">切换导航</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/chaos/deploy/pdm/plugin/write.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源库"><i
-                    class="fab fa-github"></i>资料库</button></a>
-        <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fchaos/deploy/pdm/plugin/write.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/chaos/deploy/pdm/plugin/write.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 导航
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xinetzone/d2py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fchaos/deploy/pdm/plugin/write.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/edit/main/docs/chaos/deploy/pdm/plugin/write.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../_sources/chaos/deploy/pdm/plugin/write.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> 导航
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    插件应该做什么
@@ -966,12 +1080,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>编写插件</h1>
@@ -1037,10 +1150,11 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>编写插件<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+                 <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>编写插件<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <p>PDM 的目标是成为一个社区驱动的软件包管理器。它配备了一个全功能的插件系统，你可以用它：</p>
 <ul class="simple">
 <li><p>为 PDM 开发新的命令</p></li>
@@ -1048,15 +1162,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>通过读取额外的配置项来改变 PDM 的行为</p></li>
 <li><p>控制依赖关系的解决或安装过程</p></li>
 </ul>
-<div class="section" id="id2">
-<h2>插件应该做什么<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h2>插件应该做什么<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <p>核心的 PDM 项目专注于依赖性管理和包的发布。你希望与 PDM 集成的其他功能，最好放在自己的插件中并作为独立的 PyPI 项目发布。如果该插件被认为是核心项目的一个很好的补充，它可能有机会被吸收到 PDM 中。</p>
-</div>
-<div class="section" id="id3">
-<h2>编写你自己的插件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id3">
+<h2>编写你自己的插件<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
 <p>在下面的章节中，我将展示一个添加新命令 <code class="docutils literal notranslate"><span class="pre">hello</span></code> 的例子，它读取 <code class="docutils literal notranslate"><span class="pre">hello.name</span></code> 的配置。</p>
-<div class="section" id="id4">
-<h3>编写命令<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<section id="id4">
+<h3>编写命令<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
 <p>PDM 的 CLI 模块的设计方式是，用户可以很容易地 “继承和修改”。要编写新的命令：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pdm.cli.commands.base</span> <span class="kn">import</span> <span class="n">BaseCommand</span>
 
@@ -1092,18 +1206,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">备注</p>
 <p>首先加载默认选项，然后调用 <code class="docutils literal notranslate"><span class="pre">add_arguments()</span></code>。</p>
 </div>
-</div>
-<div class="section" id="id5">
-<h3>将命令注册到核心对象<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id5">
+<h3>将命令注册到核心对象<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
 <p>在你的插件项目的某个地方写一个函数。对函数的名称没有限制。但该函数应该只接受一个参数 – PDM 核心对象：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_plugin</span><span class="p">(</span><span class="n">core</span><span class="p">):</span>
     <span class="n">core</span><span class="o">.</span><span class="n">register_command</span><span class="p">(</span><span class="n">HelloCommand</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>调用 <code class="docutils literal notranslate"><span class="pre">core.register_command()</span></code> 来注册该命令。第二个参数作为子命令的名称是可选的。如果没有传递名称，PDM 将寻找 <code class="docutils literal notranslate"><span class="pre">HelloCommand</span></code> 的 <code class="docutils literal notranslate"><span class="pre">name</span></code> 属性。</p>
-</div>
-<div class="section" id="id6">
-<h3>添加新的配置项<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id6">
+<h3>添加新的配置项<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h3>
 <p>让我们回顾一下第一个代码片断，如果不是通过命令行传递，<code class="docutils literal notranslate"><span class="pre">hello.name</span></code> 配置键会被查询到名字。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HelloCommand</span><span class="p">(</span><span class="n">BaseCommand</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Say hello to the specified person.</span>
@@ -1136,23 +1250,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">global_only</span></code>：是否只允许在主配置中设置配置</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">env_var</span></code>：环境变量的名称，将作为配置值被读取</p></li>
 </ul>
-</div>
-<div class="section" id="id7">
-<h3>其他插件点<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id7">
+<h3>其他插件点<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h3>
 <p>除了命令和配置，“核心” 对象还暴露了一些其他的方法和属性来覆盖。PDM 还提供了一些你可以监听的信号。请阅读 <a class="reference external" href="https://pdm.fming.dev/plugin/reference/">API参考</a> 了解更多细节。</p>
-</div>
-<div class="section" id="pdm">
-<h3>关于开发 PDM 插件的提示<a class="headerlink" href="#pdm" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="pdm">
+<h3>关于开发 PDM 插件的提示<a class="headerlink" href="#pdm" title="永久链接至标题">#</a></h3>
 <p>在开发插件时，人们希望在开发中激活和插件，并在代码改变时得到更新。这通常是通过 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> 或 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></code> 在传统的 Python 包装世界中，利用 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> 来实现。然而。由于在 PDM 项目中没有这样的 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>，我们如何才能做到呢？</p>
-<p>幸运的是，有了 PDM 和 PEP 582，它变得更加容易。首先，你应该在全局范围内启用 <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0582"><strong>PEP 582</strong></a>，按照 <a class="reference external" href="../index.md#enable-pep-582-globally">本文档的相应部分</a>。然后你只需要通过以下方式将所有的依赖项安装到 <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code> 目录中：</p>
+<p>幸运的是，有了 PDM 和 PEP 582，它变得更加容易。首先，你应该在全局范围内启用 <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0582/"><strong>PEP 582</strong></a>，按照 <a class="reference external" href="../index.md#enable-pep-582-globally">本文档的相应部分</a>。然后你只需要通过以下方式将所有的依赖项安装到 <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code> 目录中：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm install
 </pre></div>
 </div>
 <p>之后，所有的依赖都可以用兼容的 Python 解释器，包括插件本身，在可编辑模式下。这意味着对代码库的任何改变都会立即生效，而不需要重新安装。<code class="docutils literal notranslate"><span class="pre">pdm</span></code> 可执行文件也在引擎盖下使用 Python 解释器。所以如果你在插件项目中运行 <code class="docutils literal notranslate"><span class="pre">pdm</span></code>，开发中的插件将被自动激活，你可以做一些测试，看看它是如何工作的。这就是 PEP 582 对我们开发工作流程的好处。</p>
-</div>
-</div>
-<div class="section" id="id8">
-<h2>发布插件<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id8">
+<h2>发布插件<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h2>
 <p>现在你已经定义了你的插件，让我们把它分发到 PyPI。PDM 的插件是通过入口点类型发现的。创建一个 <code class="docutils literal notranslate"><span class="pre">pdm</span></code> 入口点，并指向你的插件可调用（是的，它不需要是一个函数，任何可调用对象都可以）：</p>
 <p><strong>PEP 621</strong>:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># pyproject.toml</span><span class="w"></span>
@@ -1171,9 +1285,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id9">
-<h2>激活插件<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id9">
+<h2>激活插件<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h2>
 <p>由于插件是通过入口点加载的，它们可以在没有更多步骤的情况下被激活，而只是安装插件。为了方便，PDM 提供了一个 <code class="docutils literal notranslate"><span class="pre">plugin</span></code> 命令组来管理插件。</p>
 <p>假设你的插件是以 <code class="docutils literal notranslate"><span class="pre">pdm-hello</span></code> 的名义发布的：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm plugin add pdm-hello
@@ -1185,8 +1299,8 @@ Hello, Jack
 </pre></div>
 </div>
 <p>通过在终端键入 <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">plugin</span> <span class="pre">--help</span></code> 查看更多插件管理子命令。</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1213,9 +1327,11 @@ Hello, Jack
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1231,24 +1347,28 @@ Hello, Jack
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By xinetzone<br/>
+  
+      &copy; Copyright 2021, xinetzone.<br/>
+</p>
+        </footer>
+    </div>
     
-      通过 xinetzone<br/>
-    
-        &copy; 版权 2021, xinetzone.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

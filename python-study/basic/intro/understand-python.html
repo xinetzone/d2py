@@ -4,11 +4,13 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>解读 Python 世界的修炼体系 &#8212; d2py 0.1 文档</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,24 +20,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/default.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/default.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -83,9 +82,9 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -141,7 +140,21 @@ const thebe_selector_output = ".output, .cell_output"
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -150,14 +163,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -170,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
@@ -830,95 +839,200 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
 <div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">切换导航</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/python-study/basic/intro/understand-python.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源库"><i
-                    class="fab fa-github"></i>资料库</button></a>
-        <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/intro/understand-python.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/intro/understand-python.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 导航
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xinetzone/d2py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/intro/understand-python.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/intro/understand-python.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/python-study/basic/intro/understand-python.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> 导航
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    通用法则
@@ -1093,12 +1207,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>解读 Python 世界的修炼体系</h1>
@@ -1289,10 +1402,11 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="python">
-<h1>解读 Python 世界的修炼体系<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+                 <section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>解读 Python 世界的修炼体系<a class="headerlink" href="#python" title="永久链接至标题">#</a></h1>
 <p><span class="guilabel">视频</span></p>
 <iframe id="Python"
     title="Python 基本数据类型与变量"
@@ -1317,11 +1431,11 @@ const thebe_selector_output = ".output, .cell_output"
 </dd>
 </dl>
 </div>
-<div class="section" id="id1">
-<h2>通用法则<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<section id="id1">
+<h2>通用法则<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h2>
 <p>一个 Python 世界是一个真实的世界，它需要遵循一些固有的通用法则。</p>
-<div class="section" id="id2">
-<h3>逻辑<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<section id="id2">
+<h3>逻辑<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h3>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
 <p>通用法则1：Python 世界是遵循逻辑的。</p>
@@ -1335,15 +1449,15 @@ const thebe_selector_output = ".output, .cell_output"
 <dt><code class="docutils literal notranslate"><span class="pre">调试</span></code></dt><dd><p>常用于对命题做出假设，辅助于逻辑判断。</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="id3">
-<h3>对象<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id3">
+<h3>对象<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
 <p>通用法则2：Python 中的一切皆是 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-object" title="(在 Python v3.11)"><span class="xref std std-term">对象</span></a>。</p>
 </div>
 <p>一个对象总是存在：<strong>质</strong>、<strong>量</strong> 与 <strong>度</strong>。</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title">唯物辩证法第二规律</p>
 <dl class="simple myst">
 <dt>量</dt><dd><p>事物的规模、程度、速度等可以用数量关系表示的规定性。</p>
@@ -1353,7 +1467,7 @@ const thebe_selector_output = ".output, .cell_output"
 <dt>度</dt><dd><p>保持事物质的稳定性的数量界限，即事物的限度、幅度和范围。</p>
 </dd>
 </dl>
-</div>
+</aside>
 <p>每次创建一个新的对象都要从零开始，效率太低了。考虑先构建一个“模具”。具有以下构造：</p>
 <ol class="simple">
 <li><p>一个唯一的 <strong>编号</strong>（可以简写为 ID，在 CPython 中表示对象在内存中的地址）：作为对象的身份象征，不可变</p></li>
@@ -1375,10 +1489,10 @@ const thebe_selector_output = ".output, .cell_output"
 </dd>
 </dl>
 </div>
-</div>
-</div>
-<div class="section" id="id4">
-<h2>模块与包<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id4">
+<h2>模块与包<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h2>
 <dl class="simple myst">
 <dt><code class="docutils literal notranslate"><span class="pre">模块</span></code></dt><dd><p>你是通过操作电脑中的 <strong>文件</strong> 以操纵着 Python 世界。假设你使用编辑器在一个文件中写满了关于操作 Python 的指令，然后借由 Python 解释器将此文件的指令翻译给电脑，电脑便真正意义上运转着 Python 世界。由于此文件对 Python 世界有着这么重要的作用，所以 Python 对其专门定制了一个名称叫做 <strong>模块</strong>，且该文件还有一个特殊的文件后缀 <code class="docutils literal notranslate"><span class="pre">.py</span></code>。</p>
 </dd>
@@ -1401,17 +1515,17 @@ const thebe_selector_output = ".output, .cell_output"
 </dd>
 </dl>
 <p>有了常规包这个模型，你管理 Python 世界轻松多了。</p>
-<p>很不幸！常规包模型想要跨目录导入将会变得很困难。<span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0420"><strong>PEP 420</strong></a> 提出 <strong>命名空间包</strong> 的概念，有效地解决此问题。</p>
+<p>很不幸！常规包模型想要跨目录导入将会变得很困难。<span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0420/"><strong>PEP 420</strong></a> 提出 <strong>命名空间包</strong> 的概念，有效地解决此问题。</p>
 <dl class="simple myst">
 <dt><code class="docutils literal notranslate"><span class="pre">命名空间包</span></code></dt><dd><p>命名空间包是由多个 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-portion" title="(在 Python v3.11)"><span class="xref std std-term">portion</span></a> 构成的，每个 portion 为父包增加一个子包。各个 portion 可能处于文件系统的不同位置。portion 也可能处于 zip 文件中、网络上，或者 Python 在导入期间可以搜索的其他地方。命名空间包并不一定会直接对应到文件系统中的对象；它们有可能是无实体表示的虚拟模块。</p>
 <p>命名空间包没有 <code class="docutils literal notranslate"><span class="pre">parent/__init__.py</span></code> 文件。实际上，在导入搜索期间可能找到多个 <code class="docutils literal notranslate"><span class="pre">parent</span></code> 目录，每个都由不同的 portion 所提供。因此 <code class="docutils literal notranslate"><span class="pre">parent/one</span></code> 的物理位置不一定与 <code class="docutils literal notranslate"><span class="pre">parent/two</span></code> 相邻。 在这种情况下，Python 将为顶级的 <code class="docutils literal notranslate"><span class="pre">parent</span></code> 包创建一个命名空间包，无论是它本身还是它的某个子包被导入。</p>
-<p>另请参阅 <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0420"><strong>PEP 420</strong></a> 了解对命名空间包的规格描述。</p>
+<p>另请参阅 <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0420/"><strong>PEP 420</strong></a> 了解对命名空间包的规格描述。</p>
 </dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">常规包</span></code> 与 <code class="docutils literal notranslate"><span class="pre">命名空间包</span></code> 合称为 <code class="docutils literal notranslate"><span class="pre">包</span></code>，从语义范畴来看，Python 的包是特殊的模块。</p>
-</div>
-<div class="section" id="id5">
-<h2>形符化<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id5">
+<h2>形符化<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
 <p>如果人们想要让电脑（这里的电脑指的是广义的，比如打印机也可以看作是微型电脑）进行某些活动，那么，需要给它提供一条条的命令（或者称为 <strong>指令</strong>）来引导其运转。这些指令一般被称为 <strong>程序</strong>。</p>
 <p>我们是通过彼此可以听得懂的语言还向他人转达信息的，同样，如果我们想要给电脑传达一些信息，那么，“编程语言”便是我们和电脑沟通的桥梁。</p>
 <p><strong>编程</strong> 就是我们为了完成某项任务，将解决问题的步骤，用计算机能够理解的语言（编程语言）写成指令，计算机会根据这些指令完成我们的任务。</p>
@@ -1425,12 +1539,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><strong>类型</strong> 是对象所存在的空间，决定着对象的行为以及可能的取值。</p></li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3>字面值<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<section id="id6">
+<h3>字面值<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h3>
 <p><a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#literals" title="(在 Python v3.11)"><span class="xref myst">字面值</span></a> 是 Python 内置类型常量值的表示法。<a class="reference internal" href="../../refs/glossary/value.html#term-2"><span class="xref std std-term">字面值</span></a> 包含：字符串、字节串、数字。</p>
 <p>字面值是构成 Python 世界的基础之一，其中数字提供了计数体系，而字符串与字节串提供了文字体系。</p>
-<div class="section" id="id7">
-<h4>数字<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<section id="id7">
+<h4>数字<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h4>
 <p>数字字面值有三种类型：整数、浮点数、虚数。</p>
 <p>可以使用用下划线分组数字。</p>
 <dl class="simple myst">
@@ -1454,9 +1568,9 @@ const thebe_selector_output = ".output, .cell_output"
 </dd>
 </dl>
 <p>没有复数字面值，但是可以表示：<code class="docutils literal notranslate"><span class="pre">复数字面值=浮点数字面值（或者整数字面值）+</span> <span class="pre">虚数字面值</span></code>，比如：<code class="docutils literal notranslate"><span class="pre">3.5+4j</span></code>。</p>
-</div>
-<div class="section" id="id8">
-<h4>字符串与字节串<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id8">
+<h4>字符串与字节串<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h4>
 <p>详细内容见：<a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#grammar-token-python-grammar-stringprefix" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">stringprefix</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#grammar-token-python-grammar-bytesprefix" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">bytesprefix</span></code></a>。</p>
 <p>字符串与字节串即造物对象所说的“语言”，比如 <code class="docutils literal notranslate"><span class="pre">&quot;你好&quot;</span></code>、b<code class="docutils literal notranslate"><span class="pre">'搞事情！'</span></code>。</p>
 <p>Python 中的对象需要通过语言与文字交流，可以这样比喻：</p>
@@ -1469,15 +1583,15 @@ const thebe_selector_output = ".output, .cell_output"
 </dd>
 </dl>
 <p>还有一些不可打印的语义，需要借助符号 <code class="docutils literal notranslate"><span class="pre">\</span></code> 进行转义。如果，需要保留被转义的字符，则需要在字符串或者字节串上添加前缀 <code class="docutils literal notranslate"><span class="pre">r</span></code> 或 <code class="docutils literal notranslate"><span class="pre">R</span></code>。</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>格式字符串可包含替换字段，即以 <code class="docutils literal notranslate"><span class="pre">{}</span></code> 标注的表达式。其他字符串字面值只是常量，格式字符串字面值则是可在运行时求值的表达式。</p>
-</div>
+</aside>
 <p>还有一种特殊的字符串叫 <strong>格式字符串</strong>，即在字符串前添加 <code class="docutils literal notranslate"><span class="pre">f</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">F</span></code> 前缀。</p>
-</div>
-</div>
-<div class="section" id="id9">
-<h3>运算符<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id9">
+<h3>运算符<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h3>
 <p>有了记录对象的“语言”系统，当然，还要有施加于对象的作用或者对象之间行为或者作用的符号，即运算符。</p>
 <p>运算符如下所示：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">+</span>       <span class="o">-</span>       <span class="o">*</span>       <span class="o">**</span>      <span class="o">/</span>       <span class="o">//</span>      <span class="o">%</span>      <span class="o">@</span>
@@ -1485,9 +1599,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="o">&lt;</span>       <span class="o">&gt;</span>       <span class="o">&lt;=</span>      <span class="o">&gt;=</span>      <span class="o">==</span>      <span class="o">!=</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id10">
-<h3>分隔符<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id10">
+<h3>分隔符<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h3>
 <p>还需要分隔符：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>       <span class="p">)</span>       <span class="p">[</span>       <span class="p">]</span>       <span class="p">{</span>       <span class="p">}</span>
 <span class="p">,</span>       <span class="p">:</span>       <span class="o">.</span>       <span class="p">;</span>       <span class="o">@</span>       <span class="o">=</span>       <span class="o">-&gt;</span>
@@ -1504,10 +1618,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$       ?       `
 </pre></div>
 </div>
-</div>
-<div class="section" id="id11">
-<h3>标识符<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
-<p>对象需要一个 <strong>名称</strong>（也称为 <strong>标识符</strong>），用于代表其身份，可以在对象之间使用，而不会被轻易遗忘。详细命名规则见 <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3131"><strong>PEP 3131</strong></a>。</p>
+</section>
+<section id="id11">
+<h3>标识符<a class="headerlink" href="#id11" title="永久链接至标题">#</a></h3>
+<p>对象需要一个 <strong>名称</strong>（也称为 <strong>标识符</strong>），用于代表其身份，可以在对象之间使用，而不会被轻易遗忘。详细命名规则见 <span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-3131/"><strong>PEP 3131</strong></a>。</p>
 <p>简单的说，标识符是由字母（包括汉字、英文字母等特定的 Unicode 符号）、数字与下划线组合而成的。但是，数字不能作为标识符的开头字段（也许是因为数字本来就是 Python 的特定符号，即字面值）。</p>
 <p>有一类特殊的标识符，被称为 <strong>保留字</strong>，或称 <strong>关键字</strong>。此类标识符不可用于普通标识符：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span>      <span class="k">await</span>      <span class="k">else</span>       <span class="kn">import</span>     <span class="nn">pass</span>
@@ -1519,15 +1633,15 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="k">async</span>      <span class="k">elif</span>       <span class="k">if</span>         <span class="ow">or</span>         <span class="k">yield</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id12">
-<h3>行结构<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id12">
+<h3>行结构<a class="headerlink" href="#id12" title="永久链接至标题">#</a></h3>
 <p>使用编辑器打开一个模块文件，可以看到模块被组织成行结构。你当下看到的行，被称为 <strong>物理行</strong>。</p>
 <p>由于你管理的 Python 世界是符合逻辑的，故而模块按照逻辑单元组织起来的。换言之，一个 Python 模块可以拆分为多个 <strong>逻辑行</strong>。</p>
 <p>物理行不香吗？为什么添加了一个新的术语？</p>
 <p>那是因为，一个逻辑行可能由多个连续的物理行组成。确切地说，<strong>逻辑行</strong> 是由形符 <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 结束的。</p>
-<div class="section" id="id13">
-<h4>显式拼接行<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<section id="id13">
+<h4>显式拼接行<a class="headerlink" href="#id13" title="永久链接至标题">#</a></h4>
 <p>两个及两个以上的物理行可用反斜杠（<code class="docutils literal notranslate"><span class="pre">\</span></code>）拼接为一个逻辑行，规则如下：以不在字符串或注释内的反斜杠结尾时，物理行将与下一行拼接成一个逻辑行，并删除反斜杠及其后的换行符。例如：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">1900</span> <span class="o">&lt;</span> <span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2100</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">month</span> <span class="o">&lt;=</span> <span class="mi">12</span> \
    <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">day</span> <span class="o">&lt;=</span> <span class="mi">31</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">24</span> \
@@ -1544,9 +1658,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">小技巧</p>
 <p>尽量少用 <strong>显式拼接行</strong>。因为显式拼接行并不可爱，很容易出错或者说不 Pythonic。</p>
 </div>
-</div>
-<div class="section" id="id14">
-<h4>隐式拼接行<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id14">
+<h4>隐式拼接行<a class="headerlink" href="#id14" title="永久链接至标题">#</a></h4>
 <p>圆括号、方括号、花括号内的表达式可以分成多个物理行，不必使用反斜杠。例如：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">month_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Januari&#39;</span><span class="p">,</span> <span class="s1">&#39;Februari&#39;</span><span class="p">,</span> <span class="s1">&#39;Maart&#39;</span><span class="p">,</span>      <span class="c1"># These are the</span>
                <span class="s1">&#39;April&#39;</span><span class="p">,</span>   <span class="s1">&#39;Mei&#39;</span><span class="p">,</span>      <span class="s1">&#39;Juni&#39;</span><span class="p">,</span>       <span class="c1"># Dutch names</span>
@@ -1555,24 +1669,24 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>隐式行拼接可含注释；后续行的缩进并不重要；还支持空的后续行。隐式拼接行之间没有 <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 形符。三引号字符串支持隐式拼接行，但不支持注释。</p>
-</div>
-<div class="section" id="id15">
-<h4>注释<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id15">
+<h4>注释<a class="headerlink" href="#id15" title="永久链接至标题">#</a></h4>
 <p>注释以井号 （<code class="docutils literal notranslate"><span class="pre">#</span></code>） 开头，在物理行末尾截止。注意，井号不是字符串字面值。除非应用隐式行拼接规则，否则，注释代表逻辑行结束。解释器不解析注释。</p>
-</div>
-<div class="section" id="id16">
-<h4>空白行<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="id16">
+<h4>空白行<a class="headerlink" href="#id16" title="永久链接至标题">#</a></h4>
 <p>只包含空格符、制表符、换页符、注释的逻辑行会被忽略（即不生成 <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 形符）。</p>
-</div>
-</div>
-<div class="section" id="id17">
-<h3>缩进<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+<section id="id17">
+<h3>缩进<a class="headerlink" href="#id17" title="永久链接至标题">#</a></h3>
 <p>逻辑行的开头空白符（空格符和制表符）用于计算该行的 <strong>缩进层级</strong>。</p>
 <p>制表符（从左至右）被替换为一至八个空格，缩进空格的总数是八的倍数（与 Unix 的规则保持一致）。首个非空字符前的空格数决定了该行的缩进层次。缩进不能用反斜杠进行多行拼接；首个反斜杠所在物理行开头的空白符决定了缩进的层次。</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>行首含换页符时，缩进计算将忽略该换页符。换页符在行首空白符内其他位置的效果未定义（例如，可能导致空格计数重置为零）。</p>
-</div>
+</aside>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
 <p>混用制表符和空格符缩进，可能造成逻辑混乱！</p>
@@ -1607,14 +1721,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>连续行的缩进层级以堆栈形式生成 <code class="docutils literal notranslate"><span class="pre">INDENT</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 形符，说明如下：</p>
 <p>读取文件第一行前，先向栈推入一个零值，该零值不会被移除。推入栈的层级值从底至顶持续增加。每个逻辑行开头的行缩进层级将与栈顶行比较。如果相等，则不做处理。如果新行层级较高，则会被推入栈顶，并生成一个 <code class="docutils literal notranslate"><span class="pre">INDENT</span></code> 形符。如果新行层级较低，则应当是栈中的层级数值之一；栈中高于该层级的所有数值都将被移除，每移除一级数值生成一个 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 形符。文件末尾，栈中剩余的每个大于零的数值生成一个 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> 形符。</p>
 </div>
-</div>
-<div class="section" id="id18">
-<h3>形符间的空白字符<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id18">
+<h3>形符间的空白字符<a class="headerlink" href="#id18" title="永久链接至标题">#</a></h3>
 <p>除非在逻辑行开头或字符串内，空格符、制表符、换页符等空白符都可以分隔形符。要把两个相连形符解读为不同形符，需要用空白符分隔（例如，<code class="docutils literal notranslate"><span class="pre">ab</span></code> 是一个形符，<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">b</span></code> 则是两个形符）。</p>
-</div>
-</div>
-<div class="section" id="id19">
-<h2>名称绑定与对象引用<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id19">
+<h2>名称绑定与对象引用<a class="headerlink" href="#id19" title="永久链接至标题">#</a></h2>
 <p>Python 标识符可以细分为两类：常量与变量。</p>
 <dl class="simple myst">
 <dt><code class="docutils literal notranslate"><span class="pre">常量</span></code></dt><dd><p>标识符所引用的对象编号不可改变的量。</p>
@@ -1625,34 +1739,34 @@ const thebe_selector_output = ".output, .cell_output"
 <p>标识符也可称之为 <strong>名称</strong>。</p>
 <p>对象之间相互独立，多个名称可能 <strong>绑定</strong> 到同一个对象。其他编程语言称之为 <strong>别名</strong>。</p>
 <p>一个名称可能 <strong>引用</strong> 多个对象。</p>
-</div>
-<div class="section" id="id20">
-<h2>表达式<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id20">
+<h2>表达式<a class="headerlink" href="#id20" title="永久链接至标题">#</a></h2>
 <p>下面可以利用形符、分隔符、运算符组合生成有意义的可以 <strong>求值</strong> 的语义单元：表达式。</p>
 <dl class="simple myst">
 <dt>参数</dt><dd><p>表达式的参考数据。</p>
 </dd>
 </dl>
-<div class="section" id="id21">
-<h3>算术转换<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
+<section id="id21">
+<h3>算术转换<a class="headerlink" href="#id21" title="永久链接至标题">#</a></h3>
 <p>算术运算符支持算术转换：数域等级就高原则。</p>
 <ul class="simple">
 <li><p>如果任一参数为复数，另一参数会被转换为复数；</p></li>
 <li><p>否则，如果任一参数为浮点数，另一参数会被转换为浮点数；</p></li>
 <li><p>否则，两者应该都为整数，不需要进行转换。</p></li>
 </ul>
-</div>
-<div class="section" id="id22">
-<h3>原子<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id22">
+<h3>原子<a class="headerlink" href="#id22" title="永久链接至标题">#</a></h3>
 <p>“原子”指表达式的最基本构成元素。最简单的原子是标识符和字面值。以圆括号、方括号或花括号包括的形式在语法上也被归类为原子。原子的句法为：</p>
 <pre>
 <strong id="grammar-token-python-grammar-atom"><span id="grammar-token-atom"></span>atom     </strong> ::=  <a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#grammar-token-python-grammar-identifier" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">identifier</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-literal" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">literal</span></code></a> | <a class="reference internal" href="#grammar-token-python-grammar-enclosure"><code class="xref docutils literal notranslate"><span class="pre">enclosure</span></code></a>
 <strong id="grammar-token-python-grammar-enclosure"><span id="grammar-token-enclosure"></span>enclosure</strong> ::=  <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-parenth_form" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">parenth_form</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-list_display" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">list_display</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-dict_display" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">dict_display</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-set_display" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">set_display</span></code></a>
                | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-generator_expression" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">generator_expression</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-yield_atom" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">yield_atom</span></code></a>
 </pre>
-</div>
-<div class="section" id="id23">
-<h3>原型<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id23">
+<h3>原型<a class="headerlink" href="#id23" title="永久链接至标题">#</a></h3>
 <p>对于单个对象，可能存在以下特定的行为：属性引用、抽取、切片、调用。此类行为被称为 <strong>原型</strong>。句法：</p>
 <pre>
 <strong id="grammar-token-python-grammar-primary"><span id="grammar-token-primary"></span>primary</strong> ::=  <a class="reference internal" href="#grammar-token-python-grammar-atom"><code class="xref docutils literal notranslate"><span class="pre">atom</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-attributeref" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">attributeref</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-subscription" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">subscription</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-slicing" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">slicing</span></code></a> | <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-call" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">call</span></code></a>
@@ -1676,10 +1790,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>比如，可以要求 <code class="docutils literal notranslate"><span class="pre">马仙洪</span></code> 去学习英语，可以使用 <code class="docutils literal notranslate"><span class="pre">学习(英语)</span></code> 这种表示方法。</p>
 </dd>
 </dl>
-</div>
-</div>
-<div class="section" id="id24">
-<h2>作用域<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id24">
+<h2>作用域<a class="headerlink" href="#id24" title="永久链接至标题">#</a></h2>
 <p>详细内容见：<a class="reference external" href="reference/lexical_analysis.html#line-structure">行结构</a>。</p>
 <p>Python 世界有一个“基准”平面控制了其环境的边界。为了方便管理 Python 世界，还需要将此“基准”平面划分为不同的区域，称之为 <strong>作用域</strong>。</p>
 <p>每个作用域在横向拓展时，受控于形符 <code class="docutils literal notranslate"><span class="pre">INDENT</span></code>（即缩进的开始）和 <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> （即缩进的结束），而纵向拓展时受控于形符 <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code> 与 <code class="docutils literal notranslate"><span class="pre">#</span></code>。</p>
@@ -1706,19 +1820,19 @@ const thebe_selector_output = ".output, .cell_output"
 <p>每个家庭也有自己的一套管理机制，各自细化到个人，称之为 <strong>五级作用域</strong>。</p>
 <p>…</p>
 </div>
-</div>
-<div class="section" id="id25">
-<h2>顶级组件<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id25">
+<h2>顶级组件<a class="headerlink" href="#id25" title="永久链接至标题">#</a></h2>
 <p>Python 解释器可以从多种源获得输入：作为标准输入或程序参数传入的脚本，以交互方式键入的语句，导入的模块源文件等等。</p>
-<div class="section" id="id26">
-<h3>完整的 Python 程序<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h3>
+<section id="id26">
+<h3>完整的 Python 程序<a class="headerlink" href="#id26" title="永久链接至标题">#</a></h3>
 <p>一个完整的 Python 程序会在最小初始化环境中被执行：所有内置和标准模块均为可用，但均处于未初始化状态，只有模块 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#module-sys" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a>（各种系统服务）、<a class="reference external" href="https://daobook.github.io/cpython/library/builtins.html#module-builtins" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> （内置 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-function" title="(在 Python v3.11)"><span class="xref std std-term">函数</span></a>、<a class="reference internal" href="../../refs/glossary/basic.html#term-3"><span class="xref std std-term">异常</span></a>以及 <a class="reference external" href="https://daobook.github.io/cpython/library/constants.html#None" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">None</span></code></a>） 和 <a class="reference external" href="https://daobook.github.io/cpython/library/__main__.html#module-__main__" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a> 除外。最后一个模块用于为完整程序的执行提供局部和全局 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-namespace" title="(在 Python v3.11)"><span class="xref std std-term">命名空间</span></a>。</p>
 <p>适用于一个完整 Python 程序的语法即下节所描述的文件输入。</p>
 <p>解释器也可以通过交互模式被发起调用；在此情况下，它并不读取和执行一个完整程序，而是每次读取和执行一条语句（可能为复合语句）。此时的初始环境与一个完整程序的相同；每条语句会在 <a class="reference external" href="https://daobook.github.io/cpython/library/__main__.html#module-__main__" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a> 的命名空间中被执行。</p>
 <p>一个完整程序可通过三种形式被传递给解释器：使用 <a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-c" title="(在 Python v3.11)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-c</span></code></a> 字符串 命令行选项，使用一个文件作为第一个命令行参数，或者使用标准输入。如果文件或标准输入是一个 tty 设置，解释器会进入交互模式；否则的话，它会将文件当作一个完整程序来执行。</p>
-</div>
-<div class="section" id="id27">
-<h3>文件输入<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id27">
+<h3>文件输入<a class="headerlink" href="#id27" title="永久链接至标题">#</a></h3>
 <p>所有从非交互式文件读取的输入都具有相同的形式：</p>
 <pre>
 <strong id="grammar-token-python-grammar-file_input"><span id="grammar-token-file-input"></span>file_input</strong> ::=  (NEWLINE | <a class="reference internal" href="#grammar-token-python-grammar-statement"><code class="xref docutils literal notranslate"><span class="pre">statement</span></code></a>)*
@@ -1729,25 +1843,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>解析一个模块时；</p></li>
 <li><p>解析一个传递给 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#exec" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> 的字符串时；</p></li>
 </ul>
-</div>
-<div class="section" id="id28">
-<h3>交互式输入<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id28">
+<h3>交互式输入<a class="headerlink" href="#id28" title="永久链接至标题">#</a></h3>
 <p>交互模式下的输入使用以下语法进行解析：</p>
 <pre>
 <strong id="grammar-token-python-grammar-interactive_input"><span id="grammar-token-interactive-input"></span>interactive_input</strong> ::=  [<a class="reference internal" href="#grammar-token-python-grammar-stmt_list"><code class="xref docutils literal notranslate"><span class="pre">stmt_list</span></code></a>] NEWLINE | <a class="reference internal" href="#grammar-token-python-grammar-compound_stmt"><code class="xref docutils literal notranslate"><span class="pre">compound_stmt</span></code></a> NEWLINE
 </pre>
 <p>请注意在交互模式下一条（最高层级）复合语句必须带有一个空行；这对于帮助解析器确定输入的结束是必须的。</p>
-</div>
-<div class="section" id="id29">
-<h3>表达式输入<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id29">
+<h3>表达式输入<a class="headerlink" href="#id29" title="永久链接至标题">#</a></h3>
 <p><a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#eval" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 被用于表达式输入。它会忽略开头的空白。传递给 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#eval" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> 的字符串参数必须具有以下形式：</p>
 <pre>
 <strong id="grammar-token-python-grammar-eval_input"><span id="grammar-token-eval-input"></span>eval_input</strong> ::=  <a class="reference external" href="https://daobook.github.io/cpython/reference/expressions.html#grammar-token-python-grammar-expression_list" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">expression_list</span></code></a> NEWLINE*
 </pre>
-</div>
-</div>
-<div class="section" id="id30">
-<h2>简单语句<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id30">
+<h2>简单语句<a class="headerlink" href="#id30" title="永久链接至标题">#</a></h2>
 <p>简单语句由一个单独的逻辑行构成。多条简单语句可以存在于同一行内并以分号分隔。简单语句的句法为：</p>
 <pre>
 <strong id="grammar-token-python-grammar-simple_stmt"><span id="grammar-token-simple-stmt"></span>simple_stmt</strong> ::=  <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-expression_stmt" title="(在 Python v3.11)"><code class="xref docutils literal notranslate"><span class="pre">expression_stmt</span></code></a>
@@ -1795,9 +1909,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-nonlocal_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">nonlocal_stmt</span></code></a>：nonlocal 语句</p></li>
 </ul>
 <p><strong>表达式</strong> 可以理解为运算。</p>
-</div>
-<div class="section" id="id31">
-<h2>复合语句<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id31">
+<h2>复合语句<a class="headerlink" href="#id31" title="永久链接至标题">#</a></h2>
 <p>复合语句是包含其它语句（语句组）的语句；它们会以某种方式影响或控制所包含其它语句的执行。通常，复合语句会跨越多行，虽然在某些简单形式下整个复合语句也可能包含于一行之内。</p>
 <p><a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#if" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a>, <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#while" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a> 和 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#for" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> 语句用来实现传统的 <strong>控制流程</strong> 构造。<a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#try" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a> 语句为一组语句指定异常处理和/和清理代码，而 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#with" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">with</span></code></a> 语句允许在一个代码块周围执行初始化和终结化代码。函数和类定义在语法上也属于复合语句。</p>
 <p>一条复合语句由一个或多个 “子句” 组成。 一个子句则包含一个 “句头” 和一个 “句体”（suite）。特定复合语句的子句头都处于相同的缩进层级。每个子句头以一个作为唯一标识的关键字开始并以一个冒号结束。 子句体是由一个子句控制的一组语句。子句体可以是在子句头的冒号之后与其同处一行的一条或由分号分隔的多条简单语句，或者也可以是在其之后缩进的一行或多行语句。只有后一种形式的子句体才能包含嵌套的复合语句；以下形式是不合法的，这主要是因为无法分清某个后续的 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#else" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code></a> 子句应该属于哪个 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#if" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> 子句。</p>
@@ -1843,9 +1957,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id32">
-<h2>名称的解析<a class="headerlink" href="#id32" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id32">
+<h2>名称的解析<a class="headerlink" href="#id32" title="永久链接至标题">#</a></h2>
 <p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#del" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a> 语句的目标也被视作一种绑定（虽然其实际语义为解除名称绑定）。</p>
 <p>名称绑定包括：</p>
 <ul class="simple">
@@ -1874,8 +1988,8 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1902,9 +2016,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1920,24 +2036,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By xinetzone<br/>
+  
+      &copy; Copyright 2021, xinetzone.<br/>
+</p>
+        </footer>
+    </div>
     
-      通过 xinetzone<br/>
-    
-        &copy; 版权 2021, xinetzone.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

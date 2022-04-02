@@ -4,11 +4,13 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>模块 &#8212; d2py 0.1 文档</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,24 +20,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -83,9 +82,9 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -139,7 +138,21 @@ const thebe_selector_output = ".output, .cell_output"
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -148,14 +161,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -168,7 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
@@ -828,121 +837,265 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
 <div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">切换导航</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/basic/modules.ipynb.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源库"><i
-                    class="fab fa-github"></i>资料库</button></a>
-        <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/modules.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/modules.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/modules.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="发射 Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com//github/xinetzone/d2py/blob/main/docs/python-study/basic/modules.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="发射 Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="发射 Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 导航
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/modules.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/docs/python-study/basic/modules.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xinetzone/d2py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/basic/modules.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/modules.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/python-study/basic/modules.ipynb.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> 导航
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    模块详解
@@ -992,12 +1145,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>模块</h1>
@@ -1063,10 +1215,11 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>模块<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+                 <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>模块<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <p><span class="guilabel">视频</span></p>
 <iframe id="Python"
     title="Python 模块与类的简单介绍（1）"
@@ -1179,8 +1332,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>模块详解<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h2>模块详解<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <p>模块包含可执行语句及函数定义。这些语句用于初始化模块，且仅在 <code class="docutils literal notranslate"><span class="pre">import</span></code> 语句首次遇到模块名时执行。（文件作为脚本运行时，也会执行这些语句。）</p>
 <p>模块有自己的私有符号表，用作模块中所有函数的全局符号表。因此，在模块内使用全局变量时，不用担心与用户定义的全局变量发生冲突。另一方面，可以用与访问模块函数一样的标记法，访问模块的全局变量，<code class="docutils literal notranslate"><span class="pre">modname.itemname</span></code>。</p>
 <p>可以把其他模块导入模块。按惯例，所有 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#import" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 语句都放在模块（或脚本）开头，但这不是必须的。导入的模块名存在导入模块的全局符号表里。</p>
@@ -1247,11 +1400,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">备注</p>
 <p>为了保证运行效率，每次解释器会话只导入一次模块。如果更改了模块内容，必须重启解释器；仅交互测试一个模块时，也可以使用 <a class="reference external" href="https://daobook.github.io/cpython/library/importlib.html#importlib.reload" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.reload()</span></code></a>，例如 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">importlib;</span> <span class="pre">importlib.reload(modulename)</span></code>。</p>
 </div>
-</div>
-<div class="section" id="id3">
-<h2>基础<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id4">
-<h3>以脚本方式执行模块<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id3">
+<h2>基础<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
+<section id="id4">
+<h3>以脚本方式执行模块<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
 <p>可以用以下方式运行 Python 模块：</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python fibo.py &lt;arguments&gt;
 </pre></div>
@@ -1284,9 +1437,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>这种操作常用于为模块提供便捷用户接口，或用于测试（把模块当作执行测试套件的脚本运行）。</p>
-</div>
-<div class="section" id="id5">
-<h3>模块搜索路径<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id5">
+<h3>模块搜索路径<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
 <p>导入 <code class="docutils literal notranslate"><span class="pre">spam</span></code> 模块时，解释器首先查找名为 <code class="docutils literal notranslate"><span class="pre">spam</span></code> 的内置模块。如果没找到，解释器再从 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 变量中的目录列表里查找 <code class="docutils literal notranslate"><span class="pre">spam.py</span></code> 文件。<a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 初始化时包含以下位置：</p>
 <ul class="simple">
 <li><p>输入脚本的目录（或未指定文件时的当前目录）。</p></li>
@@ -1298,9 +1451,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>在支持 symlink 的文件系统中，输入脚本目录是在追加 symlink 后计算出来的。换句话说，包含 symlink 的目录并 没有 添加至模块搜索路径。</p>
 </div>
 <p>初始化后，Python 程序可以更改 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>。运行脚本的目录在标准库路径之前，置于搜索路径的开头。即，加载的是该目录里的脚本，而不是标准库的同名模块。 除非刻意替换，否则会报错。</p>
-</div>
-<div class="section" id="python">
-<h3>“已编译的” Python 文件<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="python">
+<h3>“已编译的” Python 文件<a class="headerlink" href="#python" title="永久链接至标题">#</a></h3>
 <p>为了快速加载模块，Python 把模块的编译版缓存在 <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> 目录中，文件名为 <code class="docutils literal notranslate"><span class="pre">module.version.pyc</span></code>，<code class="docutils literal notranslate"><span class="pre">version</span></code> 对编译文件格式进行编码，一般是 Python 的版本号。例如，CPython 的 3.3 发行版中，<code class="docutils literal notranslate"><span class="pre">spam.py</span></code> 的编译版本缓存为 <code class="docutils literal notranslate"><span class="pre">__pycache__/spam.cpython-33.pyc</span></code>。使用这种命名惯例，可以让不同 Python 发行版及不同版本的已编译模块共存。</p>
 <p>Python 对比编译版本与源码的修改日期，查看它是否已过期，是否要重新编译，此过程完全自动化。此外，编译模块与平台无关，因此，可在不同架构系统之间共享相同的支持库。</p>
 <p>Python 在两种情况下不检查缓存。其一，从命令行直接载入模块，只重新编译，不存储编译结果；其二，没有源模块，就不会检查缓存。为了支持无源文件（仅编译）发行版本， 编译模块必须在源目录下，并且绝不能有源模块。</p>
@@ -1311,12 +1464,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>从 .pyc 文件读取的程序不比从 .py 读取的执行速度快，.pyc 文件只是加载速度更快。</p></li>
 <li><p><a class="reference external" href="https://daobook.github.io/cpython/library/compileall.html#module-compileall" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compileall</span></code></a> 模块可以为一个目录下的所有模块创建 <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> 文件。</p></li>
 </ol>
-<p>本过程的细节及决策流程图，详见 <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3147"><strong>PEP 3147</strong></a>。</p>
+<p>本过程的细节及决策流程图，详见 <span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-3147/"><strong>PEP 3147</strong></a>。</p>
 </div>
-</div>
-</div>
-<div class="section" id="id6">
-<h2>标准模块<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id6">
+<h2>标准模块<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h2>
 <p>Python 自带一个标准模块的库，它在 Python 库参考（此处以下称为”库参考” ）里另外描述。 一些模块是内嵌到编译器里面的， 它们给一些虽并非语言核心但却内嵌的操作提供接口，要么是为了效率，要么是给操作系统基础操作例如系统调入提供接口。 这些模块集是一个配置选项， 并且还依赖于底层的操作系统。 例如，<a class="reference external" href="https://daobook.github.io/cpython/library/winreg.html#module-winreg" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">winreg</span></code></a> 模块只在 Windows 系统上提供。一个特别值得注意的模块 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#module-sys" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a>，它被内嵌到每一个 Python 编译器中。<code class="docutils literal notranslate"><span class="pre">sys.ps1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">sys.ps2</span></code> 变量定义了一些字符，它们可以用作主提示符和辅助提示符:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1357,9 +1510,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/ufs/guido/lib/python&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="dir">
-<h2><code class="docutils literal notranslate"><span class="pre">dir</span></code> 函数<a class="headerlink" href="#dir" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="dir">
+<h2><code class="docutils literal notranslate"><span class="pre">dir</span></code> 函数<a class="headerlink" href="#dir" title="永久链接至标题">#</a></h2>
 <p>内置函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 用于查找模块定义的名称。返回结果是经过排序的字符串列表：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1424,9 +1577,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id7">
-<h2>包<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id7">
+<h2>包<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h2>
 <p>包是一种用“点式模块名”构造 Python 模块命名空间的方法。</p>
 <p>例如，模块名 <code class="docutils literal notranslate"><span class="pre">A.B</span></code> 表示包 <code class="docutils literal notranslate"><span class="pre">A</span></code> 中名为 <code class="docutils literal notranslate"><span class="pre">B</span></code> 的子模块。正如模块可以区分不同模块之间的全局变量名称一样，点式模块名可以区分 NumPy 或 Pillow 等不同多模块包之间的模块名称。</p>
 <p>假设要为统一处理声音文件与声音数据设计一个模块集（“包”）。声音文件的格式很多（通常以扩展名来识别，例如：<code class="docutils literal notranslate"><span class="pre">.wav</span></code>， <code class="docutils literal notranslate"><span class="pre">.aiff</span></code>， <code class="docutils literal notranslate"><span class="pre">.au</span></code>），因此，为了不同文件格式之间的转换，需要创建和维护一个不断增长的模块集合。为了实现对声音数据的不同处理（例如，混声、添加回声、均衡器功能、创造人工立体声效果），还要编写无穷无尽的模块流。下面这个分级文件树展示了这个包的架构：</p>
@@ -1483,8 +1636,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>注意，使用 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">item</span></code> 时，<code class="docutils literal notranslate"><span class="pre">item</span></code> 可以是包的子模块（或子包），也可以是包中定义的函数、类或变量等其他名称。<code class="docutils literal notranslate"><span class="pre">import</span></code> 语句首先测试包中是否定义了 <code class="docutils literal notranslate"><span class="pre">item</span></code>；如果未在包中定义，则假定 <code class="docutils literal notranslate"><span class="pre">item</span></code> 是模块，并尝试加载。如果找不到 <code class="docutils literal notranslate"><span class="pre">item</span></code>，则触发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#ImportError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> 异常。</p>
 <p>相反，使用 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">item.subitem.subsubitem</span></code> 句法时，除最后一项外，每个 <code class="docutils literal notranslate"><span class="pre">item</span></code> 都必须是包；最后一项可以是模块或包，但不能是上一项中定义的类、函数或变量。</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1511,9 +1664,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="controlflow.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1529,24 +1684,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By xinetzone<br/>
+  
+      &copy; Copyright 2021, xinetzone.<br/>
+</p>
+        </footer>
+    </div>
     
-      通过 xinetzone<br/>
-    
-        &copy; 版权 2021, xinetzone.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

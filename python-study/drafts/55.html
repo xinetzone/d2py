@@ -4,11 +4,13 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>字符编码方法 &#8212; d2py 0.1 文档</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,24 +20,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -83,9 +82,9 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -141,7 +140,21 @@ const thebe_selector_output = ".output, .cell_output"
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -150,14 +163,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -170,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
@@ -830,95 +839,200 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
 <div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">切换导航</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/drafts/55.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源库"><i
-                    class="fab fa-github"></i>资料库</button></a>
-        <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/55.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/55.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 导航
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xinetzone/d2py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/55.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/55.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/python-study/drafts/55.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> 导航
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    字符编码方法
@@ -1203,12 +1317,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>字符编码方法</h1>
@@ -1509,10 +1622,11 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>字符编码方法<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+                 <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>字符编码方法<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <p>大多数程序员把字符串看作是用来表示文本数据的一系列字符。但是，根据必须记录何种字符集，计算机内存中存储字符的方式有所不同。</p>
 <p>本文仅仅涉及 Python 3.X</p>
 <p>在 Python 3.X 中，有 <span class="math notranslate nohighlight">\(3\)</span> 种字符串类型：</p>
@@ -1521,8 +1635,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">bytes</span></code>：用于二进制数据 (包括编码的文本);</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bytearray</span></code>：是一种可变的 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 类型。</p></li>
 </ul>
-<div class="section" id="raw">
-<h2>raw字符串（原始字符串)<a class="headerlink" href="#raw" title="永久链接至标题">¶</a></h2>
+<section id="raw">
+<h2>raw字符串（原始字符串)<a class="headerlink" href="#raw" title="永久链接至标题">#</a></h2>
 <p>所见即所得，例如</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;w</span><span class="se">\n</span><span class="s1">e&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1549,9 +1663,9 @@ e
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
-</div>
-<div class="section" id="unicode">
-<h2>Unicode 字符串<a class="headerlink" href="#unicode" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="unicode">
+<h2>Unicode 字符串<a class="headerlink" href="#unicode" title="永久链接至标题">#</a></h2>
 <ul class="simple">
 <li><p>ASCII码：每个字符都是以 <span class="math notranslate nohighlight">\(7\)</span> 位二进制数的方式存储在计算机内，ASCI 字符只能表示 <span class="math notranslate nohighlight">\(95\)</span> 个可打印字符。</p></li>
 <li><p>Unicode：通过使用一个或多个字节来表示一个字符的方式突破了 ASCII 码的限制。</p></li>
@@ -1620,9 +1734,9 @@ e
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(b&#39;\xff\xfe\x00\x00n\x00\x00\x00i\x00\x00\x00&#39;, 12)
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
-<h2>文本和二进制文件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id2">
+<h2>文本和二进制文件<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <ul class="simple">
 <li><p>文 本 文 件 当一个文件以文本模式打开的时候，读取其数据会自动将其内容解码（每个平台一个默认的或一个提供的编码名称），并且将其返回为一个<code class="docutils literal notranslate"><span class="pre">str</span></code>，写入会接受一个 <code class="docutils literal notranslate"><span class="pre">str</span></code>，并且在将其传输到文件之间自动编码它。文本模式的文件还支持统一的行尾 转换和额外的编码特定参数。根据编码名称，文本文件也自动处理文件开始处的字节顺序标记序列。</p></li>
 <li><p>二 进 制 文 件 通过在内置的<code class="docutils literal notranslate"><span class="pre">open</span></code> 调用的模式字符串参数添加一个 <code class="docutils literal notranslate"><span class="pre">b</span></code>（只能小写），以二进制模式 打开一个文件的时候，读取其数据不会以任何方式解码它，而是直接返回其内容 <code class="docutils literal notranslate"><span class="pre">raw</span></code> 并且未经修改，作为一个 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 对象；写入类似地接受一个 <code class="docutils literal notranslate"><span class="pre">bytes</span></code> 对象，并且将其传送到文件中而未经修改。二进制模式文件也接受一个bytearray对象作为写入 文件中的内容。</p></li>
@@ -1674,10 +1788,10 @@ e
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>([115, 112, 97, 109], [&#39;e&#39;, &#39;g&#39;, &#39;g&#39;, &#39;s&#39;])
 </pre></div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="python">
-<h1>Python转义字符<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>Python转义字符<a class="headerlink" href="#python" title="永久链接至标题">#</a></h1>
 <p>在需要在字符中使用特殊字符时，python用反斜杠(<code class="docutils literal notranslate"><span class="pre">\</span></code>)转义字符。如下表：</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1733,9 +1847,9 @@ e
 </tr>
 </tbody>
 </table>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id3">
-<h1>格式化操作<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>格式化操作<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h1>
 <p>python字符串格式化符号:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1880,8 +1994,8 @@ e
 9474=9^4+4^4+7^4+4^4
 </pre></div>
 </div>
-<div class="section" id="m-n">
-<h2>m.n 宽度与精度<a class="headerlink" href="#m-n" title="永久链接至标题">¶</a></h2>
+<section id="m-n">
+<h2>m.n 宽度与精度<a class="headerlink" href="#m-n" title="永久链接至标题">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">&#39;</span><span class="o">%</span><span class="mf">123.12345</span>
 </pre></div>
 </div>
@@ -1925,10 +2039,10 @@ e
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;My name is LiMing,age is 28,gender is male&#39;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id4">
-<h1>字符串模板<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>字符串模板<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h1>
 <p>字符串对象Template对象存在与string模块中：</p>
 <ul class="simple">
 <li><p>使用美元符号<code class="docutils literal notranslate"><span class="pre">$</span></code>定义<code class="docutils literal notranslate"><span class="pre">代替换的参数</span></code></p></li>
@@ -1981,11 +2095,11 @@ KeyError: &#39;tree&#39;
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>There are 32 nodes in the ${tree}
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id5">
-<h1>Python 的字符串常用内建函数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h1>
-<div class="section" id="s-capitalize-str">
-<h2>1 <code class="docutils literal notranslate"><span class="pre">S.capitalize()</span></code> 返回一个首字母大写的字符串(<code class="docutils literal notranslate"><span class="pre">str</span></code>)：<a class="headerlink" href="#s-capitalize-str" title="永久链接至标题">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id5">
+<h1>Python 的字符串常用内建函数<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h1>
+<section id="s-capitalize-str">
+<h2>1 <code class="docutils literal notranslate"><span class="pre">S.capitalize()</span></code> 返回一个首字母大写的字符串(<code class="docutils literal notranslate"><span class="pre">str</span></code>)：<a class="headerlink" href="#s-capitalize-str" title="永久链接至标题">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;this is string example from runoob...wow!!!&quot;</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;a.capitalize() : &quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
 </pre></div>
@@ -1993,18 +2107,18 @@ KeyError: &#39;tree&#39;
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a.capitalize() :  This is string example from runoob...wow!!!
 </pre></div>
 </div>
-</div>
-<div class="section" id="s-lower-return-a-copy-of-the-string-s-converted-to-lowercase">
-<h2>2 <code class="docutils literal notranslate"><span class="pre">S.lower</span> <span class="pre">-&gt;</span>&#160; <span class="pre">Return</span> <span class="pre">a</span> <span class="pre">copy</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">string</span> <span class="pre">S</span> <span class="pre">converted</span> <span class="pre">to</span> <span class="pre">lowercase</span></code><a class="headerlink" href="#s-lower-return-a-copy-of-the-string-s-converted-to-lowercase" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="s-lower-return-a-copy-of-the-string-s-converted-to-lowercase">
+<h2>2 <code class="docutils literal notranslate"><span class="pre">S.lower</span> <span class="pre">-&gt;</span>&#160; <span class="pre">Return</span> <span class="pre">a</span> <span class="pre">copy</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">string</span> <span class="pre">S</span> <span class="pre">converted</span> <span class="pre">to</span> <span class="pre">lowercase</span></code><a class="headerlink" href="#s-lower-return-a-copy-of-the-string-s-converted-to-lowercase" title="永久链接至标题">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;HGKFKF&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;hgkfkf&#39;
 </pre></div>
 </div>
-</div>
-<div class="section" id="s-center-width-fillchar">
-<h2>3 <code class="docutils literal notranslate"><span class="pre">S.center(width[,</span> <span class="pre">fillchar])</span></code><a class="headerlink" href="#s-center-width-fillchar" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="s-center-width-fillchar">
+<h2>3 <code class="docutils literal notranslate"><span class="pre">S.center(width[,</span> <span class="pre">fillchar])</span></code><a class="headerlink" href="#s-center-width-fillchar" title="永久链接至标题">#</a></h2>
 <p>参数：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>:字符串的总宽度</p></li>
@@ -2022,9 +2136,9 @@ KeyError: &#39;tree&#39;
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>st.center(40, &#39;%&#39;) :  %%%%%%%%%%%%[www.runoob.com]%%%%%%%%%%%%
 </pre></div>
 </div>
-</div>
-<div class="section" id="s-count-sub-start-end">
-<h2>4 <code class="docutils literal notranslate"><span class="pre">S.count(sub[,</span> <span class="pre">start[,</span> <span class="pre">end]])</span> </code> 该方法返回子字符串在字符串中出现的次数<a class="headerlink" href="#s-count-sub-start-end" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="s-count-sub-start-end">
+<h2>4 <code class="docutils literal notranslate"><span class="pre">S.count(sub[,</span> <span class="pre">start[,</span> <span class="pre">end]])</span> </code> 该方法返回子字符串在字符串中出现的次数<a class="headerlink" href="#s-count-sub-start-end" title="永久链接至标题">#</a></h2>
 <ul class="simple">
 <li><p>sub – 搜索的子字符串</p></li>
 <li><p>start – 字符串开始搜索的位置。默认为第一个字符。</p></li>
@@ -2042,16 +2156,16 @@ KeyError: &#39;tree&#39;
 st.count(&#39;run&#39;, 0, 10) :  1
 </pre></div>
 </div>
-</div>
-<div class="section" id="bytes-decode-self-encoding-utf-8-errors-strict">
-<h2>5 <code class="docutils literal notranslate"><span class="pre">bytes.decode(self,</span> <span class="pre">/,</span> <span class="pre">encoding='utf-8',</span> <span class="pre">errors='strict')</span></code><a class="headerlink" href="#bytes-decode-self-encoding-utf-8-errors-strict" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="bytes-decode-self-encoding-utf-8-errors-strict">
+<h2>5 <code class="docutils literal notranslate"><span class="pre">bytes.decode(self,</span> <span class="pre">/,</span> <span class="pre">encoding='utf-8',</span> <span class="pre">errors='strict')</span></code><a class="headerlink" href="#bytes-decode-self-encoding-utf-8-errors-strict" title="永久链接至标题">#</a></h2>
 <ul class="simple">
 <li><p>encoding – 要使用的编码，如”UTF-8”。</p></li>
 <li><p>errors – 设置不同错误的处理方案。默认为<code class="docutils literal notranslate"><span class="pre">'strict'</span></code>,意为编码错误引起一个<code class="docutils literal notranslate"><span class="pre">UnicodeError</span></code>。 其他可能得值有 <code class="docutils literal notranslate"><span class="pre">'ignore'</span></code>, <code class="docutils literal notranslate"><span class="pre">'replace'</span></code>, <code class="docutils literal notranslate"><span class="pre">'xmlcharrefreplace'</span></code>, <code class="docutils literal notranslate"><span class="pre">'backslashreplace'</span></code> 以及通过 <code class="docutils literal notranslate"><span class="pre">codecs.register_error()</span></code> 注册的任何值。</p></li>
 </ul>
 <p>返回该方法返回解码后的字符串。</p>
-<div class="section" id="s-encode-encoding-utf-8-errors-strict-bytes">
-<h3>6 <code class="docutils literal notranslate"><span class="pre">S.encode(encoding='utf-8',</span> <span class="pre">errors='strict')</span> <span class="pre">-&gt;</span> <span class="pre">bytes</span></code><a class="headerlink" href="#s-encode-encoding-utf-8-errors-strict-bytes" title="永久链接至标题">¶</a></h3>
+<section id="s-encode-encoding-utf-8-errors-strict-bytes">
+<h3>6 <code class="docutils literal notranslate"><span class="pre">S.encode(encoding='utf-8',</span> <span class="pre">errors='strict')</span> <span class="pre">-&gt;</span> <span class="pre">bytes</span></code><a class="headerlink" href="#s-encode-encoding-utf-8-errors-strict-bytes" title="永久链接至标题">#</a></h3>
 <p>Python3 中<code class="docutils literal notranslate"><span class="pre">str</span></code>没有<code class="docutils literal notranslate"><span class="pre">decode</span></code>方法,但是可以使用<code class="docutils literal notranslate"><span class="pre">bytes</span></code>对象的<code class="docutils literal notranslate"><span class="pre">decode()</span></code>方法来解码给定的<code class="docutils literal notranslate"><span class="pre">bytes</span></code>对象，这个<code class="docutils literal notranslate"><span class="pre">bytes</span></code>对象可以由<code class="docutils literal notranslate"><span class="pre">str.encode()</span></code>来编码返回。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;中国&quot;</span>
 <span class="n">s_utf8</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
@@ -2073,10 +2187,10 @@ UTF-8 解码： 中国
 GBK 解码： 中国
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="s-find-sub-start-end-int">
-<h2>7 <code class="docutils literal notranslate"><span class="pre">S.find(sub[,</span> <span class="pre">start[,</span> <span class="pre">end]])</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code><a class="headerlink" href="#s-find-sub-start-end-int" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="s-find-sub-start-end-int">
+<h2>7 <code class="docutils literal notranslate"><span class="pre">S.find(sub[,</span> <span class="pre">start[,</span> <span class="pre">end]])</span> <span class="pre">-&gt;</span> <span class="pre">int</span></code><a class="headerlink" href="#s-find-sub-start-end-int" title="永久链接至标题">#</a></h2>
 <p>如果包含子字符串返回开始的索引值，否则返回-1。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;Runoob example....wow!!!&quot;</span>
 <span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;exam&quot;</span><span class="p">;</span>
@@ -2104,9 +2218,9 @@ GBK 解码： 中国
 -1
 </pre></div>
 </div>
-</div>
-<div class="section" id="s-join-iterable-str">
-<h2>8 <code class="docutils literal notranslate"><span class="pre">S.join(iterable)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#s-join-iterable-str" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="s-join-iterable-str">
+<h2>8 <code class="docutils literal notranslate"><span class="pre">S.join(iterable)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#s-join-iterable-str" title="永久链接至标题">#</a></h2>
 <p>Return a string which is the concatenation of the strings in the
 iterable.</p>
 <p>关于<code class="docutils literal notranslate"><span class="pre">iterable</span></code>参考<a class="reference external" href="http://www.cnblogs.com/Simon-xm/p/3979161.html">python——聊聊iterable，sequence和iterators</a></p>
@@ -2121,9 +2235,9 @@ iterable.</p>
 runoob
 </pre></div>
 </div>
-</div>
-<div class="section" id="s-strip-chars-str">
-<h2>9 <code class="docutils literal notranslate"><span class="pre">S.strip([chars])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#s-strip-chars-str" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="s-strip-chars-str">
+<h2>9 <code class="docutils literal notranslate"><span class="pre">S.strip([chars])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#s-strip-chars-str" title="永久链接至标题">#</a></h2>
 <ul class="simple">
 <li><p>Return a copy of the string S with leading and trailing whitespace removed.</p></li>
 <li><p>If chars is given and not None, remove characters in chars instead.</p></li>
@@ -2140,9 +2254,9 @@ this is string example....wow!!!8888888
 this is string example....wow!!!
 </pre></div>
 </div>
-</div>
-<div class="section" id="s-replace-old-new-count-str">
-<h2>10 <code class="docutils literal notranslate"><span class="pre">S.replace(old,</span> <span class="pre">new[,</span> <span class="pre">count])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#s-replace-old-new-count-str" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="s-replace-old-new-count-str">
+<h2>10 <code class="docutils literal notranslate"><span class="pre">S.replace(old,</span> <span class="pre">new[,</span> <span class="pre">count])</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><a class="headerlink" href="#s-replace-old-new-count-str" title="永久链接至标题">#</a></h2>
 <ul class="simple">
 <li><p>Return a copy of S with all occurrences of substring old replaced by new.</p></li>
 <li><p>If the optional argument count is given, only the first count occurrences are replaced.</p></li>
@@ -2160,9 +2274,9 @@ this is string example....wow!!!
 thwas was string example....wow!!!
 </pre></div>
 </div>
-</div>
-<div class="section" id="s-split-sep-none-maxsplit-1-list-of-strings">
-<h2>11 <code class="docutils literal notranslate"><span class="pre">S.split(sep=None,</span> <span class="pre">maxsplit=-1)</span> <span class="pre">-&gt;</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">strings</span></code><a class="headerlink" href="#s-split-sep-none-maxsplit-1-list-of-strings" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="s-split-sep-none-maxsplit-1-list-of-strings">
+<h2>11 <code class="docutils literal notranslate"><span class="pre">S.split(sep=None,</span> <span class="pre">maxsplit=-1)</span> <span class="pre">-&gt;</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">strings</span></code><a class="headerlink" href="#s-split-sep-none-maxsplit-1-list-of-strings" title="永久链接至标题">#</a></h2>
 <ul class="simple">
 <li><p>Return a list of the words in S, using sep as the delimiter string.</p></li>
 <li><p>If maxsplit is given, at most maxsplit splits are done.</p></li>
@@ -2177,8 +2291,8 @@ thwas was string example....wow!!!
 <p>[‘this’, ‘is’, ‘string’, ‘example…wow!!!’]
 [‘th’, ‘s is string example…wow!!!’]
 [‘this is string example…’, ‘o’, ‘!!!’]</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2205,9 +2319,11 @@ thwas was string example....wow!!!
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="44.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -2223,24 +2339,28 @@ thwas was string example....wow!!!
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By xinetzone<br/>
+  
+      &copy; Copyright 2021, xinetzone.<br/>
+</p>
+        </footer>
+    </div>
     
-      通过 xinetzone<br/>
-    
-        &copy; 版权 2021, xinetzone.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

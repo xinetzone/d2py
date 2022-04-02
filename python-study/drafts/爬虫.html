@@ -4,11 +4,13 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>爬虫 &#8212; d2py 0.1 文档</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,24 +20,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -83,9 +82,9 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -139,7 +138,21 @@ const thebe_selector_output = ".output, .cell_output"
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -148,14 +161,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -168,7 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
@@ -828,95 +837,200 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
 <div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">切换导航</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/drafts/爬虫.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源库"><i
-                    class="fab fa-github"></i>资料库</button></a>
-        <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/爬虫.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/爬虫.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 导航
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xinetzone/d2py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/爬虫.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/爬虫.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/python-study/drafts/爬虫.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> 导航
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    爬虫
@@ -1134,12 +1248,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>爬虫</h1>
@@ -1373,10 +1486,11 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>爬虫<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+                 <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>爬虫<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <p><a class="reference external" href="http://www.pythonsite.com">参考资料</a></p>
 <ul class="simple">
 <li><p><strong>网络爬虫</strong>（又被称为<code class="docutils literal notranslate"><span class="pre">网页蜘蛛，网络机器人</span></code>，在FOAF社区中间，更经常的称为<code class="docutils literal notranslate"><span class="pre">网页追逐者</span></code>），是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。</p>
@@ -1393,9 +1507,9 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li><p>爬虫就是请求网站并提取数据的自动化程序。其中<code class="docutils literal notranslate"><span class="pre">请求</span></code>，<code class="docutils literal notranslate"><span class="pre">提取</span></code>，<code class="docutils literal notranslate"><span class="pre">自动化</span></code>是爬虫的关键！</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id2">
-<h1>爬虫的基本流程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>爬虫的基本流程<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h1>
 <ul class="simple">
 <li><p>发起请求</p>
 <ul>
@@ -1418,18 +1532,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="request-response">
-<h1>什么是Request,Response<a class="headerlink" href="#request-response" title="永久链接至标题">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="request-response">
+<h1>什么是Request,Response<a class="headerlink" href="#request-response" title="永久链接至标题">#</a></h1>
 <ul class="simple">
 <li><p>浏览器发送消息给网址所在的服务器，这个过程就叫做<code class="docutils literal notranslate"><span class="pre">HTPP</span> <span class="pre">Request</span></code></p></li>
 <li><p>服务器收到浏览器发送的消息后，能够根据浏览器发送消息的内容，做相应的处理，然后把消息回传给浏览器，这个过程就是<code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">Response</span></code></p></li>
 <li><p>浏览器收到服务器的<code class="docutils literal notranslate"><span class="pre">Response</span></code>信息后，会对信息进行相应的处理，然后展示</p></li>
 </ul>
-<div class="section" id="request">
-<h2>Request中包含什么？<a class="headerlink" href="#request" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id3">
-<h3>请求方式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<section id="request">
+<h2>Request中包含什么？<a class="headerlink" href="#request" title="永久链接至标题">#</a></h2>
+<section id="id3">
+<h3>请求方式<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
 <p>主要有：<code class="docutils literal notranslate"><span class="pre">GET/POST</span></code>两种类型常用，另外还有<code class="docutils literal notranslate"><span class="pre">HEAD/PUT/DELETE/OPTIONS</span></code></p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">GET</span></code>和<code class="docutils literal notranslate"><span class="pre">POST</span></code>的区别就是：</p>
@@ -1447,9 +1561,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code>：这个方法可使服务器传回该资源所支持的所有<code class="docutils literal notranslate"><span class="pre">HTTP</span></code>请求方法。用’<code class="docutils literal notranslate"><span class="pre">*</span></code>’来代替资源名称，向Web服务器发送<code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code>请求，可以测试服务器功能是否正常运作。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>：请求服务器删除<code class="docutils literal notranslate"><span class="pre">Request-URI</span></code>所标识的资源。</p></li>
 </ul>
-</div>
-<div class="section" id="url">
-<h3>请求URL<a class="headerlink" href="#url" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="url">
+<h3>请求URL<a class="headerlink" href="#url" title="永久链接至标题">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">URL</span></code>，即统一资源定位符，也就是我们说的网址，统一资源定位符是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。互联网上的每个文件都有一个唯一的<code class="docutils literal notranslate"><span class="pre">URL</span></code>，它包含的信息指出文件的位置以及浏览器应该怎么处理它。</p>
 <p><code class="docutils literal notranslate"><span class="pre">URL</span></code>的格式由三个部分组成：</p>
 <ul class="simple">
@@ -1458,45 +1572,45 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>主机资源的具体地址，如目录和文件名等。</p></li>
 </ul>
 <p>爬虫爬取数据时必须要有一个目标的<code class="docutils literal notranslate"><span class="pre">URL</span></code>才可以获取数据，因此，它是爬虫获取数据的基本依据。</p>
-</div>
-<div class="section" id="id4">
-<h3>请求头<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id4">
+<h3>请求头<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
 <p>包含请求时的<code class="docutils literal notranslate"><span class="pre">头部信息</span></code>，如<code class="docutils literal notranslate"><span class="pre">User-Agent</span></code>,<code class="docutils literal notranslate"><span class="pre">Host</span></code>,<code class="docutils literal notranslate"><span class="pre">Cookies</span></code>等信息</p>
-</div>
-<div class="section" id="id5">
-<h3>请求体<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id5">
+<h3>请求体<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
 <p>请求携带的数据，如提交表单数据时候的表单数据（POST）</p>
-</div>
-</div>
-<div class="section" id="response">
-<h2>Response中包含了什么<a class="headerlink" href="#response" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="response">
+<h2>Response中包含了什么<a class="headerlink" href="#response" title="永久链接至标题">#</a></h2>
 <p>所有HTTP响应的第一行都是状态行，依次是<code class="docutils literal notranslate"><span class="pre">当前HTTP版本号</span></code>，3位数字组成的<code class="docutils literal notranslate"><span class="pre">状态代码</span></code>，以及<code class="docutils literal notranslate"><span class="pre">描述状态的短语</span></code>，彼此由空格分隔。</p>
-<div class="section" id="id6">
-<h3>响应状态<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<section id="id6">
+<h3>响应状态<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h3>
 <p>有多种响应状态，如：<br />
 <code class="docutils literal notranslate"><span class="pre">200代表成功，301跳转，404找不到页面，502服务器错误</span> <span class="pre">1xx消息——请求已被服务器接收，继续处理</span> <span class="pre">2xx成功——请求已成功被服务器接收、理解、并接受</span> <span class="pre">3xx重定向——需要后续操作才能完成这一请求</span> <span class="pre">4xx请求错误——请求含有词法错误或者无法被执行</span> <span class="pre">5xx服务器错误——服务器在处理某个正确请求时发生错误</span> <span class="pre">常见代码：</span> <span class="pre">200</span> <span class="pre">OK</span> <span class="pre">请求成功</span> <span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span> <span class="pre">客户端请求有语法错误，不能被服务器所理解</span> <span class="pre">401</span> <span class="pre">Unauthorized</span> <span class="pre">请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用</span> <span class="pre">403</span> <span class="pre">Forbidden</span> <span class="pre">服务器收到请求，但是拒绝提供服务</span> <span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span> <span class="pre">请求资源不存在，eg：输入了错误的URL</span> <span class="pre">500</span> <span class="pre">Internal</span> <span class="pre">Server</span> <span class="pre">Error</span> <span class="pre">服务器发生不可预期的错误</span> <span class="pre">503</span> <span class="pre">Server</span> <span class="pre">Unavailable</span> <span class="pre">服务器当前不能处理客户端的请求，一段时间后可能恢复正常</span> <span class="pre">301</span> <span class="pre">目标永久性转移 302</span> <span class="pre">目标暂时性转移</span></code></p>
-</div>
-<div class="section" id="id7">
-<h3>响应头<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id7">
+<h3>响应头<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h3>
 <p>如内容类型，类型的长度，服务器信息，设置Cookie</p>
-</div>
-<div class="section" id="id8">
-<h3>响应体<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id8">
+<h3>响应体<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h3>
 <p>最主要的部分，包含请求资源的内容，如网页HTMl,图片，二进制数据等</p>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id9">
-<h1>能爬取什么样的数据<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id9">
+<h1>能爬取什么样的数据<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h1>
 <ul class="simple">
 <li><p>网页文本：如HTML文档，Json格式化文本等</p></li>
 <li><p>图片：获取到的是二进制文件，保存为图片格式</p></li>
 <li><p>视频:同样是二进制文件</p></li>
 <li><p>其他：只要请求到的，都可以获取</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id10">
-<h1>如何解析数据<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id10">
+<h1>如何解析数据<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h1>
 <ul class="simple">
 <li><p>直接处理</p></li>
 <li><p>Json解析</p></li>
@@ -1508,9 +1622,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="urllib">
-<h1>Urllib库的简介<a class="headerlink" href="#urllib" title="永久链接至标题">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="urllib">
+<h1>Urllib库的简介<a class="headerlink" href="#urllib" title="永久链接至标题">#</a></h1>
 <p>Urllib是python内置的HTTP请求库,包括以下模块</p>
 <ul class="simple">
 <li><p>urllib.request: 请求模块</p></li>
@@ -1527,11 +1641,11 @@ headers and a geturl() method that returns the url.</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="urllib-request">
-<h1>urllib.request<a class="headerlink" href="#urllib-request" title="永久链接至标题">¶</a></h1>
-<div class="section" id="urllib-request-urlopen">
-<h2><code class="docutils literal notranslate"><span class="pre">urllib.request.urlopen</span></code><a class="headerlink" href="#urllib-request-urlopen" title="永久链接至标题">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="urllib-request">
+<h1>urllib.request<a class="headerlink" href="#urllib-request" title="永久链接至标题">#</a></h1>
+<section id="urllib-request-urlopen">
+<h2><code class="docutils literal notranslate"><span class="pre">urllib.request.urlopen</span></code><a class="headerlink" href="#urllib-request-urlopen" title="永久链接至标题">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">urllib.request.urlopen(url,</span> <span class="pre">data=None,</span> <span class="pre">[timeout,</span> <span class="pre">]*,</span> <span class="pre">cafile=None,</span> <span class="pre">capath=None,</span> <span class="pre">cadefault=False,</span> <span class="pre">context=None)</span></code><br />
 参数：<br />
 Open the URL url, which can be either a string or a Request object.(url可以是一个网址的字符串，或是一个Request对象)<br />
@@ -1796,10 +1910,10 @@ Connection: close
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TIME OUT
 </pre></div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id11">
-<h1>响应response<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id11">
+<h1>响应response<a class="headerlink" href="#id11" title="永久链接至标题">#</a></h1>
 <p>响应类型、状态码、响应头<br />
 <code class="docutils literal notranslate"><span class="pre">response.status、response.getheaders()、response.getheader(&quot;server&quot;)</span></code>，获取状态码以及头部信息<br />
 response.read()获得的是响应体的内容</p>
@@ -1820,11 +1934,11 @@ None
 Tue, 22 Aug 2017 12:33:22 GMT
 </pre></div>
 </div>
-<div class="section" id="headers">
-<h2>设置Headers<a class="headerlink" href="#headers" title="永久链接至标题">¶</a></h2>
+<section id="headers">
+<h2>设置Headers<a class="headerlink" href="#headers" title="永久链接至标题">#</a></h2>
 <p>有很多网站为了防止程序爬虫爬网站造成网站瘫痪，会需要携带一些headers头部信息才能访问，最常见的有user-agent参数</p>
-<div class="section" id="id12">
-<h3>给请求添加头部信息，从而定制自己请求网站是时的头部信息<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<section id="id12">
+<h3>给请求添加头部信息，从而定制自己请求网站是时的头部信息<a class="headerlink" href="#id12" title="永久链接至标题">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span> <span class="n">parse</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://httpbin.org/post&#39;</span>
@@ -1862,9 +1976,9 @@ Tue, 22 Aug 2017 12:33:22 GMT
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="id13">
-<h3>添加请求头的第二种方式<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id13">
+<h3>添加请求头的第二种方式<a class="headerlink" href="#id13" title="永久链接至标题">#</a></h3>
 <p>这种添加方式有个好处是自己可以定义一个请求头字典，然后循环进行添加</p>
 <ul class="simple">
 <li><p>实例化一个对象</p></li>
@@ -1904,10 +2018,10 @@ Tue, 22 Aug 2017 12:33:22 GMT
 }
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id14">
-<h2>异常处理<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="id14">
+<h2>异常处理<a class="headerlink" href="#id14" title="永久链接至标题">#</a></h2>
 <p>在很多时候我们通过程序访问页面的时候，有的页面可能会出现错误，类似404，500等错误</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span><span class="n">error</span>
 
@@ -1920,8 +2034,8 @@ Tue, 22 Aug 2017 12:33:22 GMT
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Not Found
 </pre></div>
 </div>
-<div class="section" id="httperrorurlerror">
-<h3><code class="docutils literal notranslate"><span class="pre">HTTPError</span></code>是<code class="docutils literal notranslate"><span class="pre">URLError</span></code>的子类<a class="headerlink" href="#httperrorurlerror" title="永久链接至标题">¶</a></h3>
+<section id="httperrorurlerror">
+<h3><code class="docutils literal notranslate"><span class="pre">HTTPError</span></code>是<code class="docutils literal notranslate"><span class="pre">URLError</span></code>的子类<a class="headerlink" href="#httperrorurlerror" title="永久链接至标题">#</a></h3>
 <ul class="simple">
 <li><p>URLError里只有一个属性：<code class="docutils literal notranslate"><span class="pre">reason</span></code>,即抓异常的时候只能打印错误信息，类似上面的例子</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HTTPError</span></code>里有三个属性：<code class="docutils literal notranslate"><span class="pre">code,reason,headers</span></code>，即抓异常的时候可以获得<code class="docutils literal notranslate"><span class="pre">code,reson，headers</span></code>三个信息</p></li>
@@ -1934,9 +2048,9 @@ Tue, 22 Aug 2017 12:33:22 GMT
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>    <span class="c1"># reason属性包含一个错误号和一个错误信息</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id15">
-<h3>捕获异常<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id15">
+<h3>捕获异常<a class="headerlink" href="#id15" title="永久链接至标题">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span><span class="n">error</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;http://pythonsite.com/1111.html&quot;</span><span class="p">)</span>
@@ -1970,8 +2084,8 @@ Content-Type: text/html; charset=iso-8859-1
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>       
 </pre></div>
 </div>
-<div class="section" id="e-reason">
-<h4>e.reason其实也可以在做深入的判断，例子如下：<a class="headerlink" href="#e-reason" title="永久链接至标题">¶</a></h4>
+<section id="e-reason">
+<h4>e.reason其实也可以在做深入的判断，例子如下：<a class="headerlink" href="#e-reason" title="永久链接至标题">#</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
 
 <span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">error</span><span class="p">,</span><span class="n">request</span>
@@ -1992,9 +2106,9 @@ time out
 <span class="kn">import</span> <span class="nn">pprint</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="pprint">
-<h4>pprint<a class="headerlink" href="#pprint" title="永久链接至标题">¶</a></h4>
+</section>
+<section id="pprint">
+<h4>pprint<a class="headerlink" href="#pprint" title="永久链接至标题">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="p">:</span>        <span class="n">module</span>
 <span class="n">Docstring</span><span class="p">:</span>  
 <span class="n">Support</span> <span class="n">to</span> <span class="n">pretty</span><span class="o">-</span><span class="nb">print</span> <span class="n">lists</span><span class="p">,</span> <span class="n">tuples</span><span class="p">,</span> <span class="o">&amp;</span> <span class="n">dictionaries</span> <span class="n">recursively</span><span class="o">.</span>
@@ -2028,13 +2142,13 @@ time out
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;HTTPStatus.PARTIAL_CONTENT: 206&gt;
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="handler">
-<h2>高级用法各种handler<a class="headerlink" href="#handler" title="永久链接至标题">¶</a></h2>
-<div class="section" id="proxyhandler">
-<h3>代理,ProxyHandler<a class="headerlink" href="#proxyhandler" title="永久链接至标题">¶</a></h3>
+</section>
+</section>
+</section>
+<section id="handler">
+<h2>高级用法各种handler<a class="headerlink" href="#handler" title="永久链接至标题">#</a></h2>
+<section id="proxyhandler">
+<h3>代理,ProxyHandler<a class="headerlink" href="#proxyhandler" title="永久链接至标题">#</a></h3>
 <p>通过<code class="docutils literal notranslate"><span class="pre">rulllib.request.ProxyHandler()</span></code>可以设置代理,网站它会检测某一段时间某个IP 的访问次数，如果访问次数过多，它会禁止你的访问,所以这个时候需要通过设置代理来爬取数据</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
 <span class="n">enable_proxy</span> <span class="o">=</span> <span class="kc">True</span>
@@ -2047,9 +2161,9 @@ time out
 <span class="n">opener</span> <span class="o">=</span><span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="cookie-httpcookiprocessor">
-<h3>cookie,HTTPCookiProcessor<a class="headerlink" href="#cookie-httpcookiprocessor" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="cookie-httpcookiprocessor">
+<h3>cookie,HTTPCookiProcessor<a class="headerlink" href="#cookie-httpcookiprocessor" title="永久链接至标题">#</a></h3>
 <p>cookie中保存中我们常见的登录信息，有时候爬取网站需要携带cookie信息访问,这里用到了http.cookijar，用于获取cookie以及存储cookie
 更多内容可查看<a class="reference external" href="http://www.cnblogs.com/q735613050/p/7400885.html">python_cookie</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">http.cookiejar</span><span class="o">,</span> <span class="nn">urllib.request</span>
@@ -2112,10 +2226,10 @@ BD_HOME=0
 &lt;/html&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="urllib-request-urlretrieve">
-<h2>urllib.request.urlretrieve<a class="headerlink" href="#urllib-request-urlretrieve" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section id="urllib-request-urlretrieve">
+<h2>urllib.request.urlretrieve<a class="headerlink" href="#urllib-request-urlretrieve" title="永久链接至标题">#</a></h2>
 <p>urllib.request.urlretrieve(url, filename=None, reporthook=None, data=None)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Retrieve</span> <span class="n">a</span> <span class="n">URL</span> <span class="n">into</span> <span class="n">a</span> <span class="n">temporary</span> <span class="n">location</span> <span class="n">on</span> <span class="n">disk</span><span class="o">.</span>
 
@@ -2182,12 +2296,12 @@ BD_HOME=0
 (&#39;E:\\图片\\美女.jpg&#39;, &lt;http.client.HTTPMessage at 0x18b73720400&gt;)
 </pre></div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id16">
-<h1>URL解析<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h1>
-<div class="section" id="urlparse">
-<h2>urlparse<a class="headerlink" href="#urlparse" title="永久链接至标题">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id16">
+<h1>URL解析<a class="headerlink" href="#id16" title="永久链接至标题">#</a></h1>
+<section id="urlparse">
+<h2>urlparse<a class="headerlink" href="#urlparse" title="永久链接至标题">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">urllib.parse.urlparse(url,</span> <span class="pre">scheme='',</span> <span class="pre">allow_fragments=True)</span></code></p>
 <p>就是可以对你传入的url地址进行拆分,同时我们是可以指定协议类型：<br />
 <code class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">urlparse(&quot;www.baidu.com/index.html;user?id=5#comment&quot;,scheme=&quot;https&quot;)</span></code><br />
@@ -2201,9 +2315,9 @@ BD_HOME=0
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ParseResult(scheme=&#39;http&#39;, netloc=&#39;www.baidu.com&#39;, path=&#39;/index.html&#39;, params=&#39;user&#39;, query=&#39;id=5&#39;, fragment=&#39;comment&#39;)
 </pre></div>
 </div>
-</div>
-<div class="section" id="urlunpars">
-<h2>urlunpars<a class="headerlink" href="#urlunpars" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="urlunpars">
+<h2>urlunpars<a class="headerlink" href="#urlunpars" title="永久链接至标题">#</a></h2>
 <p>其实功能和urlparse的功能相反，它是用于拼接，例子如下：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlunparse</span>
 
@@ -2214,9 +2328,9 @@ BD_HOME=0
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.baidu.com/index.html;user?a=123#commit
 </pre></div>
 </div>
-</div>
-<div class="section" id="urljoin">
-<h2>urljoin<a class="headerlink" href="#urljoin" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="urljoin">
+<h2>urljoin<a class="headerlink" href="#urljoin" title="永久链接至标题">#</a></h2>
 <p>这个的功能其实是做拼接的(从拼接的结果我们可以看出，拼接的时候后面的优先级高于前面的url)，例子如下：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
 
@@ -2240,9 +2354,9 @@ www.baidu.com?category=2#comment
 www.baidu.com?category=2
 </pre></div>
 </div>
-</div>
-<div class="section" id="urlencode">
-<h2>urlencode<a class="headerlink" href="#urlencode" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="urlencode">
+<h2>urlencode<a class="headerlink" href="#urlencode" title="永久链接至标题">#</a></h2>
 <p>这个方法可以将字典转换为url参数，例子如下</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlencode</span>
 
@@ -2259,10 +2373,10 @@ www.baidu.com?category=2
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.baidu.com?name=zhaofan&amp;age=23
 </pre></div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id17">
-<h1>一个简单的爬虫例子<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id17">
+<h1>一个简单的爬虫例子<a class="headerlink" href="#id17" title="永久链接至标题">#</a></h1>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span><span class="o">,</span><span class="nn">urllib</span>
 <span class="kn">import</span> <span class="nn">re</span><span class="o">,</span><span class="nn">os</span>
 </pre></div>
@@ -2316,7 +2430,7 @@ www.baidu.com?category=2
     <span class="n">fetch</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2343,9 +2457,11 @@ www.baidu.com?category=2
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="type.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -2361,24 +2477,28 @@ www.baidu.com?category=2
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By xinetzone<br/>
+  
+      &copy; Copyright 2021, xinetzone.<br/>
+</p>
+        </footer>
+    </div>
     
-      通过 xinetzone<br/>
-    
-        &copy; 版权 2021, xinetzone.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

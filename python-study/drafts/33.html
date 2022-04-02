@@ -4,11 +4,13 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>类也是对象 &#8212; d2py 0.1 文档</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,24 +20,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -83,9 +82,9 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -141,7 +140,21 @@ const thebe_selector_output = ".output, .cell_output"
 </style>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -150,14 +163,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -170,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
@@ -830,95 +839,200 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
 <div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">切换导航</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
             </div>
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/python-study/drafts/33.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/xinetzone/d2py"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源库"><i
-                    class="fab fa-github"></i>资料库</button></a>
-        <a class="issues-button"
-            href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/33.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/33.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 导航
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/xinetzone/d2py"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/issues/new?title=Issue%20on%20page%20%2Fpython-study/drafts/33.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/drafts/33.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/python-study/drafts/33.md.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> 导航
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    类也是对象
@@ -1024,12 +1138,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>类也是对象</h1>
@@ -1151,11 +1264,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                  <p>本文编程环境：Jupyter NoteBook python3</p>
-<div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>类也是对象<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>类也是对象<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <p>在大多数编程语言中，类就是一组用来描述如何生成一个对象的代码段。在 Python 中这一点仍然成立：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ObjectCreator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span>
@@ -1179,17 +1293,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>你可以为它增加属性</p></li>
 <li><p>你可以将它作为函数参数进行传递</p></li>
 </ol>
-<div class="section" id="id2">
-<h2>你可以打印一个类，因为它其实也是一个对象<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h2>你可以打印一个类，因为它其实也是一个对象<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">)</span>     
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;__main__.ObjectCreator&#39;&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
-<h2>你可以将类做为参数传给函数<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id3">
+<h2>你可以将类做为参数传给函数<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">o</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
     
@@ -1199,9 +1313,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;__main__.ObjectCreator&#39;&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2>你可以为类增加属性<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id4">
+<h2>你可以为类增加属性<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">,</span> <span class="s1">&#39;new_attribute&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1221,9 +1335,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>foo
 </pre></div>
 </div>
-</div>
-<div class="section" id="id5">
-<h2>你可以将类赋值给一个变量<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id5">
+<h2>你可以将类赋值给一个变量<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ObjectCreatorMirror</span> <span class="o">=</span> <span class="n">ObjectCreator</span> 
 
 <span class="nb">print</span><span class="p">(</span><span class="n">ObjectCreatorMirror</span><span class="p">())</span>
@@ -1232,10 +1346,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;__main__.ObjectCreator object at 0x00000233E51241D0&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id6">
-<h1>动态地创建类<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id6">
+<h1>动态地创建类<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h1>
 <p>因为类也是对象，你可以在运行时动态的创建它们，就像其他任何对象一样。首先，你可以在函数中创建类，使用 <code class="docutils literal notranslate"><span class="pre">class</span></code> 关键字即可。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">choose_class</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;foo&#39;</span><span class="p">:</span>
@@ -1287,8 +1401,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>__main__.ObjectCreator
 </pre></div>
 </div>
-<div class="section" id="type">
-<h2><code class="docutils literal notranslate"><span class="pre">type</span></code> 动态的创建类<a class="headerlink" href="#type" title="永久链接至标题">¶</a></h2>
+<section id="type">
+<h2><code class="docutils literal notranslate"><span class="pre">type</span></code> 动态的创建类<a class="headerlink" href="#type" title="永久链接至标题">#</a></h2>
 <p>这里，<code class="docutils literal notranslate"><span class="pre">type</span></code> 有一种完全不同的能力，它也能动态的创建类。<code class="docutils literal notranslate"><span class="pre">type</span></code> 可以接受一个类的描述作为参数，然后返回一个类。（我们知道，根据传入参数的不同，同一个函数拥有两种完全不同的用法是一件很傻的事情，但这在 Python 中是为了保持向后兼容性）。</p>
 <p><code class="docutils literal notranslate"><span class="pre">type</span></code> 可以像这样工作：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>type(类名, 父类的元组 （针对继承的情况，可以为空），包含属性的字典（名称和值）)
@@ -1492,8 +1606,8 @@ class DogChild(Dog)
  |  name = &#39;二哈&#39;
 </pre></div>
 </div>
-<div class="section" id="id7">
-<h3>使用 <code class="docutils literal notranslate"><span class="pre">type</span></code> 创建带有方法的类<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<section id="id7">
+<h3>使用 <code class="docutils literal notranslate"><span class="pre">type</span></code> 创建带有方法的类<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#普通方法</span>
 <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
@@ -1523,11 +1637,11 @@ static_test
 class_test
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id8">
-<h1>元类<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id8">
+<h1>元类<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h1>
 <p>元类就是用来创建类的「东西」。你创建类就是为了创建类的实例对象，不是吗？但是我们已经学习到了 Python 中的类也是对象。好吧，元类就是用来创建这些类（对象）的，元类就是类的类，你可以这样理解为：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MyClass</span> <span class="o">=</span> <span class="n">MetaClass</span><span class="p">()</span>
 <span class="n">MyObject</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
@@ -1659,8 +1773,8 @@ class_test
 <li><p>修改类</p></li>
 <li><p>返回修改之后的类</p></li>
 </ol>
-<div class="section" id="metaclass">
-<h2>为什么要用  <code class="docutils literal notranslate"><span class="pre">metaclass</span></code>  类而不是函数?<a class="headerlink" href="#metaclass" title="永久链接至标题">¶</a></h2>
+<section id="metaclass">
+<h2>为什么要用  <code class="docutils literal notranslate"><span class="pre">metaclass</span></code>  类而不是函数?<a class="headerlink" href="#metaclass" title="永久链接至标题">#</a></h2>
 <p>由于 <code class="docutils literal notranslate"><span class="pre">metaclass</span></code> 可以接受任何可调用的对象，那为何还要使用类呢，因为很显然使用类会更加复杂啊？这里有好几个原因：</p>
 <ol class="simple">
 <li><p>意图会更加清晰。当你读到 <code class="docutils literal notranslate"><span class="pre">UpperAttrMetaclass(type)</span></code> 时，你知道接下来要发生什么。</p></li>
@@ -1669,9 +1783,9 @@ class_test
 <li><p>你可以使用 <code class="docutils literal notranslate"><span class="pre">__new__</span></code>, <code class="docutils literal notranslate"><span class="pre">__init__</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">__call__</span></code> 这样的特殊方法。它们能帮你处理不同的任务。就算通常你可以把所有的东西都在 <code class="docutils literal notranslate"><span class="pre">__new__</span></code> 里处理掉，有些人还是觉得用 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> 更舒服些。</p></li>
 <li><p>哇哦，这东西的名字是 <code class="docutils literal notranslate"><span class="pre">metaclass</span></code>，肯定非善类，我要小心！</p></li>
 </ol>
-</div>
-<div class="section" id="id9">
-<h2>究竟为什么要使用元类？<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id9">
+<h2>究竟为什么要使用元类？<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h2>
 <p>现在回到我们的大主题上来，究竟是为什么你会去使用这样一种容易出错且晦涩的特性？好吧，一般来说，你根本就用不上它：</p>
 <ul class="simple">
 <li><p>『元类就是深度的魔法，<span class="math notranslate nohighlight">\(99\%\)</span> 的用户应该根本不必为此操心。如果你想搞清楚究竟是否需要用到元类，那么你就不需要它。那些实际用到元类的人都非常清楚地知道他们需要做什么，而且根本不需要解释为什么要用元类。』 —— Python 界的领袖 Tim Peters</p></li>
@@ -1688,10 +1802,10 @@ class_test
 </pre></div>
 </div>
 <p>这并不会返回一个 <code class="docutils literal notranslate"><span class="pre">IntegerField</span></code> 对象，而是会返回一个 <code class="docutils literal notranslate"><span class="pre">int</span></code>，甚至可以直接从数据库中取出数据。这是有可能的，因为 <code class="docutils literal notranslate"><span class="pre">models.Model</span></code> 定义了<code class="docutils literal notranslate"><span class="pre">metaclass</span></code>， 并且使用了一些魔法能够将你刚刚定义的简单的 <code class="docutils literal notranslate"><span class="pre">Person</span></code> 类转变成对数据库的一个复杂 <code class="docutils literal notranslate"><span class="pre">hook</span></code>。Django 框架将这些看起来很复杂的东西通过暴露出一个简单的使用元类的 API 将其化简，通过这个 API 重新创建代码，在背后完成真正的工作。</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id10">
-<h1>结语<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id10">
+<h1>结语<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h1>
 <p>首先，你知道了类其实是能够创建出类实例的对象。好吧，事实上，类本身也是实例，当然，它们是元类的实例。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
 <span class="nb">id</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span>
@@ -1707,11 +1821,11 @@ class_test
 </ul>
 <p>当你需要动态修改类时，<span class="math notranslate nohighlight">\(99\%\)</span> 的时间里你最好使用上面这两种技术。当然了，其实在 <span class="math notranslate nohighlight">\(99\%\)</span> 的时间里你根本就不需要动态修改类。</p>
 <p>更多内容可参考：<a class="reference external" href="https://python3-cookbook.readthedocs.io/zh_CN/latest/c09/p15_define_metaclass_that_takes_optional_arguments.html">9.15 定义有可选参数的元类</a></p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id11">
-<h1>附加实例<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h1>
-<div class="section" id="author">
-<h2>实例1：增加一个 <code class="docutils literal notranslate"><span class="pre">__author__</span></code> 类属性<a class="headerlink" href="#author" title="永久链接至标题">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id11">
+<h1>附加实例<a class="headerlink" href="#id11" title="永久链接至标题">#</a></h1>
+<section id="author">
+<h2>实例1：增加一个 <code class="docutils literal notranslate"><span class="pre">__author__</span></code> 类属性<a class="headerlink" href="#author" title="永久链接至标题">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Author</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
         <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;__author__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xiemanR&#39;</span>
@@ -1781,8 +1895,8 @@ call
 test
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1809,9 +1923,11 @@ test
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="22.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1827,24 +1943,28 @@ test
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By xinetzone<br/>
+  
+      &copy; Copyright 2021, xinetzone.<br/>
+</p>
+        </footer>
+    </div>
     
-      通过 xinetzone<br/>
-    
-        &copy; 版权 2021, xinetzone.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
