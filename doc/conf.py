@@ -170,7 +170,9 @@ html_sidebars = {
 extra_navbar = """<div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
 <div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+<a href="https://d2py.readthedocs.io/zh/latest/">版本切换</a>
 """
+autosummary_generate = True
 
 html_theme_options = {
     # -- 如果你的文档只有一个页面，而且你不需要左边的导航栏，那么 ---------------
