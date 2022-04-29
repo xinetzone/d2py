@@ -1,0 +1,248 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 日志记录\n",
+    "\n",
+    "{mod}`logging` 模块提供功能齐全且灵活的日志记录系统。在最简单的情况下，日志消息被发送到文件或 `sys.stderr`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING:root:Warning:config file server.conf not found\n",
+      "ERROR:root:Error occurred\n",
+      "CRITICAL:root:Critical error -- shutting down\n"
+     ]
+    }
+   ],
+   "source": [
+    "import logging\n",
+    "# 示例\n",
+    "logging.debug('Debugging information')\n",
+    "logging.info('Informational message')\n",
+    "logging.warning('Warning:config file %s not found', 'server.conf')\n",
+    "logging.error('Error occurred')\n",
+    "logging.critical('Critical error -- shutting down')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "默认情况下，informational 和 debugging 消息被压制，输出会发送到标准错误流。其他输出选项包括将消息转发到电子邮件，数据报，套接字或 HTTP 服务器。新的过滤器可以根据消息优先级选择不同的路由方式：`DEBUG`，`INFO`，`WARNING`，`ERROR` 和 `CRITICAL`。\n",
+    "\n",
+    "`level` 指定了日志的级别，这样，便可以显示 `DEBUG` 信息："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "DEBUG:root:Debugging information\n"
+     ]
+    }
+   ],
+   "source": [
+    "import logging\n",
+    "logging.basicConfig(encoding='utf-8', # Python3.9 新加的\n",
+    "                    level=logging.DEBUG)\n",
+    "\n",
+    "logging.debug('Debugging information')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "日志系统可以直接从 Python 配置，也可以从用户配置文件加载，以便自定义日志记录而无需更改应用程序。\n",
+    "\n",
+    "可以将日志写入文件："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import logging\n",
+    "logging.basicConfig(filename='example.log',\n",
+    "                    encoding='utf-8', # Python3.9 新加的\n",
+    "                    level=logging.DEBUG)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "对 {func}`~logging.basicConfig` 的调用应该在 {func}`~logging.debug` ， {func}`~logging.info` 等的前面。因为它被设计为一次性的配置，只有第一次调用会进行操作，随后的调用不会产生有效操作。\n",
+    "\n",
+    "如果多次运行 {func}`~logging.basicConfig` 脚本，则连续运行的消息将追加到文件 `example.log`。 如果你希望每次运行重新开始，而不是记住先前运行的消息，则可以通过将上例中的调用更改为来指定 `filemode` 参数："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import logging\n",
+    "logging.basicConfig(filename='example.log',\n",
+    "                    filemode='w',\n",
+    "                    level=logging.DEBUG)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "输出将与之前相同，但不再追加进日志文件，因此早期运行的消息将丢失。\n",
+    "\n",
+    "## 常用设置\n",
+    "\n",
+    "### 更改显示消息的格式\n",
+    "\n",
+    "要更改用于显示消息的格式，你需要指定要使用的格式："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "DEBUG:This message should appear on the console\n",
+      "INFO:So should this\n",
+      "WARNING:And this, too\n"
+     ]
+    }
+   ],
+   "source": [
+    "import logging\n",
+    "\n",
+    "logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)\n",
+    "logging.debug('This message should appear on the console')\n",
+    "logging.info('So should this')\n",
+    "logging.warning('And this, too')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 在消息中显示日期/时间\n",
+    "\n",
+    "要显示事件的日期和时间，你可以在格式字符串中放置 `'%(asctime)s'`："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "2022-04-29 15:22:16,950 is when this event was logged.\n"
+     ]
+    }
+   ],
+   "source": [
+    "import logging\n",
+    "\n",
+    "logging.basicConfig(format='%(asctime)s %(message)s')\n",
+    "logging.warning('is when this event was logged.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "控制日期/时间的格式，请为 {func}`~logging.basicConfig` 提供 `datefmt` 参数，如下例所示："
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "04/29/2022 03:23:58 PM is when this event was logged.\n"
+     ]
+    }
+   ],
+   "source": [
+    "import logging\n",
+    "\n",
+    "logging.basicConfig(format='%(asctime)s %(message)s',\n",
+    "                    datefmt='%m/%d/%Y %I:%M:%S %p')\n",
+    "logging.warning('is when this event was logged.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 进阶日志教程\n",
+    "\n",
+    "日志库采用模块化方法，并提供几类组件：记录器、处理器、过滤器和格式器。\n",
+    "\n",
+    "- **记录器** 暴露了应用程序代码直接使用的接口。\n",
+    "- **处理器** 将日志记录（由记录器创建）发送到适当的目标。\n",
+    "- **过滤器** 提供了更细粒度的功能，用于确定要输出的日志记录。\n",
+    "- **格式器** 指定最终输出中日志记录的样式。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": []
+  }
+ ],
+ "metadata": {
+  "interpreter": {
+   "hash": "4f62f115c30e6fc44fc63ce244abcfddb69ca3622d122d84df52c0b80491a68a"
+  },
+  "kernelspec": {
+   "display_name": "Python 3.10.3 ('ai')",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.3"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
