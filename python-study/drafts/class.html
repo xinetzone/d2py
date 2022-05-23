@@ -22,15 +22,15 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -844,7 +844,7 @@ const thebe_selector_output = ".output, .cell_output"
             <div class="navbar_extra_footer">
             <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
-<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+<div>由 <a href="https://xinetzone.github.io/demo-book/">EBP</a> 提供技术支持</div>
 <a href="https://d2py.readthedocs.io/zh/latest/">版本切换</a>
 
             </div>
@@ -1460,37 +1460,37 @@ In global scope: global spam
 <h1>类<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p>名词</p></th>
-<th class="text-align:left head"><p>描述</p></th>
+<tr class="row-odd"><th class="text-left head"><p>名词</p></th>
+<th class="text-left head"><p>描述</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>类(Class)</p></td>
-<td class="text-align:left"><p>用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。</p></td>
+<tr class="row-even"><td class="text-left"><p>类(Class)</p></td>
+<td class="text-left"><p>用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>类变量</p></td>
-<td class="text-align:left"><p>类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。</p></td>
+<tr class="row-odd"><td class="text-left"><p>类变量</p></td>
+<td class="text-left"><p>类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>数据成员</p></td>
-<td class="text-align:left"><p>类变量或者实例变量用于处理类及其实例对象的相关的数据。</p></td>
+<tr class="row-even"><td class="text-left"><p>数据成员</p></td>
+<td class="text-left"><p>类变量或者实例变量用于处理类及其实例对象的相关的数据。</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>方法重写</p></td>
-<td class="text-align:left"><p>如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重写。</p></td>
+<tr class="row-odd"><td class="text-left"><p>方法重写</p></td>
+<td class="text-left"><p>如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重写。</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>实例变量</p></td>
-<td class="text-align:left"><p>定义在方法中的变量，只作用于当前实例的类。</p></td>
+<tr class="row-even"><td class="text-left"><p>实例变量</p></td>
+<td class="text-left"><p>定义在方法中的变量，只作用于当前实例的类。</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>继承</p></td>
-<td class="text-align:left"><p>即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟”是一个（is-a）”关系（例图，Dog是一个Animal）。</p></td>
+<tr class="row-odd"><td class="text-left"><p>继承</p></td>
+<td class="text-left"><p>即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟”是一个（is-a）”关系（例图，Dog是一个Animal）。</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>实例化</p></td>
-<td class="text-align:left"><p>创建一个类的实例，类的具体对象。</p></td>
+<tr class="row-even"><td class="text-left"><p>实例化</p></td>
+<td class="text-left"><p>创建一个类的实例，类的具体对象。</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>方法</p></td>
-<td class="text-align:left"><p>类中定义的函数。</p></td>
+<tr class="row-odd"><td class="text-left"><p>方法</p></td>
+<td class="text-left"><p>类中定义的函数。</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>对象</p></td>
-<td class="text-align:left"><p>通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法(实例方法，类方法，静态方法)</p></td>
+<tr class="row-even"><td class="text-left"><p>对象</p></td>
+<td class="text-left"><p>通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法(实例方法，类方法，静态方法)</p></td>
 </tr>
 </tbody>
 </table>

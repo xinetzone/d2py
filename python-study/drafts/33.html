@@ -22,15 +22,15 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -846,7 +846,7 @@ const thebe_selector_output = ".output, .cell_output"
             <div class="navbar_extra_footer">
             <div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
-<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+<div>由 <a href="https://xinetzone.github.io/demo-book/">EBP</a> 提供技术支持</div>
 <a href="https://d2py.readthedocs.io/zh/latest/">版本切换</a>
 
             </div>
@@ -1288,7 +1288,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>将在内存中创建一个对象，名字就是 <code class="docutils literal notranslate"><span class="pre">ObjectCreator</span></code>。这个对象（类）自身拥有创建对象（类实例）的能力，而这就是为什么它是一个类的原因。但是，它的本质仍然是一个对象，于是乎你可以对它做如下的操作：</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>你可以将它赋值给一个变量</p></li>
 <li><p>你可以拷贝它</p></li>
 <li><p>你可以为它增加属性</p></li>
@@ -1769,7 +1769,7 @@ class_test
 </pre></div>
 </div>
 <p>就是这样，除此之外，关于元类真的没有别的可说的了。使用到元类的代码比较复杂，这背后的原因倒并不是因为元类本身，而是因为你通常会使用元类去做一些晦涩的事情，依赖于自省，控制继承等等。确实，用元类来搞些“黑暗魔法”是特别有用的，因而会搞出些复杂的东西来。但就元类本身而言，它们其实是很简单的：</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>拦截类的创建</p></li>
 <li><p>修改类</p></li>
 <li><p>返回修改之后的类</p></li>
@@ -1777,7 +1777,7 @@ class_test
 <section id="metaclass">
 <h2>为什么要用  <code class="docutils literal notranslate"><span class="pre">metaclass</span></code>  类而不是函数?<a class="headerlink" href="#metaclass" title="永久链接至标题">#</a></h2>
 <p>由于 <code class="docutils literal notranslate"><span class="pre">metaclass</span></code> 可以接受任何可调用的对象，那为何还要使用类呢，因为很显然使用类会更加复杂啊？这里有好几个原因：</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>意图会更加清晰。当你读到 <code class="docutils literal notranslate"><span class="pre">UpperAttrMetaclass(type)</span></code> 时，你知道接下来要发生什么。</p></li>
 <li><p>你可以使用 OOP 编程。元类可以从元类中继承而来，改写父类的方法。元类甚至还可以使用元类。</p></li>
 <li><p>你可以把代码组织的更好。当你使用元类的时候肯定不会是像我上面举的这种简单场景，通常都是针对比较复杂的问题。将多个方法归总到一个类中会很有帮助，也会使得代码更容易阅读。</p></li>
