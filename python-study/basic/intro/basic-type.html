@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -899,7 +899,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/intro/basic-type.ipynb"
+        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/doc/python-study/basic/intro/basic-type.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -917,7 +917,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/docs/python-study/basic/intro/basic-type.ipynb"
+        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/doc/python-study/basic/intro/basic-type.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1012,7 +1012,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/intro/basic-type.ipynb"
+        <a href="https://github.com/xinetzone/d2py/edit/main/doc/python-study/basic/intro/basic-type.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1263,8 +1263,8 @@ title="Print to PDF"
 <h1>Python 基本数据类型<a class="headerlink" href="#python" title="永久链接至标题">#</a></h1>
 <p>Python 内置了一些基本数据类型，极大的方便描述的任务。</p>
 <p>Python 中带有关键字的结构，用于表达特定的语义，被称为 <strong>语句</strong>。</p>
-<p>本节主要探讨 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-expression_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">表达式语句</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-assignment_stmt" title="(在 Python v3.11)"><code class="xref std std-token docutils literal notranslate"><span class="pre">赋值语句</span></code></a>。</p>
-<p>Python 的 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-expression" title="(在 Python v3.11)"><span class="xref std std-term">表达式</span></a> 表示那些可以被求值的对象。换句话说，一个表达式就是表达元素例如字面值、名称、属性访问、运算符或调用，它们最终都会返回一个值。本文主要介绍 Python 基本数据类型所代表的表达式。</p>
+<p>本节主要探讨 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-expression_stmt" title="(在 Python v3.12)"><code class="xref std std-token docutils literal notranslate"><span class="pre">表达式语句</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#grammar-token-python-grammar-assignment_stmt" title="(在 Python v3.12)"><code class="xref std std-token docutils literal notranslate"><span class="pre">赋值语句</span></code></a>。</p>
+<p>Python 的 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-expression" title="(在 Python v3.12)"><span class="xref std std-term">表达式</span></a> 表示那些可以被求值的对象。换句话说，一个表达式就是表达元素例如字面值、名称、属性访问、运算符或调用，它们最终都会返回一个值。本文主要介绍 Python 基本数据类型所代表的表达式。</p>
 <p>赋值语句用于将名称（重）绑定到特定值，以及修改属性或可变对象的成员项：</p>
 <div class="highlight-md notranslate"><div class="highlight"><pre><span></span>标识符（或者标识符列表）= 表达式
 </pre></div>
@@ -1272,7 +1272,7 @@ title="Print to PDF"
 <p>此时的标识符一般被称为 <code class="docutils literal notranslate"><span class="pre">变量</span></code>。</p>
 <section id="id1">
 <h2>标识符<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h2>
-<p><a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#identifiers" title="(在 Python v3.11)"><span class="xref std std-ref">标识符</span></a> （也称为 <strong>名称</strong>）是由特定的 Unicode 字符（包含英文、汉字等，且英文字母区分大小写）、（十进制）数字和下划线组成，但不能以数字作为开头。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/lexical_analysis.html#identifiers" title="(在 Python v3.12)"><span class="xref std std-ref">标识符</span></a> （也称为 <strong>名称</strong>）是由特定的 Unicode 字符（包含英文、汉字等，且英文字母区分大小写）、（十进制）数字和下划线组成，但不能以数字作为开头。</p>
 <p>示例：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1299,7 +1299,7 @@ title="Print to PDF"
 </section>
 <section id="id2">
 <h2>数字<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
-<p>数字字面值与运算符 <code class="docutils literal notranslate"><span class="pre">+</span></code>（正号，一般被省略）、<code class="docutils literal notranslate"><span class="pre">-</span></code>（负号） 组成了数学中的数字（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Number" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>）。按照数域范围分为：整型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Integral" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a> 表示）、分数型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Rational" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Rational</span></code></a>）、浮点型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Real" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Real</span></code></a> 表示）以及复数型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Complex" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Complex</span></code></a> 表示）。整型、分数型、浮点型以及复数型支持数学运算。</p>
+<p>数字字面值与运算符 <code class="docutils literal notranslate"><span class="pre">+</span></code>（正号，一般被省略）、<code class="docutils literal notranslate"><span class="pre">-</span></code>（负号） 组成了数学中的数字（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Number" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code></a>）。按照数域范围分为：整型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Integral" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Integral</span></code></a> 表示）、分数型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Rational" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Rational</span></code></a>）、浮点型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Real" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Real</span></code></a> 表示）以及复数型（名称为 <a class="reference external" href="https://daobook.github.io/cpython/library/numbers.html#numbers.Complex" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Complex</span></code></a> 表示）。整型、分数型、浮点型以及复数型支持数学运算。</p>
 <section id="id3">
 <h3>数学运算<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
 <p>Python 提供有基本的数学运算：</p>
@@ -1457,7 +1457,7 @@ title="Print to PDF"
 </section>
 <section id="id5">
 <h2>对象的属性、方法以及函数<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
-<p>由于 Python 一切皆是对象，故而每个对象都可能绑定了一些属性（通过 <code class="docutils literal notranslate"><span class="pre">.</span></code> 获取其值）、<a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-method" title="(在 Python v3.11)"><span class="xref std std-term">方法</span></a> 以及 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-function" title="(在 Python v3.11)"><span class="xref std std-term">函数</span></a>。</p>
+<p>由于 Python 一切皆是对象，故而每个对象都可能绑定了一些属性（通过 <code class="docutils literal notranslate"><span class="pre">.</span></code> 获取其值）、<a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-method" title="(在 Python v3.12)"><span class="xref std std-term">方法</span></a> 以及 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-function" title="(在 Python v3.12)"><span class="xref std std-term">函数</span></a>。</p>
 <p>比如，复数 <span class="math notranslate nohighlight">\(z\)</span> 有一些属性值：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1527,7 +1527,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>字符串可以使用函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#print" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> 显示信息：</p>
+<p>字符串可以使用函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#print" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> 显示信息：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">晓明</span><span class="p">)</span>
@@ -1740,13 +1740,13 @@ fkd
 <section id="id10">
 <h2>集合<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h2>
 <dl class="simple myst">
-<dt>集合</dt><dd><p>此类对象表示由不重复且不可变对象组成的无序且有限的集合。因此它们不能通过下标来索引。但是它们可被迭代，也可用内置函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#len" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> 返回集合中的项数。集合常见的用处是快速成员检测，去除序列中的重复项，以及进行交、并、差和对称差等数学运算。</p>
+<dt>集合</dt><dd><p>此类对象表示由不重复且不可变对象组成的无序且有限的集合。因此它们不能通过下标来索引。但是它们可被迭代，也可用内置函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#len" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a> 返回集合中的项数。集合常见的用处是快速成员检测，去除序列中的重复项，以及进行交、并、差和对称差等数学运算。</p>
 </dd>
 </dl>
 <p>集合分为两类：</p>
 <ul class="simple">
-<li><p>可变集合：<a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#set" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a></p></li>
-<li><p>不可变集合：<a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#frozenset" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p></li>
+<li><p>可变集合：<a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#set" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a></p></li>
+<li><p>不可变集合：<a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#frozenset" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a></p></li>
 </ul>
 <p>例如：</p>
 <div class="cell docutils container">
@@ -1770,7 +1770,7 @@ fkd
 <p>Python 使用字典表示对象之间的关系。表示方法有：</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">{key:</span> <span class="pre">value,</span> <span class="pre">key1:</span> <span class="pre">value2,</span> <span class="pre">...}</span></code> 键值对的形式</p></li>
-<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#dict" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>(key=value, key1=value2)</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#dict" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>(key=value, key1=value2)</p></li>
 </ol>
 <p>例如：</p>
 <div class="cell docutils container">
@@ -1795,7 +1795,7 @@ fkd
 </section>
 <section id="id12">
 <h2>对象的编号与类型<a class="headerlink" href="#id12" title="永久链接至标题">#</a></h2>
-<p>一个 Python 对象的编号和类型是唯一的，可以分别使用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#id" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#type" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> 获取其值。</p>
+<p>一个 Python 对象的编号和类型是唯一的，可以分别使用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#id" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#type" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> 获取其值。</p>
 <p>比如：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

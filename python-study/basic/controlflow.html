@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -899,7 +899,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/controlflow.ipynb"
+        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/doc/python-study/basic/controlflow.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -917,7 +917,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/docs/python-study/basic/controlflow.ipynb"
+        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/doc/python-study/basic/controlflow.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1012,7 +1012,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/controlflow.ipynb"
+        <a href="https://github.com/xinetzone/d2py/edit/main/doc/python-study/basic/controlflow.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1652,7 +1652,7 @@ title="Print to PDF"
 </div>
 <section id="id6">
 <h3>循环的技巧<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h3>
-<p>在序列中循环时，用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#enumerate" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">enumerate()</span></code></a> 函数可以同时取出位置索引和对应的值：</p>
+<p>在序列中循环时，用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#enumerate" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">enumerate()</span></code></a> 函数可以同时取出位置索引和对应的值：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;苹果&#39;</span><span class="p">,</span> <span class="s1">&#39;相机&#39;</span><span class="p">,</span> <span class="s1">&#39;飞机&#39;</span><span class="p">]):</span>
@@ -1668,7 +1668,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>同时循环两个或多个序列时，用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#zip" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a> 函数可以将其内的元素一一匹配：</p>
+<p>同时循环两个或多个序列时，用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#zip" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a> 函数可以将其内的元素一一匹配：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">questions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;名字&#39;</span><span class="p">,</span> <span class="s1">&#39;缺点&#39;</span><span class="p">,</span> <span class="s1">&#39;最喜爱的颜色&#39;</span><span class="p">]</span>
@@ -1686,7 +1686,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>逆向循环序列时，先正向定位序列，然后调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#reversed" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">reversed()</span></code></a> 函数：</p>
+<p>逆向循环序列时，先正向定位序列，然后调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#reversed" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">reversed()</span></code></a> 函数：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)):</span>
@@ -1704,7 +1704,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>按指定顺序循环序列，可以用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#sorted" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a> 函数，在不改动原序列的基础上，重新返回一个序列：</p>
+<p>按指定顺序循环序列，可以用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#sorted" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a> 函数，在不改动原序列的基础上，重新返回一个序列：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">basket</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pear&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>
@@ -1724,7 +1724,7 @@ banana
 </div>
 </div>
 </div>
-<p>使用 <code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code> 去除序列中的重复元素。使用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#sorted" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a> 加 <code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code> 则按排序后的顺序，循环遍历序列中的唯一元素：</p>
+<p>使用 <code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code> 去除序列中的重复元素。使用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#sorted" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a> 加 <code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code> 则按排序后的顺序，循环遍历序列中的唯一元素：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">basket</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pear&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>

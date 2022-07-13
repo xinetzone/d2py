@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -897,7 +897,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/analysis/draft/annotations.ipynb"
+        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/doc/analysis/draft/annotations.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -915,7 +915,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/docs/analysis/draft/annotations.ipynb"
+        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/doc/analysis/draft/annotations.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1010,7 +1010,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/xinetzone/d2py/edit/main/docs/analysis/draft/annotations.ipynb"
+        <a href="https://github.com/xinetzone/d2py/edit/main/doc/analysis/draft/annotations.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1164,11 +1164,11 @@ title="Print to PDF"
 <p><span class="guilabel">限制</span>： Python 3.10 及其以上版本</p>
 <section id="inspect">
 <h2>inspect 用于对象检查<a class="headerlink" href="#inspect" title="永久链接至标题">#</a></h2>
-<p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#module-inspect" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">inspect</span></code></a> 模块支持：类型检查、获取源代码、检查类与函数、检查解释器的调用堆栈。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#module-inspect" title="(在 Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">inspect</span></code></a> 模块支持：类型检查、获取源代码、检查类与函数、检查解释器的调用堆栈。</p>
 <section id="id2">
 <h3>签名与形参<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h3>
 <ul class="simple">
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">inspect.Signature(parameters=None,</span> <span class="pre">*,</span> <span class="pre">return_annotation=Signature.empty)</span></code> 代表了一个函数的整体签名。它为每个被函数接受的参数存储一个 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Parameter" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> 对象。可以使用辅助函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.signature(obj)()</span></code> 获取对象 <code class="docutils literal notranslate"><span class="pre">obj</span></code> 的签名。</p>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">inspect.Signature(parameters=None,</span> <span class="pre">*,</span> <span class="pre">return_annotation=Signature.empty)</span></code> 代表了一个函数的整体签名。它为每个被函数接受的参数存储一个 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Parameter" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> 对象。可以使用辅助函数 <code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.signature(obj)()</span></code> 获取对象 <code class="docutils literal notranslate"><span class="pre">obj</span></code> 的签名。</p>
 <ul>
 <li><p>可选的 <code class="docutils literal notranslate"><span class="pre">parameters</span></code> 实参是一个 <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> 对象的序列，它被验证以检查是否有名称重复的形参，以及形参的顺序是否正确，即先是仅有位置的形参，然后是有位置或关键字的形参，以及有默认值的形参紧随没有默认值的形参。</p></li>
 <li><p>可选的 <code class="docutils literal notranslate"><span class="pre">return_annotation</span></code> 实参，可以是一个任意的 Python 对象，是可调用对象的 “return” 注解。</p></li>
@@ -1179,8 +1179,8 @@ title="Print to PDF"
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Signature" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Parameter" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> 对象均是不可变的。分别使用 <code class="xref py py-func docutils literal notranslate"><span class="pre">Signature.replace()</span></code> 与 <code class="xref py py-func docutils literal notranslate"><span class="pre">Parameter.replace()</span></code> 来制作一个修改的副本。</p></li>
-<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Signature" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Parameter" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> 对象是可提取（picklable）和可散列的。</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Signature" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Parameter" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> 对象均是不可变的。分别使用 <code class="xref py py-func docutils literal notranslate"><span class="pre">Signature.replace()</span></code> 与 <code class="xref py py-func docutils literal notranslate"><span class="pre">Parameter.replace()</span></code> 来制作一个修改的副本。</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Signature" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signature</span></code></a> 与 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.Parameter" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> 对象是可提取（picklable）和可散列的。</p></li>
 </ul>
 </div>
 <p>看一个例子：</p>
@@ -1353,10 +1353,10 @@ title="Print to PDF"
 <section id="id3">
 <h3>注解<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
 <p><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations(obj,</span> <span class="pre">*,</span> <span class="pre">globals=None,</span> <span class="pre">locals=None,</span> <span class="pre">eval_str=False)()</span></code> 计算一个对象的注解 dict。</p>
-<p><code class="docutils literal notranslate"><span class="pre">obj</span></code> 可以是一个 callable，类，或模块。传入任何其他类型的对象会引发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#TypeError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>。</p>
-<p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.get_annotations" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a> 每次调用都会返回一个新的 dict；对同一个对象调用两次会返回两个不同但等价的 dict。</p>
+<p><code class="docutils literal notranslate"><span class="pre">obj</span></code> 可以是一个 callable，类，或模块。传入任何其他类型的对象会引发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#TypeError" title="(在 Python v3.12)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.get_annotations" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a> 每次调用都会返回一个新的 dict；对同一个对象调用两次会返回两个不同但等价的 dict。</p>
 <p>对象注解属性的最佳实践：</p>
-<p>Python 3.10 以上版本的最佳做法：使用三个参数去调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#getattr" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr()</span></code></a>，比如 <code class="docutils literal notranslate"><span class="pre">getattr(o,</span> <span class="pre">'__annotations__',</span> <span class="pre">None)</span></code>。</p>
+<p>Python 3.10 以上版本的最佳做法：使用三个参数去调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#getattr" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr()</span></code></a>，比如 <code class="docutils literal notranslate"><span class="pre">getattr(o,</span> <span class="pre">'__annotations__',</span> <span class="pre">None)</span></code>。</p>
 </section>
 </section>
 </section>

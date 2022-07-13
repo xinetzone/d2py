@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -897,7 +897,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/analysis/draft/descriptor.ipynb"
+        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/doc/analysis/draft/descriptor.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -915,7 +915,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/docs/analysis/draft/descriptor.ipynb"
+        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/doc/analysis/draft/descriptor.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1010,7 +1010,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/xinetzone/d2py/edit/main/docs/analysis/draft/descriptor.ipynb"
+        <a href="https://github.com/xinetzone/d2py/edit/main/doc/analysis/draft/descriptor.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1107,7 +1107,7 @@ title="Print to PDF"
 <p>据和非数据描述器的不同之处在于，如何计算实例字典中项的替代值。如果实例的字典具有与数据描述器同名的项，则数据描述器优先。如果实例的字典具有与非数据描述器同名的项，则该字典项优先。</p>
 </dd>
 </dl>
-<p>为了使数据描述器成为只读的，应该同时定义 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__get__()</span></code> 和 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code>，并在 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code> 中引发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#AttributeError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a>。</p>
+<p>为了使数据描述器成为只读的，应该同时定义 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__get__()</span></code> 和 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code>，并在 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__set__()</span></code> 中引发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#AttributeError" title="(在 Python v3.12)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a>。</p>
 <p>描述器调用概述</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -897,7 +897,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/template.ipynb"
+        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/doc/python-study/basic/template.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -915,7 +915,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/docs/python-study/basic/template.ipynb"
+        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/doc/python-study/basic/template.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1010,7 +1010,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/template.ipynb"
+        <a href="https://github.com/xinetzone/d2py/edit/main/doc/python-study/basic/template.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1100,7 +1100,7 @@ title="Print to PDF"
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>模板<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
-<p><a class="reference external" href="https://daobook.github.io/cpython/library/string.html#module-string" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">string</span></code></a> 模块提供了通用的 <a class="reference external" href="https://daobook.github.io/cpython/library/string.html#string.Template" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">string.Template</span></code></a> 类，具有适用于最终用户的简化语法。它允许用户在不更改应用逻辑的情况下自定义应用。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/string.html#module-string" title="(在 Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">string</span></code></a> 模块提供了通用的 <a class="reference external" href="https://daobook.github.io/cpython/library/string.html#string.Template" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">string.Template</span></code></a> 类，具有适用于最终用户的简化语法。它允许用户在不更改应用逻辑的情况下自定义应用。</p>
 <p>实现方式：利用占位符 <code class="docutils literal notranslate"><span class="pre">$</span></code> 加上合法的 Python 标识符构成。一旦使用 <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code> 将占位符括起来，就可以在后面直接跟上更多的字面和数字而无需空格分隔。<code class="docutils literal notranslate"><span class="pre">$</span></code> 的语义由 <code class="docutils literal notranslate"><span class="pre">$$</span></code> 提供转义。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1116,7 +1116,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>如果在字典或关键字参数中未提供某个占位符的值，那么 <a class="reference external" href="https://daobook.github.io/cpython/library/string.html#string.Template.substitute" title="(在 Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">string.Template.substitute()</span></code></a> 方法将抛出 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#KeyError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>。对于 mail-merge 风格的应用，用户提供的数据有可能是不完整的，此时使用 <a class="reference external" href="https://daobook.github.io/cpython/library/string.html#string.Template.safe_substitute" title="(在 Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">string.Template.safe_substitute()</span></code></a> 方法更加合适 —— 如果数据缺失，它会直接将占位符原样保留。</p>
+<p>如果在字典或关键字参数中未提供某个占位符的值，那么 <a class="reference external" href="https://daobook.github.io/cpython/library/string.html#string.Template.substitute" title="(在 Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">string.Template.substitute()</span></code></a> 方法将抛出 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#KeyError" title="(在 Python v3.12)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>。对于 mail-merge 风格的应用，用户提供的数据有可能是不完整的，此时使用 <a class="reference external" href="https://daobook.github.io/cpython/library/string.html#string.Template.safe_substitute" title="(在 Python v3.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">string.Template.safe_substitute()</span></code></a> 方法更加合适 —— 如果数据缺失，它会直接将占位符原样保留。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s1">&#39;Return the $item to $owner.&#39;</span><span class="p">)</span>

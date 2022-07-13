@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -945,7 +945,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/xinetzone/d2py/edit/main/docs/analysis/draft/abc.md"
+        <a href="https://github.com/xinetzone/d2py/edit/main/doc/analysis/draft/abc.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1035,7 +1035,7 @@ title="Print to PDF"
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>抽象基类<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
-<p>模块 <code class="xref py py-mod docutils literal notranslate"><span class="pre">ABC</span></code> 全称 Abstract Base Classes，简写为 ABC。ABC 可以像 mix-in 类一样直接被子类继承。你也可以将不相关的具体类（包括内建类）和抽象基类注册为“抽象子类” —— 这些类以及它们的子类会被内建函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#issubclass" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> 识别为对应的抽象基类的子类，但是该抽象基类不会出现在其 MRO（Method Resolution Order，方法解析顺序）中，抽象基类中实现的方法也不可调用（即使通过 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#super" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">super</span></code></a> 调用也不行）</p>
+<p>模块 <code class="xref py py-mod docutils literal notranslate"><span class="pre">ABC</span></code> 全称 Abstract Base Classes，简写为 ABC。ABC 可以像 mix-in 类一样直接被子类继承。你也可以将不相关的具体类（包括内建类）和抽象基类注册为“抽象子类” —— 这些类以及它们的子类会被内建函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#issubclass" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">issubclass()</span></code></a> 识别为对应的抽象基类的子类，但是该抽象基类不会出现在其 MRO（Method Resolution Order，方法解析顺序）中，抽象基类中实现的方法也不可调用（即使通过 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#super" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">super</span></code></a> 调用也不行）</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
 </pre></div>
 </div>

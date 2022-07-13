@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -897,7 +897,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/python-study/basic/modules.ipynb"
+        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/doc/python-study/basic/modules.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -915,7 +915,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/docs/python-study/basic/modules.ipynb"
+        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/doc/python-study/basic/modules.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1010,7 +1010,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/basic/modules.ipynb"
+        <a href="https://github.com/xinetzone/d2py/edit/main/doc/python-study/basic/modules.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1337,7 +1337,7 @@ title="Print to PDF"
 <h2>模块详解<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <p>模块包含可执行语句及函数定义。这些语句用于初始化模块，且仅在 <code class="docutils literal notranslate"><span class="pre">import</span></code> 语句首次遇到模块名时执行。（文件作为脚本运行时，也会执行这些语句。）</p>
 <p>模块有自己的私有符号表，用作模块中所有函数的全局符号表。因此，在模块内使用全局变量时，不用担心与用户定义的全局变量发生冲突。另一方面，可以用与访问模块函数一样的标记法，访问模块的全局变量，<code class="docutils literal notranslate"><span class="pre">modname.itemname</span></code>。</p>
-<p>可以把其他模块导入模块。按惯例，所有 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#import" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 语句都放在模块（或脚本）开头，但这不是必须的。导入的模块名存在导入模块的全局符号表里。</p>
+<p>可以把其他模块导入模块。按惯例，所有 <a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#import" title="(在 Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 语句都放在模块（或脚本）开头，但这不是必须的。导入的模块名存在导入模块的全局符号表里。</p>
 <p><code class="docutils literal notranslate"><span class="pre">import</span></code> 语句有一个变体，可以直接把模块里的名称导入到另一个模块的符号表。例如：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1368,7 +1368,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>这种方式会导入所有不以下划线（<code class="docutils literal notranslate"><span class="pre">_</span></code>）开头的名称。大多数情况下，不要用这个功能，这种方式向解释器导入了一批未知的名称，可能会覆盖已经定义的名称。</p>
-<p>模块名后使用 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#as" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> 时，直接把 <code class="docutils literal notranslate"><span class="pre">as</span></code> 后的名称与导入模块绑定。</p>
+<p>模块名后使用 <a class="reference external" href="https://daobook.github.io/cpython/reference/compound_stmts.html#as" title="(在 Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">as</span></code></a> 时，直接把 <code class="docutils literal notranslate"><span class="pre">as</span></code> 后的名称与导入模块绑定。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fibo</span> <span class="k">as</span> <span class="nn">fib</span>
@@ -1383,7 +1383,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>与 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">fibo</span></code> 一样，这种方式也可以有效地导入模块，唯一的区别是，导入的名称变成 <code class="docutils literal notranslate"><span class="pre">fib</span></code>。</p>
-<p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#from" title="(在 Python v3.11)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">from</span></code></a> 中也可以使用这种方式，效果类似：</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/reference/simple_stmts.html#from" title="(在 Python v3.12)"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">from</span></code></a> 中也可以使用这种方式，效果类似：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fibo</span> <span class="kn">import</span> <span class="n">fib</span> <span class="k">as</span> <span class="n">fibonacci</span>
@@ -1399,7 +1399,7 @@ title="Print to PDF"
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>为了保证运行效率，每次解释器会话只导入一次模块。如果更改了模块内容，必须重启解释器；仅交互测试一个模块时，也可以使用 <a class="reference external" href="https://daobook.github.io/cpython/library/importlib.html#importlib.reload" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.reload()</span></code></a>，例如 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">importlib;</span> <span class="pre">importlib.reload(modulename)</span></code>。</p>
+<p>为了保证运行效率，每次解释器会话只导入一次模块。如果更改了模块内容，必须重启解释器；仅交互测试一个模块时，也可以使用 <a class="reference external" href="https://daobook.github.io/cpython/library/importlib.html#importlib.reload" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.reload()</span></code></a>，例如 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">importlib;</span> <span class="pre">importlib.reload(modulename)</span></code>。</p>
 </div>
 </section>
 <section id="id3">
@@ -1441,17 +1441,17 @@ title="Print to PDF"
 </section>
 <section id="id5">
 <h3>模块搜索路径<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
-<p>导入 <code class="docutils literal notranslate"><span class="pre">spam</span></code> 模块时，解释器首先查找名为 <code class="docutils literal notranslate"><span class="pre">spam</span></code> 的内置模块。如果没找到，解释器再从 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 变量中的目录列表里查找 <code class="docutils literal notranslate"><span class="pre">spam.py</span></code> 文件。<a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 初始化时包含以下位置：</p>
+<p>导入 <code class="docutils literal notranslate"><span class="pre">spam</span></code> 模块时，解释器首先查找名为 <code class="docutils literal notranslate"><span class="pre">spam</span></code> 的内置模块。如果没找到，解释器再从 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 变量中的目录列表里查找 <code class="docutils literal notranslate"><span class="pre">spam.py</span></code> 文件。<a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 初始化时包含以下位置：</p>
 <ul class="simple">
 <li><p>输入脚本的目录（或未指定文件时的当前目录）。</p></li>
-<li><p><span class="target" id="index-0"></span><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#envvar-PYTHONPATH" title="(在 Python v3.11)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> （目录列表，与 shell 变量 <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> 的语法一样）。</p></li>
-<li><p>依赖于安装的默认值（按惯例包括一个 <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> 目录，由 <a class="reference external" href="https://daobook.github.io/cpython/library/site.html#module-site" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> 模块处理）。</p></li>
+<li><p><span class="target" id="index-0"></span><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#envvar-PYTHONPATH" title="(在 Python v3.12)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> （目录列表，与 shell 变量 <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> 的语法一样）。</p></li>
+<li><p>依赖于安装的默认值（按惯例包括一个 <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> 目录，由 <a class="reference external" href="https://daobook.github.io/cpython/library/site.html#module-site" title="(在 Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> 模块处理）。</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>在支持 symlink 的文件系统中，输入脚本目录是在追加 symlink 后计算出来的。换句话说，包含 symlink 的目录并 没有 添加至模块搜索路径。</p>
 </div>
-<p>初始化后，Python 程序可以更改 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>。运行脚本的目录在标准库路径之前，置于搜索路径的开头。即，加载的是该目录里的脚本，而不是标准库的同名模块。 除非刻意替换，否则会报错。</p>
+<p>初始化后，Python 程序可以更改 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>。运行脚本的目录在标准库路径之前，置于搜索路径的开头。即，加载的是该目录里的脚本，而不是标准库的同名模块。 除非刻意替换，否则会报错。</p>
 </section>
 <section id="python">
 <h3>“已编译的” Python 文件<a class="headerlink" href="#python" title="永久链接至标题">#</a></h3>
@@ -1461,9 +1461,9 @@ title="Print to PDF"
 <div class="tip admonition">
 <p class="admonition-title">给专业人士的一些小建议</p>
 <ol class="arabic simple">
-<li><p>在 Python 命令中使用 <a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-O" title="(在 Python v3.11)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> 或 <a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-OO" title="(在 Python v3.11)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-OO</span></code></a> 开关，可以减小编译模块的大小。<code class="docutils literal notranslate"><span class="pre">-O</span></code> 去除断言语句，<code class="docutils literal notranslate"><span class="pre">-OO</span></code> 去除断言语句和 <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> 字符串。有些程序可能依赖于这些内容，因此，没有十足的把握，不要使用这两个选项。“优化过的” 模块带有 <code class="docutils literal notranslate"><span class="pre">opt-</span></code> 标签，并且文件通常会一小些。将来的发行版或许会改进优化的效果。</p></li>
+<li><p>在 Python 命令中使用 <a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-O" title="(在 Python v3.12)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a> 或 <a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#cmdoption-OO" title="(在 Python v3.12)"><code class="xref std std-option docutils literal notranslate"><span class="pre">-OO</span></code></a> 开关，可以减小编译模块的大小。<code class="docutils literal notranslate"><span class="pre">-O</span></code> 去除断言语句，<code class="docutils literal notranslate"><span class="pre">-OO</span></code> 去除断言语句和 <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> 字符串。有些程序可能依赖于这些内容，因此，没有十足的把握，不要使用这两个选项。“优化过的” 模块带有 <code class="docutils literal notranslate"><span class="pre">opt-</span></code> 标签，并且文件通常会一小些。将来的发行版或许会改进优化的效果。</p></li>
 <li><p>从 .pyc 文件读取的程序不比从 .py 读取的执行速度快，.pyc 文件只是加载速度更快。</p></li>
-<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/compileall.html#module-compileall" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compileall</span></code></a> 模块可以为一个目录下的所有模块创建 <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> 文件。</p></li>
+<li><p><a class="reference external" href="https://daobook.github.io/cpython/library/compileall.html#module-compileall" title="(在 Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compileall</span></code></a> 模块可以为一个目录下的所有模块创建 <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> 文件。</p></li>
 </ol>
 <p>本过程的细节及决策流程图，详见 <span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-3147/"><strong>PEP 3147</strong></a>。</p>
 </div>
@@ -1471,7 +1471,7 @@ title="Print to PDF"
 </section>
 <section id="id6">
 <h2>标准模块<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h2>
-<p>Python 自带一个标准模块的库，它在 Python 库参考（此处以下称为”库参考” ）里另外描述。 一些模块是内嵌到编译器里面的， 它们给一些虽并非语言核心但却内嵌的操作提供接口，要么是为了效率，要么是给操作系统基础操作例如系统调入提供接口。 这些模块集是一个配置选项， 并且还依赖于底层的操作系统。 例如，<a class="reference external" href="https://daobook.github.io/cpython/library/winreg.html#module-winreg" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">winreg</span></code></a> 模块只在 Windows 系统上提供。一个特别值得注意的模块 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#module-sys" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a>，它被内嵌到每一个 Python 编译器中。<code class="docutils literal notranslate"><span class="pre">sys.ps1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">sys.ps2</span></code> 变量定义了一些字符，它们可以用作主提示符和辅助提示符:</p>
+<p>Python 自带一个标准模块的库，它在 Python 库参考（此处以下称为”库参考” ）里另外描述。 一些模块是内嵌到编译器里面的， 它们给一些虽并非语言核心但却内嵌的操作提供接口，要么是为了效率，要么是给操作系统基础操作例如系统调入提供接口。 这些模块集是一个配置选项， 并且还依赖于底层的操作系统。 例如，<a class="reference external" href="https://daobook.github.io/cpython/library/winreg.html#module-winreg" title="(在 Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">winreg</span></code></a> 模块只在 Windows 系统上提供。一个特别值得注意的模块 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#module-sys" title="(在 Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code></a>，它被内嵌到每一个 Python 编译器中。<code class="docutils literal notranslate"><span class="pre">sys.ps1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">sys.ps2</span></code> 变量定义了一些字符，它们可以用作主提示符和辅助提示符:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -1506,7 +1506,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>只有解释器用于交互模式时，才定义这两个变量。</p>
-<p>变量 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 是字符串列表，用于确定解释器的模块搜索路径。该变量以环境变量 <span class="target" id="index-3"></span><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#envvar-PYTHONPATH" title="(在 Python v3.11)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> 提取的默认路径进行初始化，如未设置 <span class="target" id="index-4"></span><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#envvar-PYTHONPATH" title="(在 Python v3.11)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a>，则使用内置的默认路径。可以用标准列表操作修改该变量：</p>
+<p>变量 <a class="reference external" href="https://daobook.github.io/cpython/library/sys.html#sys.path" title="(在 Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 是字符串列表，用于确定解释器的模块搜索路径。该变量以环境变量 <span class="target" id="index-3"></span><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#envvar-PYTHONPATH" title="(在 Python v3.12)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a> 提取的默认路径进行初始化，如未设置 <span class="target" id="index-4"></span><a class="reference external" href="https://daobook.github.io/cpython/using/cmdline.html#envvar-PYTHONPATH" title="(在 Python v3.12)"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></a>，则使用内置的默认路径。可以用标准列表操作修改该变量：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/ufs/guido/lib/python&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1514,7 +1514,7 @@ title="Print to PDF"
 </section>
 <section id="dir">
 <h2><code class="docutils literal notranslate"><span class="pre">dir</span></code> 函数<a class="headerlink" href="#dir" title="永久链接至标题">#</a></h2>
-<p>内置函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 用于查找模块定义的名称。返回结果是经过排序的字符串列表：</p>
+<p>内置函数 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 用于查找模块定义的名称。返回结果是经过排序的字符串列表：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fibo</span><span class="o">,</span> <span class="nn">sys</span>
@@ -1538,7 +1538,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>没有参数时，<a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 列出当前定义的名称：</p>
+<p>没有参数时，<a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 列出当前定义的名称：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span>
@@ -1555,7 +1555,7 @@ title="Print to PDF"
 <p class="admonition-title">提示</p>
 <p>该函数列出所有类型的名称：变量、模块、函数等。</p>
 </div>
-<p><a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 不会列出内置函数和变量的名称。这些内容的定义在标准模块 <a class="reference external" href="https://daobook.github.io/cpython/library/builtins.html#module-builtins" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> 里：</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#dir" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> 不会列出内置函数和变量的名称。这些内容的定义在标准模块 <a class="reference external" href="https://daobook.github.io/cpython/library/builtins.html#module-builtins" title="(在 Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> 里：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">builtins</span>
@@ -1635,7 +1635,7 @@ title="Print to PDF"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">echofilter</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>注意，使用 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">item</span></code> 时，<code class="docutils literal notranslate"><span class="pre">item</span></code> 可以是包的子模块（或子包），也可以是包中定义的函数、类或变量等其他名称。<code class="docutils literal notranslate"><span class="pre">import</span></code> 语句首先测试包中是否定义了 <code class="docutils literal notranslate"><span class="pre">item</span></code>；如果未在包中定义，则假定 <code class="docutils literal notranslate"><span class="pre">item</span></code> 是模块，并尝试加载。如果找不到 <code class="docutils literal notranslate"><span class="pre">item</span></code>，则触发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#ImportError" title="(在 Python v3.11)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> 异常。</p>
+<p>注意，使用 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">item</span></code> 时，<code class="docutils literal notranslate"><span class="pre">item</span></code> 可以是包的子模块（或子包），也可以是包中定义的函数、类或变量等其他名称。<code class="docutils literal notranslate"><span class="pre">import</span></code> 语句首先测试包中是否定义了 <code class="docutils literal notranslate"><span class="pre">item</span></code>；如果未在包中定义，则假定 <code class="docutils literal notranslate"><span class="pre">item</span></code> 是模块，并尝试加载。如果找不到 <code class="docutils literal notranslate"><span class="pre">item</span></code>，则触发 <a class="reference external" href="https://daobook.github.io/cpython/library/exceptions.html#ImportError" title="(在 Python v3.12)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> 异常。</p>
 <p>相反，使用 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">item.subitem.subsubitem</span></code> 句法时，除最后一项外，每个 <code class="docutils literal notranslate"><span class="pre">item</span></code> 都必须是包；最后一项可以是模块或包，但不能是上一项中定义的类、函数或变量。</p>
 </section>
 </section>

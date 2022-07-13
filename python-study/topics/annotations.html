@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -945,7 +945,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/xinetzone/d2py/edit/main/docs/python-study/topics/annotations.md"
+        <a href="https://github.com/xinetzone/d2py/edit/main/doc/python-study/topics/annotations.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1127,13 +1127,13 @@ title="Print to PDF"
 <p>详见 <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-3107/"><strong>PEP 3107</strong></a> 和 <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0484/"><strong>PEP 484</strong></a></p>
 <section id="id2">
 <h2>类型提示<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
-<p><a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-annotation" title="(在 Python v3.11)"><span class="xref std std-term">annotation</span></a> 为变量、类属性、函数的形参或返回值指定预期的类型。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-annotation" title="(在 Python v3.12)"><span class="xref std std-term">annotation</span></a> 为变量、类属性、函数的形参或返回值指定预期的类型。</p>
 <p>类型提示（type hint）属于可选项，Python 不要求提供，但其可对静态类型分析工具起作用，并可协助 IDE 实现代码补全与重构。</p>
-<p>全局变量、类属性和函数的类型提示可以使用 <a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#typing.get_type_hints" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">typing.get_type_hints()</span></code></a> 来访问，但局部变量则不可以。</p>
+<p>全局变量、类属性和函数的类型提示可以使用 <a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#typing.get_type_hints" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">typing.get_type_hints()</span></code></a> 来访问，但局部变量则不可以。</p>
 </section>
 <section id="id3">
 <h2>变量标注<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
-<p>对变量或类属性的 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-annotation" title="(在 Python v3.11)"><span class="xref std std-term">annotation</span></a>。</p>
+<p>对变量或类属性的 <a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-annotation" title="(在 Python v3.12)"><span class="xref std std-term">annotation</span></a>。</p>
 <p>在标注变量或类属性时，还可选择为其赋值：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
     <span class="n">field</span><span class="p">:</span> <span class="s1">&#39;annotation&#39;</span>
@@ -1146,7 +1146,7 @@ title="Print to PDF"
 </section>
 <section id="id4">
 <h2>函数标注<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h2>
-<p><a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-annotation" title="(在 Python v3.11)"><span class="xref std std-term">annotation</span></a> 以字典的形式存放在函数的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 属性中，并且不会影响函数的任何其他部分。形参标注的定义方式是在形参名后加冒号，后面跟一个表达式，该表达式会被求值为标注的值。返回值标注的定义方式是加组合符号 <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>，后面跟一个表达式，该标注位于形参列表和表示 <code class="docutils literal notranslate"><span class="pre">def</span></code> 语句结束的冒号之间。下面的示例有一个必须的参数，一个可选的关键字参数以及返回值都带有相应的标注：</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/glossary.html#term-annotation" title="(在 Python v3.12)"><span class="xref std std-term">annotation</span></a> 以字典的形式存放在函数的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 属性中，并且不会影响函数的任何其他部分。形参标注的定义方式是在形参名后加冒号，后面跟一个表达式，该表达式会被求值为标注的值。返回值标注的定义方式是加组合符号 <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>，后面跟一个表达式，该标注位于形参列表和表示 <code class="docutils literal notranslate"><span class="pre">def</span></code> 语句结束的冒号之间。下面的示例有一个必须的参数，一个可选的关键字参数以及返回值都带有相应的标注：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">ham</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eggs</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;eggs&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;注解：&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="vm">__annotations__</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;参数：&quot;</span><span class="p">,</span> <span class="n">ham</span><span class="p">,</span> <span class="n">eggs</span><span class="p">)</span>
@@ -1158,15 +1158,15 @@ title="Print to PDF"
 </section>
 <section id="python-3-10">
 <h2>在 Python 3.10 以上版本中访问对象的注解字典<a class="headerlink" href="#python-3-10" title="永久链接至标题">#</a></h2>
-<p>Python 3.10 在标准库中加入了一个新函数：<a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.get_annotations" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a>。在 Python 3.10 以上的版本中，调用该函数就是访问对象注解字典的最佳做法。该函数还可以“解析”字符串形式的注解。</p>
-<p>有时会因为某些原因看不到 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.get_annotations" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a>，也可以直接访问 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 数据成员。这方面的最佳实践在 Python 3.10 中也发生了变化：从 Python 3.10 开始，Python 函数、类和模块的 <code class="docutils literal notranslate"><span class="pre">o.__annotations__</span></code> 保证 可用。如果确定是要查看这三种对象，只要利用 <code class="docutils literal notranslate"><span class="pre">o.__annotations__</span></code> 读取对象的注释字典即可。</p>
-<p>不过其他类型的可调用对象可能就没有定义 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 属性，比如由 <a class="reference external" href="https://daobook.github.io/cpython/library/functools.html#functools.partial" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a> 创建的可调用对象。当访问某个未知对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 时，Python 3.10 以上版本的最佳做法是带三个参数去调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#getattr" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr()</span></code></a>，比如 <code class="docutils literal notranslate"><span class="pre">getattr(o,</span> <span class="pre">'__annotations__',</span> <span class="pre">None)</span></code>。</p>
+<p>Python 3.10 在标准库中加入了一个新函数：<a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.get_annotations" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a>。在 Python 3.10 以上的版本中，调用该函数就是访问对象注解字典的最佳做法。该函数还可以“解析”字符串形式的注解。</p>
+<p>有时会因为某些原因看不到 <a class="reference external" href="https://daobook.github.io/cpython/library/inspect.html#inspect.get_annotations" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a>，也可以直接访问 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 数据成员。这方面的最佳实践在 Python 3.10 中也发生了变化：从 Python 3.10 开始，Python 函数、类和模块的 <code class="docutils literal notranslate"><span class="pre">o.__annotations__</span></code> 保证 可用。如果确定是要查看这三种对象，只要利用 <code class="docutils literal notranslate"><span class="pre">o.__annotations__</span></code> 读取对象的注释字典即可。</p>
+<p>不过其他类型的可调用对象可能就没有定义 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 属性，比如由 <a class="reference external" href="https://daobook.github.io/cpython/library/functools.html#functools.partial" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">functools.partial()</span></code></a> 创建的可调用对象。当访问某个未知对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 时，Python 3.10 以上版本的最佳做法是带三个参数去调用 <a class="reference external" href="https://daobook.github.io/cpython/library/functions.html#getattr" title="(在 Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr()</span></code></a>，比如 <code class="docutils literal notranslate"><span class="pre">getattr(o,</span> <span class="pre">'__annotations__',</span> <span class="pre">None)</span></code>。</p>
 </section>
 <section id="python-annotations">
 <h2>任何版本 Python 中使用 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 的最佳实践<a class="headerlink" href="#python-annotations" title="永久链接至标题">#</a></h2>
 <ul class="simple">
 <li><p>应避免直接给对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员赋值。请让 Python 来管理 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>。</p></li>
-<li><p>如果直接给某对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员赋值，应该确保设成一个 <a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#dict" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> 对象。</p></li>
+<li><p>如果直接给某对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员赋值，应该确保设成一个 <a class="reference external" href="https://daobook.github.io/cpython/library/stdtypes.html#dict" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> 对象。</p></li>
 <li><p>如果直接访问某个对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 成员，在解析其值之前，应先确认其为字典类型。</p></li>
 <li><p>应避免修改 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 字典。</p></li>
 <li><p>应避免删除对象的 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 属性。</p></li>

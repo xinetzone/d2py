@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/default.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -897,7 +897,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/docs/analysis/draft/typing.ipynb"
+        <a href="https://mybinder.org/v2/gh/xinetzone/d2py/main?urlpath=lab/tree/doc/analysis/draft/typing.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -915,7 +915,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/docs/analysis/draft/typing.ipynb"
+        <a href="https://colab.research.google.com/github/xinetzone/d2py/blob/main/doc/analysis/draft/typing.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1010,7 +1010,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/xinetzone/d2py/edit/main/docs/analysis/draft/typing.ipynb"
+        <a href="https://github.com/xinetzone/d2py/edit/main/doc/analysis/draft/typing.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1177,7 +1177,7 @@ title="Print to PDF"
               <div>
                  <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>类型提示<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
-<p><a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#module-typing" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> 提供了对类型提示的运行时支持。最基本的支持包括 <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>, 和 <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#module-typing" title="(在 Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> 提供了对类型提示的运行时支持。最基本的支持包括 <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>, 和 <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>。</p>
 <p>示例：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1242,7 +1242,7 @@ title="Print to PDF"
 </section>
 <section id="newtype">
 <h2>NewType<a class="headerlink" href="#newtype" title="永久链接至标题">#</a></h2>
-<p>使用 <a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#typing.NewType" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.NewType</span></code></a> 创建简单的唯一类型，几乎没有运行时的开销。<code class="docutils literal notranslate"><span class="pre">NewType(name,</span> <span class="pre">tp)</span></code> 被认为是 <code class="docutils literal notranslate"><span class="pre">tp</span></code> 的子类型。在运行时，<code class="docutils literal notranslate"><span class="pre">NewType(name,</span> <span class="pre">tp)</span></code> 简单地返回其参数的 dummy 函数。使用方法：</p>
+<p>使用 <a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#typing.NewType" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.NewType</span></code></a> 创建简单的唯一类型，几乎没有运行时的开销。<code class="docutils literal notranslate"><span class="pre">NewType(name,</span> <span class="pre">tp)</span></code> 被认为是 <code class="docutils literal notranslate"><span class="pre">tp</span></code> 的子类型。在运行时，<code class="docutils literal notranslate"><span class="pre">NewType(name,</span> <span class="pre">tp)</span></code> 简单地返回其参数的 dummy 函数。使用方法：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NewType</span>
@@ -1296,7 +1296,7 @@ title="Print to PDF"
                     <span class="n">overrides</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#typing.TypeVar" title="(在 Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.TypeVar</span></code></a> 工厂函数实现泛型参数化。</p>
+<p><a class="reference external" href="https://daobook.github.io/cpython/library/typing.html#typing.TypeVar" title="(在 Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">typing.TypeVar</span></code></a> 工厂函数实现泛型参数化。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypeVar</span>
 
 <span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>      <span class="c1"># Declare type variable</span>

@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh_CN">
   <id>https://xinetzone.github.io/d2py</id>
   <title>Blog</title>
-  <updated>2022-05-23T04:45:42.380613+00:00</updated>
+  <updated>2022-07-13T06:24:17.335796+00:00</updated>
   <link href="https://xinetzone.github.io/d2py"/>
-  <link href="https://xinetzone.github.io/d2py/zh_CN/posts/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="0.10.25">ABlog</generator>
+  <link href="https://xinetzone.github.io/d2py/posts/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.26">ABlog</generator>
   <entry>
-    <id>https://xinetzone.github.io/d2py/zh_CN/posts/basic/python-intro.html</id>
+    <id>https://xinetzone.github.io/d2py/posts/basic/python-intro.html</id>
     <title>Python 初体验</title>
     <updated>2021-11-01T18:00:00+00:00</updated>
     <author>
@@ -36,13 +36,13 @@
     }
     &lt;/script&gt;
     &lt;script&gt;kernelName = 'python3'&lt;/script&gt;</content>
-    <link href="https://xinetzone.github.io/d2py/zh_CN/posts/basic/python-intro.html" rel="alternate"/>
+    <link href="https://xinetzone.github.io/d2py/posts/basic/python-intro.html" rel="alternate"/>
     <summary>叩开 Python 的大门！</summary>
     <category term="basic" label="basic"/>
     <published>2021-11-01T18:00:00+00:00</published>
   </entry>
   <entry>
-    <id>https://xinetzone.github.io/d2py/zh_CN/posts/basic/python-use.html</id>
+    <id>https://xinetzone.github.io/d2py/posts/basic/python-use.html</id>
     <title>如何使用 Python？</title>
     <updated>2021-11-03T23:00:00+00:00</updated>
     <author>
@@ -71,13 +71,13 @@
     }
     &lt;/script&gt;
     &lt;script&gt;kernelName = 'python3'&lt;/script&gt;</content>
-    <link href="https://xinetzone.github.io/d2py/zh_CN/posts/basic/python-use.html" rel="alternate"/>
+    <link href="https://xinetzone.github.io/d2py/posts/basic/python-use.html" rel="alternate"/>
     <summary>本站默认 Python 为 Python3。</summary>
     <category term="basic" label="basic"/>
     <published>2021-11-03T23:00:00+00:00</published>
   </entry>
   <entry>
-    <id>https://xinetzone.github.io/d2py/zh_CN/posts/hs/udata.html</id>
+    <id>https://xinetzone.github.io/d2py/posts/hs/udata.html</id>
     <title>恒有数 Python 接口</title>
     <updated>2021-11-10T18:00:00+00:00</updated>
     <author>
@@ -106,14 +106,14 @@
     }
     &lt;/script&gt;
     &lt;script&gt;kernelName = 'python3'&lt;/script&gt;</content>
-    <link href="https://xinetzone.github.io/d2py/zh_CN/posts/hs/udata.html" rel="alternate"/>
+    <link href="https://xinetzone.github.io/d2py/posts/hs/udata.html" rel="alternate"/>
     <summary>恒有数 提供了大量金融数据相关的接口，借助此平台讲解 Python 基础知识。</summary>
     <category term="basic" label="basic"/>
     <category term="udata" label="udata"/>
     <published>2021-11-10T18:00:00+00:00</published>
   </entry>
   <entry>
-    <id>https://xinetzone.github.io/d2py/zh_CN/posts/hs/udata-python.html</id>
+    <id>https://xinetzone.github.io/d2py/posts/hs/udata-python.html</id>
     <title>Python udata 取数</title>
     <updated>2021-11-24T00:00:00+00:00</updated>
     <author>
@@ -142,7 +142,7 @@
     }
     &lt;/script&gt;
     &lt;script&gt;kernelName = 'python3'&lt;/script&gt;</content>
-    <link href="https://xinetzone.github.io/d2py/zh_CN/posts/hs/udata-python.html" rel="alternate"/>
+    <link href="https://xinetzone.github.io/d2py/posts/hs/udata-python.html" rel="alternate"/>
     <summary>登录平台，获取Token</summary>
     <category term="basic" label="basic"/>
     <category term="udata" label="udata"/>
