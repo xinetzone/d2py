@@ -180,7 +180,7 @@ html_theme_options = {
     # "single_page": False,  # 默认 `False`
     # 默认情况下，编辑按钮将指向版本库的根。
     # 如果你的文档被托管在一个子文件夹中，请使用以下配置：
-    "path_to_docs": "docs/",  # 文档的路径，默认 `docs/``
+    "path_to_docs": "doc/",  # 文档的路径，默认 `docs/``
     "repository_url": "https://github.com/xinetzone/d2py",
     "repository_branch": "main",  # 文档库的分支，默认 `master`
     # -- 在导航栏添加一个按钮，链接到版本库的议题 ------------------------------

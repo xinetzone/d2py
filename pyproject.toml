@@ -41,6 +41,9 @@ doc = [
   "sphinx-automodapi",
 ]
 
+[tool.flit.module]
+name = "d2py"
+
 [tool.flit.sdist]
 # include = ["docs/"]
 exclude = ['doc', '.git', '.github', 'output']
