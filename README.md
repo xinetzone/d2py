@@ -13,8 +13,7 @@
 [![Documentation Status][status-badge]][status-link]
 [![PyPI - Downloads][install-badge]][install-link]
 
-
-Discover and create anything interesting!
+学无止境！
 
 [pypi-badge]: https://img.shields.io/pypi/v/d2py.svg
 [pypi-link]: https://pypi.org/project/d2py/
@@ -41,10 +40,14 @@ Discover and create anything interesting!
 
 ## PyPI
 
-Provide PyPI support:
+支持 PyPI：
 
 ```sh
 pip install d2py
 ```
 
-For documentation see [d2py](https://xinetzone.github.io/d2py).
+## 文档模板
+
+优质文档模板：
+
+- [xbook](https://xinetzone.github.io/xbook/index.html)
