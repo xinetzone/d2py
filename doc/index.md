@@ -7,6 +7,7 @@
 
 python-study/index
 math
+visualizer/index
 reference/index
 chaos/index
 posts/index
