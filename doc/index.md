@@ -5,7 +5,12 @@
 :maxdepth: 2
 :hidden:
 
+python-study/index
 math
+reference/index
+chaos/index
+posts/index
+news/index
 about/index
 ```
 
