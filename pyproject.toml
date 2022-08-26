@@ -1,0 +1,52 @@
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.4,<4"]
+
+[project]
+authors = [{name = "xinetzone", email = "735613050@qq.com"}]
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+dynamic = ["version", "description"]
+license = {file = "LICENSE"}
+name = "d2py"
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+  "sphinx>=4.5",
+  "invoke",
+  "xyzstyle"
+]
+
+maintainers = [
+  {name = "xinetzone", email = "735613050@qq.com"},
+]
+
+[project.urls]
+Home = "https://github.com/xinetzone/d2py"
+
+[project.optional-dependencies]
+doc = [
+  "sphinx-book-theme>=0.1.6",
+  "ablog",
+  "ipywidgets",
+  "myst-nb",
+  # "nbsphinx",
+  "sphinx-thebe",
+  "sphinx-copybutton",
+  "sphinx-comments",
+  "plotly",
+  "pandas",
+  "matplotlib",
+  "sphinxcontrib-mermaid",
+  "sphinx-design",
+  "sphinx-automodapi",
+  # "sphinxext-rediraffe",
+  "sphinx-sitemap"
+]
+
+[tool.flit.module]
+name = "d2py"
+
+[tool.flit.sdist]
+# include = ["docs/"]
+exclude = ['doc', '.git', '.github', 'output']
