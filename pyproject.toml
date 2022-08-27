@@ -12,9 +12,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 
 dependencies = [
-  "sphinx>=4.5",
-  "invoke",
-  "xyzstyle"
+  "invoke"
 ]
 
 maintainers = [
@@ -26,6 +24,8 @@ Home = "https://github.com/xinetzone/d2py"
 
 [project.optional-dependencies]
 doc = [
+  "sphinx>=4.5",
+  "xyzstyle",
   "sphinx-book-theme>=0.1.6",
   "ablog",
   "ipywidgets",
