@@ -1,4 +1,4 @@
-# 可视化
+# 元编程
 
 ```{toctree}
 :maxdepth: 2
@@ -7,4 +7,5 @@
 descriptor
 bytecode
 wrapper
+code-ipython
 ```

@@ -19,7 +19,7 @@ class LoggedAccess:
         setattr(obj, self.private_name, value)
 
 
-class runcode:
+class trace:
     cache = {}
     is_activate = False
     variable = LoggedAccess()
