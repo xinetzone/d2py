@@ -6,12 +6,12 @@ Python 官方文档提供了中文版本，可以阅读 [原版](https://docs.py
 本课程讨论的 Python 指的是 CPython 实现。
 ```
 
-
 ```{toctree}
 :maxdepth: 2
 :hidden:
 
 basic/index
+jupyter/index
 topics/index
 deploy/index
 faqs/index
