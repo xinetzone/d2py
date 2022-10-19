@@ -13,6 +13,7 @@ Python 官方文档提供了中文版本，可以阅读 [原版](https://docs.py
 basic/index
 jupyter/index
 topics/index
+config/index
 deploy/index
 faqs/index
 refs/index
