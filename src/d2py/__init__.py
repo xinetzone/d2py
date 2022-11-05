@@ -1,3 +1,3 @@
 """Dive into Python."""
-
-__version__ = '0.2.2'
+from .timeitx import TimerContext
+__version__ = '0.3.0'
