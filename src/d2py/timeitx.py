@@ -22,7 +22,7 @@ class TimerContext(ContextDecorator):
 
     @property
     def runtime(self):
-        return (self._times[-1] - self._times[-2]) * 10**3
+        return (self._times[-1] - self._times[-2]) * 1000
 
     def __exit__(self, *exc_details):
         self._times.append(time.time())
