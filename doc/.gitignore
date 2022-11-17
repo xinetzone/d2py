@@ -9,3 +9,4 @@ locales/zh_CN/LC_MESSAGES/python-study
 locales/zh_CN/LC_MESSAGES/reference
 _build/
 *.bin
+api/
