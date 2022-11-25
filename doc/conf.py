@@ -46,6 +46,7 @@ extensions = [
     "sphinx_comments",
     "sphinxcontrib.mermaid",
     "matplotlib.sphinxext.plot_directive",
+    "sphinx_plotly_directive",
     "sphinx_sitemap",
     # "sphinx.ext.autodoc",
     # "sphinx.ext.autosummary",
@@ -72,7 +73,6 @@ myst_enable_extensions = [
     "smartquotes",
     "substitution",
     "tasklist",
-    # "linkify",
 ]
 
 comments_config = {
@@ -84,26 +84,26 @@ comments_config = {
     }
 }
 
-# MyST NB 设置
-nb_mime_priority_overrides = [
-    ("html", "text/html", 0),
-    ("latex", "text/latex", 20),
-    ("html", "application/vnd.plotly.v1+json", 10),
-    # ("image", "image/svg+xml", None)
-    # (
-    #     "application/vnd.jupyter.widget-view+json",
-    #     "application/javascript",
-    #     "text/html",
-    #     "image/svg+xml",
-    #     "image/png",
-    #     "image/jpeg",
-    #     "text/markdown",
-    #     "text/latex",
-    #     "text/plain",
-    # ), 0)
-]
-# # application/vnd.plotly.v1+json and application/vnd.bokehjs_load.v0+json
-# suppress_warnings = ["mystnb.unknown_mime_type"]
+# # # MyST NB 设置
+# # nb_mime_priority_overrides = [
+# #     ("html", "text/html", 0),
+# #     ("latex", "text/latex", 20),
+# #     ("html", "application/vnd.jupyter.widget-view+json", 10),
+# #     # ("image", "image/svg+xml", None)
+# #     # (
+# #     #     ,
+# #     #     "application/javascript",
+# #     #     "text/html",
+# #     #     "image/svg+xml",
+# #     #     "image/png",
+# #     #     "image/jpeg",
+# #     #     "text/markdown",
+# #     #     "text/latex",
+# #     #     "text/plain",
+# #     # ), 0)
+# # ]
+# application/vnd.plotly.v1+json and application/vnd.bokehjs_load.v0+json
+suppress_warnings = ["mystnb.unknown_mime_type"]
 
 extlinks = {
     # 'duref': ('https://docutils.sourceforge.io/docs/ref/rst/'
@@ -281,3 +281,4 @@ post_date_format_short = '%b %d, %Y'
 nb_merge_streams = True
 nb_execution_allow_errors = True
 nb_execution_mode = "off"
+# nbsphinx_assume_equations = False

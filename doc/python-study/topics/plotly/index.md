@@ -1,6 +1,0 @@
-# Plotly
-
-```{toctree}
-
-mapbox/index
-```

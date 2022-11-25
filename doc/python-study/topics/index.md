@@ -3,6 +3,5 @@
 ```{toctree}
 :maxdepth: 2
 
-plotly/index
 chaos/index
 ```

@@ -42,7 +42,11 @@ doc = [
   "sphinxcontrib-mermaid",
   "sphinx-design",
   "sphinx-automodapi",
-  # "sphinxext-rediraffe",
+  "sphinxext-rediraffe",
+  "plotly-geo",
+  "sphinx-plotly-directive",
+  "jupyter-dash",
+  "plotly",
   "sphinx-sitemap"
 ]
 
