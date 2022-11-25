@@ -47,7 +47,8 @@ doc = [
   "sphinx-plotly-directive",
   "jupyter-dash",
   "plotly",
-  "sphinx-sitemap"
+  "sphinx-sitemap",
+  "bokeh"
 ]
 
 [tool.flit.module]
