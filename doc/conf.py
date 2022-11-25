@@ -280,5 +280,5 @@ post_date_format_short = '%b %d, %Y'
 # 避免将 jupter 执行报错的信息输出到 cmd
 nb_merge_streams = True
 nb_execution_allow_errors = True
-nb_execution_mode = "off"
+nb_execution_mode = "cache" # "off"
 # nbsphinx_assume_equations = False
