@@ -1,6 +1,6 @@
 [build-system]
 build-backend = "flit_core.buildapi"
-requires = ["flit_core >=3.4,<4"]
+requires = ["flit_core"]
 
 [project]
 authors = [{name = "xinetzone", email = "735613050@qq.com"}]
@@ -9,7 +9,7 @@ dynamic = ["version", "description"]
 license = {file = "LICENSE"}
 name = "d2py"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 
 dependencies = [
   "invoke",
@@ -26,7 +26,7 @@ Home = "https://github.com/xinetzone/d2py"
 
 [project.optional-dependencies]
 doc = [
-  "sphinx>=4.5",
+  "sphinx",
   "xyzstyle",
   "sphinx-book-theme",
   "ablog",
@@ -55,5 +55,5 @@ doc = [
 name = "d2py"
 
 [tool.flit.sdist]
-# include = ["docs/"]
+# include = ["doc/"]
 exclude = ['doc', '.git', '.github', 'output']
