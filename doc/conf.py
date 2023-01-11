@@ -13,12 +13,15 @@
 import os
 import sys
 import ablog
+from pathlib import Path
+
+ROOT = Path('__file__').resolve().parents[1]
+sys.path.extend([str(ROOT/'src')])
+import d2py
 
 if sys.platform == 'win32':
     import asyncio
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-
-sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
@@ -27,7 +30,7 @@ copyright = '2021, xinetzone'
 author = 'xinetzone'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+release = d2py.__version__
 html_baseurl = 'https://xinetzone.github.io/d2py'
 
 # -- General configuration ---------------------------------------------------
