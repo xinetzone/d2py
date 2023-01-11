@@ -5,7 +5,5 @@
 
 feature
 use
-CONTRIBUTING
-SECURITY
 ```
 
