@@ -52,8 +52,7 @@ extensions = [
     "sphinx_plotly_directive",
     "sphinx_sitemap",
     # "sphinx.ext.autodoc",
-    # "sphinx.ext.autosummary",
-    "sphinx_automodapi.automodapi",
+    "sphinx.ext.autosummary",
     "sphinx_automodapi.smart_resolver",
     # "sphinx.ext.todo",
     # "sphinxcontrib.bibtex",
@@ -191,6 +190,7 @@ html_theme_options = {
     # 默认情况下，编辑按钮将指向版本库的根。
     # 如果你的文档被托管在一个子文件夹中，请使用以下配置：
     "path_to_docs": "doc/",  # 文档的路径，默认 `docs/``
+    "github_url": "https://github.com/xinetzone/d2py",
     "repository_url": "https://github.com/xinetzone/d2py",
     "repository_branch": "main",  # 文档库的分支，默认 `master`
     # -- 在导航栏添加一个按钮，链接到版本库的议题 ------------------------------
