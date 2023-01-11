@@ -192,16 +192,15 @@ html_theme_options = {
     "repository_branch": "main",  # 文档库的分支，默认 `master`
     # -- 在导航栏添加一个按钮，链接到版本库的议题 ------------------------------
     # （与 `repository_url` 和 `repository_branch` 一起使用）
-    "use_issues_button": True,  # 默认 `False`
     # -- 在导航栏添加一个按钮，以下载页面的源文件。
-    "use_download_button": True,  # 默认 `True`
+    # "use_download_button": True,  # 默认 `True`
     # 你可以在每个页面添加一个按钮，允许用户直接编辑页面文本，
     # 并提交拉动请求以更新文档。
     "use_edit_page_button": True,
     # 在导航栏添加一个按钮来切换全屏的模式。
-    "use_fullscreen_button": True,  # 默认 `True`
+    # "use_fullscreen_button": True,  # 默认 `True`
     # -- 在导航栏中添加一个链接到文档库的按钮。----------------------------------
-    "use_repository_button": True,  # 默认 `False`
+    # "use_repository_button": True,  # 默认 `False`
     # -- 包含从 Jupyter 笔记本建立页面的 Binder 启动按钮。 ---------------------
     # "launch_buttons": '', # 默认 `False`
     "home_page_in_toc": False,  # 是否将主页放在导航栏（顶部）
@@ -210,13 +209,13 @@ html_theme_options = {
     # "show_navbar_depth": 2,
     # -- 在侧边栏页脚添加额外的 HTML -------------------
     # （如果 `sbt-sidebar-footer.html `在 `html_sidebars` 中被使用）。
-    "extra_navbar": extra_navbar,
+    # "extra_navbar": extra_navbar,
     # -- 在每个页面的页脚添加额外的 HTML。---
     # "extra_footer": '',
     # （仅限开发人员）触发一些功能，使开发主题更容易。
     # "theme_dev_mode": False
     # 重命名页内目录名称
-    "toc_title": "导航",
+    # "toc_title": "导航",
     "launch_buttons": {
         # https://mybinder.org/v2/gh/xinetzone/d2py/main
         "binderhub_url": "https://mybinder.org",

@@ -5,7 +5,6 @@
 
 feature
 use
-CODE_OF_CONDUCT
 CONTRIBUTING
 SECURITY
 ```
