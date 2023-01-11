@@ -206,7 +206,6 @@ html_theme_options = {
     # "launch_buttons": '', # 默认 `False`
     "home_page_in_toc": False,  # 是否将主页放在导航栏（顶部）
     # -- 只显示标识，不显示 `html_title`，如果它存在的话。-----
-    "logo_only": True,
     # -- 在导航栏中显示子目录，向下到这里列出的深度。 ----
     # "show_navbar_depth": 2,
     # -- 在侧边栏页脚添加额外的 HTML -------------------
