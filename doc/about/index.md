@@ -1,7 +1,7 @@
 # 关于
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 3
 
 feature
 use

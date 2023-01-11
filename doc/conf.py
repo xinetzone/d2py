@@ -105,15 +105,15 @@ comments_config = {
 # application/vnd.plotly.v1+json and application/vnd.bokehjs_load.v0+json
 suppress_warnings = ["mystnb.unknown_mime_type"]
 
-extlinks = {
-    # 'duref': ('https://docutils.sourceforge.io/docs/ref/rst/'
-    #           'restructuredtext.html#%s', ''),
-    # 'durole': ('https://docutils.sourceforge.io/docs/ref/rst/'
-    #            'roles.html#%s', ''),
-    # 'dudir': ('https://docutils.sourceforge.io/docs/ref/rst/'
-    #           'directives.html#%s', ''),
-    # 'daobook': ('https://daobook.github.io/%s', ''),
-}
+# extlinks = {
+#     # 'duref': ('https://docutils.sourceforge.io/docs/ref/rst/'
+#     #           'restructuredtext.html#%s', ''),
+#     # 'durole': ('https://docutils.sourceforge.io/docs/ref/rst/'
+#     #            'roles.html#%s', ''),
+#     # 'dudir': ('https://docutils.sourceforge.io/docs/ref/rst/'
+#     #           'directives.html#%s', ''),
+#     # 'daobook': ('https://daobook.github.io/%s', ''),
+# }
 
 intersphinx_mapping = {
     'python': ('https://daobook.github.io/cpython/', None),
