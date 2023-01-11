@@ -28,6 +28,7 @@ Home = "https://github.com/xinetzone/d2py"
 doc = [
   "sphinx",
   "xyzstyle",
+  "pydata-sphinx-theme>=0.7.2",
   "sphinx-book-theme",
   "ablog",
   "ipywidgets>=7.0.0",
