@@ -16,7 +16,7 @@ class TimerContext(ContextDecorator):
         self.times = []  # 记录时间段
 
     def __enter__(self):
-        logging.debug(f"Entering {self.name}.")
+        logging.info(f"Entering {self.name}.")
         self._times.append(time.time())
         return self
 
@@ -27,8 +27,8 @@ class TimerContext(ContextDecorator):
     def __exit__(self, *exc_details):
         self._times.append(time.time())
         self.times.append(self.runtime)
-        logging.debug(f"Run time: {self.times[-1]:.7g} ms.")
-        logging.debug(f"Exiting {self.name}.")
+        logging.info(f"Run time: {self.times[-1]:.7g} ms.")
+        logging.info(f"Exiting {self.name}.")
         return False
 
     def reset(self):
