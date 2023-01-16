@@ -1,4 +1,6 @@
-# Python 新闻
+# Python 资源
+
+## 资讯
 
 [PyCoder’s Weekly](https://pycoders.com/)
 :   面向 Python 开发者的免费的每周简讯，包括项目、文章、新闻和工作。
@@ -26,3 +28,7 @@
 
 [Awesome Python Newsletter](https://python.libhunt.com/newsletter)
 :   每周最流行的 Python 新闻、文章和包的概述。
+
+## Python Awesome
+
+- [best-of-lists/best-of](https://github.com/best-of-lists/best-of): 发现关于各种主题的优秀开源项目的最佳列表。
