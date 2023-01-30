@@ -1,15 +1,17 @@
-# 简介
+# PDM 简介
 
-[PDM](https://github.com/pdm-project/pdm) 为现代 Python 软件包管理工具，支持 {pep}`582` （用 `__pypackages__` 目录代替虚拟环境进行软件包安装），并依赖于 {pep}`517` 和 {pep}`621` 等标准。它以类似于 `npm` 的方式安装和管理软件包，完全不需要创建一个虚拟环境！它是一个非常好的解决方案。
+[PDM](https://github.com/pdm-project/pdm) 为现代 Python 软件包管理工具。它以类似于 `npm` 的方式安装和管理软件包，完全不需要创建一个虚拟环境！它是一个非常好的解决方案。
 
-特性：
-
-- {pep}`582` 本地软件包安装器和运行器，完全不涉及 virtualenv。
+```{admonition} 特性
+- {pep}`582` 本地软件包安装器和运行器，完全不需要虚拟环境（用 `__pypackages__` 目录代替虚拟环境进行软件包安装）。
 - 简单且相对快速的依赖关系解析器，主要用于大型二进制发行版。
-- {pep}`517` 的构建后端。
+- 兼容 {pep}`517` 的构建后端，用于构建发布包（源码格式与 wheel 格式）。
 - {pep}`621` 项目元数据。
 - 灵活而强大的插件系统。
-- 像 `pnpm` 一样选择集中式安装缓存。
+- 像 [pnpm] 一样的中心化安装缓存，节省磁盘空间。
+
+[pnpm]: https://pnpm.io/motivation#saving-disk-space-and-boosting-installation-speed
+```
 
 ## 安装
 
