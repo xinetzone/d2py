@@ -1,6 +1,6 @@
 # PDM 简介
 
-[PDM](https://github.com/pdm-project/pdm) 为现代 Python 软件包管理工具。它以类似于 `npm` 的方式安装和管理软件包，完全不需要创建一个虚拟环境！它是一个非常好的解决方案。
+[PDM](https://github.com/pdm-project/pdm) 为现代 Python 软件包管理工具。它以类似于 `npm` 的方式安装和管理软件包，完全不需要创建虚拟环境！它是一个非常好的解决方案。
 
 ```{admonition} 特性
 - {pep}`582` 本地软件包安装器和运行器，完全不需要虚拟环境（用 `__pypackages__` 目录代替虚拟环境进行软件包安装）。
@@ -13,19 +13,19 @@
 [pnpm]: https://pnpm.io/motivation#saving-disk-space-and-boosting-installation-speed
 ```
 
-## 安装
+## 安装 PDM
 
-PDM需要安装 Python 3.7+。它可以在多个平台上工作，包括 Windows、Linux 和 MacOS。
+PDM 需要安装 Python 3.7+。它可以在多个平台上工作，包括 Windows、Linux 和 MacOS。
 
 ```{note}
-对于你的项目使用的 Python 版本没有限制，但安装 PDM 本身需要 Python 3.7 以上。
+对于你的项目使用的 Python 版本没有限制，但安装 PDM 本身推荐使用 Python 3.7 以上。
 ```
 
 ### 建议的安装方法
 
 PDM 要求 python 3.7 或更高版本。
 
-和 Pip 一样，PDM 提供了一个安装脚本，将 PDM 安装到一个隔离的环境中。
+和 Pip 一样，PDM 提供了安装脚本，将 PDM 安装到隔离的环境中。
 
 `````{tab-set}
 ````{tab-item} Linux/Mac
@@ -41,7 +41,7 @@ curl -sSL https://raw.githubusercontent.com/pdm-project/pdm/main/install-pdm.py 
 ````
 `````
 
-安装程序将把PDM安装到用户站点，位置取决于系统：
+安装程序将把 PDM 安装到用户站点，位置取决于系统：
 
 - Unix：`$HOME/.local/bin`
 - Windows：`%APPDATA%\Python\Scripts`
@@ -74,6 +74,16 @@ pip install --user pdm
 ````
 `````
 
+**支持 Unicode 和 ANSI**：PDM 在 ANSI 字符和 unicode emojis 的帮助下提供了一个花哨的终端 UI。它可以自动打开/关闭，取决于你的终端是否支持它。然而，如果你看到任何乱码的字符，设置 env var `DISABLE_UNICODE_OUTPUT=1` 来关闭它。
+
+### 更新 PDM 版本
+
+```bash
+pdm self update
+```
+
+## PDM Shell 自动补全
+
 PDM 支持为 Bash、Zsh、Fish 或 Powershell 生成完成脚本。下面是每个 shell 的一些常用位置。
 
 `````{tab-set}
@@ -82,7 +92,6 @@ PDM 支持为 Bash、Zsh、Fish 或 Powershell 生成完成脚本。下面是每
 pdm completion bash > /etc/bash_completion.d/pdm.bash-completion
 ```
 ````
-
 ````{tab-item} PowerShell
 ```bash
 # Create a directory to store completion scripts
@@ -97,38 +106,39 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 pdm completion powershell | Out-File -Encoding utf8 $PROFILE\..\Completions\pdm_completion.ps1
 ```
 ````
+````{tab-item} Zsh
+```bash
+# Make sure ~/.zfunc is added to fpath, before compinit.
+pdm completion zsh > ~/.zfunc/_pdm
+```
+````
+````{tab-item} Fish
+```bash
+pdm completion fish > ~/.config/fish/completions/pdm.fish
+```
+````
 `````
 
-**支持 Unicode 和 ANSI**：PDM 在 ANSI 字符和 unicode emojis 的帮助下提供了一个花哨的终端 UI。它可以自动打开/关闭，取决于你的终端是否支持它。然而，如果你看到任何乱码的字符，设置 env var `DISABLE_UNICODE_OUTPUT=1` 来关闭它。
+## 快速上手
 
-## 使用 IDE
-
-现在在大多数 IDE 中都没有对 PEP 582 的内置支持或插件，你必须手动配置你的工具。
-
-PDM 会在 `.pdm.toml` 中写入并存储整个项目的配置，建议你在 `.gitignore` 中添加以下几行：
-
-```
-.pdm.toml
-__pypackages__/
+```{rubric} 初始化新的 PDM 项目
 ```
 
-## VSCode
-
-在 `.vscode/settings.json` 的顶层 dict 中添加以下两个条目：
-
-```json
-{
-  "python.autoComplete.extraPaths": ["__pypackages__/<major.minor>/lib"],
-  "python.analysis.extraPaths": ["__pypackages__/<major.minor>/lib"]
-}
+```bash
+pdm init
 ```
 
-在全局范围内启用 PEP582，并确保 VSCode 使用与你启用 PEP582 相同的用户和 Shell 运行。
+按照指引回答提示的问题，PDM 项目和对应的 `pyproject.toml` 文件就创建好了。
 
-此外，还有一个 [VSCode 任务提供者](https://marketplace.visualstudio.com/items?itemName=knowsuchagency.pdm-task-provider) 扩展可供下载。
+```{rubric} 添加依赖
+```
 
-这使得 VSCode 可以自动检测 [pdm 脚本](https://pdm.fming.dev/project/#run-scripts-in-isolated-environment)，从而使它们可以作为 [VSCode 任务](https://code.visualstudio.com/docs/editor/tasks)原生运行。
+```bash
+pdm add requests flask
+```
 
-## 生态
+你可以在同一条命令中添加多个依赖。稍等片刻完成之后，你可以查看 `pdm.lock` 文件看看有哪些依赖以及对应版本。
 
-[Awesome PDM](https://github.com/pdm-project/awesome-pdm) 是一个精心策划的 PDM 插件和资源的列表。
+## PDM 生态
+
+[Awesome PDM](https://github.com/pdm-project/awesome-pdm) 是精心策划的 PDM 插件和资源的列表。

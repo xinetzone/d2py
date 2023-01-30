@@ -1,6 +1,6 @@
-# Advanced Usage
+# 高级用法
 
-## Automatic Testing
+## 自动测试
 
 ### Use Tox as the runner
 
@@ -27,23 +27,23 @@ commands =
     flake8 src/
 ```
 
-To use the virtualenv created by Tox, you should make sure you have set `pdm config use_venv true`. PDM then will install
-dependencies from `pdm.lock` into the virtualenv. In the dedicated venv you can directly run tools by `pytest tests/` instead
+To use the virtualenv created by Tox, you should make sure you have set `pdm config python.use_venv true`. PDM then will install
+dependencies from [`pdm lock`](cli_reference.md#exec-0--lock) into the virtualenv. In the dedicated venv you can directly run tools by `pytest tests/` instead
 of `pdm run pytest tests/`.
 
-You should also make sure you don't run `pdm add/pdm remove/pdm update/pdm lock` in the test commands, otherwise the `pdm.lock`
+You should also make sure you don't run `pdm add/pdm remove/pdm update/pdm lock` in the test commands, otherwise the [`pdm lock`](cli_reference.md#exec-0--lock)
 file will be modified unexpectedly. Additional dependencies can be supplied with the `deps` config. Besides, `isolated_buid` and `passenv`
 config should be set as the above example to make PDM work properly.
 
 To get rid of these constraints, there is a Tox plugin [tox-pdm](https://github.com/pdm-project/tox-pdm) which can ease the usage. You can install it by
 
-```console
+```bash
 pip install tox-pdm
 ```
 
 Or,
 
-```console
+```bash
 pdm add --dev tox-pdm
 ```
 
@@ -90,11 +90,11 @@ def lint(session):
 ```
 
 Note that `PDM_IGNORE_SAVED_PYTHON` should be set so that PDM can pick up the Python in the virtualenv correctly. Also make sure `pdm` is available in the `PATH`.
-Before running nox, you should also `pdm config use_venv true` to enable venv reusing.
+Before running nox, you should also ensure configuration item `python.use_venv` is true to enable venv reusing.
 
-### About PEP 582 `__pypackages__` directory
+### 关于 PEP 582 `__pypackages__` 目录
 
-By default, if you run tools by `pdm run`, `__pypackages__` will be seen by the program and all subprocesses created by it. This means virtual environments created by those tools are also aware of the packages inside `__pypackages__`, which result in unexpected behavior in some cases.
+By default, if you run tools by [`pdm run`](cli_reference.md#exec-0--run), `__pypackages__` will be seen by the program and all subprocesses created by it. This means virtual environments created by those tools are also aware of the packages inside `__pypackages__`, which result in unexpected behavior in some cases.
 For `nox`, you can avoid this by adding a line in `noxfile.py`:
 
 ```python
@@ -103,26 +103,24 @@ os.environ.pop("PYTHONPATH", None)
 
 For `tox`, `PYTHONPATH` will not be passed to the test sessions so this isn't going to be a problem. Moreover, it is recommended to make `nox` and `tox` live in their own pipx environments so you don't need to install for every project. In this case, PEP 582 packages will not be a problem either.
 
-## Use PDM in Continuous Integration
+## 在持续集成中使用 PDM
 
-Only one thing to keep in mind -- PDM can't be installed on Python < 3.7, so if your project is to be tested on those Python versions,
-you have to make sure PDM is installed on the correct Python version, which can be different from the target Python version the particular job/task is run on.
+只有一件事要记住 —— PDM 不能安装在 Python < 3.7，所以如果你的项目要在这些 Python 版本上测试，你必须确保 PDM 安装在正确的 Python 版本上，该版本可能与特定作业/任务运行的目标 Python 版本不同。
 
-Fortunately, if you are using GitHub Action, there is [pdm-project/setup-pdm](https://github.com/marketplace/actions/setup-pdm) to make this process easier.
-Here is an example workflow of GitHub Actions, while you can adapt it for other CI platforms.
+幸运的是，如果你正在使用 GitHub Action，有 [pdm-project/setup-pdm](https://github.com/marketplace/actions/setup-pdm) 可以让这个过程更容易。下面是 GitHub Actions 的工作流示例，您可以将其用于其他 CI 平台。
 
 ```yaml
 Testing:
   runs-on: ${{ matrix.os }}
   strategy:
     matrix:
-      python-version: [3.7, 3.8, 3.9, "3.10"]
+      python-version: [3.7, 3.8, 3.9, '3.10']
       os: [ubuntu-latest, macOS-latest, windows-latest]
 
   steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - name: Set up PDM
-      uses: pdm-project/setup-pdm@main
+      uses: pdm-project/setup-pdm@v2
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -134,35 +132,20 @@ Testing:
         pdm run -v pytest tests
 ```
 
-!!! important "TIPS"
-    For GitHub Action users, there is a [known compatibility issue](https://github.com/actions/virtual-environments/issues/2803) on Ubuntu virtual environment.
-    If PDM parallel install is failed on that machine you should either set `parallel_install` to `false` or set env `LD_PRELOAD=/lib/x86_64-linux-gnu/libgcc_s.so.1`.
-    It is already handled by the `pdm-project/setup-pdm` action.
-
-!!! note
-    If your CI scripts run without a proper user set, you might get permission errors when PDM tries to create its cache directory.
-    To work around this, you can set the HOME environment variable yourself, to a writable directory, for example:
-
-    ```bash
-    export HOME=/tmp/home
-    ```
-
-## Use other PEP 517 backends
-
-PDM supports ALL PEP 517 build backends that comply with PEP 621 specification. At the time of writing, `flit` is going to switch to PEP 621 metadata in the near future, then you can keep `flit` as the build-backend while still managing dependencies using PDM:
-
-```toml
-[build-system]
-requires = ["flit_core >=2,<4"]
-build-backend = "flit_core.buildapi"
+```{important}
+对于 GitHub Action 用户，Ubuntu 虚拟环境存在 [已知兼容性问题](https://github.com/actions/virtual-environments/issues/2803)。如果 PDM 并行安装在该机器上失败，您应该将 `parallel_install` 设置为 `false` 或设置 env `LD_PRELOAD=/lib/x86_64-linux-gnu/libgcc_s.so.1`。
 ```
 
-PDM will call the correct backend when `pdm build`.
+````{note}
+如果运行 CI 脚本时没有适当的用户集，那么在 PDM 尝试创建其缓存目录时可能会出现权限错误。要解决这个问题，你可以自己设置 HOME 环境变量，到一个可写目录，例如：
+```bash
+export HOME=/tmp/home
+```
+````
 
-## Use PDM in a multi-stage Dockerfile
+## 在多阶段 Dockerfile 中使用 PDM
 
-It is possible to use PDM in a multi-stage Dockerfile to first install the project and dependencies into `__pypackages__`
-and then copy this folder into the final stage, adding it to `PYTHONPATH`.
+可以在多阶段 Dockerfile 中使用 PDM，首先将项目和依赖项安装到 `__pypackages__` 中。然后将该文件夹复制到最后阶段，并将其添加到 `PYTHONPATH` 中。
 
 ```dockerfile
 # build stage
@@ -176,9 +159,9 @@ RUN pip install pdm
 COPY pyproject.toml pdm.lock README.md /project/
 COPY src/ /project/src
 
-# install dependencies and project
+# install dependencies and project into the local packages directory
 WORKDIR /project
-RUN pdm install --prod --no-lock --no-editable
+RUN mkdir __pypackages__ && pdm install --prod --no-lock --no-editable
 
 
 # run stage
@@ -193,7 +176,6 @@ CMD ["python", "-m", "project"]
 ```
 
 ## Integrate with other IDE or editors
-
 ### Work with lsp-python-ms in Emacs
 
 Below is a sample code snippet showing how to make PDM work with [lsp-python-ms](https://github.com/emacs-lsp/lsp-python-ms) in Emacs. Contributed by [@linw1995](https://github.com/pdm-project/pdm/discussions/372#discussion-3303501).
@@ -232,4 +214,35 @@ Below is a sample code snippet showing how to make PDM work with [lsp-python-ms]
                (setq lsp-python-ms-extra-paths (vector (linw1995/pdm-get-packages-path)))
                (require 'lsp-python-ms)
                (lsp))))  ; or lsp-deferred
+```
+
+(pdm:hooks-for-pre-commit)=
+## Hooks for `pre-commit`
+
+[`pre-commit`](https://pre-commit.com/) is a powerful framework for managing git hooks in a centralized fashion. PDM already uses `pre-commit` [hooks](https://github.com/pdm-project/pdm/blob/main/.pre-commit-config.yaml) for its internal QA checks. PDM exposes also several hooks that can be run locally or in CI pipelines.
+
+### Export `requirements.txt` or `setup.py`
+
+This hook wraps the command `pdm export` along with any valid argument. It can be used as a hook (e.g., for CI) to ensure that you are going to check in the codebase a `requirements.txt` or a `setup.py` file, which reflects the actual content of [`pdm lock`](cli_reference.md#exec-0--lock).
+
+```yaml
+# export python requirements
+- repo: https://github.com/pdm-project/pdm
+  rev: 2.x.y # a PDM release exposing the hook
+  hooks:
+    - id: pdm-export
+      # command arguments, e.g.:
+      args: ['-o', 'requirements.txt', '--without-hashes']
+      files: ^pdm.lock$
+```
+
+### Check `pdm.lock` is up to date with pyproject.toml
+
+This hook wraps the command `pdm lock --check` along with any valid argument. It can be used as a hook (e.g., for CI) to ensure that whenever `pyproject.toml` has a dependency added/changed/removed, that `.pdm.lock` is also up to date.
+
+```yaml
+- repo: https://github.com/pdm-project/pdm
+  rev: 2.x.y # a PDM release exposing the hook
+  hooks:
+    - id: pdm-lock-check
 ```

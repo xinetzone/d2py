@@ -96,6 +96,7 @@ test = ["pytest"]
 
 人们可以给 `pdm add` 提供 `--pre/--prerelease` 选项，以便允许为给定的软件包钉上预发布。
 
+(pdm:update-existing-dependencies)=
 ## 更新已有依赖
 
 要更新锁文件中的所有依赖关系：

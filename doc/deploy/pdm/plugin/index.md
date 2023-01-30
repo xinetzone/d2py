@@ -4,4 +4,6 @@
 :maxdepth: 2
 
 write
+reference
+fixtures
 ```

@@ -6,6 +6,7 @@
 :hidden:
 
 python-study/index
+deploy/index
 math
 metaprogramming/index
 reference/index

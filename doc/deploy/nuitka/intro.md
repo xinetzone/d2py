@@ -2,7 +2,7 @@
 
 参考：
 
-- [官方教程中文版](https://daobook.github.io/nuitka-doc/zh_CN/)
+- [官方教程中文版](https://nuitka.net/zh_CN/)
 
 Nuitka 将 Python 模块翻译成 C 级程序，然后使用 `libpython` 和自己的静态 C 文件，以 CPython 的方式执行。
 
@@ -31,5 +31,3 @@ conda install libpython-static
 - 指定 module： ```--include-module=MODULE```
 - 指定目录，里面包含的所有包/模块都会被打包（覆盖其他递归选项）： ```--include-plugin-directory=MODULE/PACKAGE```
 - 与 pattern 匹配的所有文件都会被打包（覆盖其他递归选项）： ```--include-plugin-files=PATTERN```
-
-

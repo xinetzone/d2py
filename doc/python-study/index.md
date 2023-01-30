@@ -14,7 +14,6 @@ basic/index
 jupyter/index
 topics/index
 config/index
-deploy/index
 faqs/index
 refs/index
 demo

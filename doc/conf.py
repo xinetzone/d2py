@@ -60,6 +60,7 @@ extensions = [
     # "sphinx.ext.viewcode",
     # "sphinx.ext.doctest",
     "sphinx_design",
+    "sphinxcontrib.mermaid",
     # "sphinx.ext.ifconfig",
     # "sphinxext.opengraph",
 ]
@@ -119,6 +120,7 @@ suppress_warnings = ["mystnb.unknown_mime_type"]
 
 intersphinx_mapping = {
     'python': ('https://daobook.github.io/cpython/', None),
+    "pdm": ("https://pdm.fming.dev/", None),
     # 'sphinx': ('https://daobook.github.io/sphinx/', None),
     # 'peps': ('https://daobook.github.io/peps', None),
 }
