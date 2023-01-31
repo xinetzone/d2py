@@ -33,17 +33,16 @@ $ pdm venv create --with venv 3.9
 
 ## virtualenv 的位置
 
-For the first time, PDM will try to create a virtualenv **in project**, unless `.venv` already exists.
-Other virtualenvs go to the location specified by the `venv.location` configuration. They are named as `<project_name>-<path_hash>-<name_or_python_version>` to avoid name collision. A virtualenv created with `--name` option will always go to this location. You can disable the in-project virtualenv creation by `pdm config venv.in_project false`.
+PDM 将第一次尝试在项目中创建 virtualenv，除非 `.venv` 已经存在。其他 virtualenv 将转到 `venv.location` 配置。它们被命名为 `<project_name>-<path_hash>-<name_or_python_version>` 避免名称冲突。使用 `--name` 选项创建的 virtualenv 将始终到此位置。您可以通过 `pdm config venv.in_project false` 禁用在项目中创建 virtualenv。
 
-## Virtualenv auto-detection
+## 自动检测虚拟环境
 
-When no interpreter is stored in the project config or `PDM_IGNORE_SAVED_PYTHON` env var is set, PDM will try to detect possible virtualenvs to use:
+当项目配置中没有存储解释器或设置了 `PDM_IGNORE_SAVED_PYTHON` env var 时，PDM 将尝试检测可能使用的 virtualenv：
 
-- `venv`, `env`, `.venv` directories in the project root
-- The currently activated virtualenv
+- 项目根目录的文件夹 `venv`, `env`, `.venv`
+- 当前激活的 virtualenv
 
-## List all virtualenvs created with this project
+## 列出用这个项目创建的所有 virtualenv
 
 ```bash
 $ pdm venv list
@@ -54,7 +53,7 @@ Virtualenvs created with this project:
 -  3.9.1: C:\Users\Frost Ming\AppData\Local\pdm\pdm\venvs\test-project-8Sgn_62n-3.9.1
 ```
 
-## Remove a virtualenv
+## 移除 virtualenv
 
 ```bash
 $ pdm venv remove for-test
@@ -63,17 +62,19 @@ Will remove: C:\Users\Frost Ming\AppData\Local\pdm\pdm\venvs\test-project-8Sgn_6
 Removed C:\Users\Frost Ming\AppData\Local\pdm\pdm\venvs\test-project-8Sgn_62n-for-test
 ```
 
-## Activate a virtualenv
+## 激活 virtualenv
 
-Instead of spawning a subshell like what `pipenv` and `poetry` do, `pdm-venv` doesn't create the shell for you but print the activate command to the console. In this way you won't leave the current shell. You can then feed the output to `eval` to activate the virtualenv:
+`pdm-venv` 不像 `pipenv` 和 `poetry` 那样生成子 shell，而是为您创建 shell，并将激活命令打印到控制台。这样就不会离开当前的外壳。然后你可以把输出给 `eval` 来激活 virtualenv：
 
 `````{tab-set}
 ````{tab-item} bash/csh/zsh
 ```bash
 $ eval $(pdm venv activate for-test)
 (test-project-for-test) $  # Virtualenv entered
-Fish
-
+```
+````
+````{tab-item} Fish
+```fish
 $ eval (pdm venv activate for-test)
 ```
 ````
@@ -82,7 +83,7 @@ $ eval (pdm venv activate for-test)
 PS1> Invoke-Expression (pdm venv activate for-test)
 ```
 
-You can make your own shell shortcut function to avoid the input of long command. Here is an example of Bash:
+您可以自己制作 shell 快捷功能，避免长命令的输入。下面是 Bash 的例子：
 
 ```ps1
 pdm_venv_activate() {
@@ -90,30 +91,30 @@ pdm_venv_activate() {
 }
 ```
 
-Then you can activate it by `pdm_venv_activate $venv_name` and deactivate by deactivate directly.
+然后，您可以通过  `pdm_venv_activate $venv_name` 激活它，并直接通过 deactivate 禁用它。
 
-Additionally, if the project interpreter is a venv Python, you can omit the name argument following activate.
+此外，如果项目解释器是 venv Python，则可以省略 activate 后面的 name 参数。
 ````
 `````
 
 ```{note}
-`venv activate` **does not** switch the Python interpreter used by the project. It only changes the shell by injecting the virtualenv paths to environment variables. For the forementioned purpose, use the `pdm use` command.
+`venv activate` **不会** 切换项目使用的 Python 解释器。它只通过将 virtualenv 路径注入环境变量来更改 shell。对于上述目的，使用 `pdm use` 命令。
 ```
-For more CLI usage, see the [`pdm venv`](cli_reference.md#exec-0--venv) documentation.
 
-## Prompt customization
+有关 CLI 的更多用法，请参阅 `pdm venv` 文档。
 
-By default when you activate a virtualenv, the prompt will show: `{project_name}-{python_version}`.
+## 定制 Prompt
 
-For example if your project is named `test-project`:
+默认情况下，当你激活 virtualenv 时，提示将显示：`{project_name}-{python_version}`。
+
+例如，如果你的项目名为 `test-project`：
 
 ```bash
 $ eval $(pdm venv activate for-test)
 (test-project-3.10) $  # {project_name} == test-project and {python_version} == 3.10
 ```
 
-The format can be customized before virtualenv creation with the [`venv.prompt`](configuration.md) configuration or `PDM_VENV_PROMPT` environment variable (before a `pdm init` or `pdm venv create`).
-Available variables are:
+在使用 [`venv.prompt`](configuration) 提示配置或 `PDM_VENV_PROMPT` 环境变量(在 `pdm init` 或 `pdm venv create` 之前) 创建自定义格式。可选变量包括：
 
  - `project_name`: name of your project
  - `python_version`: version of Python (used by the virtualenv)
@@ -124,7 +125,6 @@ $ eval $(pdm venv activate test-prompt)
 (test-project-py3.10) $
 ```
 
-## Disable virtualenv mode
+## 禁用 virtualenv 模式
 
-You can disable the auto-creation and auto-detection for virtualenv by `pdm config python.use_venv false`.
-**If venv is disabled, PEP 582 mode will always be used even if the selected interpreter is from a virtualenv.**
+您可以使用 `pdm config python.use_venv false` 禁用 virtualenv 自动创建和自动检测功能。**如果 venv 被禁用，即使所选解释器来自 virtualenv, PEP 582 模式也将始终使用。**

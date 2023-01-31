@@ -116,17 +116,17 @@ pdm config --local pypi.url "https://test.pypi.org/simple"
 3. `<SITE_CONFIG_ROOT>/config.toml` - site 配置
 
 ```{note}
-where `<CONFIG_ROOT>` is:
+这里 `<CONFIG_ROOT>`：
 
-- `$XDG_CONFIG_HOME/pdm` (`~/.config/pdm` in most cases) on Linux as defined by [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
-- `~/Library/Preferences/pdm` on MacOS as defined by [Apple File System Basics](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)
-- `%USERPROFILE%\AppData\Local\pdm` on Windows as defined in [Known folders](https://docs.microsoft.com/en-us/windows/win32/shell/known-folders)
+- `$XDG_CONFIG_HOME/pdm` (大部分情况下位于 `~/.config/pdm`) 在 Linux 上由 [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) 定义
+- `~/Library/Preferences/pdm` 在 MacOS 上由 [Apple File System Basics](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) 定义
+- `%USERPROFILE%\AppData\Local\pdm` 在 Windows 上由 [Known folders](https://docs.microsoft.com/en-us/windows/win32/shell/known-folders) 定义
 
-and `<SITE_CONFIG_ROOT>` is:
+且 `<SITE_CONFIG_ROOT>` 是：
 
-- `$XDG_CONFIG_DIRS/pdm` (`/etc/xdg/pdm` in most cases) on Linux as defined by [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
-- `/Library/Preferences/pdm` on MacOS as defined by [Apple File System Basics](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)
-- `C:\ProgramData\pdm\pdm` on Windows as defined in [Known folders](https://docs.microsoft.com/en-us/windows/win32/shell/known-folders)
+- `$XDG_CONFIG_DIRS/pdm` (大部分情况下位于 `/etc/xdg/pdm`) 在 Linux 上由 [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) 定义
+- `/Library/Preferences/pdm` 在 MacOS 上由 [Apple File System Basics](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html) 定义
+- `C:\ProgramData\pdm\pdm` 在 Windows 上由 [Known folders](https://docs.microsoft.com/en-us/windows/win32/shell/known-folders) 定义
 ```
 
 如果使用 `-g/--global` 选项，第一项将被  `<CONFIG_ROOT>/global-project/.pdm.toml` 替换。

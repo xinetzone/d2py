@@ -175,6 +175,7 @@ COPY --from=builder /project/__pypackages__/3.8/lib /project/pkgs
 CMD ["python", "-m", "project"]
 ```
 
+(pdm:integrate-with-other-ide-or-editors)=
 ## Integrate with other IDE or editors
 ### Work with lsp-python-ms in Emacs
 

@@ -120,9 +120,8 @@ suppress_warnings = ["mystnb.unknown_mime_type"]
 
 intersphinx_mapping = {
     'python': ('https://daobook.github.io/cpython/', None),
-    "pdm": ("https://pdm.fming.dev/", None),
-    # 'sphinx': ('https://daobook.github.io/sphinx/', None),
-    # 'peps': ('https://daobook.github.io/peps', None),
+    'sphinx': ('https://daobook.github.io/sphinx/', None),
+    'peps': ('https://daobook.github.io/peps', None),
 }
 
 # Add any paths that contain templates here, relative to this directory.
