@@ -29,6 +29,8 @@ Home = "https://github.com/xinetzone/d2py"
 [project.optional-dependencies]
 doc = [
   "sphinx<6",
+  "sphinxcontrib-youtube",
+  "sphinx-favicon",
   "xyzstyle",
   "pydata-sphinx-theme>=0.7.2",
   "sphinx-book-theme",
