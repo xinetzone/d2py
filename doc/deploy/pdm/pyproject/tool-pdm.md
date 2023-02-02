@@ -69,7 +69,9 @@ name = "pypi"
 
 ### 查找链接源
 
-默认情况下，或来源是 {pep}`503` 风格的 "索引尿"，就像管道的 `--index-url` 和 `--extra-index-url`，然而，你也可以用 `type = "find_links"` 指定 "查找链接"。关于这两种类型的区别，见 [回答](https://stackoverflow.com/a/46651848)。
+By default, all sources are PEP 503 style "indexes" like pip's --index-url and --extra-index-url, however, you can also specify "find links" with type = "find_links". See this answer for the difference between the two types.
+
+默认情况下，或来源是 {pep}`503` 风格的 "索引"，就像 `pip` 的 `--index-url` 和 `--extra-index-url`，然而，你也可以用 `type = "find_links"` 指定 "查找链接"。关于这两种类型的区别，见 [回答](https://stackoverflow.com/a/46651848)。
 
 例如，从包含包文件的本地目录安装：
 
