@@ -263,8 +263,6 @@ post_compress = "{{ Run AFTER the `compress` script }}"
 
 在本例中，`pdm run compress` 将依次运行所有这 3 个脚本。
 
-In this example, `pdm run compress` will run all these 3 scripts sequentially.
-
 ```{admonition} 管道快速失效
 在预自后脚本的管道中，失败将取消后续的执行。
 ```

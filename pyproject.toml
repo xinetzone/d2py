@@ -53,7 +53,7 @@ doc = [
   "jupyter-dash",
   "plotly",
   "sphinx-sitemap",
-  "bokeh"
+  "bokeh",
 ]
 
 [tool.flit.module]

@@ -52,25 +52,25 @@ version.path = "mypackage/__version__.py"
 
 ### 来自 SCM 的动态版本
 
-If you've used [`setuptools-scm`](https://pypi.org/project/setuptools-scm/) you will be familiar with this approach. `pdm-pep517` can also read the version from the tag of your SCM repository:
+如果您使用过 [`setuptools-scm`](https://pypi.org/project/setuptools-scm/)，就会熟悉这种方法。`pdm-pep517` 还可以从 SCM 存储库的标记中读取版本：
 
 ```toml
 [tool.pdm]
 version = { source = "scm" }
 ```
 
-#### Specify the version manually
+#### 手动指定版本
 
-When building the package, `pdm-pep517` will require the SCM to be available to populate the version. If that is not the case, you can still specify the version with an environment variable `PDM_PEP517_SCM_VERSION`:
+在构建包时，`pdm-pep517` 将要求 SCM 可用来填充版本。如果不是这样，您仍然可以使用环境变量 `PDM_PEP517_SCM_VERSION` 指定版本：
 
 ```bash
 export PDM_PEP517_SCM_VERSION="1.2.3"
 pdm build
 ```
 
-#### Write the version to file
+#### 将版本写入文件
 
-For dynamic version read from SCM, it would be helpful to write the evaluated value to a file when building a wheel, so that you do not need `importlib.metadata` to get the version in code.
+对于从 SCM 读取的动态版本，在构建轮子时将评估值写入文件将很有帮助，这样您就不需要 `importlib.metadata` 来获取代码中的版本。
 
 ```toml
 [tool.pdm.version]
@@ -79,7 +79,7 @@ write_to = "mypackage/__version__.py"
 write_template = "__version__ = '{}'"  # optional, default to "{}"
 ```
 
-For source distributions, the version will be *frozen* and converted to a static version in the `pyproject.toml` file, which will be included in the distribution.
+对于源代码发行版，版本将被 **冻结** 并转换为 `pyproject.toml` 文件中的静态版本，它将包含在发行版中。
 
 ## 包含和排除文件
 
@@ -97,7 +97,7 @@ excludes = [
 ```
 
 ```{note}
-当使用 `includes` 时，默认的 includes 将被覆盖。您必须手动添加包路径。
+当使用 `includes` 时，默认的 `includes` 将被覆盖。您必须手动添加包路径。
 ```
 
 如果你希望某些文件只包含在 sdist 中，你可以使用 `source-includes` 字段。
@@ -182,7 +182,7 @@ setup-script = "build_setuptools.py"
 run-setuptools = true
 ```
 
-In the `setup-script`, the expected `build` function receives the argument dictionary to be passed to the `setuptools.setup()` call. In the function, you can update the [keyword dictionary](https://setuptools.pypa.io/en/latest/references/keywords.html) with any additional or changed values as you want.
+在 `setup-script` 本中，预期的 `build` 函数接收要传递给 `setuptools.setup()` 调用的参数字典。在函数中，您可以根据需要使用任何附加值或更改值更新[关键字字典](https://setuptools.pypa.io/en/latest/references/keywords.html)。
 
 下面是取自 `MarkupSafe` 的例子：
 
@@ -197,6 +197,7 @@ ext_modules = [
 def build(setup_kwargs):
     setup_kwargs.update(ext_modules=ext_modules)
 ```
+
 如果您运行 `pdm build` （或任何其他构建前端，如 [build](https://pypi.org/project/build)）， `pdm` 将构建特定于平台的轮子文件以及 sdist。
 
 默认情况下，每次构建都是在一个干净和隔离的环境中进行，只有构建需求可以被看到。如果你的构建有依赖项目环境的可选需求，你可以通过 `pdm build --no-isolation` 关闭环境隔离，或者将配置 `build_isolation` 设置为假值。

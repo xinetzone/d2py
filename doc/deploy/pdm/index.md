@@ -9,4 +9,5 @@ intro
 usage/index
 pyproject/index
 plugin/index
+backend/index
 ```

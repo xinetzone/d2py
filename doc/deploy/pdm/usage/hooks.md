@@ -4,28 +4,27 @@
 
 它还提供了附加到这些步骤的钩子，允许：
 
-- plugins to listen to the [signals][pdm.signals] of the same name.
-- developers to define custom scripts with the same name.
+- 插件监听同名的 [signals][pdm.signals]。
+- 开发人员定义具有相同名称的自定义脚本。
 
-The built-in commands are currently split into 3 groups:
+内置命令目前分为 3 组：
 
-- the [initialization phase](#initialization)
-- the [dependencies management](#dependencies-management).
-- the [publication phase](#publication).
+- 1. [初始化阶段](pdm-hooks:initialization)
+- 2. [依赖管理](pdm-hooks:dependencies-management)
+- 3. [发布阶段](pdm-hooks:publication)
 
-You will most probably need to perform some recurrent tasks between the installation and publication phases (housekeeping, linting, testing, ...)
-this is why PDM lets you define your own tasks/phases using [user scripts](#user-scripts).
+您很可能需要在安装和发布阶段之间执行一些循环任务（内务管理、检测、测试……），这就是为什么 PDM 允许您使用[用户脚本](pdm:user-scripts)定义自己的任务/阶段。
 
-To provides full flexibility, PDM allows to [skip some hooks and tasks](#skipping) on demand.
+为了提供充分的灵活性，PDM 允许按需[跳过](pdm-hooks:skipping)一些挂钩和任务。
 
-## Initialization
+(pdm-hooks:initialization)=
+## 初始化
 
-The initialization phase should occur only once in a project lifetime by running the [`pdm init`](cli_reference.md#exec-0--init)
-command to initialize an existing project (prompt to fill the `pyproject.toml` file).
+初始化阶段应该在项目生命周期中只发生一次，通过运行 `pdm init` 命令来初始化现有项目(提示填充 `pyproject.toml` 文件)。
 
-They trigger the following hooks:
+它们会触发以下钩子：
 
-- [`post_init`][pdm.signals.post_init]
+- [`post_init`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.post_init)
 
 ```{mermaid}
 flowchart LR
@@ -36,30 +35,31 @@ flowchart LR
   end
 ```
 
-## Dependencies management
+(pdm-hooks:dependencies-management)=
+## 依赖管理
 
-The dependencies management is required for the developer to be able to work and perform the following:
+依赖关系管理是开发人员能够工作和执行以下工作所必需的：
 
-- `lock`: compute a lock file from the `pyproject.toml` requirements.
-- `sync`: synchronize (add/remove/update) PEP582 packages from the lock file and install the current project as editable.
-- `add`: add a dependency
-- `remove`: remove a dependency
+- `lock`：根据 `pyproject.toml` 需求计算锁文件。
+- `sync`：从锁定文件中同步(添加/删除/更新) {pep}`582` 包，并将当前项目安装为可编辑的。
+- `add`：添加依赖
+- `remove`：删除依赖
 
-All those steps are directly available with the following commands:
+所有这些步骤都可以直接使用以下命令：
 
-- [`pdm lock`](cli_reference.md#exec-0--lock): execute the `lock` task
-- [`pdm sync`](cli_reference.md#exec-0--sync): execute the `sync` task
-- [`pdm install`](cli_reference.md#exec-0--install): execute the `sync` task, preceded from `lock` if required
-- [`pdm add`](cli_reference.md#exec-0--add): add a dependency requirement, re-lock and then sync
-- [`pdm remove`](cli_reference.md#exec-0--remove): remove a dependency requirement, re-lock and then sync
-- [`pdm update`](cli_reference.md#exec-0--update): re-lock dependencies from their latest versions and then sync
+- [`pdm lock`](https://pdm.fming.dev/latest/usage/cli_reference/#exec-0--lock): execute the `lock` task
+- [`pdm sync`](https://pdm.fming.dev/latest/usage/cli_reference.md#exec-0--sync): execute the `sync` task
+- [`pdm install`](https://pdm.fming.dev/latest/usage/cli_reference.md#exec-0--install): execute the `sync` task, preceded from `lock` if required
+- [`pdm add`](https://pdm.fming.dev/latest/usage/cli_reference.md#exec-0--add): add a dependency requirement, re-lock and then sync
+- [`pdm remove`](https://pdm.fming.dev/latest/usage/cli_reference.md#exec-0--remove): remove a dependency requirement, re-lock and then sync
+- [`pdm update`](https://pdm.fming.dev/latest/usage/cli_reference.md#exec-0--update): re-lock dependencies from their latest versions and then sync
 
-They trigger the following hooks:
+会触发如下钩子：
 
-- [`pre_install`][pdm.signals.pre_install]
-- [`post_install`][pdm.signals.post_install]
-- [`pre_lock`][pdm.signals.pre_lock]
-- [`post_lock`][pdm.signals.post_lock]
+- [`pre_install`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.pre_install#pdm.signals.pre_install)
+- [`post_install`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.pre_install#pdm.signals.post_install)
+- [`pre_lock`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.pre_install#pdm.signals.pre_lock)
+- [`post_lock`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.pre_install#pdm.signals.post_lock)
 
 ```{mermaid}
 flowchart LR
@@ -84,11 +84,9 @@ flowchart LR
   end
 ```
 
-### Switching Python version
+### 切换 Python 版本
 
-This is a special case in dependency management:
-you can switch the current Python version using [`pdm use`](cli_reference.md#exec-0--use)
-and it will emit the [`post_use`][pdm.signals.post_use] signal with the new Python interpreter.
+这是依赖项管理中的特殊情况：您可以使用 `pdm use` 切换当前 Python 版本，它将使用新的 Python 解释器发出 [`post_use`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.post_use) 信号。
 
 ```{mermaid}
 flowchart LR
@@ -99,24 +97,21 @@ flowchart LR
   end
 ```
 
-## Publication
 
-As soon as you are ready to publish your package/library, you will require the publication tasks:
+(pdm-hooks:publication)=
+## 发布
 
-- `build`: build/compile assets requiring it and package everything into a Python package (sdist, wheel)
-- `upload`: upload/publish the package to a remote PyPI index
+一旦准备好发布的包/库，将需要发布任务：
 
-All those steps are available with the following commands:
+- [`build`](https://pdm.fming.dev/latest/usage/cli_reference/#exec-0--build)：构建/编译需要它的资产，并将所有内容打包到 Python 包中（sdist, wheel）
+- [`upload`](https://pdm.fming.dev/latest/usage/cli_reference/#exec-0--publish)：上传/发布包到远程 PyPI 索引
 
-- [`pdm build`](cli_reference.md#exec-0--build)
-- [`pdm publish`](cli_reference.md#exec-0--publish)
+会触发：
 
-They trigger the following hooks:
-
-- [`pre_publish`][pdm.signals.pre_publish]
-- [`post_publish`][pdm.signals.post_publish]
-- [`pre_build`][pdm.signals.pre_build]
-- [`post_build`][pdm.signals.post_build]
+- [`pre_publish`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.pre_publish)
+- [`post_publish`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.post_publish)
+- [`pre_build`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.pre_build)
+- [`post_build`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.post_build)
 
 
 ```{mermaid}
@@ -142,17 +137,18 @@ flowchart LR
   end
 ```
 
-Execution will stop at first failure, hooks included.
+执行将在第一次失败时停止，包括钩子。
 
-## User scripts
+(pdm:user-scripts)=
+## 用户脚本
 
-[User scripts are detailed in their own section](scripts.md) but you should know that:
+[用户脚本](scripts.md) 部分中有详细说明，但你应该知道：
 
-- each user script can define a `pre_*` and `post_*` script, including composite scripts.
-- each `run` execution will trigger the [`pre_run`][pdm.signals.pre_run] and [`post_run`][pdm.signals.post_run] hooks
-- each script execution will trigger the [`pre_script`][pdm.signals.pre_script] and [`post_script`][pdm.signals.post_script] hooks
+- 每个用户脚本都可以定义 `pre_*` 和 `post_*` 脚本，包括复合脚本。
+- 每次 `run` 执行都将触发[`pre_run`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.pre_run)和[`post_run`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.post_run)钩子
+- 每次脚本执行都将触发[`pre_script`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.pre_script)和[`post_script`](https://pdm.fming.dev/latest/plugin/reference/#pdm.signals.post_script)钩子
 
-Given the following `scripts` definition:
+给定以下 `scripts` 定义：
 
 ```toml
 [tool.pdm.scripts]
@@ -166,7 +162,7 @@ post_composite = ""
 composite = {composite: ["test"]}
 ```
 
-a `pdm run test` will have the following lifecycle:
+`pdm run test` 将具有以下生命周期：
 
 ```{mermaid}
 flowchart LR
@@ -189,7 +185,7 @@ flowchart LR
   end
 ```
 
-while `pdm run composite` will have the following:
+当运行 `pdm run composite` 时，将有以下内容：
 
 ```{mermaid}
 flowchart LR
@@ -221,19 +217,14 @@ flowchart LR
      pre-run --> run-composite --> post-run
   end
 ```
+(pdm-hooks:skipping)=
+## 跳过执行
 
-## Skipping
+使用 `--skip` 选项可以为任何内置命令和自定义用户脚本控制哪个任务和钩子运行。
 
-It is possible to control which task and hook runs for any built-in command as well as custom user scripts
-using the `--skip` option.
+它接受以逗号分隔的钩子/任务名称列表，以及预定义的 `:all`、`:pre` 和 `:post` 快捷方式，分别跳过所有钩子、所有 `pre_*` 钩子和所有 `post_*` 钩子。您还可以在 `PDM_SKIP_HOOKS` 环境变量中提供跳过列表，但一旦提供了 `--skip` 参数，它就会被覆盖。
 
-It accepts a comma-separated list of hooks/task names to skip
-as well as the predefined `:all`, `:pre` and `:post` shortcuts
-respectively skipping all hooks, all `pre_*` hooks and all `post_*` hooks.
-You can also provide the skip list in `PDM_SKIP_HOOKS` environment variable
-but it will be overridden as soon as the `--skip` parameter is provided.
-
-Given the previous script block, running `pdm run --skip=:pre,post_test composite` will result in the following reduced lifecycle:
+对于前面的脚本块，运行 `pdm run --skip=:pre,post_test composite` 将导致以下缩短的生命周期：
 
 ```{mermaid}
 flowchart LR

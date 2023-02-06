@@ -30,3 +30,7 @@
 ## 自带硬件
 
 将你的代码嵌入到 [Adafruit](https://github.com/adafruit/circuitpython)、[MicroPython](https://micropython.org/) 或更强大的运行 Python 的硬件上，然后将其运送到数据中心或你的用户家中。他们即插即用，你就可以收工了。
+
+## 构建工具
+
+- [towncrier](https://towncrier.readthedocs.io/en/stable/index.html)：Towncrier 是为项目生成有用的摘要新闻文件(也称为变更日志)的实用程序。[Sphinx 插件](https://pypi.org/project/sphinxcontrib-towncrier/)

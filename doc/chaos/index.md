@@ -7,4 +7,5 @@
 
 GUI/index
 web/index
+errors
 ```

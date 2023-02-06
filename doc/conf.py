@@ -16,7 +16,7 @@ import ablog
 from pathlib import Path
 
 ROOT = Path('__file__').resolve().parents[1]
-sys.path.extend([str(ROOT/'src')])
+sys.path.extend([str(ROOT/'src'), str(ROOT/'doc/_ext')])
 import d2py
 
 if sys.platform == 'win32':
@@ -51,8 +51,9 @@ extensions = [
     "matplotlib.sphinxext.plot_directive",
     "sphinx_plotly_directive",
     "sphinx_sitemap",
-    # "sphinx.ext.autodoc",
+    "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
+    "sphinx_automodapi.automodapi",
     "sphinx_automodapi.smart_resolver",
     # "sphinx.ext.todo",
     # "sphinxcontrib.bibtex",
@@ -63,6 +64,8 @@ extensions = [
     "sphinxcontrib.mermaid",
     # "sphinx.ext.ifconfig",
     # "sphinxext.opengraph",
+    # "sphinx_immaterial",
+    "code_annotations",
 ]
 
 myst_enable_extensions = [
