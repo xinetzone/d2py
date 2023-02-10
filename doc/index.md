@@ -5,12 +5,11 @@
 :maxdepth: 2
 :hidden:
 
-python-study/index
-deploy/index
+pythonx/index
+compiler
 math
 metaprogramming/index
 reference/index
-chaos/index
 posts/index
 news/index
 about/index

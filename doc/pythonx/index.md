@@ -16,7 +16,6 @@ topics/index
 config/index
 faqs/index
 refs/index
-demo
 drafts/index
 ```
 

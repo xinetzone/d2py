@@ -4,4 +4,5 @@
 tools
 draft
 books
+../chaos/index
 ```
