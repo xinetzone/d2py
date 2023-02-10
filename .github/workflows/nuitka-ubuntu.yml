@@ -10,11 +10,7 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest]
-      
-    runs-on: ${{ matrix.os }}
+    runs-on: runs-on: ubuntu-latest
     
     steps:
       - name: Check-out repository
@@ -30,6 +26,7 @@ jobs:
             
       - name: Install Dependencies
         run: |
+          sudo apt install libfuse2
           pip install .
           
       - name: Build Executable
@@ -55,7 +52,6 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ runner.os }} Build
+          name: upload Build
           path: |
-            build/*.exe
-            build/*.app/**/*
+            build/*.bin
