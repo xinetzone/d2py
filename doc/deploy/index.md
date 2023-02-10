@@ -1,7 +1,7 @@
 # 部署
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 3
 
 python
 nuitka/index

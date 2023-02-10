@@ -1,6 +1,8 @@
 ```{include} ../README.md
 ```
 
+排版尽可能遵循：[中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines)。
+
 ```{toctree}
 :maxdepth: 2
 :hidden:
@@ -8,8 +10,8 @@
 pythonx/index
 compiler
 math
-metaprogramming/index
-reference/index
+topics/index
+library/index
 posts/index
 news/index
 about/index

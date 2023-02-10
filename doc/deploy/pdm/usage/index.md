@@ -1,7 +1,7 @@
 # 用法
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 3
 
 project
 venv

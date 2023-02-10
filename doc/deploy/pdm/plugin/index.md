@@ -1,7 +1,7 @@
 # 插件
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 3
 
 write
 ```

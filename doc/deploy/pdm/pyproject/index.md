@@ -1,7 +1,7 @@
 # 编写 `pyproject.toml`
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 3
 
 pep621
 tool-pdm
