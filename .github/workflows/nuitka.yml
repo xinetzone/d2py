@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy Nuitka
 
 on:
   # Runs on pushes targeting the default branch
@@ -33,7 +33,7 @@ jobs:
         run: |
           pip install .
           
-      - Name: Build Executable
+      - name: Build Executable
         uses: Nuitka/Nuitka-Action@v0.4
         with:
           script-name: kasa_cli
