@@ -23,10 +23,9 @@ jobs:
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
           cache: 'pip'
           cache-dependency-path: "pyproject.toml"
-      # FIX FATAL: Error, the fuse library (libfuse.so.x from fuse2, *not* fuse3) must be installed
+      # fit FATAL: Error, the fuse library (libfuse.so.x from fuse2, *not* fuse3) must be installed
       - name: Install Dependencies
         run: |
-          sudo apt install libfuse2
           pip install .
           
       - name: Build Executable
