@@ -37,7 +37,7 @@ jobs:
         with:
           script-name: tools/test.py
           onefile: true
-          disable-console: true
+          # disable-console: true
           # windows-icon-from-ico: resources/app.ico
 
       # - name: Qt GUI with Pyside6
