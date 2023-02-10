@@ -62,3 +62,7 @@ name = "d2py"
 [tool.flit.sdist]
 # include = ["doc/"]
 exclude = ['doc', '.git', '.github', 'output']
+
+[pypi.extra]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+# verify_ssl = false

@@ -1,4 +1,4 @@
-name: Build-windows-macos-Platforms
+name: Build-All-Platforms
 
 on:
   # Runs on pushes targeting the default branch
@@ -37,6 +37,8 @@ jobs:
         with:
           script-name: tools/test.py
           onefile: true
+          disable-console: true
+          # windows-icon-from-ico: resources/app.ico
 
       # - name: Qt GUI with Pyside6
       #   uses: Nuitka/Nuitka-Action@v0.4
@@ -57,5 +59,6 @@ jobs:
         with:
           name: ${{ runner.os }} Build
           path: |
-            build/*.exe
+            build/*.bin
             build/*.app/**/*
+            build/*.exe
