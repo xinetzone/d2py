@@ -2,9 +2,11 @@
 
 参考：
 
-- [官方教程中文版](https://nuitka.net/zh_CN/)
+:::{card} Nuitka 文档
+:link: https://nuitka.net/zh_CN/
 
 Nuitka 将 Python 模块翻译成 C 级程序，然后使用 `libpython` 和自己的静态 C 文件，以 CPython 的方式执行。
+:::
 
 Nuitka 的简单命令：
 
