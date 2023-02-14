@@ -3,7 +3,9 @@
 ```{toctree}
 :maxdepth: 3
 
+f-string
 string
 textwrap
 re/index
+difflib
 ```
