@@ -2,5 +2,8 @@
 
 ```{toctree}
 :maxdepth: 3
+
 string
+textwrap
+re/index
 ```
