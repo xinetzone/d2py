@@ -7,6 +7,8 @@ library/index
 bitstream/index
 PyGithub/index
 office/index
+web/index
+ipywidgets/index
 meta-prog/index
 chaos/index
 draft

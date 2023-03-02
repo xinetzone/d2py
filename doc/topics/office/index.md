@@ -2,4 +2,5 @@
 
 ```{toctree}
 docx
+openpyxl
 ```
