@@ -247,8 +247,14 @@ html_theme_options = {
         {
             "name": "简书",
             "url": "https://www.jianshu.com/u/4302480a3e8e",
-            "icon": "https://xinetzone.github.io/xinetzone/media/jianshu.svg",
-            "url": "url",
+            "icon": "fa-solid fa-book",
+            "type": "fontawesome",
+        },
+        {
+            "name": "B站",
+            "url": "https://space.bilibili.com/252192181",
+            "icon": "fa-brands fa-bilibili",
+            "type": "fontawesome",
         },
         {
             "name": "博客园",
