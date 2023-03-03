@@ -2,5 +2,5 @@
 
 ```{toctree}
 docx
-openpyxl
+openpyxl/index
 ```
