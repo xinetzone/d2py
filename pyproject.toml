@@ -52,6 +52,7 @@ doc = [
   "sphinx-plotly-directive",
   "jupyter-dash",
   "plotly",
+  "python-docx",
   "sphinx-sitemap",
   "bokeh",
 ]

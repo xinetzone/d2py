@@ -28,7 +28,7 @@ pdm config theme.success '#51c7bd'
 ## 可用配置
 
 
-The following configuration items can be retrieved and modified by [`pdm config`](../usage/cli_reference.md#exec-0--config) command.
+The following configuration items can be retrieved and modified by `pdm config` command.
 
 | Config Item                       | Description                                                               | Default Value                                                         | Available in Project | Env var                   |
 | --------------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------- | ------------------------- |
