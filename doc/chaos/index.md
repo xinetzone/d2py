@@ -8,6 +8,7 @@
 GUI/index
 web/index
 nlp/index
+study/index
 errors
 ```
 Text preprocessing, representation and visualization from zero to hero.

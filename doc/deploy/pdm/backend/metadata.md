@@ -6,7 +6,7 @@
 
 `pdm-backend` 可以动态地确定项目的版本。要做到这一点，你需要从 `pyproject.toml` 中去掉 `version` 字段，并将 `version` 添加到 `project.dynamic` 列表中：
 
-```toml
+```
 [project]
 ...
 - version = "0.1.0" remove this line

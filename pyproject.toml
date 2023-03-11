@@ -54,6 +54,7 @@ doc = [
   "plotly",
   "python-docx",
   "sphinx-sitemap",
+  "sphinx-packaging",
   "bokeh",
 ]
 

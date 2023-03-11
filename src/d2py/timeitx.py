@@ -1,13 +1,20 @@
+"""时间度量
+"""
 from dataclasses import dataclass
 from contextlib import ContextDecorator
 import logging
 import time
 import numpy as np
 
+__all__ = ["TimerContext"]
 
 @dataclass
 class TimerContext(ContextDecorator):
-    """追踪上下文信息"""
+    """追踪上下文信息
+
+    Args:
+        name: 计时器名称
+    """
     name: str = "Timer"
 
     def __post_init__(self):

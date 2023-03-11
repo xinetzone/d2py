@@ -14,6 +14,7 @@ topics/index
 library/index
 posts/index
 news/index
+AIGC<https://aigc.cn/>
 about/index
 ```
 

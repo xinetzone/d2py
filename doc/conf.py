@@ -61,6 +61,7 @@ extensions = [
     # "sphinx.ext.viewcode",
     # "sphinx.ext.doctest",
     "sphinx_design",
+    "sphinx_packaging",
     "sphinxcontrib.mermaid",
     # "sphinx.ext.ifconfig",
     # "sphinxext.opengraph",

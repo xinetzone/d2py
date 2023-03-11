@@ -197,7 +197,7 @@ pdm publish -r https://test.pypi.org/simple
 
 ### 为上传配置存储库密钥
 
-当使用 [`pdm publish`](cli_reference.md#exec-0--publish) 命令时，它从 *global* 配置文件（`<CONFIG_ROOT>/config.toml`）中读取存储库密钥。配置的内容如下：
+当使用 `pdm publish` 命令时，它从 *global* 配置文件（`<CONFIG_ROOT>/config.toml`）中读取存储库密钥。配置的内容如下：
 
 ```toml
 [repository.pypi]
@@ -221,7 +221,7 @@ PEM-编码的证书颁发机构包(`ca_certs`)可用于本地/自定义 PyPI 存
 您不需要为 `pypi` 和 `testpypi` 存储库配置 `url`，它们由默认值填充。用户名、密码和证书颁发机构包可以分别通过 `--username`、`--password` 和 `--ca-certs` 从 `pdm publish` 的命令传递进来。
 ```
 
-要从命令行更改存储库配置，使用  [`pdm config`](cli_reference.md#exec-0--config) 命令：
+要从命令行更改存储库配置，使用 `pdm config` 命令：
 
 ```bash
 pdm config repository.pypi.username "__token__"
@@ -288,10 +288,6 @@ pdm config install.cache on
 ```console
 pdm export -o requirements.txt
 pdm export -f setuppy -o setup.py
-```
-
-```{note}
-您还可以使用 [`.pre-commit` 钩子](pdm:hooks-for-pre-commit) 运行 PDM 导出。
 ```
 
 ## 使用版本控制
