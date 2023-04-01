@@ -17,3 +17,18 @@ sphinx-design 提供美观的文档组件。
 
 sphinx 提供文档管理。
 :::
+
+## ChatGPT
+
+
+:::{card} 科研利器
+:link: https://github.com/binary-husky/chatgpt_academic
+
+科研工作专用ChatGPT拓展，特别优化学术Paper润色体验，支持自定义快捷按钮，支持markdown表格显示，Tex公式双显示，代码显示功能完善，新增本地Python工程剖析功能/自我剖析功能
+:::
+
+:::{card} ChatPaper
+:link: https://github.com/kaixindelele/ChatPaper
+
+全流程加速科研，利用chatgpt进行论文总结+润色+审稿+审稿回复
+:::
