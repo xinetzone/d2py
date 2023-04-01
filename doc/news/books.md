@@ -31,3 +31,8 @@
 ## Python Awesome
 
 - [best-of-lists/best-of](https://github.com/best-of-lists/best-of): 发现关于各种主题的优秀开源项目的最佳列表。
+- [Python Cookbook](https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html)
+
+## 工具
+
+- [科研利器](https://github.com/binary-husky/chatgpt_academic)
