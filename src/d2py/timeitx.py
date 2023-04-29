@@ -1,5 +1,6 @@
 """时间度量
 """
+from __future__ import annotations
 from dataclasses import dataclass
 from contextlib import ContextDecorator
 import logging
