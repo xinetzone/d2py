@@ -3,4 +3,5 @@
 ```{toctree}
 docx
 openpyxl/index
+pypiwin32
 ```
