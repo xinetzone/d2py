@@ -126,6 +126,8 @@ intersphinx_mapping = {
     'python': ('https://daobook.github.io/cpython/', None),
     'sphinx': ('https://daobook.github.io/sphinx/', None),
     'peps': ('https://daobook.github.io/peps', None),
+    "Paramiko": ("https://www.paramiko.org/", None),
+    "Fabric": ("https://www.fabfile.org/", None)
 }
 
 # Add any paths that contain templates here, relative to this directory.
