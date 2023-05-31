@@ -12,7 +12,7 @@
 
 import os
 import sys
-import ablog
+# import ablog
 from pathlib import Path
 
 ROOT = Path('__file__').resolve().parents[1]
@@ -170,11 +170,11 @@ html_sidebars = {
         "sbt-sidebar-nav.html",
     ],
     "posts/**": [
-        "postcard.html",
-        "recentposts.html",
-        "tagcloud.html",
-        "categories.html",
-        "archives.html",
+        "ablog/postcard.html",
+        "ablog/recentposts.html",
+        "ablog/tagcloud.html",
+        "ablog/categories.html",
+        "ablog/archives.html",
         "searchbox.html",
     ],
 }
