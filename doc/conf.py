@@ -56,7 +56,7 @@ extensions = [
     "sphinx_automodapi.automodapi",
     "sphinx_automodapi.smart_resolver",
     # "sphinx.ext.todo",
-    # "sphinxcontrib.bibtex",
+    "sphinxcontrib.bibtex",
     # "sphinx_togglebutton",
     # "sphinx.ext.viewcode",
     # "sphinx.ext.doctest",
@@ -309,8 +309,6 @@ blog_baseurl = "https://xinetzone.github.io/d2py"
 fontawesome_included = True
 post_auto_image = 1
 post_auto_excerpt = 2
-bibtex_bibfiles = ["references.bib"]
-bibtex_reference_style = "author_year"
 # --    博客作者、语言和位置 -------------------------------------------------
 
 # 一个作者名字的字典，映射到作者的完整显示名称和链接。
@@ -344,5 +342,9 @@ post_date_format_short = '%b %d, %Y'
 # 避免将 jupter 执行报错的信息输出到 cmd
 nb_merge_streams = True
 nb_execution_allow_errors = True
-nb_execution_mode = "cache" # "off"
+nb_execution_mode = "off" # "cache", "off"
 # nbsphinx_assume_equations = False
+
+bibtex_bibfiles = ["refs.bib"]
+bibtex_reference_style = "author_year"
+graphviz_output_format = 'svg'
