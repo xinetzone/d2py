@@ -3,6 +3,7 @@
 ```{toctree}
 :maxdepth: 5
 
+image-processing/index
 library/index
 bitstream/index
 PyGithub/index
