@@ -48,6 +48,7 @@ doc = [
   "sphinx-design",
   "sphinx-automodapi",
   "sphinxext-rediraffe",
+  "sphinxcontrib-bibtex",
   # "plotly-geo",
   "sphinx-plotly-directive",
   "jupyter-dash",
