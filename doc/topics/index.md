@@ -4,6 +4,7 @@
 :maxdepth: 5
 
 ai/index
+tools/index
 image-processing/index
 library/index
 bitstream/index
