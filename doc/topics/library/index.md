@@ -6,5 +6,4 @@
 :maxdepth: 3
 
 text/index
-fabric
 ```
