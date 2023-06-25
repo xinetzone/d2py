@@ -42,3 +42,15 @@
 :link: https://charmve.github.io/computer-vision-in-action
 计算机视觉实战演练 L0CV
 :::
+
+:::{card} Python 设计模式
+:link: https://github.com/faif/python-patterns
+
+Python 中的设计模式和习惯用法的集合。
+:::
+
+:::{card} 开源算法库
+:link: https://the-algorithms.com/zh_Hans
+
+学习数据结构和算法及其在任何编程语言中的实现的开源资源。
+:::
