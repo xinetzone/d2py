@@ -32,3 +32,9 @@ sphinx 提供文档管理。
 
 全流程加速科研，利用chatgpt进行论文总结+润色+审稿+审稿回复
 :::
+
+## Jupyter 
+
+1. [Jupyter integration with the Language Server Protocol](https://jupyter.org/enhancement-proposals/72-language-server-protocol/language-server-protocol.html)
+- [The Jupyter Notebook Format](https://nbformat.readthedocs.io/en/latest/)
+- [nbgrader](https://nbgrader.readthedocs.io/en/stable/index.html)

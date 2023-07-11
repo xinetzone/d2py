@@ -13,7 +13,7 @@ office/index
 web/index
 ipywidgets/index
 meta-prog/index
+papers/index
 chaos/index
 draft
 ```
-
