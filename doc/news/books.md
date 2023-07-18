@@ -32,3 +32,5 @@
 
 - [best-of-lists/best-of](https://github.com/best-of-lists/best-of): 发现关于各种主题的优秀开源项目的最佳列表。
 - [Python Cookbook](https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html)
+- [free-science-books](https://github.com/EbookFoundation/free-science-books)
+- [free-programming-books](https://github.com/EbookFoundation/free-programming-books)
