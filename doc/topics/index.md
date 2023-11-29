@@ -1,4 +1,4 @@
-# Python 主题手册
+# 主题手册
 
 ```{toctree}
 :maxdepth: 5
