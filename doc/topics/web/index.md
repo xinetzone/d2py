@@ -2,4 +2,5 @@
 
 ```{toctree}
 lxml
+telnetlib3/index
 ```
