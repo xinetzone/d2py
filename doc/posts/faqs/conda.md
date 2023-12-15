@@ -16,3 +16,9 @@ envs_dirs:
 pkgs_dirs:                                                                                                                                 
   - /media/pc/data/tmp/cache/conda/pkgs
 ```
+
+## conda 解决“libstdc++.so.6: version `GLIBCXX_3.4.20‘ not found“
+
+```bash
+conda install -c anaconda libstdcxx-ng
+```
