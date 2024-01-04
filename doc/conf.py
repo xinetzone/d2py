@@ -43,6 +43,7 @@ extensions = [
     "myst_nb",
     # "nbsphinx",  
     "sphinx.ext.extlinks",
+    "sphinx.ext.todo",
     "sphinx.ext.intersphinx",
     "sphinx_thebe",
     "sphinx_copybutton",
@@ -340,7 +341,7 @@ blog_default_language = 'zh'
 post_date_format = '%c'
 post_date_format_short = '%b %d, %Y'
 
-# todo_include_todos = True
+todo_include_todos = True
 
 # 如果你希望stderr和stdout中的每个输出都被合并成一个流，请使用以下配置。
 # 避免将 jupter 执行报错的信息输出到 cmd
