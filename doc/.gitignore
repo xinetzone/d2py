@@ -10,3 +10,4 @@ locales/zh_CN/LC_MESSAGES/reference
 _build/
 *.bin
 api/
+*.log

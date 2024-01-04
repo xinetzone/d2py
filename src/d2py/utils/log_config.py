@@ -20,8 +20,11 @@ def config_logging(
                         filename=filename,
                         filemode=filemode)
     
-    # 禁用 debug 信息
-    for mod_name in ["matplotlib", "PIL", "asyncio"]:
+    # 禁用一些 debug 信息
+    for mod_name in [
+        "matplotlib", "PIL", "asyncio", 
+        "urllib3", "markdown_it", "ablog",
+        "root"]:
         _logger = logging.getLogger(mod_name)
         _logger.setLevel(logging.WARNING)
     

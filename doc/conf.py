@@ -1,24 +1,11 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-
-import os
+from pathlib import Path
+import logging
 import sys
 # import ablog
-from pathlib import Path
-
-ROOT = Path('__file__').resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1]
 sys.path.extend([str(ROOT/'src'), str(ROOT/'doc/_ext')])
 import d2py
-
+from d2py.utils.log_config import config_logging
 if sys.platform == 'win32':
     import asyncio
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -32,7 +19,8 @@ author = 'xinetzone'
 # The full version, including alpha/beta/rc tags
 release = d2py.__version__
 html_baseurl = 'https://xinetzone.github.io/d2py'
-
+# 配置日志信息
+config_logging(f"{project}.log", __name__, filemode='a')
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
