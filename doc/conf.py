@@ -43,7 +43,6 @@ extensions = [
     "myst_nb",
     # "nbsphinx",  
     "sphinx.ext.extlinks",
-    "sphinx.ext.todo",
     "sphinx.ext.intersphinx",
     "sphinx_thebe",
     "sphinx_copybutton",
@@ -56,7 +55,6 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx_automodapi.automodapi",
     "sphinx_automodapi.smart_resolver",
-    # "sphinx.ext.todo",
     "sphinxcontrib.bibtex",
     # "sphinx_togglebutton",
     # "sphinx.ext.viewcode",
@@ -68,6 +66,10 @@ extensions = [
     # "sphinxext.opengraph",
     # "sphinx_immaterial",
     "code_annotations",
+    # "sphinx.ext.todo",
+    "todo",
+    "sphinx_docx",
+    "helloworld",
 ]
 
 myst_enable_extensions = [
