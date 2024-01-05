@@ -11,7 +11,6 @@ class HelloWorld(Directive):
 
 def setup(app):
     app.add_directive("helloworld", HelloWorld)
-
     return {
         'version': '0.1',
         'parallel_read_safe': True,

@@ -1,0 +1,35 @@
+{%- extends "page.html" %}
+{% macro postlink(post) -%}
+  {% if post.external_link -%}
+    {{- post.external_link -}}
+  {% else %}
+    {{- pathto(post.docname) }}{{ anchor(post) -}}
+  {%- endif %}
+{%- endmacro %}
+{% block body %}
+{% for collection in catalog %}
+{% if collection %}
+<div class="section ablog__catalog_header">
+  <h2>
+    {{ header }}
+    <a href="{{ pathto(collection.docname) }}">{{ collection }}</a>
+  </h2>
+  {% for post in collection %}
+  <div class="section ablog__catalog_post">
+    <p>
+      {% if post.published %}
+      {{ post.date.strftime(ablog.post_date_format) }}
+      {% else %}
+      Draft
+      {% endif %}
+      -
+      <a href="{{ postlink(post) }}"
+        >{{ post.title }}</a
+      >
+    </p>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}

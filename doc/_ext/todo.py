@@ -1,8 +1,16 @@
+"""允许将待办事项插入到您的文档中。
+
+可以通过配置变量来启用或禁用待办事项的包含。
+todolist 指令收集项目中的所有待办事项，并将它们列出，同时提供指向原始位置的返回链接。
+"""
+import logging
 from docutils import nodes
 from docutils.parsers.rst import Directive
 
 from sphinx.locale import _
 from sphinx.util.docutils import SphinxDirective
+
+logger = logging.getLogger(__name__)
 
 
 class todo(nodes.Admonition, nodes.Element):
@@ -71,6 +79,7 @@ def merge_todos(app, env, docnames, other):
 def process_todo_nodes(app, doctree, fromdocname):
     if not app.config.todo_include_todos:
         for node in doctree.traverse(todo):
+            logger.debug(f"解析：{node}")
             node.parent.remove(node)
 
     # Replace all todolist nodes with a list of the collected todos.

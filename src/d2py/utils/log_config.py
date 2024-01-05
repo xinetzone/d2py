@@ -4,9 +4,15 @@ import logging
 def config_logging(
     filename,
     logger_name="logger",
+    filemode='a',
+    filter_mod_names = [
+        "matplotlib", "PIL", "asyncio", 
+        "urllib3", "markdown_it",
+        "ablog"
+    ],
     file_formatter="%(levelname)s|%(asctime)s|%(name)s| -> %(message)s\n|==>%(module)s.%(funcName)s@: %(pathname)s:%(lineno)d",
     stream_formatter="%(levelname)s|%(asctime)s|%(name)s| -> %(message)s",
-    filemode='a'):
+    ):
     """配置 logging
 
     Args:
@@ -21,10 +27,7 @@ def config_logging(
                         filemode=filemode)
     
     # 禁用一些 debug 信息
-    for mod_name in [
-        "matplotlib", "PIL", "asyncio", 
-        "urllib3", "markdown_it", "ablog",
-        "root"]:
+    for mod_name in filter_mod_names:
         _logger = logging.getLogger(mod_name)
         _logger.setLevel(logging.WARNING)
     
