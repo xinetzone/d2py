@@ -6,4 +6,5 @@
 
 sphinx/index
 tasks/index
+tabulate
 ```
