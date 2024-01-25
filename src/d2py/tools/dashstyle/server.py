@@ -1,4 +1,4 @@
-from jupyter_dash import JupyterDash as Dash
+from dash import Dash
 import socket
 
 # def interpolate_str(template, **data):
