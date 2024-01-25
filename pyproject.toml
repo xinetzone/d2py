@@ -16,7 +16,8 @@ dependencies = [
   "pdm",
   "PyGithub[integrations]",
   "bytecode",
-  "numpy"
+  "numpy",
+  "dash"
 ]
 
 maintainers = [
