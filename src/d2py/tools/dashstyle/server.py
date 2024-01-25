@@ -1,3 +1,4 @@
+import logging
 from dash import Dash
 import socket
 
@@ -13,10 +14,9 @@ def get_Host_name_IP():
     try:
         host_name = socket.gethostname()
         host_ip = socket.gethostbyname(host_name)
-        print("Hostname :  ", host_name)
-        print("IP : ", host_ip)
+        logging.info(f"Hostname: {host_name}\nIP: {host_ip}")
     except:
-        print("Unable to get Hostname and IP")
+        logging.info("Unable to get Hostname and IP")
         host_ip = 'localhost'
     return host_ip
 
@@ -48,7 +48,7 @@ META_TAGS = [
 ]
 
 
-def create_app(name=NAME, server_url=None, title='Dash', external_stylesheets=None, **kwargs):
+def create_app(name=NAME, title='Dash', external_stylesheets=None, **kwargs):
     # external_scripts = ['https://www.google-analytics.com/analytics.js']
     external_scripts = [
         "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"]
@@ -64,7 +64,7 @@ def create_app(name=NAME, server_url=None, title='Dash', external_stylesheets=No
         'external_scripts': external_scripts
     }
     kwargs.update(kw)
-    app = Dash(name, server_url=server_url, title=title, **kwargs)
+    app = Dash(name, title=title, **kwargs)
     return app
 
 
