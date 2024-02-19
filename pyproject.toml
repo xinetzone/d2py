@@ -29,7 +29,7 @@ Home = "https://github.com/xinetzone/d2py"
 
 [project.optional-dependencies]
 doc = [
-  "sphinx<6",
+  "sphinx",
   "sphinxcontrib-youtube",
   "sphinx-favicon",
   "xyzstyle",
@@ -52,8 +52,8 @@ doc = [
   "sphinxcontrib-bibtex",
   # "plotly-geo",
   "sphinx-plotly-directive",
-  "jupyter-dash",
-  "plotly",
+  "dash",
+  "html5tagger",
   "python-docx",
   "sphinx-sitemap",
   "sphinx-packaging",
