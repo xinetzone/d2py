@@ -150,7 +150,7 @@ flowchart LR
 
 给定以下 `scripts` 定义：
 
-```toml
+```
 [tool.pdm.scripts]
 pre_script = ""
 post_script = ""

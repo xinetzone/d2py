@@ -102,7 +102,7 @@ excludes = [
 
 如果你希望某些文件只包含在 sdist 中，你可以使用 `source-includes` 字段。
 
-```toml
+```
 [tool.pdm.build]
 includes = [...]
 excludes = [...]

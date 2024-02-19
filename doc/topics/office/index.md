@@ -4,4 +4,5 @@
 docx
 openpyxl/index
 pypiwin32
+excel-conda
 ```

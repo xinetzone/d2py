@@ -14,3 +14,4 @@ logger = logging.getLogger(project)
 
 # def setup(app):
 #     app.connect('source-read', source_read_handler)
+navigation_with_keys = True
