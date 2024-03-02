@@ -1,9 +1,7 @@
-# Jupyter
+# Jupyter 
 
 ```{toctree}
-:maxdepth: 2
-:hidden:
-:glob:
-
-*
+tutorial/index
+ipywidgets/index
+tools/index
 ```

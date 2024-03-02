@@ -277,6 +277,7 @@ html_theme_options = {
     ],
     # "footer_start": ["copyright", "sphinx-version"],
     "footer_end": ["last-updated", ],
+    "navigation_with_keys": True
 }
 # -- 自定义网站的标志 --------------
 html_logo = 'logo.jpg'
