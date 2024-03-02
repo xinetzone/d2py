@@ -12,16 +12,14 @@ creating apps and dashboards, which not only supports bokeh plots.
       <https://medium.com/@philipp.jfr/panel-announcement-2107c2b15f52>`_.
 
 .. toctree::
-    :hidden:
-
     install
-    overview.ipynb
-    interact.ipynb
-    widgets.ipynb
-    params.ipynb
-    style.ipynb
-    deploy.ipynb
-    pipelines.ipynb
-    templates.ipynb
+    overview
+    interact
+    widgets
+    params
+    style
+    deploy
+    pipelines
+    templates
     pyodide
     fastapi

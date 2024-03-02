@@ -8,6 +8,7 @@
 :hidden:
 
 pythonx/index
+jupyter/index
 compiler
 math
 topics/index

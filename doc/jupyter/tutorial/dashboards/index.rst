@@ -1,30 +1,24 @@
-Dashboards
+仪表盘
 ==========
 
 :doc:`Jupyter Dashboards Layout Extension <jupyter-dashboards/index>`
-    Add-on for Jupyter notebooks, with which outputs (text, plots, widgets,
-    :abbr:`etc. (et cetera)`) can be arranged in a design grid or in report
-    form.
+    Jupyter notebooks 的附加组件，它允许将输出（文本、图表、小部件 :abbr:`etc. (et cetera)`）按照设计网格或报告形式进行排列。
 :doc:`appmode/index`
-    Jupyter extension that turns notebooks into web applications.
-:doc:`/nbviewer`
-    It's great for viewing static reports, but it can also be used in
-    conjunction with :doc:`interaktiven Widgets </ipywidgets/embedding>`.
+    将 Jupyter 笔记本转换为 web 应用程序的扩展。
+:doc:`../nbviewer`
+    它非常适合查看静态报告，但也可以与 :doc:`交互式小部件 <ipywidgets/embedding>` 结合使用。
 :doc:`panel/index`
-    was developed on the basis of `Bokeh <https://docs.bokeh.org/en/latest/>`_
-    and `Param <https://github.com/holoviz/param>`_ and offers a toolkit
-    especially for creating apps and dashboards, which not only supports bokeh
-    plots, see also `Panel: A high-level app and dashboarding solution for the
-    PyData ecosystem
-    <https://medium.com/@philipp.jfr/panel-announcement-2107c2b15f52>`_.
+    它是基于 `Bokeh <https://docs.bokeh.org/en/latest/>`_ 和 `Param <https://github.com/holoviz/param>`_ 开发的，
+    并提供了特别用于创建应用程序和仪表板的工具包，不仅支持 bokeh 图表，
+    还请参阅 `Panel：针对 PyData 生态系统的高级应用和仪表板解决方案
+    <https://medium.com/@philipp.jfr/panel-announcement-2107c2b15f52>`_。
 :doc:`voila/index`
-    was developed by `QuantStack <https://quantstack.net/>`_, see also `And
-    voilà! <https://blog.jupyter.org/and-voil%C3%A0-f6a2c08a4a93>`_.
+    它是由 `QuantStack <https://quantstack.net/>`_ 开发的，
+    也请参阅 `And voilà！ <https://blog.jupyter.org/and-voil%C3%A0-f6a2c08a4a93>`_。
 :doc:`jupyter-flex/index`
-    Jupyter extension that turns notebooks into dashboards.
+    将笔记本转换为仪表板的 Jupyter 扩展。
 
-With this tabular overview you can quickly compare the activities and licenses
-of the various libraries.
+通过这个表格概览，您可以快速比较各个库的活动和许可证。
 
 .. csv-table:: GitHub-Insights: Dashboards
     :header: "Name", "Stars", "Contributors", "Commit activity", "License"

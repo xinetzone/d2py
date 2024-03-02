@@ -1,8 +1,7 @@
-Use cases
-=========
+Jupyter Use cases
+==================
 
-In some companies, Jupyter notebooks are used to explore the ever-increasing
-amounts of data. These include:
+在某些公司中，Jupyter notebooks 被用来探索不断增长的数据量。这些数据包括：
 
 * Netflix
 

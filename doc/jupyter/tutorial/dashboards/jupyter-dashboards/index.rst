@@ -38,9 +38,7 @@ The Jupyter dashboards should solve the following problem:
     <https://blog.jupyter.org/and-voil%C3%A0-f6a2c08a4a93>`_.
 
 .. toctree::
-    :hidden:
     :titlesonly:
-    :maxdepth: 0
 
     install
     use
