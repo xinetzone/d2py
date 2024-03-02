@@ -30,6 +30,7 @@ Home = "https://github.com/xinetzone/d2py"
 [project.optional-dependencies]
 doc = [
   "sphinx",
+  "sphinxext-opengraph",
   "sphinxcontrib-youtube",
   "sphinx-favicon",
   "xyzstyle",

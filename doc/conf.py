@@ -14,3 +14,13 @@ logger = logging.getLogger(project)
 
 # def setup(app):
 #     app.connect('source-read', source_read_handler)
+
+def setup(app):
+    # from sphinx.ext.autodoc import cut_lines
+    # app.connect('autodoc-process-docstring', cut_lines(4, what=['module']))
+    app.add_object_type(
+        "label",
+        "label",
+        objname="label value",
+        indextemplate="pair: %s; label value",
+    )

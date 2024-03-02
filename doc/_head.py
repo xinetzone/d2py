@@ -18,6 +18,8 @@ config_logging(f"{project}.log", project, filemode='a')
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "IPython.sphinxext.ipython_console_highlighting",
+    "sphinx.ext.graphviz",
     "ablog",
     "myst_nb",
     # "nbsphinx",  
@@ -42,11 +44,11 @@ extensions = [
     "sphinx_packaging",
     "sphinxcontrib.mermaid",
     # "sphinx.ext.ifconfig",
-    # "sphinxext.opengraph",
     # "sphinx_immaterial",
     "code_annotations",
     # "sphinx.ext.todo",
     "todo",
+    # "sphinxext.opengraph",
     "sphinx_docx",
     "helloworld",
 ]
@@ -105,6 +107,32 @@ suppress_warnings = ["mystnb.unknown_mime_type"]
 # }
 
 intersphinx_mapping = {
+    "ipython": ("https://ipython.readthedocs.io/en/latest/", None),
+    "pytest": ("https://docs.pytest.org/en/latest/", None),
+    "jupyter-notebook": (
+        "https://jupyter-notebook.readthedocs.io/en/stable/",
+        None,
+    ),
+    "jupyterhub": ("https://jupyterhub.readthedocs.io/en/stable/", None),
+    "nbconvert": ("https://nbconvert.readthedocs.io/en/latest/", None),
+    "jupyter-contrib-nbextensions": (
+        "https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/",
+        None,
+    ),
+    "nbsphinx": ("https://nbsphinx.readthedocs.io/en/0.4.2/", None),
+    "spack": ("https://spack-tutorial.readthedocs.io/en/latest/", None),
+    "ipyparallel": ("https://ipyparallel.readthedocs.io/en/latest/", None),
+    "bokeh": ("https://docs.bokeh.org/en/latest/", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
+    "pyviz": ("https://pyviz-tutorial.readthedocs.io/de/latest/", None),
+    "python-basics": (
+        "https://python-basics-tutorial.readthedocs.io/en/latest/",
+        None,
+    ),
+    "python4datascience": (
+        "https://www.python4data.science/en/latest/",
+        None,
+    ),
     'python': ('https://daobook.github.io/cpython/', None),
     'sphinx': ('https://daobook.github.io/sphinx/', None),
     'peps': ('https://daobook.github.io/peps', None),
