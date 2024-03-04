@@ -11,6 +11,8 @@ bitstream/index
 PyGithub/index
 office/index
 web/index
+vega/index
+bokeh/index
 meta-prog/index
 pep/index
 papers/index
