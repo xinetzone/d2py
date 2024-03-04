@@ -37,12 +37,13 @@ jobs:
       - name: 🐍 Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
           cache: "pip"
           cache-dependency-path: "pyproject.toml"
       - name: 🔧 Build HTML
         run: |
           sudo apt-get install graphviz
+          pip install --upgrade pip
           pip install .[doc]
           conda install -c conda-forge pandoc
           invoke doc
