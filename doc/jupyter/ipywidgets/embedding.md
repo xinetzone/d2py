@@ -139,7 +139,7 @@ with open('export.html', 'w') as fp:
     fp.write(rendered_template)
 ```
 
-网页需要加载 RequireJS 和 Jupyter 部件 HTML 管理器。然后你需要在文档头部的 ```` 标签中包含管理器状态，类型为 `application/vnd.jupyter.widget-state+json`。对于每个部件视图，在应包含视图的 DOM 元素中放置一个类型为 `application/vnd.jupyter.widget-view+json` 的 ```` 标签。部件管理器将用与部件对应的 DOM 树替换每个 ```` 标签。
+网页需要加载 RequireJS 和 Jupyter 部件 HTML 管理器。然后你需要在文档头部的 `<script>` 标签中包含管理器状态，类型为 `application/vnd.jupyter.widget-state+json`。对于每个部件视图，在应包含视图的 DOM 元素中放置一个类型为 `application/vnd.jupyter.widget-view+json` 的 `<script>` 标签。部件管理器将用与部件对应的 DOM 树替换每个 `<script>` 标签。
 
 在这个例子中，我们使用了一个 Python 字符串作为模板，并使用 `format` 方法插入状态。对于嵌入到更复杂文档中，你可能想要使用像 [Jinja2](http://jinja.pocoo.org/) 这样的模板引擎。
 
