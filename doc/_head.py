@@ -18,7 +18,7 @@ config_logging(f"{project}.log", project, filemode='a')
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "IPython.sphinxext.ipython_console_highlighting",
+    # "IPython.sphinxext.ipython_console_highlighting",
     "sphinx.ext.graphviz",
     "ablog",
     "myst_nb",
@@ -357,9 +357,17 @@ todo_include_todos = True
 # 避免将 jupter 执行报错的信息输出到 cmd
 nb_merge_streams = True
 nb_execution_allow_errors = True
-nb_execution_mode = "off" # "cache", "off"
+nb_execution_mode = "cache" # "cache", "off"
 # nbsphinx_assume_equations = False
 
 bibtex_bibfiles = ["refs.bib"]
 bibtex_reference_style = "author_year"
 graphviz_output_format = 'svg'
+
+# -- epub --------------------------
+
+# Bibliographic Dublin Core info.
+epub_title = project
+epub_author = author
+epub_publisher = author
+epub_copyright = copyright

@@ -61,7 +61,15 @@ doc = [
   "sphinx-sitemap",
   "sphinx-packaging",
   "bokeh",
+  "ipympl",
+  "ipykernel",
+  "ipyleaflet",
+  "jupyter-client",
+  "jupyter-packaging",
+  :
 ]
+
+
 
 [tool.flit.module]
 name = "d2py"
