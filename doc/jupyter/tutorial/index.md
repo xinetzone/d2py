@@ -8,7 +8,6 @@ binder
 nbconvert
 nbviewer
 kernels/index
-ipywidgets/index
 nbextensions/index
 viz/index
 dashboards/index
