@@ -68,8 +68,6 @@ doc = [
   "jupyter-packaging",
 ]
 
-
-
 [tool.flit.module]
 name = "d2py"
 
