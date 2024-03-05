@@ -9,13 +9,9 @@
 - `prompt`（默认值为 `False`）是否懒加载 UI。如果该值为字符串，则将其用作提示按钮的值。
 - `prompt_color`（默认值为 `#f7dc1e`）提示按钮的颜色（如果有的话）。
 
-<!-- ```{toctree}
+```{toctree}
 :maxdepth: 2
 
-directives/jupyterlite
-directives/notebooklite
-directives/replite
-directives/voici
-directives/try_examples
+directives/index
 full
-``` -->
+```

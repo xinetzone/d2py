@@ -74,6 +74,8 @@ doc = [
   "jupyterlab",
   "jupyter_server",
   "jupyterlab_server",
+  "voici",
+  "libarchive-c",
 ]
 
 [tool.flit.module]
