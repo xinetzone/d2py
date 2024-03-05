@@ -141,3 +141,7 @@ output/
 
 # PDM
 pdm.lock
+
+# Jupyter Lite
+*.db
+_contents/

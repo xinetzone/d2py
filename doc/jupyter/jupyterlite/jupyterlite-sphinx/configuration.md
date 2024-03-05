@@ -26,7 +26,7 @@ jupyterlite_dir = "/path/to/your/lite/dir"
 
 您需要在文档构建环境中安装 `jupyterlite-xeus`。
 
-您可以通过在文档目录中添加一个 `environment.yml` 文件来预安装包，其中将 `xeus-python` 定义为依赖项之一。它将在运行 `jupyter lite build` 时预构建环境。
+您可以通过在文档目录中添加 `environment.yml` 文件来预安装包，其中将 `xeus-python` 定义为依赖项之一。它将在运行 `jupyter lite build` 时预构建环境。
 
 此外，这会自动安装它找到的任何 labextension，例如安装 ipyleaflet 将使 ipyleaflet 无需手动安装 jupyter-leaflet labextension 即可工作。
 

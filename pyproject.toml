@@ -71,7 +71,7 @@ doc = [
   "jupyterlite-xeus",
   "jupyterlite-core",
   "jupyterlite-pyodide-kernel",
-  "jupyterlab"
+  "jupyterlab",
   "jupyter_server",
   "jupyterlab_server",
 ]
