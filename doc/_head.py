@@ -51,6 +51,10 @@ extensions = [
     # "sphinxext.opengraph",
     "sphinx_docx",
     "helloworld",
+    # for pretty schema
+    "sphinx-jsonschema",
+    'sphinx.ext.mathjax',
+    'jupyterlite_sphinx',
 ]
 
 myst_enable_extensions = [
@@ -117,6 +121,10 @@ intersphinx_mapping = {
     "nbconvert": ("https://nbconvert.readthedocs.io/en/latest/", None),
     "jupyter-contrib-nbextensions": (
         "https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/",
+        None,
+    ),
+    "jupyterlite": (
+        "https://jupyterlite.readthedocs.io/en/stable/",
         None,
     ),
     "nbsphinx": ("https://nbsphinx.readthedocs.io/en/0.4.2/", None),

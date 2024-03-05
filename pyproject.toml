@@ -66,6 +66,14 @@ doc = [
   "ipyleaflet",
   "jupyter-client",
   "jupyter-packaging",
+  "sphinx-jsonschema",
+  'jupyterlite-sphinx',
+  "jupyterlite-xeus",
+  "jupyterlite-core",
+  "jupyterlite-pyodide-kernel",
+  "jupyterlab"
+  "jupyter_server",
+  "jupyterlab_server",
 ]
 
 [tool.flit.module]

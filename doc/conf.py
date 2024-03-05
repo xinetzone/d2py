@@ -15,6 +15,9 @@ logger = logging.getLogger(project)
 # def setup(app):
 #     app.connect('source-read', source_read_handler)
 
+suppress_warnings = ["myst.xref_missing"]
+jupyterlite_contents = f"{ROOT}/tests/custom_contents"
+jupyterlite_bind_ipynb_suffix = False
 def setup(app):
     # from sphinx.ext.autodoc import cut_lines
     # app.connect('autodoc-process-docstring', cut_lines(4, what=['module']))
