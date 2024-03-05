@@ -1,4 +1,4 @@
-# ipywidgets 教程
+# ipywidgets 高级教程
 
 ```{toctree}
 :maxdepth: 1

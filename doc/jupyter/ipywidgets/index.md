@@ -11,8 +11,9 @@
 `ipywidgets` 是一个为 Jupyter Notebook 设计的交互式小部件库，它使得在 Jupyter Notebook 中创建和部署交互式控件变得简单。这些控件包括按钮、滑块、下拉菜单等，它们可以与 Python 代码动态交互，从而实现数据的实时处理和展示。
 
 ```{toctree}
-examples/index
+howto/index
 tutorials/index
 explanation/index
 embedding
+examples/index
 ```

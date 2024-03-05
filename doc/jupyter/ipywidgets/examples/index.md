@@ -1,14 +1,15 @@
-# Jupyter 组件概览
+# Jupyter 组件样例
 
 ```{toctree}
-WidgetBasics
-WidgetList
-OutputWidget
-WidgetEvents
-WidgetStyling
-WidgetLayout
-LayoutTemplates
-AppLayout
-UsingInteract
-WidgetAsynchronous
+applayout-weather
+ImageBrowser
+MediaWidgets
+ExploringGraphs
+Factoring
+BeatFrequencies
+Controller
+LorenzDifferentialEquations
+VariableInspector
+WidgetAlignment
+ImageProcessing
 ```
