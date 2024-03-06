@@ -5,6 +5,7 @@
 ```{toctree}
 simple
 rich
+std
 interactive
 debug
 log
