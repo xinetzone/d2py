@@ -74,6 +74,7 @@ doc = [
   "jupyterlab",
   "jupyter_server",
   "jupyterlab_server",
+  "sphinx-autoapi",
   "voici",
   "libarchive-c",
 ]

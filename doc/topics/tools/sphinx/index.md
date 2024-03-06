@@ -2,4 +2,5 @@
 
 ```{toctree}
 helloworld
+autoapi/index
 ```

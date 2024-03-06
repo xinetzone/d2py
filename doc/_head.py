@@ -36,6 +36,7 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx_automodapi.automodapi",
     "sphinx_automodapi.smart_resolver",
+    'autoapi.extension',
     "sphinxcontrib.bibtex",
     # "sphinx_togglebutton",
     # "sphinx.ext.viewcode",
@@ -165,7 +166,7 @@ language = 'zh_CN'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', "**/my_notebook.ipynb"]
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', "**/_contents", "**/my_notebook.ipynb"]
 nb_execution_excludepatterns = ["**/my_notebook.ipynb"]
 # -- Options for HTML output -------------------------------------------------
 
@@ -379,3 +380,15 @@ epub_title = project
 epub_author = author
 epub_publisher = author
 epub_copyright = copyright
+
+# -- Options for autosummary/autodoc output ------------------------------------
+autosummary_generate = True
+autodoc_typehints = "description"
+autodoc_member_order = "groupwise"
+
+# -- Options for autoapi -------------------------------------------------------
+autoapi_type = "python"
+autoapi_dirs = ["../src/d2py"]
+autoapi_keep_files = False # 要开始自己编写 API 文档，你可以让 AutoAPI 保留其生成的文件作为基础
+autoapi_root = "api"
+autoapi_member_order = "groupwise"

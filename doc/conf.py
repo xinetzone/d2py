@@ -29,3 +29,4 @@ def setup(app):
 suppress_warnings = ["myst.xref_missing"]
 jupyterlite_contents = f"{ROOT}/tests/lite_contents"
 jupyterlite_bind_ipynb_suffix = False
+jupyterlite_config = "jupyterlite_config.json"
