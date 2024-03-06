@@ -7,11 +7,7 @@ dependencies:
     - jupyterlab_server
     - jupyterlite-xeus >=0.1.8,<0.2.0
     - jupyterlite-core >=0.2,<0.3
-    - pydata-sphinx-theme
-    - myst-parser
-    - docutils
-    - sphinx
     - black
     - voici
     - pip:
-        - .
+        - .[doc]
