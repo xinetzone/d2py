@@ -26,6 +26,6 @@ def setup(app):
         indextemplate="pair: %s; label value",
     )
 
-# suppress_warnings = ["myst.xref_missing"]
+suppress_warnings = ["myst.xref_missing"]
 jupyterlite_contents = f"{ROOT}/tests/lite_contents"
 jupyterlite_bind_ipynb_suffix = False
