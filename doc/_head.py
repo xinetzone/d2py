@@ -10,7 +10,7 @@ author = 'xinetzone'
 release = d2py.__version__
 html_baseurl = 'https://xinetzone.github.io/d2py'
 # 配置日志信息
-config_logging(f"{project}.log", project, filemode='a')
+config_logging(f"{project}.log", project, filemode='w', filter_mod_names={"ablog", "ablog.post.missing_reference"})
 
 # -- General configuration ---------------------------------------------------
 
@@ -38,8 +38,7 @@ extensions = [
     "sphinx_automodapi.smart_resolver",
     'autoapi.extension',
     "sphinxcontrib.bibtex",
-    # "sphinx_togglebutton",
-    # "sphinx.ext.viewcode",
+    "sphinx.ext.viewcode",
     # "sphinx.ext.doctest",
     "sphinx_design",
     "sphinx_packaging",
@@ -166,8 +165,18 @@ language = 'zh_CN'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', "**/_contents", "**/my_notebook.ipynb"]
+exclude_patterns = [
+    '_build', 'Thumbs.db', 
+    '.DS_Store', "_contents", 
+    "**/my_notebook.ipynb",
+]
 nb_execution_excludepatterns = ["**/my_notebook.ipynb"]
+
+suppress_warnings = ["myst.xref_missing"]
+jupyterlite_contents = "../tests/lite_contents"
+jupyterlite_bind_ipynb_suffix = False
+jupyterlite_config = "jupyterlite_config.json"
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for

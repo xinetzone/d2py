@@ -1,2 +1,1 @@
-'''Mathematical Modern Analysis.
-'''
+# Mathematical Modern Analysis.

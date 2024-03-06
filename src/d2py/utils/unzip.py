@@ -1,14 +1,12 @@
-'''解压后中文路径乱码的解决方案
-'''
-
 from pathlib import Path
 from zipfile import ZipFile
 
 
-def decode_path(path):
+def decode_path(path: str|Path):
     '''将乱码的路径编码为 UTF8
 
-    :path: Path 的实例
+    Args:
+        path: Path 的实例
     '''
     try:
         path_name = path.decode('utf-8')
@@ -18,7 +16,7 @@ def decode_path(path):
     return path_name
 
 
-def extract(zip_name, out_dir):
+def extract(zip_name: str, out_dir: str|Path):
     '''将 zip_name 文件解压到 out_dir 目录
     '''
     out_dir = Path(out_dir)
@@ -31,7 +29,7 @@ def extract(zip_name, out_dir):
             Z.extract(file, out_dir/file.filename)
 
 
-def extract_all(zip_root, out_dir):
+def extract_all(zip_root: str|Path, out_dir: str|Path):
     '''解压 zip_root 目录下的全部 zip 文件到 out_dir 目录'''
     for zip_dir in Path(zip_root).rglob('*.zip'):
         # 解压单个数据集

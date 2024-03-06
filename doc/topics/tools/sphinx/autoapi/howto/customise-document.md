@@ -14,13 +14,25 @@
 def skip_submodules(app, what, name, obj, skip, options):
     if what == "module":
         skip = True
+    elif what == "class" and "util" in name:
+       skip = True
     return skip
 
-def setup(sphinx):
-    sphinx.connect("autoapi-skip-member", skip_submodules)
+def setup(app):
+    app.connect("autoapi-skip-member", skip_submodules)
 ```
 
+当模板必须决定是否应将成员包含在文档中时触发。通常，如果处理程序返回 `True`，则跳过该成员，否则包含该成员。处理程序应该返回 `None` 以退回到 AutoAPI 或其他附加处理程序的默认跳过行为。
+
+- `app`：Sphinx 应用对象。
+- `what` (str)：文档字符串所属对象的类型。可以是： `"attribute"`、`"class"`、`"data"`、`"exception"`、`"function"`、`"method"`、`"module"`、`"package"`。
+- `name` (str)：对象的完全限定名。
+- `obj` (PythonPythonMapper)：对象本身。
+- `skip` (bool)：如果处理程序不覆盖该决定，AutoAPI 是否会跳过该成员。
+- `options`：给指令的选项。
+
 ## 设置 `__all__`
+
 AutoAPI 将 `__all__` 的定义视为模块或包中哪些对象是公共的，哪些不是公共的。
 
 在下面的示例中，只记录了 `func_a()` 和 `A`。

@@ -8,12 +8,25 @@ if sys.platform == 'win32':
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.extend([str(ROOT/'src'), str(ROOT/'doc'), str(ROOT/'doc/_ext')])
 from _head import *
+
 logger = logging.getLogger(project)
 # def source_read_handler(app, docname, source):
 #     logger.info(f'{app}: {docname} -> {source}')
 
 # def setup(app):
 #     app.connect('source-read', source_read_handler)
+
+def skip_submodules(app, what, name, obj, skip, options):
+    # if what == "module":
+    #     if name in ['d2py.timeitx']:
+    #         skip = True
+    # if what == "package":
+    #     if name in ['d2py.utils']:
+    #         skip = True
+    if 'd2py.utils' in name or 'd2py.timeitx' in name or "d2py.analysis" in name:
+        skip = True
+    # logging.debug(f"skip_submodules: {what, name, obj, skip, options}")
+    return skip
 
 # jupyterlite_dir = ROOT/"tools/lite/apps"
 def setup(app):
@@ -25,8 +38,5 @@ def setup(app):
         objname="label value",
         indextemplate="pair: %s; label value",
     )
+    app.connect("autoapi-skip-member", skip_submodules)
 
-suppress_warnings = ["myst.xref_missing"]
-jupyterlite_contents = f"{ROOT}/tests/lite_contents"
-jupyterlite_bind_ipynb_suffix = False
-jupyterlite_config = "jupyterlite_config.json"

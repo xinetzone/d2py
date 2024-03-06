@@ -1,13 +1,9 @@
-"""时间度量
-"""
 from __future__ import annotations
 from dataclasses import dataclass
 from contextlib import ContextDecorator
 import logging
 import time
 import numpy as np
-
-__all__ = ["TimerContext"]
 
 @dataclass
 class TimerContext(ContextDecorator):

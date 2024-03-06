@@ -12,7 +12,6 @@ jupyter/index
 compiler
 math
 topics/index
-library/index
 posts/index
 news/index
 about/index
