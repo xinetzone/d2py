@@ -3,7 +3,7 @@
 ```{toctree}
 WidgetBasics
 WidgetList
-OutputWidget
+Output/index
 WidgetEvents
 WidgetStyling
 WidgetLayout
