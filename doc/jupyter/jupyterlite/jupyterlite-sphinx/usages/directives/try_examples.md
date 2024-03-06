@@ -115,7 +115,6 @@ Examples
 .. try_examples::
     :button_text: Try it in your browser!
     :height: 400px
-    :example_class: blue-bottom
 
     The button text has changed and the height now exceeds the size of the content.
 
@@ -136,7 +135,6 @@ Examples
 ```{eval-rst}
 .. try_examples::
     :button_text: Try it in your browser!
-    :example_class: blue-bottom
 
     The button text has changed and the height now exceeds the size of the content.
 
