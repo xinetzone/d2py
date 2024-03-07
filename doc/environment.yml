@@ -15,17 +15,18 @@ dependencies:
   - scikit-image
   - scipy
   - six
-  - IPython
-  - nbformat>=5.1.2
   - jupyterlab-webrtc-docprovider
   
   - pip:
     - ipykernel
     - uvicorn
-    - dash>=2.15
-    - flask>=3
-    - werkzeug==3.0.0
-    - fastapi
+    - notebook==7.1.1
+    - nbformat==5.9.2
+    - ipython==8.20.0
+    - werkzeug==3.0.1
+    - dash==2.15
+    - flask==3.0.1
+    - fastapi==0.109.2
     - openpyxl
     - jupyterlab-language-pack-zh-CN
     - jupyterlab_server
