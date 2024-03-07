@@ -16,13 +16,13 @@ dependencies:
   - scipy
   - six
   - jupyterlab-webrtc-docprovider
+  - nbformat>=5.9.2
   
   - pip:
     - ipykernel
     - uvicorn
     - pyodide_http
     - notebook==7.1.1
-    - nbformat==5.9.2
     - ipython==8.20.0
     - werkzeug==3.0.1
     - dash==2.15
