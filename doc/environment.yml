@@ -28,6 +28,6 @@ dependencies:
     - jupyterlab_server
     - libarchive-c
     - ..
-    - pytorch
-    - torchvision
-    - onnx
+    # - pytorch
+    # - torchvision
+    # - onnx
