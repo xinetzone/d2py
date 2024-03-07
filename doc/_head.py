@@ -55,6 +55,7 @@ extensions = [
     "sphinx-jsonschema",
     'sphinx.ext.mathjax',
     'jupyterlite_sphinx',
+    "sphinxcontrib.katex"
 ]
 
 myst_enable_extensions = [
@@ -398,6 +399,32 @@ autodoc_member_order = "groupwise"
 # -- Options for autoapi -------------------------------------------------------
 autoapi_type = "python"
 autoapi_dirs = ["../src/d2py"]
-autoapi_keep_files = False # 要开始自己编写 API 文档，你可以让 AutoAPI 保留其生成的文件作为基础
+autoapi_keep_files = True # 要开始自己编写 API 文档，你可以让 AutoAPI 保留其生成的文件作为基础
 autoapi_root = "api"
 autoapi_member_order = "groupwise"
+
+# -- Options for LaTeX output --------------------------------------------------
+latex_engine = "xelatex"
+
+# Katex
+katex_prerender = True
+katex_css_path = \
+    'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css'
+katex_js_path = 'katex.min.js'
+katex_autorender_path = 'auto-render.min.js'
+katex_inline = [r'\(', r'\)']
+katex_display = [r'\[', r'\]']
+katex_prerender = False
+katex_options = r'''{
+    displayMode: true,
+    macros: {
+        "\\RR": "\\mathbb{R}",
+        "\\i": "\\mathrm{i}",
+        "\\e": "\\mathrm{e}^{#1}",
+        "\\vec": "\\mathbf{#1}",
+        "\\x": "\\vec{x}",
+        "\\d": "\\operatorname{d}\\!{}",
+        "\\dirac": "\\operatorname{\\delta}\\left(#1\\right)",
+        "\\scalarprod": "\\left\\langle#1,#2\\right\\rangle",
+    }
+}'''

@@ -1,8 +1,6 @@
 # ipywidgets 高级教程
 
 ```{toctree}
-:maxdepth: 1
-
 WidgetCustom
 ```
 

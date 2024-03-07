@@ -4,7 +4,7 @@
 WidgetBasics
 WidgetList
 Output/index
-WidgetEvents
+Events/index
 WidgetStyling
 WidgetLayout
 LayoutTemplates
