@@ -16,12 +16,18 @@ dependencies:
   - scipy
   - six
   - dash
+  - jupyterlab-webrtc-docprovider
   - pip:
     - ipykernel
     - fastapi
     - uvicorn
     - openpyxl
+    - myst-nb
+    - jupyterlite-xeus
+    - jupyterlab-language-pack-zh-CN
+    - jupyterlab_server
+    - libarchive-c
     - ..
-    # - torch
-    # - torchvision
-    # - onnx
+    - pytorch
+    - torchvision
+    - onnx
