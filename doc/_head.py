@@ -174,7 +174,8 @@ exclude_patterns = [
 nb_execution_excludepatterns = ["**/my_notebook.ipynb"]
 
 suppress_warnings = ["myst.xref_missing"]
-jupyterlite_contents = "../tests/lite_contents"
+# jupyterlite_dir = ROOT/"tools/lite/apps"
+jupyterlite_contents = "../tests"
 jupyterlite_bind_ipynb_suffix = False
 jupyterlite_config = "jupyterlite_config.json"
 

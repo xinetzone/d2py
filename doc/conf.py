@@ -28,7 +28,7 @@ def skip_submodules(app, what, name, obj, skip, options):
     # logging.debug(f"skip_submodules: {what, name, obj, skip, options}")
     return skip
 
-# jupyterlite_dir = ROOT/"tools/lite/apps"
+
 def setup(app):
     # from sphinx.ext.autodoc import cut_lines
     # app.connect('autodoc-process-docstring', cut_lines(4, what=['module']))
