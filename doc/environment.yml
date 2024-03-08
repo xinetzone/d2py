@@ -23,15 +23,24 @@ dependencies:
     - uvicorn
     - pyodide_http
     - jupyterlab
-    - notebook==7.1.1
-    - ipython==8.20.0
-    - werkzeug==3.0.1
-    - dash==2.15
-    - flask==3.0.1
-    - fastapi==0.109.2
+    - notebook>=7.1.1
+    - ipython>=8.20.0
     - openpyxl
     - jupyterlab-language-pack-zh-CN
     - jupyterlab_server
-    - libarchive-c
+    - jupyterlite-core[all]
+    - starlette
+    - gradio
+    - gradio-client
+    - httpx
     - ..
-
+    - libarchive-c
+    - werkzeug>=3.0.1
+    - jupyterlite-pyodide-kernel
+    - jupyterlite-p5-kernel
+    - jupyterlite-javascript-kernel
+    - jupyterlite_xeus_lua
+    - jupyterlite_xeus_wren
+    - micropip
+    # - dash>=2.15
+    # - fastapi>=0.109.2
