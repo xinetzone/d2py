@@ -2,6 +2,7 @@ name: jupyterlite-d2py
 channels:
   - https://repo.mamba.pm/emscripten-forge
   - conda-forge
+  - anaconda
 
 dependencies:
   - pandas
@@ -42,5 +43,6 @@ dependencies:
     - jupyterlite_xeus_lua
     - jupyterlite_xeus_wren
     - micropip
+    - libstdcxx-ng
     # - dash>=2.15
     # - fastapi>=0.109.2
