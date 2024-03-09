@@ -21,4 +21,5 @@ pkgs_dirs:
 
 ```bash
 conda install -c anaconda libstdcxx-ng
+conda install -c conda-forge gcc
 ```
