@@ -13,12 +13,6 @@ requires-python = ">=3.8"
 
 dependencies = [
   "invoke",
-  "pdm",
-  "PyGithub[integrations]",
-  "bytecode",
-  "numpy",
-  "dash",
-  "toml"
 ]
 
 maintainers = [
@@ -85,6 +79,14 @@ doc = [
   "voici",
   "libarchive-c",
   "sphinxcontrib-katex",
+]
+
+dev = [
+  "pdm",
+  "PyGithub[integrations]",
+  "bytecode",
+  "numpy",
+  "toml"
 ]
 
 [tool.flit.module]
