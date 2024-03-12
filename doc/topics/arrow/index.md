@@ -17,9 +17,9 @@ memory
 ipc
 filesystems
 numpy
-dataset
+pandas
+dlpack
 parquet
-feather
-csv
-json
+dataset
+cuda
 ```
