@@ -3,6 +3,7 @@
 ```{toctree}
 :maxdepth: 5
 
+arrow/index
 ai/index
 tools/index
 image-processing/index

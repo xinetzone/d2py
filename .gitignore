@@ -145,3 +145,12 @@ pdm.lock
 # Jupyter Lite
 *.db
 _contents/
+
+# pyarrow
+*.parquet
+*.arrow
+
+# temp
+.temp/
+temp/
+draft/
