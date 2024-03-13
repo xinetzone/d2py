@@ -22,4 +22,7 @@ dlpack
 parquet
 dataset
 cuda
+Columnar
+tensor
+DataType
 ```
