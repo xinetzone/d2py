@@ -1,5 +1,5 @@
 ```{post} 2023/12/14 13:55
-:category: GitHub
+:category: conda
 :tags: FAQs
 :excerpt: 1
 ```
