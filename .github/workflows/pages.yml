@@ -43,7 +43,7 @@ jobs:
       - name: 🔧 Build HTML
         run: |
           sudo apt-get install graphviz
-          sudo apt-get upgrade
+          apt-get update && sudo apt-get upgrade
           pip install --upgrade pip
           pip install .[doc,dev]
           conda install -c conda-forge pandoc
