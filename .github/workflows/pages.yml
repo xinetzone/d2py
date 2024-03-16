@@ -45,7 +45,7 @@ jobs:
           sudo apt-get install graphviz libssl1.1
           sudo apt-get upgrade
           pip install --upgrade pip
-          pip install .[doc, dev]
+          pip install .[doc,dev]
           conda install -c conda-forge pandoc
           invoke doc
       - name: Setup Pages
