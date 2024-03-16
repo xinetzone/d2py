@@ -115,6 +115,7 @@ intersphinx_mapping = {
     "pyarrow": ("https://arrow.apache.org/docs", None),
     "ipython": ("https://ipython.readthedocs.io/en/latest/", None),
     "pytest": ("https://docs.pytest.org/en/latest/", None),
+    "filesystem-spec": ("https://filesystem-spec.readthedocs.io/en/latest", None),
     "jupyter-notebook": (
         "https://jupyter-notebook.readthedocs.io/en/stable/",
         None,
