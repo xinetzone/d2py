@@ -42,7 +42,7 @@ jobs:
           cache-dependency-path: "pyproject.toml"
       - name: 🔧 Build HTML
         run: |
-          sudo apt-get install graphviz libssl1.1
+          sudo apt-get install graphviz
           sudo apt-get upgrade
           pip install --upgrade pip
           pip install .[doc,dev]
