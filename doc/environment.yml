@@ -5,6 +5,7 @@ channels:
   - anaconda
 
 dependencies:
+  - python=3.11
   - pandas
   - matplotlib
   - xeus-python
@@ -27,12 +28,10 @@ dependencies:
     - notebook>=7.1.1
     - ipython>=8.20.0
     - openpyxl
-    - jupyterlab-language-pack-zh-CN
+    # # - jupyterlab-language-pack-zh-CN
     - jupyterlab_server
     - jupyterlite-core[all]
     - starlette
-    - gradio
-    - gradio-client
     - httpx
     - ..
     - libarchive-c
@@ -42,6 +41,7 @@ dependencies:
     - jupyterlite-javascript-kernel
     - jupyterlite_xeus_lua
     - jupyterlite_xeus_wren
-    - micropip
-    # - dash>=2.15
-    # - fastapi>=0.109.2
+    - gradio
+    - gradio-client
+    # # - dash>=2.15
+    # # - fastapi>=0.109.2

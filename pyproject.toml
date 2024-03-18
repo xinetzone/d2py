@@ -13,8 +13,6 @@ requires-python = ">=3.8"
 
 dependencies = [
   "invoke",
-  "fsspec"
-  "pyarrow",
 ]
 
 maintainers = [
@@ -88,7 +86,9 @@ dev = [
   "PyGithub[integrations]",
   "bytecode",
   "numpy",
-  "toml"
+  "toml",
+  "fsspec",
+  "pyarrow",
 ]
 
 [tool.flit.module]
