@@ -7,4 +7,5 @@
 sphinx/index
 tasks/index
 tabulate
+norfair/index
 ```

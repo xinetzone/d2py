@@ -7,4 +7,6 @@ paramiko/index
 fabric/index
 patchwork/index
 invocations/index
+rich/index
+Ciphey/index
 ```

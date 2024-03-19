@@ -89,6 +89,7 @@ dev = [
   "toml",
   "fsspec",
   "pyarrow",
+  "rich[jupyter]"
 ]
 
 [tool.flit.module]

@@ -112,6 +112,7 @@ suppress_warnings = ["mystnb.unknown_mime_type"]
 # }
 
 intersphinx_mapping = {
+    "rich": ("https://rich.readthedocs.io/en/latest", None),
     "pyarrow": ("https://arrow.apache.org/docs", None),
     "ipython": ("https://ipython.readthedocs.io/en/latest/", None),
     "pytest": ("https://docs.pytest.org/en/latest/", None),
