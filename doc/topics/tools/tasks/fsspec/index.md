@@ -7,4 +7,5 @@ intro
 usage
 features/index
 async/index
+gdrivefs
 ```
