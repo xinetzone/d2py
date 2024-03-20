@@ -11,9 +11,7 @@ name = "d2py"
 readme = "README.md"
 requires-python = ">=3.8"
 
-dependencies = [
-  "invoke",
-]
+dependencies = []
 
 maintainers = [
   {name = "xinetzone", email = "735613050@qq.com"},
@@ -89,6 +87,7 @@ dev = [
   "toml",
   "fsspec",
   "pyarrow",
+  "invoke",
   "rich[jupyter]"
 ]
 
