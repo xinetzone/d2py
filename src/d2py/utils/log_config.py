@@ -13,7 +13,7 @@ def config_logging(
     },
     file_formatter: str="%(levelname)s|%(asctime)s|%(name)s| -> %(message)s\n|==>%(module)s.%(funcName)s@: %(pathname)s:%(lineno)d",
     stream_formatter: str="%(levelname)s|%(asctime)s|%(name)s| -> %(message)s",
-    ):
+    **kwargs):
     """配置 logging
 
     Args:
@@ -29,7 +29,7 @@ def config_logging(
                         format=file_formatter,
                         datefmt='%m-%d %H:%M',
                         filename=filename,
-                        filemode=filemode)
+                        filemode=filemode, **kwargs)
     
     # 禁用一些 debug 信息
     for mod_name in filter_mod_names|default_filter_mod_names:
