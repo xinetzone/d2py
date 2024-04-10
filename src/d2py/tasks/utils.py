@@ -1,7 +1,7 @@
 """任务型事务辅助函数"""
 import asyncio
 
-async def run_task(cmd: str, cwd: str=".", **kwds):
+async def run_cmd(cmd: str, cwd: str=".", **kwds):
     """运行命令行执行任务
 
     Args:
