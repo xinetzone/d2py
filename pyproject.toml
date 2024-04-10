@@ -9,7 +9,7 @@ dynamic = ["version", "description"]
 license = {file = "LICENSE"}
 name = "d2py"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 
 dependencies = []
 
@@ -22,7 +22,9 @@ Home = "https://github.com/xinetzone/d2py"
 
 [project.optional-dependencies]
 doc = [
-  "sphinx!=7.2.6",
+  "sphinx",
+  "docutils",
+  "sphinxcontrib-bibtex",
   "sphinxext-opengraph",
   "sphinxcontrib-youtube",
   "sphinx-favicon",
