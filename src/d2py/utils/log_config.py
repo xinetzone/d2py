@@ -1,6 +1,5 @@
 import logging
 
-
 def config_logging(
     filename: str,
     logger_name: str="logger",
