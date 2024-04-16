@@ -1,9 +1,9 @@
 import logging
+from logging.handlers import RotatingFileHandler
 
 def config_logging(
     filename: str,
     logger_name: str="logger",
-    filemode: str='a',
     filter_mod_names: set=set(),
     default_filter_mod_names: set = {
         "matplotlib", "PIL", "asyncio", 
@@ -12,7 +12,6 @@ def config_logging(
     },
     file_formatter: str="%(levelname)s|%(asctime)s|%(name)s| -> %(message)s\n|==>%(module)s.%(funcName)s@: %(pathname)s:%(lineno)d",
     stream_formatter: str="%(levelname)s|%(asctime)s|%(name)s| -> %(message)s",
-    rich_kwargs: dict|None=None,
     **kwargs):
     """配置 logging
 
@@ -31,23 +30,17 @@ def config_logging(
             >>> ch = RichHandler(**rich_kwargs)
             ```
     """
-    logging.basicConfig(level=logging.DEBUG,
-                        format=file_formatter,
-                        datefmt='%m-%d %H:%M',
-                        filename=filename,
-                        filemode=filemode, **kwargs)
-    
+    logger = logging.getLogger(logger_name)
     # 禁用一些 debug 信息
     for mod_name in filter_mod_names|default_filter_mod_names:
         _logger = logging.getLogger(mod_name)
         _logger.setLevel(logging.WARNING)
-    
-    # 创建日志级别更高的控制台处理程序
-    if rich_kwargs:
-        from rich.logging import RichHandler
-        ch = RichHandler(**rich_kwargs)
-    else:
-        ch = logging.StreamHandler()
+    logger.setLevel(logging.DEBUG)
+    fh = RotatingFileHandler(filename, **kwargs)
+    fh.setFormatter(logging.Formatter(file_formatter))
+    # fh.setLevel(logging.DEBUG)
+    logger.addHandler(fh)
+    ch = logging.StreamHandler()
     ch.setLevel(logging.INFO) # 或者 logging.ERROR
     ch_formatter = logging.Formatter(stream_formatter)
     ch.setFormatter(ch_formatter)
