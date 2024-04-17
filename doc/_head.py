@@ -10,7 +10,7 @@ author = 'xinetzone'
 release = d2py.__version__
 html_baseurl = 'https://xinetzone.github.io/d2py'
 # 配置日志信息
-config_logging(f"{project}.log", project, filemode='w', filter_mod_names={"ablog", "ablog.post.missing_reference"})
+config_logging(f"{project}.log", project, filter_mod_names={"ablog", "ablog.post.missing_reference"})
 
 # -- General configuration ---------------------------------------------------
 
