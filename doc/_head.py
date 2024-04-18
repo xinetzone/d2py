@@ -10,7 +10,7 @@ author = 'xinetzone'
 release = d2py.__version__
 html_baseurl = 'https://xinetzone.github.io/d2py'
 # 配置日志信息
-config_logging(f"{project}.log", project, filter_mod_names={"ablog", "ablog.post.missing_reference"})
+config_logging(f"{project}.log", project, filter_mod_names={})
 
 # -- General configuration ---------------------------------------------------
 
@@ -20,7 +20,6 @@ config_logging(f"{project}.log", project, filter_mod_names={"ablog", "ablog.post
 extensions = [
     # "IPython.sphinxext.ipython_console_highlighting",
     "sphinx.ext.graphviz",
-    "ablog",
     "myst_nb",
     # "nbsphinx",  
     "sphinx.ext.extlinks",
@@ -208,14 +207,6 @@ html_sidebars = {
         "search-field.html",
         "sbt-sidebar-nav.html",
     ],
-    "posts/**": [
-        "ablog/postcard.html",
-        "ablog/recentposts.html",
-        "ablog/tagcloud.html",
-        "ablog/categories.html",
-        "ablog/archives.html",
-        "searchbox.html",
-    ],
 }
 
 extra_navbar = """<div>
@@ -339,40 +330,6 @@ html_favicon = "page-logo.jfif"
 
 # -- 自定义网站的标题 --------------
 # html_title = '动手学习 Python'
-
-# ========== ABlog 配置 ============================================================
-blog_path = "posts"
-blog_post_pattern = "posts/*.md"
-blog_baseurl = "https://xinetzone.github.io/d2py"
-fontawesome_included = True
-post_auto_image = 1
-post_auto_excerpt = 2
-# --    博客作者、语言和位置 -------------------------------------------------
-
-# 一个作者名字的字典，映射到作者的完整显示名称和链接。
-# 字典的键值应该在 ``post`` 指令中使用，以指代作者。默认是 ``{}``。
-blog_authors = {
-    "lxw": ("刘新伟", None),
-}
-
-# 语言代码名称的字典，映射到这些语言的完整显示名称和链接。
-# 类似于 :confval:`blog_authors`，
-# 字典的键应该在 `post` 指令中使用，以指代位置。默认是 `{}`。
-blog_languages = {'zh': ('Chinese', None), 'en': ('English', None)}
-
-# 默认作者的名字
-blog_default_author = "lxw"
-# 默认语言的代码名称
-blog_default_language = 'zh'
-# 在 blog_locations 中定义的默认位置的名称。
-# blog_default_location = None
-
-# -- 博客帖子相关 --------------------------------------------------------
-
-# 帖子的日期格式。默认 ``'%b %d, %Y'``
-#  ``datetime.date.strftime()`` 的参数
-post_date_format = '%c'
-post_date_format_short = '%b %d, %Y'
 
 todo_include_todos = True
 

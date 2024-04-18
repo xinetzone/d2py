@@ -31,7 +31,6 @@ doc = [
   "xyzstyle",
   "pydata-sphinx-theme>=0.7.2",
   "sphinx-book-theme",
-  "ablog",
   "feedgen",
   "sphinx_packaging",
   "ipywidgets>=7.0.0",
