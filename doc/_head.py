@@ -97,8 +97,6 @@ comments_config = {
 # #     #     "text/plain",
 # #     # ), 0)
 # # ]
-# application/vnd.plotly.v1+json and application/vnd.bokehjs_load.v0+json
-suppress_warnings = ["mystnb.unknown_mime_type"]
 
 # extlinks = {
 #     # 'duref': ('https://docutils.sourceforge.io/docs/ref/rst/'
@@ -175,7 +173,11 @@ exclude_patterns = [
 ]
 nb_execution_excludepatterns = ["**/my_notebook.ipynb"]
 
-suppress_warnings = ["myst.xref_missing"]
+suppress_warnings = [
+    "mystnb.unknown_mime_type",  # 禁用 application/vnd.plotly.v1+json and application/vnd.bokehjs_load.v0+json 警告
+    "myst.xref_missing", # 禁用 myst 警告
+    "autoapi.python_import_resolution", "autoapi.not_readable" # 禁用 autoapi 警告
+]
 # jupyterlite_dir = ROOT/"tools/lite/apps"
 jupyterlite_contents = "../tests"
 jupyterlite_bind_ipynb_suffix = False
