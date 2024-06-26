@@ -10,8 +10,8 @@ def config_logging(
         "urllib3", "markdown_it",
         "ablog"
     },
-    file_formatter: str="%(levelname)s|%(asctime)s|%(name)s| -> %(message)s\n|==>%(module)s.%(funcName)s@: %(pathname)s:%(lineno)d",
-    stream_formatter: str="%(levelname)s|%(asctime)s|%(name)s| -> %(message)s",
+    file_formatter: str="%(levelname)s|%(asctime)s|%(name)s| >>> %(message)s\n|==>%(module)s.%(funcName)s@: %(pathname)s:%(lineno)d",
+    stream_formatter: str="%(levelname)s|%(asctime)s|%(name)s| >>> %(message)s",
     **kwargs):
     """配置 logging
 

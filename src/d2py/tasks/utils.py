@@ -1,6 +1,6 @@
 """任务型事务辅助函数"""
 import asyncio
-import logging
+# import logging
 import textwrap
 
 async def communicate_cmd(cmd: str, cwd: str|None=None, indent: int=2,  **kwds)->str:
