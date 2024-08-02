@@ -4,7 +4,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def mkdir(root: str|Path, mode=777, parents=True, exist_ok=True):
+def mkdir(root: str|Path, mode=0o755, parents=True, exist_ok=True):
     """创建文件夹"""
     root = Path(root)
     if not root.exists():
