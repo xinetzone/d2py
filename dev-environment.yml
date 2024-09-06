@@ -5,8 +5,8 @@ dependencies:
     - pip
     - jupyter_server
     - jupyterlab_server
-    - jupyterlite-xeus >=0.1.8,<0.2.0
-    - jupyterlite-core >=0.2,<0.3
+    - jupyterlite-xeus
+    - jupyterlite-core
     - black
     - voici
     - pip:
