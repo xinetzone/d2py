@@ -29,6 +29,7 @@ doc = [
   "sphinxcontrib-youtube",
   "sphinx-favicon",
   "xyzstyle",
+  "ablog",
   "pydata-sphinx-theme>=0.7.2",
   "sphinx-book-theme",
   "feedgen",

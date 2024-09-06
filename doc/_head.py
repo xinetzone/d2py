@@ -19,6 +19,7 @@ config_logging(f"{project}.log", project)
 # ones.
 extensions = [
     # "IPython.sphinxext.ipython_console_highlighting",
+    "ablog",
     "sphinx.ext.graphviz",
     "myst_nb",
     # "nbsphinx",  
@@ -188,7 +189,7 @@ jupyterlite_config = "jupyterlite_config.json"
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_book_theme'
+html_theme = "xyzstyle"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -200,16 +201,6 @@ html_css_files = ["default.css", "try_examples.css"]
 
 locale_dirs = ['locales/']  # path is example but recommended.
 gettext_compact = False  # optional.
-
-# -- 主题设置 -------------------------------------------------------------------
-
-# 定制主侧栏
-html_sidebars = {
-    "*": [
-        "search-field.html",
-        "sbt-sidebar-nav.html",
-    ],
-}
 
 extra_navbar = """<div>
 版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
@@ -319,8 +310,8 @@ html_theme_options = {
         #     "icon": "fa-brands fa-mastodon",
         # },
     ],
-    # "footer_start": ["copyright", "sphinx-version"],
-    "footer_end": ["last-updated", ],
+    "footer_start": ["version-switcher", "copyright"],
+    "footer_end": ["sphinx-version", "last-updated"],
     "navigation_with_keys": True
 }
 # -- 自定义网站的标志 --------------
