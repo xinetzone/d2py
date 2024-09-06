@@ -40,7 +40,7 @@ extensions = [
     "sphinx.ext.viewcode",
     # "sphinx.ext.doctest",
     "sphinx_design",
-    "sphinx_packaging",
+    # "sphinx_packaging",
     "sphinxcontrib.mermaid",
     # "sphinx.ext.ifconfig",
     # "sphinx_immaterial",
@@ -48,13 +48,13 @@ extensions = [
     # "sphinx.ext.todo",
     "todo",
     # "sphinxext.opengraph",
-    "sphinx_docx",
+    # "sphinx_docx",
     "helloworld",
     # for pretty schema
-    "sphinx-jsonschema",
+    # "sphinx-jsonschema",
     'sphinx.ext.mathjax',
-    'jupyterlite_sphinx',
-    "sphinxcontrib.katex"
+    # 'jupyterlite_sphinx',
+    # "sphinxcontrib.katex"
 ]
 
 myst_enable_extensions = [
