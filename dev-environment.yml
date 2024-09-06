@@ -2,6 +2,7 @@ name: jupyterlite-sphinx-dev
 channels:
     - conda-forge
 dependencies:
+    - python=3.10
     - pip
     - jupyter_server
     - jupyterlab_server
