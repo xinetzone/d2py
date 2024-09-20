@@ -90,6 +90,7 @@ dev = [
   "fsspec",
   "pyarrow",
   "invoke",
+  "openpyxl",
   "rich[jupyter]"
 ]
 
