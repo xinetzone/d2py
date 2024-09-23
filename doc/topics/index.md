@@ -7,7 +7,6 @@ arrow/index
 ai/index
 tools/index
 image-processing/index
-library/index
 bitstream/index
 PyGithub/index
 office/index
