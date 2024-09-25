@@ -54,7 +54,7 @@ extensions = [
     # for pretty schema
     # "sphinx-jsonschema",
     'sphinx.ext.mathjax',
-    'jupyterlite_sphinx',
+    # 'jupyterlite_sphinx',
     # "sphinxcontrib.katex"
 ]
 
