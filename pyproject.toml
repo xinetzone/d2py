@@ -72,6 +72,7 @@ doc = [
   "fastapi",
   "httpx",
   "jupyterlite-pyodide-kernel",
+  "voici",
   "jupyterlab",
   "jupyter_server",
   "jupyterlab_server",

@@ -1,3 +1,8 @@
+```{post} 2024/09/25 08:00
+:category: pandas
+:tags: FAQs
+:excerpt: 1
+```
 # `pandas` 常见问题
 
 ## 美化 `pandas` 打印

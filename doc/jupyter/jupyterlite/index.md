@@ -7,5 +7,4 @@
 
 intro
 quickstart/index
-jupyterlite-sphinx/index
 ```
