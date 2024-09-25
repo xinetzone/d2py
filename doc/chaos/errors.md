@@ -21,3 +21,12 @@ pip install blessed
 ```bash
 conda install pywinpty
 ```
+
+4. `jupyter` 中文乱码设置编码格式 避免控制台输出的解决
+
+```shell
+!chcp 65001
+!echo 中文
+```
+
+`chcp` 可以解决此问题。
