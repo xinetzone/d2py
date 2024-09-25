@@ -154,3 +154,4 @@ _contents/
 .temp/
 temp/
 draft/
+*.db-journal
