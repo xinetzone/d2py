@@ -152,7 +152,7 @@ intersphinx_mapping = {
     "invocations": ("https://invocations.readthedocs.io/en/latest/", None),
     "patchwork": ("https://fabric-patchwork.readthedocs.io/en/latest/", None),
     "telnetlib3": ("https://telnetlib3.readthedocs.io/en/latest/", None),
-    "cppyy": ("https://cppyy.readthedocs.io/en/latest/", "None"),
+    "cppyy": ("https://cppyy.readthedocs.io/en/latest/", None),
 }
 
 # Add any paths that contain templates here, relative to this directory.

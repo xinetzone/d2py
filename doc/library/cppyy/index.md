@@ -8,5 +8,6 @@ tutorial
 GSLPythonization
 toplevel
 basic-types
+strings
 pythonizations
 ```
