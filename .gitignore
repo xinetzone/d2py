@@ -155,3 +155,8 @@ _contents/
 temp/
 draft/
 *.db-journal
+
+# C
+*.o
+*.dll
+*.so

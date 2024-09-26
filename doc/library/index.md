@@ -8,4 +8,5 @@
 faulthandler
 text/index
 ctypes/index
+cffi/index
 ```
