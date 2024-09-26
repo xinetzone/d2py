@@ -9,4 +9,6 @@ faulthandler
 text/index
 ctypes/index
 cffi/index
+pybind11/index
+cppyy/index
 ```
