@@ -5,6 +5,7 @@
 ```{toctree}
 :maxdepth: 3
 
+qt/index
 faulthandler
 text/index
 ctypes/index

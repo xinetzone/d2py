@@ -7,7 +7,7 @@
 :hidden:
 
 pythonx/index
-library/index
+libs/index
 jupyter/index
 compiler
 math
