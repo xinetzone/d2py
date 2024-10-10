@@ -95,6 +95,10 @@ dev = [
   "rich[jupyter]"
 ]
 
+gui = [
+  "PySide6",
+]
+
 [tool.flit.module]
 name = "d2py"
 
