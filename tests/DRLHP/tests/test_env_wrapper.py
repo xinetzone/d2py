@@ -4,7 +4,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 
 import pytest
-import gym
+import gymnasium as gym
 from stable_baselines.common.atari_wrappers import FrameStack
 from drlhp.reward_predictor_core_network import net_cnn
 from drlhp import HumanPreferencesEnvWrapper
