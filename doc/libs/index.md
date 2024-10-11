@@ -6,6 +6,7 @@
 :maxdepth: 3
 
 qt/index
+gym/index
 faulthandler
 text/index
 ctypes/index

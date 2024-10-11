@@ -84,6 +84,7 @@ doc = [
 
 dev = [
   "pdm",
+  "gymnasium",
   "PyGithub[integrations]",
   "bytecode",
   "numpy",
