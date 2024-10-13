@@ -10,4 +10,5 @@ speedup-env
 compatibility
 migration
 tutorials/index
+training-agents/index
 ```
