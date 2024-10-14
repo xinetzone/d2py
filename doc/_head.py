@@ -166,16 +166,6 @@ templates_path = ['_templates']
 # Usually you set "language" from the command line for these cases.
 language = 'zh_CN'
 
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [
-    '_build', 'Thumbs.db', 
-    '.DS_Store', "_contents", 
-    "**/my_notebook.ipynb",
-]
-nb_execution_excludepatterns = ["**/my_notebook.ipynb"]
-
 suppress_warnings = [
     "mystnb.unknown_mime_type",  # 禁用 application/vnd.plotly.v1+json and application/vnd.bokehjs_load.v0+json 警告
     "myst.xref_missing", # 禁用 myst 警告

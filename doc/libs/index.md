@@ -8,6 +8,7 @@
 qt/index
 gym/index
 multigrid/index
+drlhp/index
 faulthandler
 text/index
 ctypes/index

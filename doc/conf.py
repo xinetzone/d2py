@@ -8,7 +8,15 @@ if sys.platform == 'win32':
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.extend([str(ROOT/'src'), str(ROOT/'doc'), str(ROOT/'doc/_ext')])
 from _head import *
-
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+# This pattern also affects html_static_path and html_extra_path.
+exclude_patterns = [
+    '_build', 'Thumbs.db', 
+    '.DS_Store', "_contents", 
+    "**/my_notebook.ipynb",
+]
+nb_execution_excludepatterns = ["**/my_notebook.ipynb", "**/multigrid", "**/gym"]
 logger = logging.getLogger(project)
 # def source_read_handler(app, docname, source):
 #     logger.info(f'{app}: {docname} -> {source}')

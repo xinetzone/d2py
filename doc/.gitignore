@@ -12,3 +12,4 @@ _build/
 api/
 *.log
 *.db
+.temp/

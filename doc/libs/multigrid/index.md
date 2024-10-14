@@ -2,4 +2,5 @@
 
 ```{toctree}
 intro
+custom
 ```
