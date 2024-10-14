@@ -45,10 +45,10 @@ jobs:
           sudo apt-get install graphviz
           apt-get update && sudo apt-get upgrade
           pip install --upgrade pip
-          pip install .[doc,dev,gui] --upgrade
           conda install anaconda::swig
           conda install -c conda-forge box2d-py
           pip install "gymnasium[all]"
+          pip install .[doc,dev,gui] --upgrade
           conda install -c conda-forge pandoc compilers cppyy
           invoke doc
       - name: Setup Pages
