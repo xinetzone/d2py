@@ -1,0 +1,5 @@
+# `gym-multigrid`
+
+```{toctree}
+intro
+```
