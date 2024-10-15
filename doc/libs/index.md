@@ -5,6 +5,7 @@
 ```{toctree}
 :maxdepth: 3
 
+typing
 qt/index
 gym/index
 multigrid/index

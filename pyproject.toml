@@ -86,6 +86,7 @@ dev = [
   "pdm",
   "pygame",
   "gymnasium[all",
+  "gym-multigrid",
   "PyGithub[integrations]",
   "bytecode",
   "numpy",

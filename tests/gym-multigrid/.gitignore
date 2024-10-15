@@ -1,0 +1,12 @@
+__pycache__/
+*.gif
+*.zip
+*.torch
+*.png
+*.npy
+runs/*
+ppo_random_collect_tensorboard/*
+.DS_Store
+
+tests/out
+out

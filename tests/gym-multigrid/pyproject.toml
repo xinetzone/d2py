@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "gym-multigrid"
+version = "1.0.0"
+description = "Muti-agent gymnasium gridworld environments"
+authors = ["Mikihisa Yuasa <myuasa2@illinois.edu>", "Rupal Nigam"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{ include = "gym_multigrid" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+gymnasium = ">=0.28"
+matplotlib = ">=3.7.1"
+numpy = ">=1.24.3"
+imageio = ">=2.28.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.3.1"
+stable-baselines3 = "^2.3.0"
+tensorboard = "^2.16.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
