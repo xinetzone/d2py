@@ -1,4 +1,5 @@
 #from functools import lru_cache
+from .base import TrajectoryDrawing
 
 class Rectangle:
     def __init__(self, bbox):
@@ -49,3 +50,43 @@ class Rectangle:
     def __le__(self, other):
         '''self < other'''
         return self.width <= other.width or self.height <= other.height
+
+class DrawRectangle(TrajectoryDrawing):
+    def __init__(self, master=None, alpha=0.2, color='blue', graph_type='rectangle',
+                 min_size=7, mask_color='red', cnf={}, **kw):
+        '''
+        '''
+        super().__init__(master, graph_type, color, min_size, cnf, **kw)
+        self.alpha= alpha
+        self.mask_color = mask_color
+        self.rectangle_selector = []
+        self.tag_bind('mask', "<ButtonPress-1>", self.scroll_start)
+        self.tag_bind('mask', "<B1-Motion>", self.scroll_move)
+
+    def scroll_start(self, event):
+        self.scan_mark(event.x, event.y)
+
+    def scroll_move(self, event):
+        # self.move('current', w, h)
+        # graph_id = self.find_withtag('current')
+        # self.select_from(graph_id, 1)
+        self.scan_dragto(event.x, event.y, gain=1)
+
+    def create_mask(self, size, alpha, fill):
+        '''设置透明蒙版'''
+        fill = self.master.winfo_rgb(fill) + (alpha,)
+        return Image.new('RGBA', size, fill)
+        
+    def draw_mask(self, x1, y1, x2, y2):
+        size = x2-x1, y2-y1
+        alpha = int(self.alpha * 255)
+        image = self.create_mask(size, alpha, self.mask_color)
+        self.rectangle_selector.append(ImageTk.PhotoImage(image))
+        return self.create_image(x1, y1, image=self.rectangle_selector[-1], anchor='nw', tags='mask')
+
+    def finish_drawing(self, *event,  **kw):
+        if self.graph_type and self.record_bbox:
+            if graph_id := self.drawing(width=1, tags=None, **kw):
+                bbox = self.bbox(graph_id)
+                mask = self.draw_mask(*bbox)
+        self.reset(event)
