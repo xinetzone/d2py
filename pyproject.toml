@@ -85,7 +85,7 @@ doc = [
 dev = [
   "pdm",
   "pygame",
-  "gymnasium[all",
+  "gymnasium[all]",
   "gym-multigrid",
   "PyGithub[integrations]",
   "bytecode",
