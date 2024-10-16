@@ -6,6 +6,9 @@
 :maxdepth: 3
 
 typing
+pil/index
+matplotlib/index
+ipympl/index
 qt/index
 gym/index
 multigrid/index

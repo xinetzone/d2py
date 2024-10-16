@@ -80,6 +80,7 @@ doc = [
   "voici",
   "libarchive-c",
   "sphinxcontrib-katex",
+  "ipympl",
 ]
 
 dev = [

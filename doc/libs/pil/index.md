@@ -1,0 +1,5 @@
+# {mod}`PIL`
+
+```{toctree}
+Image
+```
