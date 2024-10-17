@@ -2,5 +2,5 @@
 
 ```{toctree}
 intro
-interactive_guide
+event-handling
 ```

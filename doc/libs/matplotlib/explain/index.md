@@ -4,5 +4,5 @@
 quick_start
 figure/index
 customizing
-event-handling
+
 ```
