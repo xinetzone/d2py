@@ -11,4 +11,5 @@ svg-histogram
 svg-tooltip
 toolmanager
 wxcursor
+tk-images
 ```
