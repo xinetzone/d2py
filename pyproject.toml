@@ -24,6 +24,7 @@ Home = "https://github.com/xinetzone/d2py"
 doc = [
   "tensorflow",
   "grpcio",
+  "absl-py",
   "termcolor",
   "sphinx",
   "docutils",

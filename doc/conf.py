@@ -17,7 +17,7 @@ exclude_patterns = [
     "**/my_notebook.ipynb",
     
 ]
-nb_execution_excludepatterns = ["**/my_notebook.ipynb", "**/multigrid", "**/gym", "libs/tf/**",]
+nb_execution_excludepatterns = ["**/my_notebook.ipynb", "**/multigrid/*.ipynb", "**/gym/*.ipynb", "libs/tf/**/*.ipynb",]
 logger = logging.getLogger(project)
 # def source_read_handler(app, docname, source):
 #     logger.info(f'{app}: {docname} -> {source}')
