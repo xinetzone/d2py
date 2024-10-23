@@ -6,7 +6,7 @@
 typing
 pil/index
 matplotlib/index
-ipympl/index
+tf/index
 qt/index
 gym/index
 multigrid/index

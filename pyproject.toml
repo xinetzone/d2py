@@ -22,6 +22,8 @@ Home = "https://github.com/xinetzone/d2py"
 
 [project.optional-dependencies]
 doc = [
+  "tensorflow",
+  "grpcio",
   "termcolor",
   "sphinx",
   "docutils",

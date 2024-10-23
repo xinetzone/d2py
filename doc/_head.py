@@ -155,6 +155,7 @@ intersphinx_mapping = {
     "cppyy": ("https://cppyy.readthedocs.io/en/latest/", None),
     "gymnasium": ("https://gymnasium.farama.org/", None),
     "matplotlib": ("https://matplotlib.org/stable/", None),
+    "tensorflow": ("https://www.tensorflow.org/tutorials?hl=zh-cn", None),
 }
 
 # Add any paths that contain templates here, relative to this directory.

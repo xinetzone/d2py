@@ -15,8 +15,9 @@ exclude_patterns = [
     '_build', 'Thumbs.db', 
     '.DS_Store', "_contents", 
     "**/my_notebook.ipynb",
+    
 ]
-nb_execution_excludepatterns = ["**/my_notebook.ipynb", "**/multigrid", "**/gym"]
+nb_execution_excludepatterns = ["**/my_notebook.ipynb", "**/multigrid", "**/gym", "libs/tf/**",]
 logger = logging.getLogger(project)
 # def source_read_handler(app, docname, source):
 #     logger.info(f'{app}: {docname} -> {source}')
