@@ -482,8 +482,7 @@ class HumanPreferencesEnvWrapper(Wrapper):
         self.reward_predictor.init_network(model_load_dir)
 
     def step(self, action):
-        # Check whether we have only just hit the point of the model having trained for enough steps
-
+        # 检查是否恰好达到模型训练足够步数的点
         minimum_training_steps_reached = self.reward_training_steps.value >= self.n_initial_training_steps
         sufficiently_trained = self.reward_predictor is None and minimum_training_steps_reached
 

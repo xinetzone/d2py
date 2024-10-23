@@ -3,4 +3,5 @@
 ```{toctree}
 intro
 custom
+collect-game/index
 ```

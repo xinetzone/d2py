@@ -1,0 +1,5 @@
+# Collect Game
+
+```{toctree}
+wrapper
+```
