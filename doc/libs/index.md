@@ -6,7 +6,7 @@
 typing
 pil/index
 matplotlib/index
-tf/index
+tf-chaos/index
 qt/index
 gym/index
 multigrid/index
