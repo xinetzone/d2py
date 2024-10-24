@@ -5,4 +5,5 @@
 ```{toctree}
 tutorials/index
 guide/index
+about/bib
 ```

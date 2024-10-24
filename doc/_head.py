@@ -116,46 +116,46 @@ intersphinx_mapping = {
     "pytest": ("https://docs.pytest.org/en/latest/", None),
     "filesystem-spec": ("https://filesystem-spec.readthedocs.io/en/latest", None),
     "jupyter-notebook": (
-        "https://jupyter-notebook.readthedocs.io/en/stable/",
+        "https://jupyter-notebook.readthedocs.io/en/stable",
         None,
     ),
-    "jupyterhub": ("https://jupyterhub.readthedocs.io/en/stable/", None),
-    "nbconvert": ("https://nbconvert.readthedocs.io/en/latest/", None),
+    "jupyterhub": ("https://jupyterhub.readthedocs.io/en/stable", None),
+    "nbconvert": ("https://nbconvert.readthedocs.io/en/latest", None),
     "jupyter-contrib-nbextensions": (
-        "https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/",
+        "https://jupyter-contrib-nbextensions.readthedocs.io/en/latest",
         None,
     ),
     "jupyterlite": (
-        "https://jupyterlite.readthedocs.io/en/stable/",
+        "https://jupyterlite.readthedocs.io/en/stable",
         None,
     ),
-    "nbsphinx": ("https://nbsphinx.readthedocs.io/en/0.4.2/", None),
-    "spack": ("https://spack-tutorial.readthedocs.io/en/latest/", None),
-    "ipyparallel": ("https://ipyparallel.readthedocs.io/en/latest/", None),
-    # "bokeh": ("https://docs.bokeh.org/en/latest/", None),
-    "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
-    "pyviz": ("https://pyviz-tutorial.readthedocs.io/de/latest/", None),
+    "nbsphinx": ("https://nbsphinx.readthedocs.io", None),
+    "spack": ("https://spack-tutorial.readthedocs.io/en/latest", None),
+    "ipyparallel": ("https://ipyparallel.readthedocs.io/en/latest", None),
+    # "bokeh": ("https://docs.bokeh.org/en/latest", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/stable", None),
+    "pyviz": ("https://pyviz-tutorial.readthedocs.io/de/latest", None),
     "python-basics": (
-        "https://python-basics-tutorial.readthedocs.io/en/latest/",
+        "https://python-basics-tutorial.readthedocs.io/en/latest",
         None,
     ),
     "python4datascience": (
-        "https://www.python4data.science/en/latest/",
+        "https://www.python4data.science/en/latest",
         None,
     ),
-    'python': ('https://daobook.github.io/cpython/', None),
-    'sphinx': ('https://daobook.github.io/sphinx/', None),
+    'python': ('https://daobook.github.io/cpython', None),
+    'sphinx': ('https://daobook.github.io/sphinx', None),
     'peps': ('https://daobook.github.io/peps', None),
-    "Fabric": ("https://docs.fabfile.org/en/latest/", None),
-    "Invoke": ("https://docs.pyinvoke.org/en/stable/", None),
-    "Paramiko": ("https://docs.paramiko.org/en/latest/", None),
-    "invocations": ("https://invocations.readthedocs.io/en/latest/", None),
-    "patchwork": ("https://fabric-patchwork.readthedocs.io/en/latest/", None),
-    "telnetlib3": ("https://telnetlib3.readthedocs.io/en/latest/", None),
-    "cppyy": ("https://cppyy.readthedocs.io/en/latest/", None),
-    "gymnasium": ("https://gymnasium.farama.org/", None),
-    "matplotlib": ("https://matplotlib.org/stable/", None),
-    "tensorflow": ("https://www.tensorflow.org/tutorials?hl=zh-cn", None),
+    "Fabric": ("https://docs.fabfile.org/en/latest", None),
+    "Invoke": ("https://docs.pyinvoke.org/en/stable", None),
+    "Paramiko": ("https://docs.paramiko.org/en/latest", None),
+    "invocations": ("https://invocations.readthedocs.io/en/latest", None),
+    "patchwork": ("https://fabric-patchwork.readthedocs.io/en/latest", None),
+    "telnetlib3": ("https://telnetlib3.readthedocs.io/en/latest", None),
+    "cppyy": ("https://cppyy.readthedocs.io/en/latest", None),
+    "gymnasium": ("https://gymnasium.farama.org", None),
+    "matplotlib": ("https://matplotlib.org/stable", None),
+    "tensorflow": ("https://www.tensorflow.org", None),
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -319,13 +319,6 @@ html_favicon = "page-logo.jfif"
 # html_title = '动手学习 Python'
 
 todo_include_todos = True
-
-# 如果你希望stderr和stdout中的每个输出都被合并成一个流，请使用以下配置。
-# 避免将 jupter 执行报错的信息输出到 cmd
-nb_merge_streams = True
-nb_execution_allow_errors = True
-nb_execution_mode = "cache" # "cache", "off"
-# nbsphinx_assume_equations = False
 
 bibtex_bibfiles = ["refs.bib"]
 bibtex_reference_style = "author_year"

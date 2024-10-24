@@ -17,7 +17,14 @@ exclude_patterns = [
     "**/my_notebook.ipynb",
     
 ]
-nb_execution_excludepatterns = ["**/my_notebook.ipynb", "**/multigrid/*.ipynb", "**/gym/*.ipynb", "libs/tf/**/*.ipynb",]
+execution_excludepatterns = ["**/my_notebook.ipynb", "multigrid", "gym", "tf",]
+# 如果你希望stderr和stdout中的每个输出都被合并成一个流，请使用以下配置。
+# 避免将 jupter 执行报错的信息输出到 cmd
+nb_merge_streams = True
+nb_execution_allow_errors = True
+nb_execution_mode = "off" # "cache", "off"
+# nbsphinx_assume_equations = False
+
 logger = logging.getLogger(project)
 # def source_read_handler(app, docname, source):
 #     logger.info(f'{app}: {docname} -> {source}')
