@@ -22,7 +22,7 @@ execution_excludepatterns = ["**/my_notebook.ipynb", "multigrid", "gym", "tf",]
 # 避免将 jupter 执行报错的信息输出到 cmd
 nb_merge_streams = True
 nb_execution_allow_errors = True
-nb_execution_mode = "off" # "cache", "off"
+nb_execution_mode = "cache" # "cache", "off"
 # nbsphinx_assume_equations = False
 
 logger = logging.getLogger(project)
