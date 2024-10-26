@@ -1,0 +1,118 @@
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core"]
+
+[project]
+authors = [{name = "xinetzone", email = "735613050@qq.com"}]
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+dynamic = ["version", "description"]
+license = {file = "LICENSE"}
+name = "d2py"
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = []
+
+maintainers = [
+  {name = "xinetzone", email = "735613050@qq.com"},
+]
+
+[project.urls]
+Home = "https://github.com/xinetzone/d2py"
+
+[project.optional-dependencies]
+doc = [
+  "termcolor",
+  "sphinx",
+  "docutils",
+  "sphinxcontrib-bibtex",
+  "sphinxext-opengraph",
+  "sphinxcontrib-youtube",
+  "sphinx-favicon",
+  "xyzstyle",
+  "ablog",
+  "pydata-sphinx-theme>=0.7.2",
+  "sphinx-book-theme",
+  "feedgen",
+  "sphinx_packaging",
+  "ipywidgets>=7.0.0",
+  "myst-nb",
+  "sphinxcontrib-websupport",
+  "sphinx-thebe",
+  "sphinx-copybutton",
+  "sphinx-comments",
+  "plotly",
+  "pandas",
+  "matplotlib",
+  "sphinxcontrib-mermaid",
+  "sphinx-design",
+  "sphinx-automodapi",
+  "sphinxext-rediraffe",
+  "sphinxcontrib-bibtex",
+  # "plotly-geo",
+  "sphinx-plotly-directive",
+  "dash",
+  "html5tagger",
+  "python-docx",
+  "sphinx-sitemap",
+  "sphinx-packaging",
+  "bokeh",
+  "ipympl",
+  "ipykernel",
+  "ipyleaflet",
+  "jupyter-client",
+  "jupyter-packaging",
+  "sphinx-jsonschema",
+  'jupyterlite-sphinx',
+  "jupyterlite-xeus",
+  "xeus-python",
+  "jupyterlite-core[all]",
+  "starlette",
+  "gradio",
+  "gradio-client",
+  "fastapi",
+  "httpx",
+  "jupyterlite-pyodide-kernel",
+  "voici",
+  "jupyterlab",
+  "jupyter_server",
+  "jupyterlab_server",
+  "sphinx-autoapi",
+  "voici",
+  "libarchive-c",
+  "sphinxcontrib-katex",
+  "ipympl",
+]
+
+dev = [
+  "pdm",
+  "pygame",
+  "gymnasium[all]",
+  "gym-multigrid",
+  "PyGithub[integrations]",
+  "bytecode",
+  "numpy",
+  "toml",
+  "fsspec",
+  "pyarrow",
+  "invoke",
+  "openpyxl",
+  "rich[jupyter]",
+  "grpcio",
+  "absl-py",
+]
+
+gui = [
+  "PySide6",
+]
+
+[tool.flit.module]
+name = "d2py"
+
+[tool.flit.sdist]
+# include = ["doc/"]
+exclude = ['doc', '.git', '.github', 'output']
+
+[pypi.extra]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+# verify_ssl = false

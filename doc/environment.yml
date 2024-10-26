@@ -1,0 +1,47 @@
+name: jupyterlite-d2py
+channels:
+  - https://repo.mamba.pm/emscripten-forge
+  - conda-forge
+  - anaconda
+
+dependencies:
+  - python=3.11
+  - pandas
+  - matplotlib
+  - xeus-python
+  - plotly
+  - ipywidgets
+  - toml
+  - synr
+  - tqdm
+  - scikit-image
+  - scipy
+  - six
+  - jupyterlab-webrtc-docprovider
+  - nbformat>=5.9.2
+  
+  - pip:
+    - ipykernel
+    - uvicorn
+    - pyodide_http
+    - jupyterlab
+    - notebook>=7.1.1
+    - ipython>=8.20.0
+    - openpyxl
+    # # - jupyterlab-language-pack-zh-CN
+    - jupyterlab_server
+    - jupyterlite-core[all]
+    - starlette
+    - httpx
+    - ..
+    - libarchive-c
+    - werkzeug>=3.0.1
+    - jupyterlite-pyodide-kernel
+    - jupyterlite-p5-kernel
+    - jupyterlite-javascript-kernel
+    - jupyterlite_xeus_lua
+    - jupyterlite_xeus_wren
+    - gradio
+    - gradio-client
+    # # - dash>=2.15
+    # # - fastapi>=0.109.2

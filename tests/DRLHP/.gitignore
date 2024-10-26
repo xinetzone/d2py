@@ -1,0 +1,13 @@
+__pycache__
+*.pyc
+
+.DS_Store
+
+tags
+.idea
+
+.floydexpt
+floydruns
+
+venv/
+*.egg-info/

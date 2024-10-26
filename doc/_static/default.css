@@ -1,0 +1,31 @@
+body,
+.bd-toc {
+    background: #f9f6f1;
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 880px) {
+
+    body,
+    .bd-toc {
+        background: #f8e6e6;
+    }
+}
+
+.header-article-main,
+.bd-sidebar {
+    background-color: #9ce1a9;
+}
+
+.bd-sidebar__content {
+    background: #eaf6f7;
+}
+
+blockquote.epigraph {
+    background: antiquewhite;
+}
+
+.dfn {
+    background: rgb(232, 244, 65);
+}

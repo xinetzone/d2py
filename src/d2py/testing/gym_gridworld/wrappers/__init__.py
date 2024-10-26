@@ -1,0 +1,4 @@
+from gym_multigrid.wrappers.clip_reward import ClipReward
+from gym_multigrid.wrappers.discrete_actions import DiscreteActions
+from gym_multigrid.wrappers.reacher_weighted_reward import ReacherRewardWrapper
+from gym_multigrid.wrappers.relative_position import RelativePosition
