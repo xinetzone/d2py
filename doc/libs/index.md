@@ -6,6 +6,7 @@
 typing
 pil/index
 matplotlib/index
+TensorFlow <https://xinetzone.github.io/tensorflow-book/>
 qt/index
 gym/index
 multigrid/index
