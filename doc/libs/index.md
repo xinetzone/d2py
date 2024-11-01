@@ -6,6 +6,8 @@
 typing
 pil/index
 matplotlib/index
+TVM <https://xinetzone.github.io/tvm-book/>
+PyTorch <https://xinetzone.github.io/torch-book/>
 TensorFlow <https://xinetzone.github.io/tensorflow-book/>
 qt/index
 gym/index

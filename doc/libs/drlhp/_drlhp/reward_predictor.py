@@ -250,7 +250,6 @@ class RewardPredictorEnsemble:
         summaries, _ = self.sess.run(ops, feed_dict)
         self.train_writer.add_summary(summaries, self.n_steps)
 
-
     def val_step(self, prefs_val):
         val_batch_size = 32
         if len(prefs_val) <= val_batch_size:

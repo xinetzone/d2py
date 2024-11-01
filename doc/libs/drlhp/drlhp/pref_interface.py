@@ -17,18 +17,13 @@ from functools import partial
 
 logger = logging.getLogger(f"drlhp.{__name__}")
 
-def handler(signum, frame):
-    print("Got no response, replaying segment video")
-    raise IOError("No response!")
 
 def fake_log(message, message_level, log_level, log_name):
     if message_level >= log_level:
-        level_name = logging.getLevelName(log_level)
-        print(f"{level_name} - {log_name} - {message}")
+        logger.info(f"{log_name}: {log_level} - {message}")
 
 class PrefInterface:
-
-    def __init__(self, synthetic_prefs, max_segs, log_dir, zoom=4, channels=3,
+    def __init__(self, synthetic_prefs, max_segs, zoom=4, channels=3,
                  min_segments_to_test=10, n_pause_frames=4,
                  user_response_timeout=3):
         if not synthetic_prefs:

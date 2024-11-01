@@ -9,6 +9,6 @@ GUI/index
 web/index
 nlp/index
 study/index
+github
 errors
 ```
-Text preprocessing, representation and visualization from zero to hero.
