@@ -89,7 +89,7 @@ class HumanPreferencesEnvWrapper(Wrapper):
         self.pref_buffer = None
         self.reward_predictor = None
 
-        # 如果我们想收集偏好设置，我们需要启动运行 PrefInterface的进程。
+        # 如果我们想收集偏好设置，我们需要启动运行 PrefInterface 的进程。
         if self.collect_prefs:
             self._start_pref_interface()
         # 如果我们想保存偏好设置和/或训练奖励模型，
@@ -181,20 +181,17 @@ class HumanPreferencesEnvWrapper(Wrapper):
                 logger=logger)
         self.reward_predictor_n_train = self.reward_training_steps.value
 
-        self.reward_predictor.init_network(model_load_dir)
-
     def step(self, action):
         # 检查是否恰好达到模型训练足够步数的点
         minimum_training_steps_reached = self.reward_training_steps.value >= self.n_initial_training_steps
         sufficiently_trained = self.reward_predictor is None and minimum_training_steps_reached
-
         # 检查是否存在尚未加载的现有预训练模型。
         pretrained_model = self.reward_predictor is None and self.pretrained_reward_predictor_dir is not None
-
         # 检查是否应该用新的奖励预测器来更新现有的奖励预测器，因为自上次更新以来已经完成了足够的训练步骤。
         should_update_model = minimum_training_steps_reached and (self.reward_training_steps.value - self.reward_predictor_n_train > self.reward_predictor_refresh_interval)
-
-        # 如果其中任何一个条件为真，就加载模型。
+        logger.info(f"reward_training_steps.value: {self.reward_training_steps.value}, reward_predictor: {self.reward_predictor}")
+        logger.info(f"should_update_model: {should_update_model}, sufficiently_trained: {sufficiently_trained}, pretrained_model:{pretrained_model}")
+        # 如果其中任何一个条件为真，就加载模型
         if sufficiently_trained or pretrained_model or should_update_model:
             if sufficiently_trained:
                 logger.info("Model is sufficiently trained, switching to it for reward")
@@ -212,7 +209,7 @@ class HumanPreferencesEnvWrapper(Wrapper):
 
         if self.collecting_segments:
             self._update_episode_segment(obs, reward, terminated, truncated)
-
+        logger.info(obs.shape)
         if self.reward_predictor is not None and not self.force_return_true_reward:
             # 如果我们设置了 self.force_return_true_reward，环境将返回真实的底层奖励（用于评估目的）。
             predicted_reward = self.reward_predictor.reward(np.array([np.array(obs)]))[0]

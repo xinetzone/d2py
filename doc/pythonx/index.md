@@ -14,6 +14,10 @@ basic/index
 config/index
 faqs/index
 refs/index
+abc
+typing
+descriptor
+test
 drafts/index
 ```
 

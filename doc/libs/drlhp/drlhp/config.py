@@ -71,7 +71,6 @@ def _load_or_create_pref_db(prefs_dir: str,
                              db_val=pref_db_val)
     return pref_buffer
 
-
 def _run_pref_interface(pref_interface: PrefInterface,
                         seg_pipe: mp.Queue,
                         pref_pipe: mp.Queue,
@@ -86,29 +85,11 @@ def _run_pref_interface(pref_interface: PrefInterface,
     :param remaining_pairs: 一个多进程Value，PrefInterface可以使用它来跟踪剩余的分段对，以便外部可以访问这些信息
     :param kill_processes: 一个多进程Value，如果我们想要终止正在运行的进程（特别是，它将触发pref_interface.run()返回，这样我们可以方便地加入进程），这个值将被设置为1
     """
-
-    """
-    Basically a large lambda function for calling pref_interface.run(); meant to be used as the target of a
-    multiprocessing Process.
-
-    :param pref_interface: The PrefInterface object you want to run
-    :param seg_pipe: A multiprocessing Queue in which the env will add new segments for the PrefInterface to pair and
-                     request preferences for
-    :param pref_pipe: A multiprocessing Queue for the PrefInterface to add preferences once collected, which will make
-                      them accessible to the PrefDB in which they are stored and used for reward predictor training
-    :param remaining_pairs: A multiprocessing Value that the PrefInterface can use to keep track of the remaining pairs
-                            of segments it has to get preferences for, so that information is accessible externally
-    :param kill_processes: A multiprocessing Value that will be set to 1 if we want to terminate running processes
-                           (specifically, it will trigger pref_interface.run() to return so we can easily join
-                           the process)
-    """
     pref_interface.run(seg_pipe=seg_pipe,
                        pref_pipe=pref_pipe,
                        kill_processes=kill_processes,
                        log_level=log_level)
     
-
-
 def _make_reward_predictor(reward_predictor_network: Callable,
                            log_dir: str,
                            obs_shape: tuple,
@@ -134,9 +115,7 @@ def _make_reward_predictor(reward_predictor_network: Callable,
         lr=7e-4,
         n_preds=40,
         log_dir=log_dir,)
-    print("RewardPredictorEnsemble created")
-    # reward_predictor.init_network(load_ckpt_dir=checkpoint_dir)
-    # print("RewardPredictorEnsemble initialized")
+    logger.info("RewardPredictorEnsemble created")
     return reward_predictor
 
 
@@ -160,38 +139,27 @@ def _train_reward_predictor(reward_predictor_network: Callable,
                             log_level: int # logging levels are technically ints
                             ):
     """
-    A function, meant to be run inside a multiprocessing process, to create training and validation PrefDBs, and
-    train a reward predictor using the preferences stored in those DBs.
+    一个函数，旨在在多进程处理中运行，以创建训练和验证 PrefDBs，并使用存储在这些数据库中的偏好来训练奖励预测器。
 
-
-    :param reward_predictor_network: A callable mapping from input obs to reward scalar
-    :param obs_shape: A tuple specifying the input observation shape you want your reward model to take in
-    :param pref_pipe: A multiprocessing queue for the PrefInterface to send segment pairs with preferences attached to
-                      them to the PrefBuffer
-    :param reward_training_steps: A multiprocessing value for keeping track of reward training steps
-    :param prefs_dir: A string path specifying where existing preference DBs are stored on disk; if None, new
-                      empty PrefDBs are created
-    :param max_prefs: The max number of preferences to store in your PrefDBs, across both training and validation
-    :param ckpt_interval: The interval of reward training steps on which to save a checkpoint of our reward predictor
-    :param kill_processes_flag: A multiprocessing Value that will be set to 1 when we want to terminate processes;
-                                this will trigger this function to return, making it easier to join the process
-    :param database_refresh_interval: The interval of reward training steps on which to update the PrefDBs being used
-                                      to train our reward predictor
-    :param validation_interval: The interval of reward training steps on which to perform validation of the reward model
-    :param num_initial_prefs: How many preferences our training PrefDB must have before we start training
-                              the reward model
-    :param save_prefs_flag: A multiprocessing Value that will be set to 1 when we want to save preferences
-    :param save_model_flag: A multiprocessing Value that will be set to 1 when we want to trigger a model save
-    :param pretrained_reward_predictor_dir: A string path specifying where a pre-trained reward model is saved;
-                                            if None, assumes none exist, and initializes reward model from random
-    :param log_dir: A strong path specifying a directory where logs and artifacts will be saved
-    :param log_level: The log level you want for the logger within this function
-    :param train_reward: A boolean specifying whether you want to actually train a reward model, or just use this
-                         function to create a set of PrefDBs so they can be filled with preferences.
-    :param pref_db_size: A multiprocessing Value used to store the aggregated size of our PrefDBs, so that size can be
-                         queried externally
+    :param reward_predictor_network: 一个可调用的映射，从输入观测到奖励标量
+    :param obs_shape: 一个元组，指定您希望奖励模型接受的输入观测形状
+    :param pref_pipe: 一个多进程队列，用于PrefInterface发送带有偏好的片段对给PrefBuffer
+    :param reward_training_steps: 一个多进程值，用于跟踪奖励训练步骤
+    :param prefs_dir: 一个字符串路径，指定现有偏好数据库在磁盘上的存储位置；如果为None，则创建新的空PrefDBs
+    :param max_prefs: 在您的PrefDBs中存储的最大偏好数量，涵盖训练和验证
+    :param ckpt_interval: 保存奖励预测器检查点的奖励训练步长间隔
+    :param kill_processes_flag: 一个多进程值，当想要终止进程时将设置为1；这将触发此函数返回，使得更容易加入进程
+    :param database_refresh_interval: 更新用于训练奖励预测器的PrefDBs的奖励训练步长间隔
+    :param validation_interval: 执行奖励模型验证的奖励训练步长间隔
+    :param num_initial_prefs: 我们的培训PrefDB必须有多少偏好，我们才能开始训练奖励模型
+    :param save_prefs_flag: 一个多进程值，当想要保存偏好时将设置为1
+    :param save_model_flag: 一个多进程值，当想要触发模型保存时将设置为1
+    :param pretrained_reward_predictor_dir: 一个字符串路径，指定预训练奖励模型的保存位置；如果为None，假设不存在，并从随机初始化奖励模型
+    :param log_dir: 一个强路径，指定日志和工件将被保存的目录
+    :param log_level: 此函数内记录器的日志级别
+    :param train_reward: 一个布尔值，指定您是否真的想训练一个奖励模型，或者只是使用这个函数来创建一组PrefDBs，以便它们可以被填充偏好。
+    :param pref_db_size: 一个多进程值，用于存储我们的PrefDBs的聚合大小，以便可以从外部查询大小
     """
-
     reward_predictor_logger = logging.getLogger("drlhp._train_reward_predictor")
     reward_predictor_logger.setLevel(log_level)
     reward_predictor_logger.info("Process for PrefDB and Reward Predictor started")
@@ -200,7 +168,7 @@ def _train_reward_predictor(reward_predictor_network: Callable,
                                               log_dir,
                                               obs_shape,
                                               checkpoint_dir=pretrained_reward_predictor_dir)
-    # Create a PrefBuffer that receives preferences from the PrefInterfaces and store them in PrefDBs
+    # 创建 PrefBuffer，它从 PrefInterfaces 接收偏好并将它们存储在 PrefDBs 中
     pref_buffer = _load_or_create_pref_db(prefs_dir, max_prefs, reward_predictor_logger)
     pref_buffer.start_recv_thread(pref_pipe)
     minimum_prefs_met = False
@@ -210,9 +178,7 @@ def _train_reward_predictor(reward_predictor_network: Callable,
         current_train_size = len(pref_db_train)
         current_val_size = len(pref_db_val)
         pref_db_size.value = current_train_size + current_val_size
-
-        # If there has been an external trigger telling us to save preferences, do so, then reset it to 0 so we
-        # won't save on subsequent iterations unless the flag is set again
+        # 如果有外部触发告诉我们要保存偏好，请这样做，然后将其重置为 0，这样我们就不会在后续迭代中再次保存，除非该标志再次被设置。
         if save_prefs_flag.value == 1:
             _save_prefs(pref_buffer, log_dir, reward_predictor_logger)
             save_prefs_flag.value = 0

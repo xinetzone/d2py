@@ -35,15 +35,13 @@ kwargs={
 }
 origin_env = CollectGameEnv(**kwargs)
 
-
-
 if __name__ == "__main__":
     # mp.freeze_support()
     hp_env = HumanPreferencesEnvWrapper(
         origin_env, net_cnn,
         segment_length=100,
         mp_context="spawn",
-        n_initial_training_steps=50,
+        n_initial_training_steps=5,
         n_initial_prefs=40,
         train_reward=True,
         collect_prefs=True,

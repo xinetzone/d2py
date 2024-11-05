@@ -20,9 +20,10 @@ class RewardPredictorEnsemble:
     log_dir: str = ".temp"
 
     def __post_init__(self):
+        self.core_network = self.core_network(self.obs_shape)
         self.log_dir = Path(self.log_dir)
         self.rps = [
-            RewardPredictor(self.core_network(self.obs_shape))
+            RewardPredictor(self.core_network)
             for _ in range(self.n_preds)
         ]
 

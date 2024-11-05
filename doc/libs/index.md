@@ -9,6 +9,7 @@ matplotlib/index
 TVM <https://xinetzone.github.io/tvm-book/>
 PyTorch <https://xinetzone.github.io/torch-book/>
 TensorFlow <https://xinetzone.github.io/tensorflow-book/>
+tkinter/index
 qt/index
 gym/index
 multigrid/index
@@ -19,4 +20,7 @@ ctypes/index
 cffi/index
 pybind11/index
 cppyy/index
+ping3/index
+paramiko/index
+inspect
 ```

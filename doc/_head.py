@@ -156,6 +156,7 @@ intersphinx_mapping = {
     "gymnasium": ("https://gymnasium.farama.org", None),
     "matplotlib": ("https://matplotlib.org/stable", None),
     "tensorflow": ("https://www.tensorflow.org", None),
+    "paramiko": ("https://docs.paramiko.org/en/stable", None),
 }
 
 # Add any paths that contain templates here, relative to this directory.

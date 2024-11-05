@@ -100,6 +100,8 @@ dev = [
   "rich[jupyter]",
   "grpcio",
   "absl-py",
+  "ping3",
+  "paramiko",
 ]
 
 gui = [
