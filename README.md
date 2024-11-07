@@ -51,3 +51,7 @@ pip install d2py
 优质文档模板：
 
 - [xbook](https://xinetzone.github.io/xbook/index.html)
+
+## 欢迎共创
+
+欢迎加入本项目的创作，创作规范请参阅：[Daobook demo 文档](https://daobook.github.io/.github/index.html)
