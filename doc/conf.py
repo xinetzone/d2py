@@ -116,15 +116,13 @@ napoleon_preprocess_types = True
 napoleon_type_aliases = None
 napoleon_attr_annotations = True
 
-html_logo = '_static/images/logo.jpg'
+html_logo = '_static/images/favicon.jpg'
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = '_static/images/favicon.jpg'
+html_favicon = '_static/images/logo.jpg'
 
 html_last_updated_fmt = '%Y-%m-%d, %H:%M:%S'
-
-
 
 extlinks = {
     # 'duref': ('https://docutils.sourceforge.io/docs/ref/rst/'
@@ -139,8 +137,7 @@ extlinks = {
 
 intersphinx_mapping = {
     'python': ('https://daobook.github.io/cpython/', None),
-    'tvm': ('https://daobook.github.io/tvm/', None),
-    "mxnet": ("https://mxnet.incubator.apache.org/versions/1.9.0/api/python/docs", None)
+    'tvm': ('https://xinetzone.github.io/tvm/', None),
 }
 
 # ``pydata-sphinx-theme`` 配置
