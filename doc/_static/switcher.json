@@ -1,0 +1,12 @@
+[
+  {
+    "name": "main",
+    "version": "main",
+    "url": "https://xinetzone.github.io/d2py/"
+  },
+  {
+    "name": "dev",
+    "version": "latest",
+    "url": "https://d2py.readthedocs.io/zh/latest/"
+  }
+]

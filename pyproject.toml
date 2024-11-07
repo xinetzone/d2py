@@ -1,0 +1,70 @@
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core"]
+
+[project]
+authors = [{name = "xinetzone", email = "735613050@qq.com"}]
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+dynamic = ["version", "description"]
+license = {file = "LICENSE"}
+name = "d2py"
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = []
+
+maintainers = [
+  {name = "xinetzone", email = "735613050@qq.com"},
+]
+
+[project.urls]
+Home = "https://github.com/xinetzone/d2py"
+
+[project.optional-dependencies]
+doc = [
+  "myst-nb",
+  "xyzstyle",
+  "sphinx-copybutton",
+  # "sphinxcontrib-bibtex",
+  "sphinx-thebe",
+  "sphinx-design",
+  "sphinx-automodapi",
+  "sphinx-sitemap",
+  "sphinx-comments",
+  "invoke"
+]
+
+dev = [
+  "pdm",
+  "pygame",
+  "gymnasium[all]",
+  "gym-multigrid",
+  "PyGithub[integrations]",
+  "bytecode",
+  "numpy",
+  "toml",
+  "fsspec",
+  "pyarrow",
+  "invoke",
+  "openpyxl",
+  "rich[jupyter]",
+  "grpcio",
+  "absl-py",
+  "ping3",
+  "paramiko",
+]
+
+gui = [
+  "PySide6",
+]
+
+[tool.flit.module]
+name = "d2py"
+
+[tool.flit.sdist]
+# include = ["doc/"]
+exclude = ['doc', '.git', '.github', 'output']
+
+[pypi.extra]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+# verify_ssl = false
