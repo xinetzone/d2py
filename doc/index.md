@@ -6,6 +6,7 @@
 ```{toctree}
 :hidden:
 
+project
 math
 compiler
 pybook <https://daobook.github.io/pybook/>
