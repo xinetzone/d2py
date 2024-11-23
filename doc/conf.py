@@ -10,6 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 import sys
+import os
 from pathlib import Path
 
 ROOT = Path('__file__').resolve().parents[1]
@@ -47,7 +48,7 @@ extensions = [
     "sphinx.ext.graphviz",
     "sphinx.ext.viewcode",
     "sphinx.ext.napoleon",
-    # "sphinx_thebe",
+    "sphinx_thebe",
     "sphinx_sitemap",
     "sphinx_design",
 ]
@@ -88,7 +89,9 @@ html_css_files = [
 # 避免将 jupter 执行报错的信息输出到 cmd
 nb_merge_streams = True
 nb_execution_allow_errors = True
-nb_execution_mode = 'off'
+# 参考 https://myst-nb.readthedocs.io/en/latest/computation/execute.html
+nb_execution_mode = "auto" # "off", "auto", "force", "cache", "inline"
+nb_execution_excludepatterns = []
 
 nb_mime_priority_overrides = [
     ('html', 'text/plain', 0),  # 最高级别
@@ -143,54 +146,62 @@ intersphinx_mapping = {
 # ``pydata-sphinx-theme`` 配置
 # Define the json_url for our version switcher.
 json_url = 'https://xinetzone.github.io/d2py/_static/switcher.json'
-
+# -- Sitemap -----------------------------------------------------------------
+# ReadTheDocs has its own way of generating sitemaps, etc.
+if not os.environ.get("READTHEDOCS"):
+    extensions += ["sphinx_sitemap"]
+    html_baseurl = os.environ.get("SITEMAP_URL_BASE", "http://127.0.0.1:8000/")
+    sitemap_locales = [None]
+    sitemap_url_scheme = "{link}"
+# Define the version we use for matching in the version switcher.
+version_match = os.environ.get("READTHEDOCS_VERSION")
 version = release
-
-switcher_version = f'v{version}'
-if "dev" in version:
-    switcher_version = "dev"
-elif "rc" in version:
-    switcher_version = version.split("rc")[0] + " (rc)"
 html_baseurl = "https://xinetzone.github.io/d2py"
 autosummary_generate = True
 html_theme_options = {
-    "switcher": {
-        "json_url": json_url,
-        "version_match": switcher_version
+    "path_to_docs": "doc",
+    "repository_url": "https://github.com/xinetzone/d2py",
+    "repository_branch": "main",
+    "launch_buttons": {
+        "binderhub_url": "https://mybinder.org",
+        "colab_url": "https://colab.research.google.com/",
+        "deepnote_url": "https://deepnote.com/",
+        "notebook_interface": "jupyterlab",
+        "thebe": True,
+        # "jupyterhub_url": "https://datahub.berkeley.edu",  # For testing
     },
-    "github_url": html_baseurl,
-    "use_sidenotes": True,
-    "use_source_button": True,
-    "use_download_button": True,
     "use_edit_page_button": True,
+    "use_source_button": True,
+    "use_issues_button": True,
+    # "use_repository_button": True,
+    "use_download_button": True,
+    "use_sidenotes": True,
+    "show_toc_level": 5,
     "announcement": (
         "👋欢迎进入编程视界！👋"
     ),
-    # "launch_buttons": {
-    #     "binderhub_url": "https://mybinder.org",
-    #     "colab_url": "https://colab.research.google.com/",
-    #     "deepnote_url": "https://deepnote.com/",
-    #     "notebook_interface": "jupyterlab",
-    #     "thebe": True,
-    #     # "jupyterhub_url": "https://datahub.berkeley.edu",  # For testing
-    # },
-    # "use_issues_button": True,
-    # "show_nav_level": 0,
-    # "show_toc_level": 0,
     "navigation_with_keys": True,
+    "switcher": {
+        "json_url": json_url,
+        "version_match": version_match,
+    },
+    "icon_links": icon_links,
     "collapse_navigation": True,
-    # "navbar_start": ["navbar-icon-links"],
+    # "navbar_start": ["test.html"],
     # "navbar_center": ["test.html"],
     # "navbar_end": ["test.html"],
-    # "navbar_persistent": ["navbar-icon-links",],
-    "footer_start": ["copyright", "sphinx-version"],
-    "footer_end": ["last-updated", "theme-switcher", "version-switcher", ],
-    # 图标可以参考 https://fontawesome.com/icons
-    "icon_links": icon_links,
-    # "use_download_button": True,
-    "toc_title": "导航",
-    # "single_page": True,
+    # "navbar_persistent": ["test.html"],
+    # "secondary_sidebar_items": {
+    #     "**/*": ["page-toc", "edit-this-page", "sourcelink", ],
+    #     "examples/no-sidebar": [],
+    # },
+    # "primary_sidebar_end": ["sidebar-ethical-ads", ],
+    # "article_footer_items": ["test", "test"],
+    # "content_footer_items": ["test", "test"],
+    "footer_start": ["version-switcher", "copyright"],
+    "footer_end": ["sphinx-version", "last-updated"],
 }
+
 
 html_sidebars = {
     "contribute/index": [
