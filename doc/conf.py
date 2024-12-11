@@ -158,7 +158,6 @@ if not os.environ.get("READTHEDOCS"):
 version_match = os.environ.get("READTHEDOCS_VERSION")
 
 html_baseurl = "https://xinetzone.github.io/d2py"
-autosummary_generate = True
 html_theme_options = {
     "path_to_docs": "doc",
     "repository_url": "https://github.com/xinetzone/d2py",
@@ -242,3 +241,23 @@ comments_config = {
         "optional": "config",
     }
 }
+
+# -- Options for autosummary/autodoc output ------------------------------------
+autosummary_generate = True
+autodoc_typehints = "description"
+autodoc_member_order = "groupwise"
+
+# -- Options for autoapi -------------------------------------------------------
+autoapi_type = "python"
+autoapi_dirs = ["../src/d2py"]
+autoapi_keep_files = False # 要开始自己编写 API 文档，你可以让 AutoAPI 保留其生成的文件作为基础
+autoapi_root = "api"
+autoapi_member_order = "groupwise"
+suppress_warnings = [
+    "mystnb.unknown_mime_type",  # 禁用 application/vnd.plotly.v1+json and application/vnd.bokehjs_load.v0+json 警告
+    "myst.xref_missing", # 禁用 myst 警告
+    "autoapi.python_import_resolution", "autoapi.not_readable" # 禁用 autoapi 警告
+    "sphinx_automodapi.automodapi",
+    "autosectionlabel.*", "autosummary", "intersphinx.external",
+    "autodoc", "autodoc.import_object"
+]
