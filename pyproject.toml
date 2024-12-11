@@ -52,6 +52,7 @@ dev = [
   "absl-py",
   "ping3",
   "paramiko",
+  "tables",
 ]
 
 gui = [

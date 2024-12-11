@@ -51,6 +51,7 @@ extensions = [
     "sphinx_thebe",
     "sphinx_sitemap",
     "sphinx_design",
+    'autoapi.extension',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -155,7 +156,7 @@ if not os.environ.get("READTHEDOCS"):
     sitemap_url_scheme = "{link}"
 # Define the version we use for matching in the version switcher.
 version_match = os.environ.get("READTHEDOCS_VERSION")
-version = release
+
 html_baseurl = "https://xinetzone.github.io/d2py"
 autosummary_generate = True
 html_theme_options = {
