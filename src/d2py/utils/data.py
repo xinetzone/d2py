@@ -1,10 +1,14 @@
+"""处理数据的接口"""
+
 class Bunch(dict):
+    """用于创建类字典的可以使用点号访问属性的对象，并且可以处理嵌套的字典"""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.__dict__ = self # 这意味着 Bunch 类的实例将具有与字典相同的行为，可以使用点符号访问和修改其键值对
         self._convert_nested_dicts()
 
     def _convert_nested_dicts(self):
+        """合并嵌套的字典"""
         for k, v in self.__dict__.items():
             if isinstance(v, dict):
                 self.__dict__[k] = Bunch(**v)  # 将字典转换为 Bunch 对象

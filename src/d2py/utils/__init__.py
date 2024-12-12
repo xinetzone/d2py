@@ -1,2 +1,1 @@
-'''d2py utils
-'''
+'''d2py utils'''

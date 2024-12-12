@@ -1,44 +1,50 @@
-'''Some of the actions related to the graph.
-'''
+'''Some of the actions related to the graph. see https://www.jianshu.com/p/011a318ffd1e'''
 from tkinter import Canvas as _Canvas, StringVar, ttk
 
 
 class Canvas(_Canvas):
-    '''Graphic elements are composed of line(segment), rectangle, ellipse, and arc.
-    '''
+    '''Graphic elements are composed of line(segment), rectangle, ellipse, and arc.'''
 
     def __init__(self, master=None, cnf={}, **kw):
         '''The base class of all graphics frames.
 
-        :param master: a widget of tkinter or tkinter.ttk.
+        Args:
+            master: a widget of tkinter or tkinter.ttk.
         '''
         super().__init__(master, cnf, **kw)
 
     def draw_graph(self, graph_type, direction, color='blue', width=1, tags=None, **kwargs):
         '''Draw basic graphic elements.
 
-        :param direction: Specifies the orientation of the graphic element. 
-            Union[int, float] -> (x_0,y_0,x_,y_1), (x_0, y_0) refers to the starting point of 
-            the reference brush (i.e., the left mouse button is pressed), and (x_1, y_1) refers to 
-            the end position of the reference brush (i.e., release the left mouse button).
-            Multipoint sequences are supported for 'line' and 'polygon',
-             for example ((x_0, y_0), (x_1, y_1), (x_2, y_2)).
-        :param graph_type: Types of graphic elements.
-            (str) 'rectangle', 'oval', 'line', 'arc'(That is, segment), 'polygon'.
-            Note that 'line' can no longer pass in the parameter 'fill', and 
-            the remaining graph_type cannot pass in the parameter 'outline'.
-        :param color: The color of the graphic element.
-        :param width: The width of the graphic element.(That is, center fill)
-        :param tags: The tags of the graphic element. 
-            It cannot be a pure number (such as 1 or '1' or '1 2 3'), it can be a list, a tuple, 
-            or a string separated by a space(is converted to String tupers separated by a blank space). 
-            The collection or dictionary is converted to a string.
-            Example:
-                ['line', 'graph'], ('test', 'g'), 'line',
-                ' line kind '(The blanks at both ends are automatically removed), and so on.
-        :param style: Style of the arc in {'arc', 'chord', or 'pieslice'}.
+        Args:
+            direction: Specifies the orientation of the graphic element. 
+                Union[int, float] -> (x_0,y_0,x_,y_1), (x_0, y_0) refers to the starting point of 
+                the reference brush (i.e., the left mouse button is pressed), and (x_1, y_1) refers to 
+                the end position of the reference brush (i.e., release the left mouse button).
+                Multipoint sequences are supported for 'line' and 'polygon',
+                for example ((x_0, y_0), (x_1, y_1), (x_2, y_2)).
 
-        :return: Unique identifier solely for graphic elements.
+            graph_type: Types of graphic elements.
+                (str) 'rectangle', 'oval', 'line', 'arc'(That is, segment), 'polygon'.
+                Note that 'line' can no longer pass in the parameter 'fill', and 
+                the remaining graph_type cannot pass in the parameter 'outline'.
+
+            color: The color of the graphic element.
+
+            width: The width of the graphic element.(That is, center fill)
+
+            tags: The tags of the graphic element. 
+                It cannot be a pure number (such as 1 or '1' or '1 2 3'), it can be a list, a tuple, 
+                or a string separated by a space(is converted to String tupers separated by a blank space). 
+                The collection or dictionary is converted to a string.
+                
+                Example:
+                    ['line', 'graph'], ('test', 'g'), 'line',
+                    ' line kind '(The blanks at both ends are automatically removed), and so on.
+
+            style: Style of the arc in {'arc', 'chord', or 'pieslice'}.
+
+        return: Unique identifier solely for graphic elements.
         '''
         if tags is None:
             if graph_type in ('rectangle', 'oval', 'line', 'arc'):
@@ -58,17 +64,16 @@ class Canvas(_Canvas):
         return graph_id
 
 class Drawing(Canvas):
-    '''Create graphic elements (graph) including rectangular boxes (which can be square points), 
-        ovals (circular points), and segments.
-        Press the left mouse button to start painting, release the left 
-            mouse button for the end of the painting.
+    '''Create graphic elements (graph) including rectangular boxes (which can be square points), ovals (circular points), and segments.
+        
+    Press the left mouse button to start painting, release the left mouse button for the end of the painting.
     '''
 
     def __init__(self, master=None, selector=None, cnf={}, **kw):
-        '''Click the left mouse button to start painting, release
-            the left mouse button to complete the painting.
+        '''Click the left mouse button to start painting, release the left mouse button to complete the painting.
 
-        :param selector: The graphics selector, which is an instance of Selector.
+        Args:
+            selector: The graphics selector, which is an instance of Selector.
         '''
         super().__init__(master, cnf, **kw)
         self.selector = selector
@@ -104,7 +109,8 @@ class Drawing(Canvas):
     def create_graph(self, bbox):
         '''Create a graphic.
 
-        :param bbox: (x0,y0,x1,y1)
+        Args:
+            bbox: (x0,y0,x1,y1)
         '''
         x0, y0, x1, y1 = bbox
         cond1 = x0 == x1 and y0 == y1 and 'point' not in self.selector.graph_type
@@ -137,8 +143,7 @@ class TrajectoryDrawing(Drawing):
         self.create_graph(bbox)
 
 class Graph(Drawing):
-    '''Graph is a drawing tool for manipulating graphic objects.
-    '''
+    '''Graph is a drawing tool for manipulating graphic objects.'''
     def __init__(self, master,  selector, cnf={}, **kw):
         super().__init__(master, selector, cnf, **kw)
         self.selected_tags = None
@@ -196,8 +201,7 @@ class Graph(Drawing):
             self.bind('<ButtonRelease-1>', self.delete_graph)
 
 class GraphScrollable(Graph):
-    '''Pin the picture and label it on it.
-    '''
+    '''Pin the picture and label it on it.'''
 
     def __init__(self, master,  selector, cnf={}, **kw):
         super().__init__(master, selector, cnf, **kw)

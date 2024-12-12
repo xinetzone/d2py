@@ -4,16 +4,15 @@ from tkinter import Toplevel
 
 class TipWindow(Toplevel):
     def __init__(self, master, **kw):
-        """创建一个带有工具提示文本的 topoltip 窗口"""
+        """创建带有工具提示文本的 topoltip 窗口"""
         super().__init__(master, **kw)
         self._custom(master)
 
     def _custom(self, widget):
         '''定制窗口属性
         
-        参数
-        ======
-        widget: tkinter 小部件 或者 tkinter.ttk 小部件
+        Args:
+            widget: tkinter 小部件 或者 tkinter.ttk 小部件
         '''
         ## 隐藏窗体的标题、状态栏等
         self.overrideredirect(True)
@@ -34,7 +33,8 @@ class TipWindow(Toplevel):
 
 
 class ToolTip:
-    '''针对指定的 widget 创建一个 tooltip
+    '''针对指定的 widget 创建 tooltip
+
     参考：https://stackoverflow.com/a/36221216 
         以及 https://pysimplegui.readthedocs.io/en/latest/
     '''
@@ -76,9 +76,7 @@ class ToolTip:
         return new_x, new_y
 
     def show_tip(self):
-        """
-        创建一个带有工具提示文本的 topoltip 窗口
-        """
+        """创建带有工具提示文本的 topoltip 窗口"""
         if self.tip_window:
             return
         self.tip_window = TipWindow(self.widget)
@@ -99,18 +97,15 @@ class ToolTip:
         """
         鼠标进入 widget 的回调函数
         
-        参数
-        =========
-        :event:  来自于 tkinter，有鼠标的 x,y 坐标属性
+        Args:
+            event:  来自于 tkinter，有鼠标的 x,y 坐标属性
         """
         self.unschedule()
         self.update_cursor(event)
         self.schedule()
 
     def hide_tip(self):
-        """
-        销毁 tooltip window
-        """
+        """销毁 tooltip window"""
         if self.tip_window:
             self.tip_window.destroy()
         self.tip_window = None
@@ -119,9 +114,8 @@ class ToolTip:
         """
         鼠标离开 widget 的销毁 tooltip window
          
-        参数
-        =========
-        :event:  来自于 tkinter，没有被使用
+        Args:
+            event:  来自于 tkinter，没有被使用
         """
         self.unschedule()
         self.hide_tip()
