@@ -41,7 +41,6 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx_copybutton',
     "sphinx_comments",
-    'sphinx.ext.autosummary',
     "sphinx.ext.viewcode",
     # "sphinxcontrib.bibtex",
     'sphinx.ext.autosectionlabel',
@@ -51,6 +50,10 @@ extensions = [
     "sphinx_thebe",
     "sphinx_sitemap",
     "sphinx_design",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx_automodapi.automodapi",
+    "sphinx_automodapi.smart_resolver",
     'autoapi.extension',
 ]
 
