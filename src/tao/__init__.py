@@ -1,2 +1,2 @@
-"""Dive into Python."""
-__version__ = '0.7.0'
+"""道法自然"""
+__version__ = '0.7.1'
