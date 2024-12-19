@@ -4,7 +4,6 @@
 ```{toctree}
 :hidden:
 
-project
 math
 compiler
 libs/index
