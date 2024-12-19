@@ -15,8 +15,8 @@
 
 道可道，非恒道！
 
-[pypi-badge]: https://img.shields.io/pypi/v/tao-lib.svg
-[pypi-link]: https://pypi.org/project/tao-lib/
+[pypi-badge]: https://img.shields.io/pypi/v/pytao.svg
+[pypi-link]: https://pypi.org/project/pytao/
 [issue-badge]: https://img.shields.io/github/issues/xinetzone/tao
 [issue-link]: https://github.com/xinetzone/tao/issues
 [fork-badge]: https://img.shields.io/github/forks/xinetzone/tao
@@ -31,19 +31,19 @@
 [watcher-link]: https://github.com/xinetzone/tao/watchers
 [binder-badge]: https://mybinder.org/badge_logo.svg
 [binder-link]: https://mybinder.org/v2/gh/xinetzone/tao/main
-[install-badge]: https://img.shields.io/pypi/dw/tao-lib?label=pypi%20installs
-[install-link]: https://pypistats.org/packages/tao-lib
+[install-badge]: https://img.shields.io/pypi/dw/pytao?label=pypi%20installs
+[install-link]: https://pypistats.org/packages/pytao
 [status-badge]: https://readthedocs.org/projects/tao/badge/?version=latest
 [status-link]: https://tao.readthedocs.io/zh/latest/?badge=latest
-[download-badge]: https://pepy.tech/badge/tao-lib
-[download-link]: https://pepy.tech/project/tao-lib
+[download-badge]: https://pepy.tech/badge/pytao
+[download-link]: https://pepy.tech/project/pytao
 
 ## PyPI
 
 支持 PyPI：
 
 ```sh
-pip install tao-lib
+pip install pytao
 ```
 
 ## 文档模板
