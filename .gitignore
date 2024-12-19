@@ -160,3 +160,7 @@ draft/
 *.o
 *.dll
 *.so
+
+# PDM
+.pdm-build/
+.pdm-python

@@ -43,7 +43,7 @@
 支持 PyPI：
 
 ```sh
-pip install tao
+pip install tao-lib
 ```
 
 ## 文档模板

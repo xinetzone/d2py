@@ -1,15 +1,17 @@
 [build-system]
-build-backend = "flit_core.buildapi"
-requires = ["flit_core"]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [project]
-authors = [{name = "xinetzone", email = "735613050@qq.com"}]
+authors = [
+    {name = "xinetzone", email = "735613050@qq.com"},
+]
 classifiers = ["License :: OSI Approved :: Apache Software License"]
 dynamic = ["version", "description"]
 license = {file = "LICENSE"}
-name = "tao"
+name = "tao-lib"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 
 dependencies = []
 
@@ -58,13 +60,6 @@ gui = [
   "PySide6",
 ]
 
-[tool.flit.module]
-name = "tao"
-
-[tool.flit.sdist]
-# include = ["doc/"]
-exclude = ['doc', '.git', '.github', 'output']
-
-[pypi.extra]
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-# verify_ssl = false
+[tool.pdm]
+distribution = true
+version = { source = "file", path = "./src/tao/__init__.py" }
