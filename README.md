@@ -33,8 +33,8 @@
 [binder-link]: https://mybinder.org/v2/gh/xinetzone/tao/main
 [install-badge]: https://img.shields.io/pypi/dw/taolib?label=pypi%20installs
 [install-link]: https://pypistats.org/packages/taolib
-[status-badge]: https://readthedocs.org/projects/tao/badge/?version=latest
-[status-link]: https://tao.readthedocs.io/zh/latest/?badge=latest
+[status-badge]: https://readthedocs.org/projects/taopy/badge/?version=latest
+[status-link]: https://taopy.readthedocs.io/zh-cn/latest/?badge=latest
 [download-badge]: https://pepy.tech/badge/taolib
 [download-link]: https://pepy.tech/project/taolib
 
