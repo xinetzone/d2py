@@ -147,6 +147,7 @@ intersphinx_mapping = {
     'tvm': ('https://xinetzone.github.io/tvm/', None),
 }
 
+html_baseurl = "https://xinetzone.github.io/tao"
 # ``pydata-sphinx-theme`` 配置
 # Define the json_url for our version switcher.
 json_url = 'https://xinetzone.github.io/tao/_static/switcher.json'
@@ -160,9 +161,9 @@ if not os.environ.get("READTHEDOCS"):
 # Define the version we use for matching in the version switcher.
 version_match = os.environ.get("READTHEDOCS_VERSION")
 
-html_baseurl = "https://xinetzone.github.io/tao"
 html_theme_options = {
     "path_to_docs": "doc",
+    "github_url": "https://github.com/xinetzone/tao",
     "repository_url": "https://github.com/xinetzone/tao",
     "repository_branch": "main",
     "launch_buttons": {
